@@ -1,8 +1,7 @@
 # NJ-opioidenv
 
-
 ## Built Environment Measures By Domain:
-The following domains were assigned to the UC team for collection. 
+The following domains were assigned to the UC team for collection. We will extract data for each variable construct and measure it as a specific geographic boundary for the entire state of NJ, using the most recent available data. At this time, we'll likely use Municipalties as the spatial scale, but we're still deciding this.
 
 ### Quality of the Commercial Environment
 - Business foreclosure rates (1,2)
