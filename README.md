@@ -20,12 +20,17 @@ The following domains were assigned to the UC team for collection. We will extra
 - Numbers & types of businesses open for business (1,3)
 - Downtown conditions (1,4,5,6)
 - Number of Bars/Liquor stores (1,3)
+    - Working solution: extract from OSM, container method
 - Transportation (5,7)
+    - Working solutions: proportion of no vehicles and transit commuters via ACS? intersection density?
 
 ### Quality of the Residential Environment
 - Residential housing stock & market (1,4,8)
+    - Working solutions: multi-unit structures, crowded housing via ACS/SVI? check Zillow data?
 - Residential conditions (1,4,5,6)
+    - Working solutions: # households for over 20 yrs? vacant areas? home foreclosures? 
 - Quality of public schools (9)
+    - Working solutions: scrape metric from linked site? scrape performance scoores from other sites? explore NJ public school site?
 
 ### Quality of the Physical Environment
 - Proportion of land used for industry (7)
