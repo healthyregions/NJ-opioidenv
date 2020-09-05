@@ -2,12 +2,12 @@
 
 ## Git Structure
 We will use the following standards for this github repo. 
-- code[folder]: Stores R scripts used to access, clean, and process data.
-- data_raw [folder]:raw data pulled prior to processing
-- data_final[folder]:
--- geometryFiles [folder]: Stores geometry files
--- metadata [folder]: Stores metadata files as R markdown documents
--- cleaned, final data stored as CSV files.
++ code[folder]: Stores R scripts used to access, clean, and process data.
++ data_raw [folder]:raw data pulled prior to processing
++ data_final[folder]:
+    - geometryFiles [folder]: Stores geometry files
+    - metadata [folder]: Stores metadata files as R markdown documents
+    - cleaned, final data stored as CSV files.
 - README [markdownfile]: Summarizes the structure and content of the directory
 
 A copy of the cleaned final dataset, metdata document, and data dictionary will be added to the UChicago Box drive.
