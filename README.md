@@ -30,7 +30,8 @@ The following domains were assigned to the UC team for collection. We will extra
 - Residential conditions (1,4,5,6)
     - Working solutions: # households for over 20 yrs? vacant areas? home foreclosures? 
 - Quality of public schools (9)
-    - Working solutions: scrape metric from linked site? scrape performance scoores from other sites? explore NJ public school site?
+    - Working solution: use school perf metric indicator from 2012
+    - Alt solutions: scrape metric from linked site? scrape performance scoores from other sites? explore NJ public school site?
 
 ### Quality of the Physical Environment
 Extract from zoning data, geoprocess.
@@ -42,6 +43,7 @@ Extract from zoning data, geoprocess.
 In the research plan the following measures were also identified, which we will need to pull:
 - Access to bike trails 
 - Walkability score 
+    - Working solution: use walkscore indicator from 2012
 
 ### Data Sources
 The following sources were identified for each variable construct in the original proposal. Consider these starting points; we will identify the best available proxy for each variable construct. 
