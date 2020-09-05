@@ -17,11 +17,11 @@ The following domains were assigned to the UC team for collection. We will extra
 
 ### Quality of the Commercial Environment
 - Business foreclosure rates (1,2)  
-    - ?? unknown... 
+    - TBD
 - Numbers & types of businesses open for business (1,3)
     - Working solution: extract from OSM, container method
 - Downtown conditions (1,4,5,6)
-    - Variable; unknown... 
+    - TBD
 - Number of Bars/Liquor stores (1,3)
     - Working solution: extract from OSM, container method
 - Transportation (5,7)
