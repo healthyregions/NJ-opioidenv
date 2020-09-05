@@ -2,6 +2,7 @@
 
 
 ## Built Environment Measures By Domain:
+The following domains were assigned to the UC team for collection. 
 
 ### Quality of the Commercial Environment
 - Business foreclosure rates (1,2)
@@ -22,6 +23,8 @@
 - Proportion of land used for residence (5,6,10)
 
 ### Data Sources
+The following sources were identified for each variable construct in the original proposal. Consider these starting points; we will identify the best available proxy for each variable construct. 
+
 1. ESRI Business Analyst (Foreclosure Distressed Neighborhood Data) (https://www.arcgis.com/home/item.html?id=8d488e39958d44beab947fea62a18220).
 2. Realty Trac Foreclosure Data (http://www.realtytrac.com/statsandtrends/foreclosuretrends/).
 3. Open Street Map (https://www.openstreetmap.us/).
