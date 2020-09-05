@@ -39,6 +39,10 @@ Extract from zoning data, geoprocess.
 - Residential structure density (7)
 - Proportion of land used for residence (5,6,10)
 
+In the research plan the following measures were also identified, which we will need to pull:
+- Access to bike trails 
+- Walkability score 
+
 ### Data Sources
 The following sources were identified for each variable construct in the original proposal. Consider these starting points; we will identify the best available proxy for each variable construct. 
 
