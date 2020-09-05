@@ -33,6 +33,7 @@ The following domains were assigned to the UC team for collection. We will extra
     - Working solutions: scrape metric from linked site? scrape performance scoores from other sites? explore NJ public school site?
 
 ### Quality of the Physical Environment
+Extract from zoning data, geoprocess.
 - Proportion of land used for industry (7)
 - Proportion of commercial land use (7)
 - Residential structure density (7)
