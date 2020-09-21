@@ -27,6 +27,8 @@ The following domains were assigned to the UC team for collection. We will extra
 - Transportation (5,7)
     - Working solutions: proportion of no vehicles and transit commuters via ACS? intersection density?
 
+Barbara notes: " #/% of abandoned buildings in downtown areas & housing in neighborhoods. ESRI has poly layers and tables at the county level & I think also data area available for the census level." Also can get tract level (residential) foreclosure rates via: https://www.huduser.gov/portal/sites/default/files/xls/Neighborhood_Foreclosure_Data.xlsx
+
 ### Quality of the Residential Environment
 - Residential housing stock & market (1,4,8)
     - Working solutions: multi-unit structures, crowded housing via ACS/SVI? check Zillow data?
