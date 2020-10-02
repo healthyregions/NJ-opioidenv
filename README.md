@@ -48,6 +48,7 @@ Extract from zoning data, geoprocess.
 In the research plan the following measures were also identified, which we will need to pull:
 - Access to bike trails 
     - Working solution: download park trail data, calculate distance to nearest
+    - Note (Gabe): Braun et al. 2018 provides four measures (see section 3.3) https://www.sciencedirect.com/science/article/pii/S096669231830930X
 - Walkability score 
     - Working solution: use walkscore indicator from 2012
 
