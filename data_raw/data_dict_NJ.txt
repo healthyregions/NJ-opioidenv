@@ -1,0 +1,39 @@
+Data Dictionary NY Opioid-Env Project
+
+Blueprint for Data Format:
+#. Data name
+	a. Value add/envisioned use of data
+	b. Source
+	c. Citation (if provided)
+	d. Location of meta-data
+	e. Date data was created/updated
+	f. Date data we downloaded/accessed data
+	g. Rough idea of operations needed to clean data
+
+
+1. NJ Land Use Data
+	a. Provides land use data by county/municipality (industry/residential/commercial) AND can be helpful with residential density (has categories of high, medium, low, rural)
+	b. New Jersey MAP (NJ MAP) from the Geospatial Research Laboratory at Rowan University
+		https://www.njmap2.com/landuse/landuse/
+	c. [not clear]
+	d. https://www.arcgis.com/sharing/rest/content/items/6f76b90deda34cc98aec255e2defdb45/info/metadata/metadata.xml?format=default&output=html
+		Also see "nj_land_use.pdf" in the data_raw folder
+	e. Updated Jan 28, 2019
+	f. October 1, 2020
+	g. Filter for only 2015 data; select only data by municipality; count area used in each municipality for industry/residential/commerical 
+
+2. Property Value Data
+	a. To be used for proportion of land used for residence only in urban areas, potentially residential structure density. Can offer more confirmation in addition to NJ Land Use Data
+	b. New jersey Open Data Portal
+		https://data.nj.gov/Government-Finance/Net-Land-Building-Value-by-County-Column-Chart/2c63-ym5k
+	c. [not provided]
+	d. Gabe Oct. 10, 2020 didn't find meta data, some description on the website 
+	e. August 19, 2019
+	f. Oct. 10, 2020
+	g. will definitely group by municipality, need to summarise sum (acreage); ?
+
+
+
+
+
+
