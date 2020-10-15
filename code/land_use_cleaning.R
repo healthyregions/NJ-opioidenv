@@ -8,6 +8,7 @@
 library(tidyverse)
 library(tidylog)
 library(sf)
+library(tmap)
 
 
 #Read Data ===== 
