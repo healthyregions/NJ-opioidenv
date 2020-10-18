@@ -82,30 +82,27 @@ residential_2015 <- land_use %>%
 physical_environment_2015 <- residential_2015 %>%
   select(c(Place.ID, Place.Name, pct_high_density_res, pct_not_high_density_res)) %>%
   left_join(land_use_2015_proportions) %>%
-  select(-c(Place.Total.Area:`Other Urban or Built-up Land`)) %>%
-  mutate(Place.Name = tolower(Place.Name))
+  select(-c(Place.Total.Area:`Other Urban or Built-up Land`, `Industrial and Commercial Complexes`)) %>%
+  mutate(Place.Name = tolower(Place.Name)) %>%
+  clean_names()
+colnames(physical_environment_2015)
 
 #Read and some cleaning of municipal boundaries shapefile:
 mun_boundaries <- st_read('data_raw/Municipal_Boundaries_of_NJ.shp')
 mun_boundaries <- mun_boundaries %>%
-  select(c("MUN", "MUN_TYPE", "GNIS_NAME", "GNIS", "SSN", "CENSUS2010":"POPDEN1980",
-           "geometry")) %>% #Grab only relevant variables
-  rename(Place.Name = MUN) #rename column for join 
-mun_boundaries$Place.Name <- tolower(mun_boundaries$Place.Name)
+  select(c("MUN", "MUN_TYPE", "GNIS", "SSN", "MUN_CODE", "geometry")) %>% #Grab only relevant variables
+  rename(place_name = MUN) #rename column for join 
+mun_boundaries$place_name <- tolower(mun_boundaries$place_name)
 
 #Joining municipal boundaries shapefile and physical environment data
-physical_environment_2015_spatial <- left_join(physical_environment_2015, mun_boundaries, 
-                                       by = c("Place.Name"))
-physical_environment_2015_spatial <- clean_names(physical_environment_2015_spatial)
-physical_environment_2015_spatial <- as.data.frame(physical_environment_2015_spatial)
+pe2015 <- left_join(mun_boundaries, physical_environment_2015)
 
+pe2015 <- st_as_sf(pe2015)
 
 
 #Writing Files:
-st_write(physical_environment_2015_spatial, "shapefile_out.shp", driver="ESRI Shapefile")
-st_write(pe_2015_spatial, "data_raw/pe_2015.shp")
-write.csv(physical_environment_2015_spatial, "data_raw/physical_environment_2015.csv")
-write.csv(land_use, "data_raw/land_use.csv")
+st_write(pe2015, "data_raw/pe_2015.geojson")
+
 
 #
 
