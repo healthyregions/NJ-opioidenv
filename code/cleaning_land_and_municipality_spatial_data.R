@@ -9,20 +9,22 @@ library(tidyverse)
 library(tidylog)
 library(sf)
 library(tmap)
-
+library(janitor)
 
 #Read Data ===== 
 land_use <- read.csv('data_raw/nj_land_use_state_county_municipality_1986_2015.csv', header=TRUE, stringsAsFactors = FALSE, dec = ",")
-
+land
 
 #Clean Data =====
 land_use <- land_use %>%
-  select(-starts_with(c("Change.in", "Percentage.Change"))) %>%#removes columns that show change and % change in land use
+  select(-starts_with(c("Change.in", "Percentage.Change"))) %>% #removes columns that show change and % change in land use
   mutate(description2 = as.character(Descriptiion)) %>% #creates new column as character to allow for filter on next line
   filter(str_detect(description2, "URBAN|Urban|Commercial|Residential|Industrial|Transportation")) %>% #filters only land uses of interest
   filter(!str_detect(description2, "Phragmites Dominate Urban Area")) %>% #removes unnecessary rows about Phragmites
   select(-Descriptiion) %>% #removes unnecessary column
-  mutate_at("Use.Level", as.factor) 
+  mutate_at("Use.Level", as.factor) %>%
+  filter(Place.ID > 21) #This gets rid of counties so that data includes municipalities only
+  
 
 #Struggling to make a mutate_at or across() function  work, so inelegantly:
 
@@ -37,9 +39,9 @@ land_use$Place.Total.Area <- as.numeric(str_replace_all(land_use$Place.Total.Are
 #these two ifelse statements are also inelegant, but they respond to the issue that "residential" had been a category 
 #both to summarize all residential areas and as residential that wasn't included in other categories
 land_use$description3 <- ifelse(land_use$description2 == "Residential" & land_use$Use.Level == "3",
-                               "Residential (Other)", land_use$description)
+                                "Residential (Other)", land_use$description)
 land_use$description <- ifelse(land_use$description3 == "Residential" & land_use$Use.Level == "2",
-                                "Residential (Total)", land_use$description3)
+                               "Residential (Total)", land_use$description3)
 
 
 land_use <- land_use %>%
@@ -80,4 +82,38 @@ residential_2015 <- land_use %>%
 physical_environment_2015 <- residential_2015 %>%
   select(c(Place.ID, Place.Name, pct_high_density_res, pct_not_high_density_res)) %>%
   left_join(land_use_2015_proportions) %>%
-  select(-c(Place.Total.Area:`Other Urban or Built-up Land`))
+  select(-c(Place.Total.Area:`Other Urban or Built-up Land`)) %>%
+  mutate(Place.Name = tolower(Place.Name))
+
+#Read and some cleaning of municipal boundaries shapefile:
+mun_boundaries <- st_read('data_raw/Municipal_Boundaries_of_NJ.shp')
+mun_boundaries <- mun_boundaries %>%
+  select(c("MUN", "MUN_TYPE", "GNIS_NAME", "GNIS", "SSN", "CENSUS2010":"POPDEN1980",
+           "geometry")) %>% #Grab only relevant variables
+  rename(Place.Name = MUN) #rename column for join 
+mun_boundaries$Place.Name <- tolower(mun_boundaries$Place.Name)
+
+#Joining municipal boundaries shapefile and physical environment data
+physical_environment_2015_spatial <- left_join(physical_environment_2015, mun_boundaries, 
+                                       by = c("Place.Name"))
+physical_environment_2015_spatial <- clean_names(physical_environment_2015_spatial)
+physical_environment_2015_spatial <- as.data.frame(physical_environment_2015_spatial)
+
+
+
+#Writing Files:
+st_write(physical_environment_2015_spatial, "shapefile_out.shp", driver="ESRI Shapefile")
+st_write(pe_2015_spatial, "data_raw/pe_2015.shp")
+write.csv(physical_environment_2015_spatial, "data_raw/physical_environment_2015.csv")
+write.csv(land_use, "data_raw/land_use.csv")
+
+#
+
+
+
+
+#Visualizing Options for Residential, Commercial, Industrial Land Use
+
+
+
+

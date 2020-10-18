@@ -9,20 +9,22 @@ library(tidyverse)
 library(tidylog)
 library(sf)
 library(tmap)
-
+library(janitor)
 
 #Read Data ===== 
 land_use <- read.csv('data_raw/nj_land_use_state_county_municipality_1986_2015.csv', header=TRUE, stringsAsFactors = FALSE, dec = ",")
-
+land
 
 #Clean Data =====
 land_use <- land_use %>%
-  select(-starts_with(c("Change.in", "Percentage.Change"))) %>%#removes columns that show change and % change in land use
+  select(-starts_with(c("Change.in", "Percentage.Change"))) %>% #removes columns that show change and % change in land use
   mutate(description2 = as.character(Descriptiion)) %>% #creates new column as character to allow for filter on next line
   filter(str_detect(description2, "URBAN|Urban|Commercial|Residential|Industrial|Transportation")) %>% #filters only land uses of interest
   filter(!str_detect(description2, "Phragmites Dominate Urban Area")) %>% #removes unnecessary rows about Phragmites
   select(-Descriptiion) %>% #removes unnecessary column
-  mutate_at("Use.Level", as.factor) 
+  mutate_at("Use.Level", as.factor) %>%
+  filter(Place.ID > 21 | Place.ID == 0) #This gets rid of counties so that data includes municipalities only
+  
 
 #Struggling to make a mutate_at or across() function  work, so inelegantly:
 
@@ -80,9 +82,34 @@ residential_2015 <- land_use %>%
 physical_environment_2015 <- residential_2015 %>%
   select(c(Place.ID, Place.Name, pct_high_density_res, pct_not_high_density_res)) %>%
   left_join(land_use_2015_proportions) %>%
-  select(-c(Place.Total.Area:`Other Urban or Built-up Land`))
+  select(-c(Place.Total.Area:`Other Urban or Built-up Land`)) %>%
+  mutate(Place.Name = tolower(Place.Name))
+
+#Read and some cleaning of municipal boundaries shapefile:
+mun_boundaries <- st_read('data_raw/Municipal_Boundaries_of_NJ.shp') %>%
+  select(c("MUN", "MUN_TYPE", "GNIS_NAME", "GNIS", "SSN", "CENSUS2010":"POPDEN1980",
+           "geometry")) %>% #Grab only relevant variables
+  rename(Place.Name = MUN) #rename column for join
+
+#Joining municipal boundaries shapefile and physical environment data
+physical_environment_2015_spatial <- left_join(physical_environment_2015, mun_boundaries, 
+                                       by = c("Place.Name")) %>%
+  clean_names()
+
+
+
 
 #Writing Files:
 write.csv(physical_environment_2015, "data_raw/physical_environment_2015.csv")
 write.csv(land_use, "data_raw/land_use.csv")
+
+#
+
+
+
+
+#Visualizing Options for Residential, Commercial, Industrial Land Use
+
+
+
 
