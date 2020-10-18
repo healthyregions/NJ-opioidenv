@@ -13,7 +13,7 @@ library(janitor)
 
 #Read Data ===== 
 land_use <- read.csv('data_raw/nj_land_use_state_county_municipality_1986_2015.csv', header=TRUE, stringsAsFactors = FALSE, dec = ",")
-land
+
 
 #Clean Data =====
 land_use <- land_use %>%
@@ -91,17 +91,18 @@ colnames(physical_environment_2015)
 mun_boundaries <- st_read('data_raw/Municipal_Boundaries_of_NJ.shp')
 mun_boundaries <- mun_boundaries %>%
   select(c("MUN", "MUN_TYPE", "GNIS", "SSN", "MUN_CODE", "geometry")) %>% #Grab only relevant variables
-  rename(place_name = MUN) #rename column for join 
+  rename(place_name = MUN) %>% #rename column for join
+  clean_names() 
 mun_boundaries$place_name <- tolower(mun_boundaries$place_name)
 
-#Joining municipal boundaries shapefile and physical environment data
-pe2015 <- left_join(mun_boundaries, physical_environment_2015)
 
-pe2015 <- st_as_sf(pe2015)
+#Joining municipal boundaries shapefile and physical environment data
+pe2015 <- left_join(mun_boundaries, physical_environment_2015) #%>%
+  #distinct(.keep_all = T)
 
 
 #Writing Files:
-st_write(pe2015, "data_raw/pe_2015.geojson")
+st_write(pe2015, "data_raw/pe_2015_spatial.geojson")
 
 
 #
