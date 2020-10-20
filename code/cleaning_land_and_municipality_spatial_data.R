@@ -87,6 +87,12 @@ physical_environment_2015 <- residential_2015 %>%
   clean_names()
 colnames(physical_environment_2015)
 
+#Writing nonspatial component:
+write.csv(physical_environment_2015, "data_raw/physical_environment_2015.csv")
+
+
+
+
 #Read and some cleaning of municipal boundaries shapefile:
 mun_boundaries <- st_read('data_raw/Municipal_Boundaries_of_NJ.shp')
 mun_boundaries <- mun_boundaries %>%
