@@ -1,9 +1,16 @@
 Information about finalized data
 
-Physical Environment 2015
-- Data only for 2015
-- All data originally from nj_land_use_state_county_municipality_1986_2015
-- This is from Rowan University Geodata
+Physical Environment 2015:
+- Physical environment data only for 2015
+- All data originally from nj_land_use_state_county_municipality_1986_2015 OR from Municipal_Boundaries_of_NJ.shp
+
+- These are from Rowan University Geodata and NJGIN open data, respectively 
+
+Columns:
+Note * indicates from Municipal_Boundaries_of_NJ; otherwise, from nj_land_use...
+
+- Place.ID: unique identifier from physical environment data
+- Place.Name: name of municipality (all lowercase) * 
 
 - pct_high_density_res: proportion of what the data lists as "high density or multiple dwelling" area divided by total residential area
 - pct_not_high_density_res 1- pct_high_density_res
@@ -13,6 +20,17 @@ Physical Environment 2015
 - pct_residential_of_total: total residential area divided by total area of municipality
 - pct_commercial_of_total:  total commercial area divided by total area of municipality
 - pct_industrial_of_total:  total industrial AND Industrial and Commercial Complexes areas divided by total area of municipality
+
+-mun_type: tells if borough, township, or city *
+-gnis_name: more formal name *
+-gnis, ssn census 2010: three other potential identifiers *
+-acres *
+-sq_miles *
+-pop2010, pop2000, pop1990, pop1980 * 
+-popden2010, popden2000, popden, 1990, popden1980 *
+-geometry *
+
+
 
 
 Methodological Decisions cleaning these data:

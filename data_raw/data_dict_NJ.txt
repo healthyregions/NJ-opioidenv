@@ -32,7 +32,15 @@ Blueprint for Data Format:
 	f. Oct. 10, 2020
 	g. will definitely group by municipality, need to summarise sum (acreage); ?
 
-
+3. Municipal Boundaries Shapefile
+	a. Need the spatial data
+	b. https://njogis-newjersey.opendata.arcgis.com/datasets/3d5d1db8a1b34b418c331f4ce1fd0fef_2 
+	c. ?
+	d. https://www.arcgis.com/sharing/rest/content/items/3d5d1db8a1b34b418c331f4ce1fd0fef/info/metadata/metadata.xml?format=default&output=html
+	e. April 10, 2020
+	f. October 15, 2020
+	g. Will need to join with other data 
+	
 
 
 

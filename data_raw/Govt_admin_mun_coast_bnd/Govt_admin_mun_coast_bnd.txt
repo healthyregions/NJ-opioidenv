@@ -1,0 +1,1403 @@
+Identification_Information:
+  Citation:
+    Citation_Information:
+      Originator: NJ Department of Environmental Protection (NJDEP), Office of Information Resources Management (OIRM), Bureau of Geographic Information Systems (BGIS)
+      Originator: New Jersey Office of Information Technology (NJOIT), Office of Geographic Information Systems (OGIS)
+      Publication_Date: 20121228
+      Title: Municipalities of New Jersey (Clipped to Coast), Edition 20121228 (Govt_admin_mun_coast_bnd)
+      Edition: 20121228
+      Geospatial_Data_Presentation_Form: vector digital data
+      Publication_Information:
+        Publication_Place: Trenton, NJ
+        Publisher: NJ Office of Information Technology (NJOIT), Office of Geographic Information Systems (OGIS)
+      Online_Linkage: http://www.nj.gov/dep/gis/listall.html
+      Online_Linkage: http://www.nj.gov/dep/gis/geowebsplash.htm
+  Description:
+    Abstract:
+      This data set is a spatial representation of the most current version of municipalities in New Jersey provided by OIT/OGIS.  NJDEP clipped the data using the detailed and updated layer "NJDEP Coastline of New Jersey"  for various uses.    Spatial accuracy was improved upon from earlier municipalities data by integrating features that are coincident with municipal boundaries from other high quality source data sets.
+
+      This current version of Municipalitites (clipped to coast) shows various updates (listed in processing steps) along with showing the merger of Princeton Borough and Princeton Township to create Princeton.
+
+      Abstract for NJ Municipalitities (the source of this clipped data):
+
+      This data set is a spatial representation of municipalities in New Jersey developed by the New Jersey Office of Information Technology (OIT), Office of Geographic Information Systems (OGIS).  It is not a survey document and should not be used as such.  The polygons delineated in this data set do not represent legal boundaries.
+
+      This data set improves upon previous versions of municipal boundaries through the integration of coincident features from several high quality source data sets, as a component of the OGIS statewide Parcels Normalization Project concluded in March 2010.  Updates continue to be made as necessary.
+    Purpose: To provide basic jurisdictional information.  This data set was developed to produce the most accurate delineation of municipal boundaries achievable from existing data sources.Note:  Data has been clipped to the coastline of New Jersey by the NJDEP for various uses.
+    Supplemental_Information:
+      Note:  Data has been clipped to the coastline of New Jersey by the NJDEP for various uses.
+
+      Spatially referenced data were derived from the following GIS data sets to build municipal boundaries.  They include:
+
+      Delaware Geological Survey - New Jersey/Delaware boundary data
+      New Jersey Department of Agriculture, State Agricultural Development Committee, Farmland Preservation Program - preserved farmland boundary data from property surveys
+      New Jersey Department of Environmental Protection, Green Acres Program - open space boundary data from property surveys
+      New Jersey Department of Environmental Protection, Bureau of Geographic Information Systems - New Jersey/New York boundary data for Ellis Island
+      New Jersey Department of Environmental Protection, Bureau of Geographic Information Systems - hydro (stream) centerline data
+      New Jersey Department of Environmental Protection, Bureau of Geographic Information Systems - land use/landcover data
+      New Jersey Department of Environmental Protection, Bureau of Geographic Information Systems - municipal boundaries data from US Geological Survey topographic maps
+      New Jersey Department of Environmental Protection, New Jersey Geological Survey - New Jersey/New York boundary data for the northern border of New Jersey, and New Jersey/New York boundary data through Shooters Island off the shoreline of Bayonne
+      New Jersey Department of Transportation - road centerline data
+      New Jersey Office of Information Technology, Office of Geographic Information Systems - New Jersey/Pennsylvania boundary data, and river and bay outlet data
+      Various county or municipal agencies - State-certified digital tax map data and digital parcel data
+  Time_Period_of_Content:
+    Time_Period_Information:
+      Single_Date/Time:
+        Calendar_Date: 20121228
+    Currentness_Reference: ground condition
+  Status:
+    Progress: Complete
+    Maintenance_and_Update_Frequency: As needed
+  Spatial_Domain:
+    Bounding_Coordinates:
+      West_Bounding_Coordinate: -75.587324
+      East_Bounding_Coordinate: -73.890300
+      North_Bounding_Coordinate: 41.358658
+      South_Bounding_Coordinate: 38.897170
+  Keywords:
+    Theme:
+      Theme_Keyword_Thesaurus: ISO 19115 Topic Category
+      Theme_Keyword: boundaries
+    Theme:
+      Theme_Keyword_Thesaurus: NJGIN
+      Theme_Keyword: njfw_boundaries
+    Theme:
+      Theme_Keyword_Thesaurus: None
+      Theme_Keyword: municipal
+      Theme_Keyword: municipality
+      Theme_Keyword: municipalities
+      Theme_Keyword: village
+      Theme_Keyword: borough
+      Theme_Keyword: town
+      Theme_Keyword: township
+      Theme_Keyword: city
+      Theme_Keyword: county
+      Theme_Keyword: counties
+      Theme_Keyword: boundary
+      Theme_Keyword: boundaries
+      Theme_Keyword: minor civil divisions
+    Theme:
+      Theme_Keyword_Thesaurus: User
+      Theme_Keyword: Govt_admin_mun_coast_bnd
+      Theme_Keyword: muncoast
+    Place:
+      Place_Keyword_Thesaurus: None
+      Place_Keyword: Burlington County
+      Place_Keyword: Camden County
+      Place_Keyword: Cape May County
+      Place_Keyword: Cumberland County
+      Place_Keyword: Essex County
+      Place_Keyword: Gloucester County
+      Place_Keyword: Hudson County
+      Place_Keyword: Hunterdon County
+      Place_Keyword: Mercer County
+      Place_Keyword: Middlesex County
+      Place_Keyword: Monmouth County
+      Place_Keyword: Morris County
+      Place_Keyword: New Jersey
+      Place_Keyword: Ocean County
+      Place_Keyword: Passaic County
+      Place_Keyword: Salem County
+      Place_Keyword: Somerset County
+      Place_Keyword: Sussex County
+      Place_Keyword: Union County
+      Place_Keyword: Warren County
+      Place_Keyword: NJ
+      Place_Keyword: Atlantic County
+      Place_Keyword: Bergen County
+      Place_Keyword: USA
+    Temporal:
+      Temporal_Keyword_Thesaurus: None
+      Temporal_Keyword: 2008
+      Temporal_Keyword: 2009
+      Temporal_Keyword: 2010
+      Temporal_Keyword: 2011
+      Temporal_Keyword: 2012
+  Access_Constraints: None
+  Use_Constraints:
+    This data set is not a survey document and should not be used as such.  The polygons delineated in this data set do not represent legal boundaries.
+
+    Acknowledgement of the data set provider, the New Jersey Office of Information Technology, Office of Geographic Information Systems (NJOIT - OGIS), would be appreciated for maps, data or other products derived from this data set.
+
+    For all data contained herein, the New Jersey Office of Information Technology, Office of Geographic Information Systems makes no representations of any kind, including, but not limited to, the warranties of merchantability or fitness for a particular use, nor are any such warranties to be implied with respect to the digital data layers furnished hereunder.  The New Jersey Office of Information Technology, Office of Geographic Information Systems assumes no responsibility to maintain them in any manner or form.
+  Point_of_Contact:
+    Contact_Information:
+      Contact_Organization_Primary:
+        Contact_Organization: NJ Office of Information Technology (NJOIT), Office of Geographic Information Systems (OGIS)
+        Contact_Person: Douglas M. Schleifer
+      Contact_Position: GIS Specialist
+      Contact_Address:
+        Address_Type: mailing address
+        Address: PO Box 212
+        City: Trenton
+        State_or_Province: NJ
+        Postal_Code: 08625-0212
+      Contact_Voice_Telephone: (609) 984-7544
+      Contact_Facsimile_Telephone: (609) 633-0400
+      Contact_Electronic_Mail_Address: doug.schleifer@oit.state.nj.us
+  Browse_Graphic:
+    Browse_Graphic_File_Name: http://www.state.nj.us/dep/gis/digidownload/images/statewide/muncoast.gif
+    Browse_Graphic_File_Description: image
+    Browse_Graphic_File_Type: GIF
+  Data_Set_Credit:
+    Delaware Geological Survey - New Jersey/Delaware boundary data
+    New Jersey Department of Agriculture, State Agricultural Development Committee, Farmland Preservation Program - preserved farmland boundary data from property surveys
+    New Jersey Department of Environmental Protection, Green Acres Program - open space boundary data from property surveys
+    New Jersey Department of Environmental Protection, Bureau of Geographic Information Systems - New Jersey/New York boundary data for Ellis Island
+    New Jersey Department of Environmental Protection, Bureau of Geographic Information Systems - hydro (stream) centerline data
+    New Jersey Department of Environmental Protection, Bureau of Geographic Information Systems - land use/landcover data
+    New Jersey Department of Environmental Protection, Bureau of Geographic Information Systems - municipal boundaries data from US Geological Survey topographic maps
+    New Jersey Department of Environmental Protection, New Jersey Geological Survey - New Jersey/New York boundary data for the northern border of New Jersey, and New Jersey/New York boundary data through Shooters Island off the shoreline of Bayonne
+    New Jersey Department of Transportation - road centerline data
+    New Jersey Office of Information Technology, Office of Geographic Information Systems - New Jersey/Pennsylvania boundary data, and river and bay outlet data
+    Various county or municipal agencies - State-certified digital tax map data and digital parcel data
+  Security_Information:
+    Security_Classification_System: NJGIN
+    Security_Classification: public
+    Security_Handling_Description: no special handling required
+  Native_Data_Set_Environment: Microsoft Windows XP Version 5.1 (Build 2600) Service Pack 3; ESRI ArcCatalog 9.3.1.1850
+Data_Quality_Information:
+  Attribute_Accuracy:
+    Attribute_Accuracy_Report: Values in the MUN_CODE field were populated based on the NJ1040 codes.  The ACRES and SQ_MILES fields were recalculated based on SHAPE_AREA.  In addition, POPDEN2010, POPDEN2000, POPDEN1990, and POPDEN1980 were recalculated based on the updated number of square miles in the SQ_MILES field.  All municipal name changes are current to January 2012.  Attributes for Geographical Naming Information System (GNIS) codes and names were thoroughly reviewed in collaboration with Bureau of Geographic Names - US Geological Survey and US Census Bureau representatives.  No formal accuracy testing was performed to qualify or validate attribute data.  All other attribute information was carried over from the most current NJDEP municipality boundaries (stmun) layer and is assumed correct.
+  Logical_Consistency_Report:
+    Polygons were built from the NJOIT-OGIS Municipal Boundaries of New Jersey (nj_munis_arcs) line data set using the default cluster tolerance of 0.003 US survey feet.  Municipalities with multiple disconnected areas were created as multi-part polygons.
+
+    A spatial join was created with the centroids of the NJDEP municipality boundaries (stmun) layer as a quality control check.  An examination of the attribute table ensured that each polygon contained a single centroid and any errors were resolved.  A topology rule set was also built to ensure there were no gores (gaps) or overlaps between polygons.
+  Completeness_Report: Complete
+  Positional_Accuracy:
+    Horizontal_Positional_Accuracy:
+      Horizontal_Positional_Accuracy_Report: Horizontal positional accuracy used to generate municipal boundaries varies by source data used to create the NJOIT-OGIS Municipalities of New Jersey (nj_munis) data set.  No formal horizontal positional accuracy testing was performed to qualify or validate these data.  Data were visually inspected.
+  Lineage:
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: New Jersey Department of Environmental Protection (NJDEP), Office of Information Resources Management (OIRM), Bureau of Geographic Information Systems (BGIS)
+          Publication_Date: 200606
+          Title: NJDEP 2002 Streams Update for New Jersey (DRAFTS)
+          Geospatial_Data_Presentation_Form: vector digital data
+          Publication_Information:
+            Publication_Place: Trenton, NJ
+            Publisher: New Jersey Department of Environmental Protection (NJDEP), Office of Information Resources Management (OIRM), Bureau of Geographic Information Systems (BGIS)
+          Online_Linkage: http://www.nj.gov/dep/gis/hydro02shp.html
+      Source_Scale_Denominator: 2400
+      Type_of_Source_Media: online
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 2002
+        Source_Currentness_Reference: ground condition
+      Source_Citation_Abbreviation: hydro
+      Source_Contribution: New Jersey Department of Environmental Protection, Bureau of Geographic Information Systems hydro (stream) centerline data.
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: New Jersey Department of Transportation (NJDOT), Geographic Information Systems (GIS)
+          Publication_Date: 20070423
+          Title: NJ_Roadway_Network
+          Geospatial_Data_Presentation_Form: vector digital data
+          Publication_Information:
+            Publication_Place: Trenton, NJ
+            Publisher: New Jersey Department of Transportation (NJDOT), Geographic Information Systems (GIS)
+          Online_Linkage: http://www.nj.gov/transportation/gis/data.shtm
+      Source_Scale_Denominator: 2400
+      Type_of_Source_Media: online
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 2006
+        Source_Currentness_Reference: ground condition
+      Source_Citation_Abbreviation: roads
+      Source_Contribution: New Jersey Department of Transportation road centerline data.
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: NJDEP Green Acres Program
+          Publication_Date: 200610
+          Title: Green Acres Open Space
+          Geospatial_Data_Presentation_Form: vector digital data
+          Publication_Information:
+            Publication_Place: Trenton, NJ
+            Publisher: NJDEP Green Acres Program
+          Online_Linkage: none
+      Source_Scale_Denominator: unknown
+      Type_of_Source_Media: electronic mail system
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 2006
+        Source_Currentness_Reference: publication date
+      Source_Citation_Abbreviation: greenacres
+      Source_Contribution: New Jersey Department of Environmental Protection, Green Acres Program open space boundary data from property surveys.
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: NJ Department of Agriculture SADC Preserved Farmland Program
+          Publication_Date: 200705
+          Title: SADC Preserved Farmland
+          Geospatial_Data_Presentation_Form: vector digital data
+          Publication_Information:
+            Publication_Place: Trenton, NJ
+            Publisher: NJ Department of Agriculture SADC Preserved Farmland Program
+          Online_Linkage: none
+      Source_Scale_Denominator: unknown
+      Type_of_Source_Media: electronic mail system
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 200705
+        Source_Currentness_Reference: ground condition
+      Source_Citation_Abbreviation: SADC
+      Source_Contribution: New Jersey Department of Agriculture, State Agricultural Development Committee, Farmland Preservation Program preserved farmland boundary data from property surveys.
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: New Jersey Department of Environmental Protection (NJDEP), Office of Information Resources Management (OIRM), Bureau of Geographic Information Systems (BGIS)
+          Publication_Date: 20070206
+          Title: 2002 Landuse/Landcover by Watershed Management Area (WMA)
+          Geospatial_Data_Presentation_Form: vector digital data
+          Publication_Information:
+            Publication_Place: Trenton, NJ
+            Publisher: New Jersey Department of Environmental Protection (NJDEP), Office of Information Resources Management (OIRM), Bureau of Geographic Information Systems (BGIS)
+          Online_Linkage: http://www.nj.gov/dep/gis/lulc02shp.html
+      Source_Scale_Denominator: 12000
+      Type_of_Source_Media: online
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 2002
+        Source_Currentness_Reference: ground condition
+      Source_Citation_Abbreviation: LULC
+      Source_Contribution: New Jersey Department of Environmental Protection, Bureau of Geographic Information Systems land use/landcover data.
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: New Jersey Department of Environmental Protection, New Jersey Geological Survey
+          Publication_Date: 2007
+          Title: New Jersey Department of Environmental Protection, New Jersey Geological Survey New Jersey/New York boundary data
+          Geospatial_Data_Presentation_Form: vector digital data
+          Publication_Information:
+            Publication_Place: West Trenton, NJ
+            Publisher: New Jersey Department of Environmental Protection, New Jersey Geological Survey
+          Online_Linkage: none
+      Source_Scale_Denominator: unknown
+      Type_of_Source_Media: electronic mail system
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 2007
+        Source_Currentness_Reference: publication date
+      Source_Citation_Abbreviation: NJGS
+      Source_Contribution: New Jersey Department of Environmental Protection, New Jersey Geological Survey data of the New Jersey/New York boundary for the northern border of New Jersey from boundary marker survey points, or the New Jersey/New York boundary through Shooters Island off the shoreline of Bayonne from turning points through the Kill Van Kull.
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Delaware Geological Survey
+          Publication_Date: 200401
+          Title: 2002 Delaware State Outline (line)
+          Geospatial_Data_Presentation_Form: vector digital data
+          Publication_Information:
+            Publication_Place: Newark, DE
+            Publisher: Delaware Geological Survey
+          Online_Linkage: http://www.state.de.us/planning/info/outline.htm
+      Source_Scale_Denominator: unknown
+      Type_of_Source_Media: online
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 1935
+        Source_Currentness_Reference: ground condition
+      Source_Citation_Abbreviation: DGS
+      Source_Contribution: Delaware Geological Survey New Jersey/Delaware boundary delineated from descriptions in a 1934-1935 Court Decree of the US Supreme Court.
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: NJ Department of Environmental Protection (NJDEP), Office of Information Resources Management (OIRM), Bureau of Geographic Information Systems (BGIS)
+          Publication_Date: 1999
+          Title: Ellis Island: New Jersey/New York Jurisdictional Boundary Line
+          Geospatial_Data_Presentation_Form: vector digital data
+          Publication_Information:
+            Publication_Place: Trenton, NJ
+            Publisher: NJ Department of Environmental Protection (NJDEP), Office of Information Resources Management (OIRM), Bureau of Geographic Information Systems (BGIS)
+          Online_Linkage: none
+      Source_Scale_Denominator: unknown
+      Type_of_Source_Media: electronic mail system
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 1857
+        Source_Currentness_Reference: ground condition
+      Source_Citation_Abbreviation: Ellis Island
+      Source_Contribution: New Jersey Department of Environmental Protection, Bureau of Geographic Information Systems data representing the New Jersey/New York boundary for Ellis Island delineated from an 1857 US Coast Survey Map.
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: NJ Department of Environmental Protection (NJDEP), Office of Information Resources Management (OIRM), Bureau of Geographic Information Systems (BGIS)
+          Publication_Date: 20071114
+          Title: NJDEP Municipality Boundaries for the State of New Jersey
+          Geospatial_Data_Presentation_Form: vector digital data
+          Publication_Information:
+            Publication_Place: Trenton, NJ
+            Publisher: NJ Department of Environmental Protection (NJDEP), Office of Information Resources Management (OIRM), Bureau of Geographic Information Systems (BGIS)
+          Online_Linkage: http://www.state.nj.us/dep/gis/digidownload/zips/statewide/stmun.zip
+      Source_Scale_Denominator: 24000
+      Type_of_Source_Media: online
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Range_of_Dates/Times:
+            Beginning_Date: 1987
+            Ending_Date: 200801
+        Source_Currentness_Reference: publication date
+      Source_Citation_Abbreviation: NJDEP munis
+      Source_Contribution: New Jersey Department of Environmental Protection, Bureau of Geographic Information Systems municipal boundaries data digitized from various US Geological Survey topographic maps.
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: United States Board on Geographic Names, United State Geological Survey
+          Publication_Date: 200804
+          Title: Domestic Names - State and Topical Gazetteer Download Files
+          Geospatial_Data_Presentation_Form: tabular digital data
+          Publication_Information:
+            Publication_Place: Reston, VA
+            Publisher: United States Board on Geographic Names, United State Geological Survey
+          Online_Linkage: http://geonames.usgs.gov/domestic/download_data.htm
+      Source_Scale_Denominator: not applicable
+      Type_of_Source_Media: online
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 200804
+        Source_Currentness_Reference: publication date
+      Source_Citation_Abbreviation: GNIS
+      Source_Contribution: United States Board on Geographic Names, United State Geological Survey GNIS civil codes and names
+    Process_Step:
+      Process_Description: New Jersey Department of Environmental Protection, Bureau of Geographic Information Systems hydro (stream) centerline data were used as a primary data source.  These data were derived from New Jersey Office of Information Technology, Office of Geographic Information Systems 2002 orthophotography (+/-4 feet).  Hydro centerlines were integrated where known to be coincident with municipal boundaries as shown on municipal tax maps.
+      Process_Date: 2007
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: Civil Solutions
+            Contact_Person: Steve Eckhardt
+          Contact_Position: GIS Client Manager
+          Contact_Address:
+            Address_Type: mailing address
+            Address: 800 S White Horse Pike, PO Box 579
+            City: Hammonton
+            State_or_Province: NJ
+            Postal_Code: 08037-2019
+          Contact_Voice_Telephone: (800) 924-0482
+          Contact_Facsimile_Telephone: (609) 704-8011
+          Contact_Electronic_Mail_Address: seckh@arh-us.com
+    Process_Step:
+      Process_Description: New Jersey Department of Transportation road centerlines data were used as a primary data source.  These data were derived from New Jersey Office of Information Technology, Office of Geographic Information Systems 2002 orthophotography (+/-4 feet).  Road centerlines were integrated where known to be coincident with municipal boundaries as shown on municipal tax maps.
+      Process_Date: 2007
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: Civil Solutions
+            Contact_Person: Steve Eckhardt
+          Contact_Position: GIS Client Manager
+          Contact_Address:
+            Address_Type: mailing address
+            Address: 800 S White Horse Pike, PO Box 579
+            City: Hammonton
+            State_or_Province: NJ
+            Postal_Code: 08037-2019
+          Contact_Voice_Telephone: (800) 924-0482
+          Contact_Facsimile_Telephone: (609) 704-8011
+          Contact_Electronic_Mail_Address: seckh@arh-us.com
+    Process_Step:
+      Process_Description: New Jersey Department of Environmental Protection, Green Acres Program open space boundary data were used as a primary data source.  These data were derived from Green Acres open space property surveys.  Survey boundaries were integrated where known to be coincident with municipal boundaries as shown on municipal tax maps.
+      Process_Date: 2007
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: Civil Solutions
+            Contact_Person: Steve Eckhardt
+          Contact_Position: GIS Client Manager
+          Contact_Address:
+            Address_Type: mailing address
+            Address: 800 S White Horse Pike, PO Box 579
+            City: Hammonton
+            State_or_Province: NJ
+            Postal_Code: 08037-2019
+          Contact_Voice_Telephone: (800) 924-0482
+          Contact_Facsimile_Telephone: (609) 704-8011
+          Contact_Electronic_Mail_Address: seckh@arh-us.com
+    Process_Step:
+      Process_Description: New Jersey Department of Agriculture, State Agricultural Development Committee, Farmland Preservation Program preserved farmland boundary data were used as a primary data source.  These data were derived from Farmland Preservation preserved farmland property surveys.  Survey and non-survey (some municipal boundary lines were not mapped as survey lines) boundaries were integrated where known to be coincident with municipal boundaries as shown on municipal tax maps.
+      Process_Date: 2007
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: Civil Solutions
+            Contact_Person: Steve Eckhardt
+          Contact_Position: GIS Client Manager
+          Contact_Address:
+            Address_Type: mailing address
+            Address: 800 S White Horse Pike, PO Box 579
+            City: Hammonton
+            State_or_Province: NJ
+            Postal_Code: 08037-2019
+          Contact_Voice_Telephone: (800) 924-0482
+          Contact_Facsimile_Telephone: (609) 704-8011
+          Contact_Electronic_Mail_Address: seckh@arh-us.com
+    Process_Step:
+      Process_Description: New Jersey Department of Environmental Protection, Bureau of Geographic Information Systems land use/landcover data were used as a primary data source.  These data were derived from New Jersey Office of Information Technology, Office of Geographic Information Systems 2002 orthophotography (+/-4 feet).  Land use/landcover delineations were used to represent municipal boundaries coincident with shorelines.
+      Process_Date: 2007
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: Civil Solutions
+            Contact_Person: Steve Eckhardt
+          Contact_Position: GIS Client Manager
+          Contact_Address:
+            Address_Type: mailing address
+            Address: 800 S White Horse Pike, PO Box 579
+            City: Hammonton
+            State_or_Province: NJ
+            Postal_Code: 08037-2019
+          Contact_Voice_Telephone: (800) 924-0482
+          Contact_Facsimile_Telephone: (609) 704-8011
+          Contact_Electronic_Mail_Address: seckh@arh-us.com
+    Process_Step:
+      Process_Description: New Jersey Department of Environmental Protection, New Jersey Geological Survey boundary data for the northern border of New Jersey and through Shooters Island, off the shoreline of Bayonne, were used as primary data sources.  Survey points were used to delineate the New Jersey/New York boundary for the northern border of the state.  Turning points through the Kill Van Kull were used to delineate the New Jersey/New York boundary through Shooters Island.
+      Process_Date: 2007
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: Civil Solutions
+            Contact_Person: Steve Eckhardt
+          Contact_Position: GIS Client Manager
+          Contact_Address:
+            Address_Type: mailing address
+            Address: 800 S White Horse Pike, PO Box 579
+            City: Hammonton
+            State_or_Province: NJ
+            Postal_Code: 08037-2019
+          Contact_Voice_Telephone: (800) 924-0482
+          Contact_Facsimile_Telephone: (609) 704-8011
+          Contact_Electronic_Mail_Address: seckh@arh-us.com
+    Process_Step:
+      Process_Description: Delaware Geological Survey boundary data for segments of the New Jersey/Delaware border were used as a primary data source.  Boundary, boundary monument, and boundary reference monument positions were calculated at the 1934 mean low water line along the New Jersey shoreline from descriptions in a 1934/1935 United States Supreme Court Decree.  These data were used to represent municipal boundaries coincident with shorelines as shown on municipal tax maps.
+      Process_Date: 2007
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: Civil Solutions
+            Contact_Person: Steve Eckhardt
+          Contact_Position: GIS Client Manager
+          Contact_Address:
+            Address_Type: mailing address
+            Address: 800 S White Horse Pike, PO Box 579
+            City: Hammonton
+            State_or_Province: NJ
+            Postal_Code: 08037-2019
+          Contact_Voice_Telephone: (800) 924-0482
+          Contact_Facsimile_Telephone: (609) 704-8011
+          Contact_Electronic_Mail_Address: seckh@arh-us.com
+    Process_Step:
+      Process_Description: New Jersey Department of Environmental Protection, Bureau of Geographic Information Systems data representing the New Jersey/New York boundary for Ellis Island were used as a primary data source.  These data were delineated from an 1857 United States Coast Survey Map.
+      Process_Date: 2007
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: Civil Solutions
+            Contact_Person: Steve Eckhardt
+          Contact_Position: GIS Client Manager
+          Contact_Address:
+            Address_Type: mailing address
+            Address: 800 S White Horse Pike, PO Box 579
+            City: Hammonton
+            State_or_Province: NJ
+            Postal_Code: 08037-2019
+          Contact_Voice_Telephone: (800) 924-0482
+          Contact_Facsimile_Telephone: (609) 704-8011
+          Contact_Electronic_Mail_Address: seckh@arh-us.com
+    Process_Step:
+      Process_Description: State-certified digital tax map data were used as a primary data source.  State-certified digital tax map data is presumed to have a higher level of accuracy than digital parcel data.  These data were used to delineate municipal boundaries where they could not be derived from other primary data sources.
+      Process_Date: 2008
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: Civil Solutions
+            Contact_Person: Steve Eckhardt
+          Contact_Position: GIS Client Manager
+          Contact_Address:
+            Address_Type: mailing address
+            Address: 800 S White Horse Pike, PO Box 579
+            City: Hammonton
+            State_or_Province: NJ
+            Postal_Code: 08037-2019
+          Contact_Voice_Telephone: (800) 924-0482
+          Contact_Facsimile_Telephone: (609) 704-8011
+          Contact_Electronic_Mail_Address: seckh@arh-us.com
+    Process_Step:
+      Process_Description: Digital parcel data were used to delineate municipal boundaries where they could not be derived from primary data sources.
+      Process_Date: 2008
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: Civil Solutions
+            Contact_Person: Steve Eckhardt
+          Contact_Position: GIS Client Manager
+          Contact_Address:
+            Address_Type: mailing address
+            Address: 800 S White Horse Pike, PO Box 579
+            City: Hammonton
+            State_or_Province: NJ
+            Postal_Code: 08037-2019
+          Contact_Voice_Telephone: (800) 924-0482
+          Contact_Facsimile_Telephone: (609) 704-8011
+          Contact_Electronic_Mail_Address: seckh@arh-us.com
+    Process_Step:
+      Process_Description: Data delineated to connect shorelines across the outlet of a river to a bay or the ocean, or across the outlet of a bay to the ocean were developed for the project.  These data were interpreted from New Jersey Office of Information Technology, Office of Geographic Information Systems 2002 orthophotography (+/-4 feet).  Outlet delineations were integrated where known to be coincident with municipal boundaries as shown on municipal tax maps.
+      Process_Date: 2008
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: Civil Solutions
+            Contact_Person: Steve Eckhardt
+          Contact_Position: GIS Client Manager
+          Contact_Address:
+            Address_Type: mailing address
+            Address: 800 S White Horse Pike, PO Box 579
+            City: Hammonton
+            State_or_Province: NJ
+            Postal_Code: 08037-2019
+          Contact_Voice_Telephone: (800) 924-0482
+          Contact_Facsimile_Telephone: (609) 704-8011
+          Contact_Electronic_Mail_Address: seckh@arh-us.com
+    Process_Step:
+      Process_Description:
+        Data delineated to represent the centerline of the Delaware River were developed for the project.  An inventory of Delaware River islands with state jurisdiction was developed from information in "The Story Of New Jersey's Civil Boundaries 1606 - 1968" by John F. Snyder, Bureau of Geology and Topography, Trenton, New Jersey, 1969.  Using this information, a delineation was generated to represent the centerline of the Delaware River from the New Jersey/New York border to the 12 mile circle at the New Jersey/Delaware border.  
+        				
+        The delineation of the centerline of the Delaware River was generated by manually digitizing the river's visible shorelines, interpreted from New Jersey Office of Information Technology, Office of Geographic Information Systems 2002 orthophotography (+/-4 feet).  A centerline was generated from the shorelines utilizing the DUAL COLLAPSE command in ArcGIS ArcInfo 9.2.  Using the automated centerline as a guide, the final delineation was manually digitized to provide a smoother, more visually suitable centerline.
+        				
+        The centerline of the Delaware River represents the boundary between New Jersey and Pennsylvania.  These data were used to represent municipal boundaries coincident with the river centerline as shown on municipal tax maps.
+      Process_Date: 2008
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: Civil Solutions
+            Contact_Person: Steve Eckhardt
+          Contact_Position: GIS Client Manager
+          Contact_Address:
+            Address_Type: mailing address
+            Address: 800 S White Horse Pike, PO Box 579
+            City: Hammonton
+            State_or_Province: NJ
+            Postal_Code: 08037-2019
+          Contact_Voice_Telephone: (800) 924-0482
+          Contact_Facsimile_Telephone: (609) 704-8011
+          Contact_Electronic_Mail_Address: seckh@arh-us.com
+    Process_Step:
+      Process_Description: Data adjusted from original New Jersey Department of Transportation road centerlines, or delineated from railroad lines or other photo-identifiable features, interpreted from New Jersey Office of Information Technology, Office of Geographic Information Systems 2002 orthophotography (+/-4 feet) were developed for the project.  These data were integrated where known to be coincident with municipal boundaries as shown on municipal tax maps.
+      Process_Date: 2008
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: Civil Solutions
+            Contact_Person: Steve Eckhardt
+          Contact_Position: GIS Client Manager
+          Contact_Address:
+            Address_Type: mailing address
+            Address: 800 S White Horse Pike, PO Box 579
+            City: Hammonton
+            State_or_Province: NJ
+            Postal_Code: 08037-2019
+          Contact_Voice_Telephone: (800) 924-0482
+          Contact_Facsimile_Telephone: (609) 704-8011
+          Contact_Electronic_Mail_Address: seckh@arh-us.com
+    Process_Step:
+      Process_Description: New Jersey Department of Environmental Protection, Bureau of Geographic Information Systems municipality boundaries (stmun) data digitized from various United States Geological Survey topographic maps were integrated where there was a lack of available or adequate alternative source information and data.
+      Process_Date: 2008
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: Civil Solutions
+            Contact_Person: Steve Eckhardt
+          Contact_Position: GIS Client Manager
+          Contact_Address:
+            Address_Type: mailing address
+            Address: 800 S White Horse Pike, PO Box 579
+            City: Hammonton
+            State_or_Province: NJ
+            Postal_Code: 08037-2019
+          Contact_Voice_Telephone: (800) 924-0482
+          Contact_Facsimile_Telephone: (609) 704-8011
+          Contact_Electronic_Mail_Address: seckh@arh-us.com
+    Process_Step:
+      Process_Description: A QAQC process was undertaken with County GIS Coordinators to review the draft data and report linework needing modification.  All counties, except for Middlesex, participated in this process.  Modifications were made in several of the counties.  Consequently, all County GIS Coordinators were satisfied with the outcome.
+      Process_Date: 200804
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: Civil Solutions
+            Contact_Person: Steve Eckhardt
+          Contact_Position: GIS Client Manager
+          Contact_Address:
+            Address_Type: mailing address
+            Address: 800 S White Horse Pike, PO Box 579
+            City: Hammonton
+            State_or_Province: NJ
+            Postal_Code: 08037-2019
+          Contact_Voice_Telephone: (800) 924-0482
+          Contact_Facsimile_Telephone: (609) 704-8011
+          Contact_Electronic_Mail_Address: seckh@arh-us.com
+    Process_Step:
+      Process_Description:
+        Polygons were built from the NJOIT-OGIS Municipal Boundaries of New Jersey (nj_munis_arcs) line layer in ArcCatalog using the POLYGON FEATURE CLASS FROM LINES command with the default cluster tolerance of 0.003 US survey feet.  Municipalities with multiple disconnected areas were created as multi-part polygons.
+
+        A spatial join was created with the centroids of the NJDEP municipality boundaries (stmun) layer as a quality control check.  An examination of the attribute table ensured that each polygon contained a single centroid and any errors were resolved.  A topology rule set was also built to ensure there were no gores (gaps) or overlaps between polygons.
+      Process_Date: 200804
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: Civil Solutions
+            Contact_Person: Stephen Eckhardt
+          Contact_Position: GIS Client Manager
+          Contact_Address:
+            Address_Type: mailing address
+            Address: 800 S White Horse Pike, PO Box 579
+            City: Hammonton
+            State_or_Province: New Jersey
+            Postal_Code: 08037-2019
+          Contact_Voice_Telephone: 800-924-0482
+          Contact_Facsimile_Telephone: 609-704-8011
+          Contact_Electronic_Mail_Address: seckh@arh-us.com
+    Process_Step:
+      Process_Description: Attributes were added to the attribute table.  Values in the MUN_CODE field were populated based on the NJ1040 codes.  The ACRES and SQ_MILES fields were recalculated based on SHAPE_AREA.  In addition, POPDEN2000, POPDEN1990, and POPDEN1980 were recalculated based on the updated number of square miles in the SQ_MILES field.  All municipal name changes are current to January 2008.  Attributes for Geographical Naming Information System (GNIS) codes and names were thoroughly reviewed in collaboration with GNIS-US Geological Survey and US Census Bureau representatives.  No formal accuracy testing was performed to qualify or validate attribute data.  All other attribute information was carried over from the most current NJDEP municipality boundaries (stmun) layer and is assumed correct.
+      Process_Date: 200804
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: Civil Solutions
+            Contact_Person: Stephen Eckhardt
+          Contact_Position: GIS Client Manager
+          Contact_Address:
+            Address_Type: mailing address
+            Address: 800 S White Horse Pike, PO Box 579
+            City: Hammonton
+            State_or_Province: New Jersey
+            Postal_Code: 08037-2019
+          Contact_Voice_Telephone: 800-924-0482
+          Contact_Facsimile_Telephone: 609-704-8011
+          Contact_Electronic_Mail_Address: seckh@arh-us.com
+    Process_Step:
+      Process_Description: A null value polygon sliver measuring approximately 0.5 square feet was removed from Burlington County.  It is assumed this data artifact developed during processing the data set from lines (arcs) to polygons.  The data set was visually checked for possible additional slivers and none were found.
+      Process_Date: 20080627
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: New Jersey Office of Information Technology (NJOIT) - Office of Geographic Information Systems (OGIS)
+            Contact_Person: Douglas M. Schleifer
+          Contact_Position: GIS Specialist
+          Contact_Address:
+            Address_Type: mailing address
+            Address: PO Box 212
+            City: Trenton
+            State_or_Province: NJ
+            Postal_Code: 08625-0212
+          Contact_Voice_Telephone: (609) 984-7544
+          Contact_Facsimile_Telephone: (609) 633-0400
+          Contact_Electronic_Mail_Address: doug.schleifer@oit.state.nj.us
+    Process_Step:
+      Process_Description: As a component of the New Jersey Office of Information Technology, Office of GIS (OGIS) Parcels Normalization Project in 2008-2010, parcels boundaries were modified to match municipal, county and state boundaries data developed by OGIS in 2008 where those boundaries were coincident.  During this process, modifications were made to the municipal, county and state boundaries data sets to improve spatial and temporal accuracy where research was necessary to resolve boundary conflicts, and in areas where higher quality data became available subsequent to the 2008 boundaries data release.
+      Process_Date: 201002
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: Civil Solutions
+            Contact_Person: Steve Eckhardt
+          Contact_Position: GIS Client Manager
+          Contact_Address:
+            Address_Type: mailing address
+            Address: 800 S White Horse Pike, PO Box 579
+            City: Hammonton
+            State_or_Province: NJ
+            Postal_Code: 08037-2019
+          Contact_Voice_Telephone: (800) 924-0482
+          Contact_Facsimile_Telephone: (609) 704-8011
+          Contact_Electronic_Mail_Address: seckh@arh-us.com
+    Process_Step:
+      Process_Description:
+        Supported by tax map documentation, a modification was made to the municipal (and county) boundary along the east shoreline of Osborne Pond between Bernards Township in Somerset County and Harding Township in Morris County.  The modification was made by the New Jersey Office of Information Technology, Office of GIS (OGIS) in consultation with both municipalities and counties.
+
+        It was reported by the US Census Bureau to OGIS in July 2010 that the delineation in the statewide municipal boundaries dataset was inconsistent with the municipal boundary submitted by Harding Township as part of the the Local Update of Census Addresses (LUCA) program.  It was subsequently determined that the cause for the incorrect statewide municipal boundaries delineation was an incorrect delineation of a parcel (Harding Township, Block 48.01 Lot 8) in the statewide composite of parcels data (for which the parcels data were used as source data for the municipal boundaries).  The west boundary of the parcel is a segment of the municipal boundary along the east shoreline of Osborne Pond.
+
+        The change to Block 48.01 Lot 8 necessitated a modification to four contiguous parcels (Harding Township, Block 48.01, Lots 4, 5, 7 and Block 52, Lot 2) in Harding Township along the east shoreline of Osborne Pond.  Since the west boundaries of Block 48.01, Lots 4, 5, 7 and Block 52, Lot 2 are also segments of the municipal boundary, the municipal boundary was modified to match the change to the parcels.
+
+        Two Bernards Township parcels (Block 804, Lot 17 and Block 1701, Lot 1) in the statewide composite of parcels data were also modified to be consistent with the change to the municipal boundary and Harding Township parcels.
+      Process_Date: 201009
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: Civil Solutions
+            Contact_Person: Steve Eckhardt
+          Contact_Position: GIS Client Manager
+          Contact_Address:
+            Address_Type: mailing address
+            Address: 800 S White Horse Pike, PO Box 579
+            City: Hammonton
+            State_or_Province: NJ
+            Postal_Code: 08037-2019
+          Contact_Voice_Telephone: (800) 924-0482
+          Contact_Facsimile_Telephone: (609) 704-8011
+          Contact_Electronic_Mail_Address: seckh@arh-us.com
+    Process_Step:
+      Process_Description: In Monmouth County, an area including the Pine View subdivision was annexed to Howell Township from Wall Township in 2005 by Ordinance 05-316.  Referencing the scanned 2010 Wall Tax Map, sheet 74, the municipal boundary was modified to reflect the annexation.
+      Process_Date: 20101102
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: Civil Solutions
+            Contact_Person: Steve Eckhardt
+          Contact_Position: GIS Client Manager
+          Contact_Address:
+            Address_Type: mailing address
+            Address: 800 S White Horse Pike, PO Box 579
+            City: Hammonton
+            State_or_Province: NJ
+            Postal_Code: 08037-2019
+          Contact_Voice_Telephone: (800) 924-0482
+          Contact_Facsimile_Telephone: (609) 704-8011
+          Contact_Electronic_Mail_Address: seckh@arh-us.com
+    Process_Step:
+      Process_Description:
+        MUN_CODE values corrected to match values published by the NJ Dept of the Treasury, Division of Taxation, in 2010 tax form 1040 instructions, as follows:
+
+        Eagleswood Twp, Ocean County was 1508, now is 1509
+        Toms River Twp, Ocean County was 1509, now is 1508
+      Process_Date: 20110111
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: NJ Office of Information Technology (NJOIT), Office of Geographic Information Systems (OGIS)
+            Contact_Person: Douglas M. Schleifer
+          Contact_Position: GIS Specialist
+          Contact_Address:
+            Address_Type: mailing address
+            Address: PO Box 212
+            City: Trenton
+            State_or_Province: NJ
+            Postal_Code: 08625-0212
+          Contact_Voice_Telephone: (609) 984-7544
+          Contact_Facsimile_Telephone: (609) 633-0400
+          Contact_Electronic_Mail_Address: doug.schleifer@oit.state.nj.us
+    Process_Step:
+      Process_Description: A modification was made to the Lacey Township/Ocean Township boundary at Oyster Creek where the creek channel was significantly altered to service the Oyster Creek nuclear power plant.  The boundary, which was erroneously delineated as the centerline of the altered creek channel, was modified to a delineation of the creek centerline before it was altered to service the power plant, in the area within close proximity to the US Route 9 bridge over Oyster Creek.  These changes were confirmed with tax maps from both municipalities.
+      Process_Date: 201102
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: Civil Solutions
+            Contact_Person: Steve Eckhardt
+          Contact_Position: GIS Client Manager
+          Contact_Address:
+            Address_Type: mailing address
+            Address: 800 S White Horse Pike, PO Box 579
+            City: Hammonton
+            State_or_Province: NJ
+            Postal_Code: 08037-2019
+          Contact_Voice_Telephone: (800) 924-0482
+          Contact_Facsimile_Telephone: (609) 704-8011
+          Contact_Electronic_Mail_Address: seckh@arh-us.com
+    Process_Step:
+      Process_Description: A modification was made to the easternmost extent of the Lacey Township/Ocean Township boundary over Barnegat Bay.  The boundary was fixed slightly southward to bisect a small group of islands off the shoreline of Berkeley Township (on the bay side of Island Beach State Park just to the northeast of Sedge Islands).  The northern sections of these islands are located in Lacey Township and the southern sections are located in Ocean Township.
+      Process_Date: 201102
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: Civil Solutions
+            Contact_Person: Steve Eckhardt
+          Contact_Position: GIS Client Manager
+          Contact_Address:
+            Address_Type: mailing address
+            Address: 800 S White Horse Pike, PO Box 579
+            City: Hammonton
+            State_or_Province: NJ
+            Postal_Code: 08037-2019
+          Contact_Voice_Telephone: (800) 924-0482
+          Contact_Facsimile_Telephone: (609) 704-8011
+          Contact_Electronic_Mail_Address: seckh@arh-us.com
+    Process_Step:
+      Process_Description: A modification was made to the Seaside Heights Borough/Toms River Township boundary over Barnegat Bay.  The boundary surrounding a group of islands (Al's Island, Bill's Island, Jones Island, Mike's Island and Wilde's Island just north of the NJ Route 37 bridge) in Seaside Heights Borough was corrected.
+      Process_Date: 201102
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: Civil Solutions
+            Contact_Person: Steve Eckhardt
+          Contact_Position: GIS Client Manager
+          Contact_Address:
+            Address_Type: mailing address
+            Address: 800 S White Horse Pike, PO Box 579
+            City: Hammonton
+            State_or_Province: NJ
+            Postal_Code: 08037-2019
+          Contact_Voice_Telephone: (800) 924-0482
+          Contact_Facsimile_Telephone: (609) 704-8011
+          Contact_Electronic_Mail_Address: seckh@arh-us.com
+    Process_Step:
+      Process_Description:
+        A GNIS civil code value was revised by the USGS Bureau of Geographic Names, as follows:
+
+        Saddle Brook Township, Bergen County was 1729721, now 882308.
+      Process_Date: 201102
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: NJ Office of Information Technology (NJOIT), Office of Geographic Information Systems (OGIS)
+            Contact_Person: Douglas M. Schleifer
+          Contact_Position: GIS Specialist
+          Contact_Address:
+            Address_Type: mailing address
+            Address: PO Box 212
+            City: Trenton
+            State_or_Province: NJ
+            Postal_Code: 08625-0212
+          Contact_Voice_Telephone: (609) 984-7544
+          Contact_Facsimile_Telephone: (609) 633-0400
+          Contact_Electronic_Mail_Address: doug.schleifer@oit.state.nj.us
+    Process_Step:
+      Process_Description: An update to parcel boundaries in Marlboro Township in Monmouth County necessitated a change to the municipal boundary (and the Monmouth/Middlesex County boundary).  The change also affected the boundaries of the adjacent municipalities of Aberdeen and Manalapan Townships in Monmouth County, and Old Bridge Township in Middlesex County.  The change was up to approximately 20 feet for Marlboro, Manalapan and Old Bridge Townships, and up to approximately 0.25 feet for Aberdeen Township.
+      Process_Date: 201105
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: Civil Solutions
+            Contact_Person: Steve Eckhardt
+          Contact_Position: GIS Client Manager
+          Contact_Address:
+            Address_Type: mailing address
+            Address: 800 S White Horse Pike, PO Box 579
+            City: Hammonton
+            State_or_Province: NJ
+            Postal_Code: 08037-2019
+          Contact_Voice_Telephone: (800) 924-0482
+          Contact_Facsimile_Telephone: (609) 704-8011
+          Contact_Electronic_Mail_Address: seckh@arh-us.com
+    Process_Step:
+      Process_Description: An update was made to the Woodbridge Township municipal boundary (which necessitated a change to the Middlesex County boundary).  The municipal (and county) boundary along the Arthur Kill was represented to extend out to the middle of the river to coincide with the state boundary.  However, the municipal (and county) boundary was changed to coincide with the shoreline, based on a preponderance of supporting information.  The Woodbridge Township boundary is described as the shoreline in The Story of New Jersey's Civil Boundaries 1606 - 1968.  Tax maps indicate that riparian grants were conveyed to a Pierhead Line extending out to the middle of the Arthur Kill, which approximates the state boundary and is likely the source of any ambiguity regarding the municipal (and county) boundary.  In addition, boundaries for all other municipalities in New Jersey along the Arthur Kill coincide with the shoreline.
+      Process_Date: 201105
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: Civil Solutions
+            Contact_Person: Steve Eckhardt
+          Contact_Position: GIS Client Manager
+          Contact_Address:
+            Address_Type: mailing address
+            Address: 800 S White Horse Pike, PO Box 579
+            City: Hammonton
+            State_or_Province: NJ
+            Postal_Code: 08037-2019
+          Contact_Voice_Telephone: (800) 924-0482
+          Contact_Facsimile_Telephone: (609) 704-8011
+          Contact_Electronic_Mail_Address: seckh@arh-us.com
+    Process_Step:
+      Process_Description: A correction was made to the municipal boundary between Newark and Bloomfield Township at the intersection of Bloomfield Avenue and Heckel Street.  A short boundary segment was moved to the NJDOT road centerline to be consistent with adjacent municipal boundaries.
+      Process_Date: 201105
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: Civil Solutions
+            Contact_Person: Steve Eckhardt
+          Contact_Position: GIS Client Manager
+          Contact_Address:
+            Address_Type: mailing address
+            Address: 800 S White Horse Pike, PO Box 579
+            City: Hammonton
+            State_or_Province: NJ
+            Postal_Code: 08037-2019
+          Contact_Voice_Telephone: (800) 924-0482
+          Contact_Facsimile_Telephone: (609) 704-8011
+          Contact_Electronic_Mail_Address: seckh@arh-us.com
+    Process_Step:
+      Process_Description: Due to municipal boundary changes, ACRES and SQ_MILES fields were recalculated based on SHAPE_AREA.  POPDEN2000, POPDEN1990, and POPDEN1980 were recalculated based on the updated square mile values.
+      Process_Date: 201105
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: Civil Solutions
+            Contact_Person: Steve Eckhardt
+          Contact_Position: GIS Client Manager
+          Contact_Address:
+            Address_Type: mailing address
+            Address: 800 S White Horse Pike, PO Box 579
+            City: Hammonton
+            State_or_Province: NJ
+            Postal_Code: 08037-2019
+          Contact_Voice_Telephone: (800) 924-0482
+          Contact_Facsimile_Telephone: (609) 704-8011
+          Contact_Electronic_Mail_Address: seckh@arh-us.com
+    Process_Step:
+      Process_Description: An attribute field was added for the 2010 Census code (known as the FIPS code in previous census), to accommodate code changes to Lake Como Borough (formerly South Belmar Borough) and Toms River Township (formerly Dover Township) in Ocean County, and Robbinsville Township (formerly Washington Township) in Mercer County.  Codes for all other municipalities remain the same.  The new attribute field name is CENSUS2010.
+      Process_Date: 201105
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: NJ Office of Information Technology (NJOIT), Office of Geographic Information Systems (OGIS)
+            Contact_Person: Douglas M. Schleifer
+          Contact_Position: GIS Specialist
+          Contact_Address:
+            Address_Type: mailing address
+            Address: PO Box 212
+            City: Trenton
+            State_or_Province: NJ
+            Postal_Code: 08625-0212
+          Contact_Voice_Telephone: (609) 984-7544
+          Contact_Facsimile_Telephone: (609) 633-0400
+          Contact_Electronic_Mail_Address: doug.schleifer@oit.state.nj.us
+    Process_Step:
+      Process_Description: 2010 Census code changes were made to Caldwell Borough in Essex County, and Woodland Park Borough (formerly West Paterson Borough) in Passaic County.  The reason for the code change to Caldwell Borough in 2004 is unknown.
+      Process_Date: 20110606
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: NJ Office of Information Technology (NJOIT), Office of Geographic Information Systems (OGIS)
+            Contact_Person: Douglas M. Schleifer
+          Contact_Position: GIS Specialist
+          Contact_Address:
+            Address_Type: mailing address
+            Address: PO Box 212
+            City: Trenton
+            State_or_Province: NJ
+            Postal_Code: 08625-0212
+          Contact_Voice_Telephone: (609) 984-7544
+          Contact_Facsimile_Telephone: (609) 633-0400
+          Contact_Electronic_Mail_Address: doug.schleifer@oit.state.nj.us
+    Process_Step:
+      Process_Description: 2010 population (POP2010) and population density (POPDEN2010) were added to the attribute table.  Population totals are from the 2010 US Census.  Population density totals were calculated using square mileage (SQ_MILES) totals from the attribute table.
+      Process_Date: 20110606
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: NJ Office of Information Technology (NJOIT), Office of Geographic Information Systems (OGIS)
+            Contact_Person: Douglas M. Schleifer
+          Contact_Position: GIS Specialist
+          Contact_Address:
+            Address_Type: mailing address
+            Address: PO Box 212
+            City: Trenton
+            State_or_Province: NJ
+            Postal_Code: 08625-0212
+          Contact_Voice_Telephone: (609) 984-7544
+          Contact_Facsimile_Telephone: (609) 633-0400
+          Contact_Electronic_Mail_Address: doug.schleifer@oit.state.nj.us
+    Process_Step:
+      Process_Description:
+        The following changes were made to municipal boundaries in Cumberland County:
+
+        Improvements to parcel boundaries along the Lawrence Township/Fairfield Township border in Cumberland County necessitated changes to the municipal boundary.  The first change was made to the boundary north of County Route 692 to the municipal boundary with Millville.  The second change was made south of County Route 692 to County Route 553.
+
+        Modifications were made to the Stow Creek Township/Greenwich Township boundary in Cumberland County.  The first change was necessitated by improvements to parcel boundaries at, and just east of, County Route 602.  The second change was made to correct the boundary along Racoon Ditch (formerly Newport Creek) where the stream was impounded to form a lake just east of its confluence with Stow Creek.  The correction utilizes a DEP hydro centerline, between the southern boundary of the lake and an island towards the western end of the lake, which approximates the old stream centerline delineated on municipal tax maps.  It replaces the current DEP hydro centerline through the middle of the lake.
+
+        A correction was made to the Commercial Township/Maurice River Township boundary in Cumberland County at the outlet of the Maurice River into Delaware Bay.  The change was made to account for parcels that represent properties on small islands in the middle of the river in Maurice River Township.
+
+        An improvement was made to the municipal/county boundary between Pittsgrove Township in Salem County and Vineland in Cumberland County.  Segments sourced from parcel boundaries were replaced by an NJDEP hydro centerline segment and a 2007 NJOIT orthophoto delineated segment of a photo-identifiable water feature.  The affected municipal/county boundary segments are coincident with the eastern boundaries of block 2502, lots 5.01, 7.01 and 17 in Pittsgrove Township, Salem County, and the western boundaries of block 2601, lots 14-18, and block 2608, lot 1 in Vineland, Cumberland County.
+      Process_Date: 20120103
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: NJ Office of Information Technology (NJOIT), Office of Geographic Information Systems (OGIS)
+            Contact_Person: Yelena Pikovskaya
+          Contact_Position: GIS Specialist
+          Contact_Address:
+            Address_Type: mailing address
+            Address: PO Box 212
+            City: Trenton
+            State_or_Province: NJ
+            Postal_Code: 08625-0212
+          Contact_Voice_Telephone: (609) 633-0420
+          Contact_Facsimile_Telephone: (609) 633-0400
+          Contact_Electronic_Mail_Address: yelena.pikovskaya@oit.state.nj.us
+    Process_Step:
+      Process_Description: A correction was made to the municipal/county boundary between Clifton in Passaic County and Garfield Borough in Bergen County coincident with the centerline of the Passaic River, just south of the Garden State Parkway.  A boundary segment sourced from an NJDEP hydro centerline that did not represent the middle of the river was replaced by a segment through the middle of the river delineated from 2007 NJOIT orthophotos.
+      Process_Date: 20120103
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: NJ Office of Information Technology (NJOIT), Office of Geographic Information Systems (OGIS)
+            Contact_Person: Yelena Pikovskaya
+          Contact_Position: GIS Specialist
+          Contact_Address:
+            Address_Type: mailing address
+            Address: PO Box 212
+            City: Trenton
+            State_or_Province: NJ
+            Postal_Code: 08625-0212
+          Contact_Voice_Telephone: (609) 633-0420
+          Contact_Facsimile_Telephone: (609) 633-0400
+          Contact_Electronic_Mail_Address: yelena.pikovskaya@oit.state.nj.us
+    Process_Step:
+      Process_Description: Based upon newly surveyed parcels data, an improvement was made to the municipal boundary between Roxbury Township and Netcong Borough in Morris County, south from the municipal boundary with Stanhope Borough in Sussex County.
+      Process_Date: 20120103
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: NJ Office of Information Technology (NJOIT), Office of Geographic Information Systems (OGIS)
+            Contact_Person: Yelena Pikovskaya
+          Contact_Position: GIS Specialist
+          Contact_Address:
+            Address_Type: mailing address
+            Address: PO Box 212
+            City: Trenton
+            State_or_Province: NJ
+            Postal_Code: 08625-0212
+          Contact_Voice_Telephone: (609) 633-0420
+          Contact_Facsimile_Telephone: (609) 633-0400
+          Contact_Electronic_Mail_Address: yelena.pikovskaya@oit.state.nj.us
+    Process_Step:
+      Process_Description: Attribute values were re-calculated for area (ACREAGE and SQ_MILES) and 2010 population density (POPDEN2010).
+      Process_Date: 20120103
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: NJ Office of Information Technology (NJOIT), Office of Geographic Information Systems (OGIS)
+            Contact_Person: Yelena Pikovskaya
+          Contact_Position: GIS Specialist
+          Contact_Address:
+            Address_Type: mailing address
+            Address: PO Box 212
+            City: Trenton
+            State_or_Province: NJ
+            Postal_Code: 08625-0212
+          Contact_Voice_Telephone: (609) 633-0420
+          Contact_Facsimile_Telephone: (609) 633-0400
+          Contact_Electronic_Mail_Address: yelena.pikovskaya@oit.state.nj.us
+    Process_Step:
+      Process_Description: A correction was made to the municipality type (MUN_TYPE) attribute value for the City of Orange Township.  Based upon information from the New Jersey Office of Legislative Services, corroborated by the City of Orange Township official web site, the municipality type was changed from Township to City.
+      Process_Date: 20120103
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: NJ Office of Information Technology (NJOIT), Office of Geographic Information Systems (OGIS)
+            Contact_Person: Yelena Pikovskaya
+          Contact_Position: GIS Specialist
+          Contact_Address:
+            Address_Type: mailing address
+            Address: PO Box 212
+            City: Trenton
+            State_or_Province: NJ
+            Postal_Code: 08625-0212
+          Contact_Voice_Telephone: (609) 633-0420
+          Contact_Facsimile_Telephone: (609) 633-0400
+          Contact_Electronic_Mail_Address: yelena.pikovskaya@oit.state.nj.us
+    Process_Step:
+      Process_Description:
+        Spatially merged Princeton Borough and Princeton Township to create Princeton using the "Merge" tool in an edit session.
+
+        Records were updated for the following attributes:
+        *Municipal names - MUN, MUN_LABEL, MUN_TYPE, NAME and GNIS_NAME.
+        *Municipal codes - GNIS, SSN, MUN_CODE, KEY and CENSUS2010.
+        *Area - ACRES and SQ_MILES.  The areas of Princeton Borough and Princeton Township were aggregated to calculate new totals for Princeton.
+        *Population - POP1980, POP1990, POP2000 and POP2010.  The populations of Princeton Borough and Princeton Township were aggregated to calculate new totals for Princeton.
+        *Population density - POPDEN1980, POPDEN1990, POPDEN2000 and POPDEN2010.  The aggregated population and area totals of Princeton Borough and Princeton Township were used to calculate new totals for Princeton.
+      Process_Date: 20121228
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: NJ Office of Information Technology (NJOIT), Office of Geographic Information Systems (OGIS)
+            Contact_Person: Yelena Pikovskaya
+          Contact_Position: GIS Specialist
+          Contact_Address:
+            Address_Type: mailing address
+            Address: PO Box 212
+            City: Trenton
+            State_or_Province: NJ
+            Postal_Code: 08625-0212
+          Contact_Voice_Telephone: 609.633.0420
+          Contact_Facsimile_Telephone: 609.633.0200
+          Contact_Electronic_Mail_Address: yelena.pikovskaya@oit.state.nj.us
+          Contact_Instructions: e-mail is preferred
+    Process_Step:
+      Process_Description: Records were dropped from existing feature class and new records loaded from file geodatabase. Metadata were imported and edited slightly.
+      Process_Date: 02/01/2013
+    Process_Step:
+      Process_Description: NJDEP clipped latest version (20120228) of NJ Municipal Boundaries to the coastline as shown in the updated NJDEP Coastline layer (Version 20090116).
+      Process_Date: 20130109
+      Process_Contact:
+        Contact_Information:
+          Contact_Person_Primary:
+            Contact_Person: John Bocchino
+            Contact_Organization: NJDEP
+          Contact_Address:
+            Address_Type: mailing and physical address
+            Address: 401 E. State Street
+            City: Trenton
+            State_or_Province: NJ
+            Postal_Code: 08625
+          Contact_Voice_Telephone: 609-777-0672
+          Contact_Electronic_Mail_Address: gisnet@dep.state.nj.us
+Spatial_Data_Organization_Information:
+  Direct_Spatial_Reference_Method: Vector
+  Point_and_Vector_Object_Information:
+    SDTS_Terms_Description:
+      SDTS_Point_and_Vector_Object_Type: G-polygon
+      Point_and_Vector_Object_Count: 565
+Spatial_Reference_Information:
+  Horizontal_Coordinate_System_Definition:
+    Planar:
+      Map_Projection:
+        Map_Projection_Name: Transverse Mercator
+        Transverse_Mercator:
+          Scale_Factor_at_Central_Meridian: 0.999900
+          Longitude_of_Central_Meridian: -74.500000
+          Latitude_of_Projection_Origin: 38.833333
+          False_Easting: 492125.000000
+          False_Northing: 0.000000
+      Planar_Coordinate_Information:
+        Planar_Coordinate_Encoding_Method: coordinate pair
+        Coordinate_Representation:
+          Abscissa_Resolution: 0.000328
+          Ordinate_Resolution: 0.000328
+        Planar_Distance_Units: survey feet
+    Geodetic_Model:
+      Horizontal_Datum_Name: North American Datum of 1983
+      Ellipsoid_Name: Geodetic Reference System 80
+      Semi-major_Axis: 6378137.000000
+      Denominator_of_Flattening_Ratio: 298.257222
+  Vertical_Coordinate_System_Definition:
+    Altitude_System_Definition:
+      Altitude_Resolution: 0.000100
+      Altitude_Encoding_Method: Explicit elevation coordinate included with horizontal coordinates
+Entity_and_Attribute_Information:
+  Detailed_Description:
+    Entity_Type:
+      Entity_Type_Label: Govt_admin_mun_coast_bnd (muncoast)
+      Entity_Type_Definition: Municipalities of New Jersey
+      Entity_Type_Definition_Source: NJ Office of Information Technology, Office of Geographic Information Systems
+    Attribute:
+      Attribute_Label: FID
+      Attribute_Definition: Internal feature number.
+      Attribute_Definition_Source: ESRI
+      Attribute_Domain_Values:
+        Unrepresentable_Domain: Sequential unique whole numbers that are automatically generated.
+    Attribute:
+      Attribute_Label: SHAPE
+      Attribute_Definition: Feature geometry
+      Attribute_Definition_Source: ESRI
+      Attribute_Domain_Values:
+        Unrepresentable_Domain: Coordinates defining the features
+    Attribute:
+      Attribute_Label: MUN
+      Attribute_Definition: municipality name (capital letters)
+      Attribute_Definition_Source: New Jersey Department of Environmental Protection, Bureau of Geographic Information Systems
+      Attribute_Domain_Values:
+        Unrepresentable_Domain: municipality name (capital letters)
+    Attribute:
+      Attribute_Label: COUNTY
+      Attribute_Definition: county name (capital letters)
+      Attribute_Definition_Source: New Jersey Department of Environmental Protection, Bureau of Geographic Information Systems
+      Attribute_Domain_Values:
+        Unrepresentable_Domain: county name (capital letters)
+    Attribute:
+      Attribute_Label: MUN_LABEL
+      Attribute_Definition: municipality name (for labels)
+      Attribute_Definition_Source: New Jersey Department of Environmental Protection, Bureau of Geographic Information Systems
+      Attribute_Domain_Values:
+        Unrepresentable_Domain: municipality name (for labels)
+    Attribute:
+      Attribute_Label: MUN_TYPE
+      Attribute_Definition: municipality type
+      Attribute_Definition_Source: New Jersey Department of Environmental Protection, Bureau of Geographic Information Systems
+      Attribute_Domain_Values:
+        Unrepresentable_Domain: municipality type
+    Attribute:
+      Attribute_Label: NAME
+      Attribute_Definition: municipality name (for labels - without municipality type for cities and towns)
+      Attribute_Definition_Source: NJ Office of Information Technology, Office of Geographic Information Systems
+      Attribute_Domain_Values:
+        Unrepresentable_Domain: municipality name (for labels - without municipality type for cities and towns)
+    Attribute:
+      Attribute_Label: GNIS_NAME
+      Attribute_Definition: municipality name (GNIS)
+      Attribute_Definition_Source: Bureau of Geographic Names - United States Geological Survey
+      Attribute_Domain_Values:
+        Unrepresentable_Domain: municipality name (GNIS)
+    Attribute:
+      Attribute_Label: GNIS
+      Attribute_Definition: GNIS civil code
+      Attribute_Definition_Source: Bureau of Geographic Names - United States Geological Survey
+      Attribute_Domain_Values:
+        Codeset_Domain:
+          Codeset_Name: GNIS civil code
+          Codeset_Source: Bureau of Geographic Names - United States Geological Survey
+    Attribute:
+      Attribute_Label: SSN
+      Attribute_Definition: State Standard Numeric code
+      Attribute_Definition_Source: New Jersey Department of Community Affairs
+      Attribute_Domain_Values:
+        Codeset_Domain:
+          Codeset_Name: State Standard Numeric code
+          Codeset_Source: New Jersey Department of Community Affairs
+    Attribute:
+      Attribute_Label: MUN_CODE
+      Attribute_Definition: municipal code (NJ-1040)
+      Attribute_Definition_Source: New Jersey Department of Treasury, Division of Taxation
+      Attribute_Domain_Values:
+        Codeset_Domain:
+          Codeset_Name: municipal code (NJ-1040)
+          Codeset_Source: New Jersey Department of Treasury, Division of Taxation
+    Attribute:
+      Attribute_Label: KEY
+      Attribute_Definition: Federal Information Processing Standard (FIPS) state+county+municipal code
+      Attribute_Definition_Source: United State Census Bureau
+      Attribute_Domain_Values:
+        Codeset_Domain:
+          Codeset_Name: Federal Information Processing Standard (FIPS) state+county+municipal code
+          Codeset_Source: United State Census Bureau
+    Attribute:
+      Attribute_Label: ACRES
+      Attribute_Definition: area of municipality in acres (calculated from square feet in attribute table)
+      Attribute_Definition_Source: NJ Office of Information Technology, Office of Geographic Information Systems
+      Attribute_Domain_Values:
+        Range_Domain:
+          Range_Domain_Minimum: 62.74
+          Range_Domain_Maximum: 72371.50
+          Attribute_Units_of_Measure: acres
+    Attribute:
+      Attribute_Label: CENSUS2010
+      Attribute_Definition: Census state+county+municipal code
+      Attribute_Definition_Source: United States Census Bureau
+      Attribute_Domain_Values:
+        Codeset_Domain:
+          Codeset_Name: Census state+county+municipal code
+          Codeset_Source: United States Census Bureau
+    Attribute:
+      Attribute_Label: SQ_MILES
+      Attribute_Definition: area of municipality in square miles (calculated from square feet in attribute table)
+      Attribute_Definition_Source: NJ Office of Information Technology, Office of Geographic Information Systems
+      Attribute_Domain_Values:
+        Range_Domain:
+          Range_Domain_Minimum: 0.09
+          Range_Domain_Maximum: 113.08
+          Attribute_Units_of_Measure: square miles
+    Attribute:
+      Attribute_Label: POP2010
+      Attribute_Definition: population in 2010
+      Attribute_Definition_Source: United States Census Bureau
+      Attribute_Domain_Values:
+        Unrepresentable_Domain: population in 2010
+    Attribute:
+      Attribute_Label: POP2000
+      Attribute_Definition: population in 2000
+      Attribute_Definition_Source: United States Census Bureau
+      Attribute_Domain_Values:
+        Unrepresentable_Domain: population in 2000
+    Attribute:
+      Attribute_Label: POP1990
+      Attribute_Definition: population in 1990
+      Attribute_Definition_Source: United States Census Bureau
+      Attribute_Domain_Values:
+        Unrepresentable_Domain: population in 1990
+    Attribute:
+      Attribute_Label: POP1980
+      Attribute_Definition: population in 1980
+      Attribute_Definition_Source: United States Census Bureau
+      Attribute_Domain_Values:
+        Unrepresentable_Domain: population in 1980
+    Attribute:
+      Attribute_Label: POPDEN2010
+      Attribute_Definition: population density per square mile in 2010
+      Attribute_Definition_Source: NJ Office of Information Technology, Office of Geographic Information Systems
+      Attribute_Domain_Values:
+        Unrepresentable_Domain: population density per square mile in 2010
+    Attribute:
+      Attribute_Label: POPDEN2000
+      Attribute_Definition: population density per square mile in 2000
+      Attribute_Definition_Source: NJ Office of Information Technology, Office of Geographic Information Systems
+      Attribute_Domain_Values:
+        Unrepresentable_Domain: population density per square mile in 2000
+    Attribute:
+      Attribute_Label: POPDEN1990
+      Attribute_Definition: population density per square mile in 1990
+      Attribute_Definition_Source: NJ Office of Information Technology, Office of Geographic Information Systems
+      Attribute_Domain_Values:
+        Unrepresentable_Domain: population density per square mile in 1990
+    Attribute:
+      Attribute_Label: POPDEN1980
+      Attribute_Definition: population density per square mile in 1980
+      Attribute_Definition_Source: NJ Office of Information Technology, Office of Geographic Information Systems
+      Attribute_Domain_Values:
+        Unrepresentable_Domain: population density per square mile in 1980
+    Attribute:
+      Attribute_Label: SHAPE.AREA
+      Attribute_Definition: Area of feature
+      Attribute_Definition_Source: ESRI
+      Attribute_Domain_Values:
+        Unrepresentable_Domain: unique entry
+    Attribute:
+      Attribute_Label: SHAPE.LEN
+      Attribute_Definition: Length of Feature
+      Attribute_Definition_Source: ESRI
+      Attribute_Domain_Values:
+        Unrepresentable_Domain: unique entry
+Distribution_Information:
+  Distributor:
+    Contact_Information:
+      Contact_Organization_Primary:
+        Contact_Organization: NJDEP/OIRM/Bureau of GIS
+        Contact_Person: GIS Help Desk
+      Contact_Address:
+        Address_Type: mailing address
+        Address: 401 East State Street
+        City: Trenton
+        State_or_Province: NJ
+        Postal_Code: 08625
+      Contact_Voice_Telephone: (609) 777-0672
+      Contact_Facsimile_Telephone: (609) 292-7900
+  Resource_Description: Downloadable Data
+  Distribution_Liability: This organization provides the geographic data "as is". This organization makes no guarantee or warranty concerning the accuracy of information contained in the geographic data. Also, this organization makes no warranty either expressed or implied, regarding the condition of the product or its fitness for any particular purpose. The burden for determining fitness for use lies entirely with the user. Although these files have been processed successfully on computers at this organization, no warranty is made by this organization regarding the use of these data on any other system, nor does the fact of distribution constitute or imply any such warranty. See also "Use Constraints" for additional distribution and/or data use requirements.
+  Standard_Order_Process:
+    Digital_Form:
+      Digital_Transfer_Information:
+        Format_Name: DEP distributes ESRI .SHP and/or GDB. Some data may be NJ GeoWeb "display only" layers.
+        Format_Version_Number: latest version
+        File_Decompression_Technique: Winzip
+        Transfer_Size: 36.647
+      Digital_Transfer_Option:
+        Online_Option:
+          Computer_Contact_Information:
+            Network_Address:
+              Network_Resource_Name: http://www.nj.gov/dep/gis/listall.html
+              Network_Resource_Name: http://www.nj.gov/dep/gis/geowebsplash.htm
+        Offline_Option:
+          Offline_Media: none
+          Recording_Format: none
+    Fees: none
+    Ordering_Instructions: All available NJDEP public GIS data can be downloaded for free. Some data shown in NJGeoWeb application may not yet be available for download due to various data or distribution issues. Please email gisnet@dep.state.nj.us with any data distribution questions.
+  Custom_Order_Process: The NJDEP may distribute GIS data in a variety of formats, such as the ESRI shapefile and/or various versions of the file geodatabase format. The data also may be available for viewing on various profiles of the NJ GeoWeb online mapping application. Note: Some older NJDEP data may not contain .prj files due to distribution procedures at that time. If download does not contain a .prj, please download from:http://www.nj.gov/dep/gis/njsp83.zip Please rename .prj to the name of the downloadable filename. (for example: If Head of Tides filename is HOT.shp, please rename .prj to HOT.prj). This allows ESRI software to recognize the projection information.
+  Technical_Prerequisites: An ESRI desktop mapping client is required for use, such as ArcMap.
+  Available_Time_Period:
+    Time_Period_Information:
+      Single_Date/Time:
+        Calendar_Date: 20121228
+Metadata_Reference_Information:
+  Metadata_Date: 20121228
+  Metadata_Review_Date: 20121228
+  Metadata_Contact:
+    Contact_Information:
+      Contact_Person_Primary:
+        Contact_Person: John Bocchino, GISP
+        Contact_Organization: NJDEP/OIRM/BGIS
+      Contact_Position: GIS Specialist 1
+      Contact_Address:
+        Address_Type: mailing address
+        Address: 401 East State Street, PO Box 428
+        City: Trenton
+        State_or_Province: NJ
+        Postal_Code: 08625
+      Contact_Voice_Telephone: 609-777-0672
+      Contact_Facsimile_Telephone: 609-292-7900
+      Contact_Electronic_Mail_Address: gisnet@dep.state.nj.us
+  Metadata_Standard_Name: FGDC Content Standards for Digital Geospatial Metadata
+  Metadata_Standard_Version: FGDC-STD-001-1998
+  Metadata_Time_Convention: local time
+  Metadata_Access_Constraints: none
+  Metadata_Use_Constraints: none
+  Metadata_Security_Information:
+    Metadata_Security_Classification_System: NJGIN
+    Metadata_Security_Classification: Public
+    Metadata_Security_Handling_Description: no special handling required
