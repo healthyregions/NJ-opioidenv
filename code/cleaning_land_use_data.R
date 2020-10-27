@@ -10,6 +10,8 @@ library(tidylog)
 library(sf)
 library(tmap)
 library(janitor)
+library(smoothr)
+library(rmapshaper)
 
 #Read Data ===== 
 land_use <- read.csv('data_raw/nj_land_use_state_county_municipality_1986_2015.csv', header=TRUE, stringsAsFactors = FALSE, dec = ",")
@@ -60,12 +62,12 @@ land_use_2015_proportions <- land_use %>%
   select(Place.ID:Place.Name, Acreage.2015:description) %>%
   pivot_wider(names_from = "description", values_from = "Acreage.2015") %>%
   replace(is.na(.), 0) %>%
-  mutate(pct_residential_of_urban = `Residential (Total)` / URBAN) %>% 
-  mutate(pct_commercial_of_urban = `Commercial and Services` / URBAN) %>%
-  mutate(pct_industrial_of_urban = (Industrial + `Industrial and Commercial Complexes`) /URBAN) %>%
-  mutate(pct_residential_of_total = `Residential (Total)` / Place.Total.Area) %>%
-  mutate(pct_commercial_of_total = `Commercial and Services` / Place.Total.Area) %>%
-  mutate(pct_industrial_of_total = (Industrial + `Industrial and Commercial Complexes`) / Place.Total.Area)
+  mutate(pct_res_urb = `Residential (Total)` / URBAN) %>% 
+  mutate(pct_com_urb = `Commercial and Services` / URBAN) %>%
+  mutate(pct_ind_urb = (Industrial + `Industrial and Commercial Complexes`) /URBAN) %>%
+  mutate(pct_res_tot = `Residential (Total)` / Place.Total.Area) %>%
+  mutate(pct_com_tot = `Commercial and Services` / Place.Total.Area) %>%
+  mutate(pct_ind_tot = (Industrial + `Industrial and Commercial Complexes`) / Place.Total.Area)
 
 #residential_2015 gives overall area devoted to different types of residential densities 
 #and proportion of high-density (and not high-density) to total residential area 
@@ -75,12 +77,12 @@ residential_2015 <- land_use %>%
   select(Place.ID:Place.Name, Acreage.2015:description, -Place.Total.Area) %>%
   pivot_wider(names_from = "description", values_from = "Acreage.2015") %>% 
   replace(is.na(.), 0) %>%
-  mutate(pct_high_density_res = `Residential (High Density or Multiple Dwelling)`/`Residential (Total)`) %>%
-  mutate(pct_not_high_density_res = 1-pct_high_density_res)
+  mutate(pct_h_den_res = `Residential (High Density or Multiple Dwelling)`/`Residential (Total)`) %>%
+  mutate(pct_n_h_density_res = 1-pct_h_den_res)
 
 #physical_environment_2015 gives that df only of the percentage values, which likely are the most valuable for the research 
 physical_environment_2015 <- residential_2015 %>%
-  select(c(Place.ID, Place.Name, pct_high_density_res, pct_not_high_density_res)) %>%
+  select(c(Place.ID, Place.Name, pct_h_den_res, pct_n_h_density_res)) %>%
   left_join(land_use_2015_proportions) %>%
   select(-c(Place.Total.Area:`Other Urban or Built-up Land`)) %>%
   mutate(Place.Name = tolower(Place.Name))
@@ -89,27 +91,26 @@ physical_environment_2015 <- residential_2015 %>%
 mun_boundaries <- st_read('data_raw/Municipal_Boundaries_of_NJ.shp') %>%
   select(c("MUN", "MUN_TYPE", "GNIS_NAME", "GNIS", "SSN", "CENSUS2010":"POPDEN1980",
            "geometry")) %>% #Grab only relevant variables
-  rename(Place.Name = MUN) #rename column for join
+  rename(Place.Name = MUN) %>%#rename column for join
+  ms_simplify(keep = .25) 
+mun_boundaries$Place.Name <- tolower(mun_boundaries$Place.Name)
+
+object.size(mun_boundaries)
+
+
 
 #Joining municipal boundaries shapefile and physical environment data
 physical_environment_2015_spatial <- left_join(physical_environment_2015, mun_boundaries, 
                                        by = c("Place.Name")) %>%
-  clean_names()
+  clean_names() %>%
+  filter(place_name != "statewide")
 
 
+#Writing File
+#st_write(physical_environment_2015_spatial, "data_in_progress/physical_environment_2015.shp") actually don't run!
+#st_write(obj = physical_environment_2015_spatial, "physical_environment_2015.gpkg")
+st_write(physical_environment_2015_spatial, "data_in_progress/physical_environment_2015.geojson")
 
-
-#Writing Files:
-write.csv(physical_environment_2015, "data_raw/physical_environment_2015.csv")
-write.csv(land_use, "data_raw/land_use.csv")
-
-#
-
-
-
-
-#Visualizing Options for Residential, Commercial, Industrial Land Use
-
-
-
-
+st_write(mun_boundaries, "data_in_progress/mun_boundaries.geojson")
+#Write shapefile:
+st_write(mun_boundaries, "data_in_progress/mun_boundaries.shp")
