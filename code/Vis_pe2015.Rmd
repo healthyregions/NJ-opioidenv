@@ -1,0 +1,79 @@
+---
+title: "Visualizing_LU_and_Business"
+author: "Gabe Morrison"
+date: "10/18/2020"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = F}
+library(tidyverse)
+library(tidylog)
+library(sf)
+library(tmap)
+
+#Sorry this is not reproducible. Will need to change to your directory but keep /NJ-opioidenv/data_raw
+setwd("~/Documents/U_Chicago_Year_4/NJ-opioidenv/data_in_progress")
+pe <- st_read('physical_environment_2015.geojson')
+```
+
+```{r}
+#Sorry this is not reproducible. Rmarkdown throws me an error otherwise and this is a workaround. 
+setwd("~/Documents/U_Chicago_Year_4/NJ-opioidenv/data_in_progress")
+pe <- st_read('physical_environment_2015.shp')
+pe2 <-st_read('physical_environment_2015.gpkg')
+```
+
+##Task 1: Visualize Land Use to compare urban vs total area measures
+Specifically, try to answer question: which measure should we use?
+
+####Commercial:
+```{r}
+commercial_urban <- tm_shape(pe) + tm_borders() + tm_fill(col = "pct_com_urb") + tm_layout(legend.outside = TRUE)
+commercial_total <- tm_shape(pe) + tm_borders() + tm_fill(col = "pct_com_tot") + tm_layout(legend.outside = TRUE)
+commercial_urban
+commercial_total
+```
+
+####Industrial:
+```{r}
+industrial_urban <- tm_shape(pe) + tm_borders() + tm_fill(col = "pct_ind_urb") + tm_layout(legend.outside = TRUE)
+industrial_total <- tm_shape(pe) + tm_borders() + tm_fill(col = "pct_ind_tot") + tm_layout(legend.outside = TRUE)
+industrial_urban
+industrial_total
+```
+
+
+####Residential:
+```{r}
+residential_urban <- tm_shape(pe) + tm_borders() + tm_fill(col = "pct_res_urb") + tm_layout(legend.outside = TRUE)
+residential_total <- tm_shape(pe) + tm_borders() + tm_fill(col = "pct_res_tot") + tm_layout(legend.outside = TRUE)
+residential_urban
+residential_total
+```
+
+
+####Takeaway:
+Huge left skew in commercial and residential of low values. This makes sense; in rural areas there are not very many major commercial/industrial areas. Visualizing the residential land, unsurprisingly in much of the rural areas, there were substantially higher percents of residential land use/urban. This was not as high for residential/total.
+
+(1) Considering total area considers nature (ie places where people just don't live)
+(2) Less-skewed distributions, especially for commerical and industrial 
+
+
+###Task 2: Commerical Districts:
+```{r}
+pe <- pe %>%
+  mutate(mun_type_num = case_when(
+    mun_type == "Township" ~ 1,
+    mun_type == "Borough" ~ 2, 
+    mun_type == "City" ~ 3
+  ))
+nominal_density <- tm_shape(pe) + tm_fill(col = "mun_type_num")
+nominal_density
+```
+
+Note: This is not a great measure because these are forms of government and do not reflect scale in any sense. Therefore, not good measure of central business. https://www.njlm.org/644/Forms-of-Municipal-Government---New-Jers
+
