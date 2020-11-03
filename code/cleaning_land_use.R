@@ -15,9 +15,11 @@ library(rmapshaper)
 
 #Read Data ===== 
 land_use <- read.csv('data_raw/nj_land_use_state_county_municipality_1986_2015.csv', header=TRUE, stringsAsFactors = FALSE, dec = ",")
-land
 
-#Clean Data =====
+
+#Clean Data
+
+#Section 1: Reshape, remove unnecessary columns, convert to correct type =======
 land_use <- land_use %>%
   select(-starts_with(c("Change.in", "Percentage.Change"))) %>% #removes columns that show change and % change in land use
   mutate(description2 = as.character(Descriptiion)) %>% #creates new column as character to allow for filter on next line
@@ -51,8 +53,13 @@ land_use <- land_use %>%
 
 
 
-#Creates new dfs more targeted towards near-term use: 
-#This one calculates the percentage or residential, commercial, and industrial out of all urban land and all land in general
+# Section 2: Creates new columns ======= 
+
+
+# Part A ==== 
+
+#Percentage or residential, commercial, and industrial out of all urban land and all land 
+
 #Note that these do not sum to 100% or 1 because there are other land uses not included (in urban- transportation)
 #Also note that the measures of industry include classifications both of industry themselves and of "Industrial and Commerical complexes)
 
@@ -69,6 +76,8 @@ land_use_2015_proportions <- land_use %>%
   mutate(pct_com_tot = `Commercial and Services` / Place.Total.Area) %>%
   mutate(pct_ind_tot = (Industrial + `Industrial and Commercial Complexes`) / Place.Total.Area)
 
+
+# Part B ==== 
 #residential_2015 gives overall area devoted to different types of residential densities 
 #and proportion of high-density (and not high-density) to total residential area 
 
@@ -97,14 +106,11 @@ physical_environment_2015 <- residential_2015 %>%
 mun_boundaries <- st_read('data_in_progress/mun_boundaries.geojson')
 
 
-
-
 #Joining municipal boundaries shapefile and physical environment data
 physical_environment_2015_spatial <- left_join(physical_environment_2015, mun_boundaries, 
                                        by = c("Place.Name")) %>%
   clean_names() %>%
   filter(place_name != "statewide")
-
 
 #Writing File
 st_write(physical_environment_2015_spatial, "data_in_progress/physical_environment_2015.geojson")

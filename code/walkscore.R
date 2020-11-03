@@ -28,10 +28,10 @@ ws2 <- ws %>%
   select(GEOID, CBSA, CBSA_NAME, state, SSWS2USE, ED1_NO, ED1_PERC, ED2_NO, ED2_PERC) 
 
 #Join walkscore and shp data together so that walkscore gets spatial data
-ws_2013 <- left_join(ws2, bg_2013, by = "GEOID")
+ws_2012 <- left_join(ws2, bg_2013, by = "GEOID")
 
 #Write:
-st_write(ws_2013, "walkscore_education_bg_2013.geojson")
+st_write(ws_2012, "walkscore_education_bg_2012.geojson")
 
 
 
