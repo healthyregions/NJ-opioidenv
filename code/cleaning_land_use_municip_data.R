@@ -51,7 +51,7 @@ land_use <- land_use %>%
 
 
 
-#Creates new dfs more targetted towards near-term use: 
+#Creates new dfs more targeted towards near-term use: 
 #This one calculates the percentage or residential, commercial, and industrial out of all urban land and all land in general
 #Note that these do not sum to 100% or 1 because there are other land uses not included (in urban- transportation)
 #Also note that the measures of industry include classifications both of industry themselves and of "Industrial and Commerical complexes)
@@ -90,15 +90,12 @@ physical_environment_2015 <- residential_2015 %>%
   select(-c(Place.Total.Area:`Other Urban or Built-up Land`)) %>%
   mutate(Place.Name = tolower(Place.Name))
 
-#Read and some cleaning of municipal boundaries shapefile:
-mun_boundaries <- st_read('data_raw/Municipal_Boundaries_of_NJ.shp') %>%
-  select(c("MUN", "MUN_TYPE", "GNIS_NAME", "GNIS", "SSN", "CENSUS2010":"POPDEN1980",
-           "geometry")) %>% #Grab only relevant variables
-  rename(Place.Name = MUN) %>%#rename column for join
-  ms_simplify(keep = .25) 
-mun_boundaries$Place.Name <- tolower(mun_boundaries$Place.Name)
 
-object.size(mun_boundaries)
+
+
+#Read municipalities file:
+mun_boundaries <- st_read('data_in_progress/mun_boundaries.geojson')
+
 
 
 
@@ -112,4 +109,4 @@ physical_environment_2015_spatial <- left_join(physical_environment_2015, mun_bo
 #Writing File
 st_write(physical_environment_2015_spatial, "data_in_progress/physical_environment_2015.geojson")
 
-st_write(mun_boundaries, "data_in_progress/mun_boundaries.geojson")
+
