@@ -1,20 +1,27 @@
 
 # Dataset Name # 
 
-- Meta Data Name: 
-- Date Last Modified: 
-- Author: 
-- Data File Name: 
-- Programming File Name(s): 
-- Data Location: 
+- Meta Data Name: bike_lanes
+- Date Last Modified: 11/18/20
+- Author: Gabe Morrison
+- Data File Name: ?
+- Programming File Name(s): ?
+- Data Location: ?
 
 ## DATA SOURCE(S):
+Open Street Map; data downloaded October 11, 2020
 
 ## DESCRIPTION OF DATA FILE: 
-*What is the rationale or purpose of the data?*
+Goal is to compute a measure of bike lanes in each municipality
+
 
 ## DESCRIPTION OF DATA MANIPULATION:
-*How were data modified? How were key variables calculated and used?*
+All of US Data downloaded from geofabrik: http://download.geofabrik.de/north-america.html
+Osmium used to select only NJ Data with commands:
+- osmium getid -r -t us-latest.osm.pbf r224951 -o nj-boundary.osm
+- osmium extract -p nj-boundary.osm us-latest.osm.pbf -o nj.pbf
+
+
 
 ## KEY VARIABLE NAMES AND DEFINITIONS:
 
