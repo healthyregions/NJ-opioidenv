@@ -21,9 +21,8 @@ The following domains were assigned to the UC team for collection. We will extra
 | Business foreclosure rates (1,2) | | Working solution: extract from OSM, container method |  |  |  |
 | Numbers & types of businesses open for business (1,3) |  | Working solution: extract from OSM, container method |  |  |  |
 | Downtown conditions (1,4,5,6) |  |  |  |  |  |
-| Number of Bars/Liquor stores (1,3) |  | Open Street Map |  |  | Complete |
+| Number of Bars/Liquor stores (1,3) | Bars/Liquor store per capita and per area | Open Street Map |  |  | Complete |
 | Transportation (5,7) |  | Working solutions: proportion of no vehicles and transit commuters via ACS? intersection density? |  |  |  |
-
 
 Barbara notes: " #% of abandoned buildings in downtown areas & housing in neighborhoods. ESRI has poly layers and tables at the county level & I think also data area available for the census level." Also can get tract level (residential) foreclosure rates via: https://www.huduser.gov/portal/sites/default/files/xls/Neighborhood_Foreclosure_Data.xlsx
 
@@ -35,17 +34,11 @@ Barbara notes: " #% of abandoned buildings in downtown areas & housing in neighb
 | Quality of public schools (9) | | Working solution: use school perf metric indicator from 2012 <br> Alt solutions: scrape metric from linked site? scrape performance scoores from other sites? explore NJ public school site?  |  |  |  |
 
 ### Quality of the Physical Environment
-Extract from zoning data, geoprocess.
-- Proportion of land used for industry (7)
-- Proportion of commercial land use (7)
-- Residential structure density (7)
-- Proportion of land used for residence (5,6,10)
-
-In the research plan the following measures were also identified, which we will need to pull:
 | Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status<br>(for Internal team use)|
 |:------------------ | -------------- | --------- | ----------------- | ------------- | -------------------------------- |
 | Access to bike trails |  | geofabrik <br> Note (Gabe): [Braun et al. 2018](https://www.sciencedirect.com/science/article/pii/S096669231830930X) provides four measures (see section 3.3) | [Bike Lanes](data_final/metadata_bike_lanes.md) | | Complete |
-| Walkability score  |  | Working solution: use walkscore indicator from 2012| | | |
+| Walkability score  |  | CSDS's copy of 2013 data from [Walkscore](https://www.walkscore.com) [2013 block group data](https://catalog.data.gov/dataset/tiger-line-shapefile-2013-state-new-jersey-current-block-group-state-based)| [Walk Score](data_final/metadata_walkscore.md)| | Complete |
+| Physical Environment  |  | [Rowan University Geodata Center](https://www.njmap2.com/landuse/landuse/) & [NJGIN Open data Portal](https://njogis-newjersey.opendata.arcgis.com/datasets/3d5d1db8a1b34b418c331f4ce1fd0fef_2)| [Physical Environment](data_final/metadata_physical_environment_2015.md)| | Complete |
 
 ### Data Sources
 The following sources were identified for each variable construct in the original proposal. Consider these starting points; we will identify the best available proxy for each variable construct. 
