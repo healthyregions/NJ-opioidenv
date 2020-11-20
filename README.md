@@ -16,7 +16,7 @@ A copy of the cleaned final dataset, metdata document, and data dictionary will 
 The following domains were assigned to the UC team for collection. We will extract data for each variable construct and measure it as a specific geographic boundary for the entire state of NJ, using the most recent available data. At this time, we'll likely use Municipalties as the spatial scale, but we're still deciding this.
 
 ### Quality of the Commercial Environment
-| Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status<br>(for Internal team use)|
+| Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status|
 |:------------------ | -------------- | --------- | ----------------- | ------------- | -------------------------------- |
 | Business foreclosure rates (1,2) | | Working solution: extract from OSM, container method |  |  |  |
 | Numbers & types of businesses open for business (1,3) |  | Working solution: extract from OSM, container method |  |  |  |
@@ -28,13 +28,11 @@ The following domains were assigned to the UC team for collection. We will extra
 Barbara notes: " #% of abandoned buildings in downtown areas & housing in neighborhoods. ESRI has poly layers and tables at the county level & I think also data area available for the census level." Also can get tract level (residential) foreclosure rates via: https://www.huduser.gov/portal/sites/default/files/xls/Neighborhood_Foreclosure_Data.xlsx
 
 ### Quality of the Residential Environment
-- Residential housing stock & market (1,4,8)
-    - Working solutions: multi-unit structures, crowded housing via ACS/SVI? check Zillow data?
-- Residential conditions (1,4,5,6)
-    - Working solutions: # households for over 20 yrs? vacant areas? home foreclosures (from 2009)? Housing occupancy rate? Vacancy rate? Mobile home percentage? 
-- Quality of public schools (9)
-    - Working solution: use school perf metric indicator from 2012
-    - Alt solutions: scrape metric from linked site? scrape performance scoores from other sites? explore NJ public school site?
+| Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status|
+|:------------------ | -------------- | --------- | ----------------- | ------------- | -------------------------------- |
+| Residential housing stock & market (1,4,8) | | Working solutions: multi-unit structures, crowded housing via ACS/SVI? check Zillow data? |  |  |  |
+| Residential conditions (1,4,5,6) | | Working solutions: # households for over 20 yrs? vacant areas? home foreclosures (from 2009)? Housing occupancy rate? Vacancy rate? Mobile home percentage?  |  |  |  |
+| Quality of public schools (9) | | Working solution: use school perf metric indicator from 2012 <br> Alt solutions: scrape metric from linked site? scrape performance scoores from other sites? explore NJ public school site?  |  |  |  |
 
 ### Quality of the Physical Environment
 Extract from zoning data, geoprocess.
