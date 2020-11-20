@@ -21,7 +21,7 @@ The following domains were assigned to the UC team for collection. We will extra
 | Business foreclosure rates (1,2) | | Working solution: extract from OSM, container method |  |  |  |
 | Numbers & types of businesses open for business (1,3) |  | Working solution: extract from OSM, container method |  |  |  |
 | Downtown conditions (1,4,5,6) |  |  |  |  |  |
-| Number of Bars/Liquor stores (1,3) | Bars/Liquor store per capita and per area | Open Street Map |  |  | Complete |
+| Number of Bars/Liquor stores (1,3) | Bars/Liquor store per capita and per area | Open Street Map | [Bars/Liquor stores](data_final/metadata_bars_liquorstores.md) |  | Complete |
 | Transportation (5,7) |  | Working solutions: proportion of no vehicles and transit commuters via ACS? intersection density? |  |  |  |
 
 Barbara notes: " #% of abandoned buildings in downtown areas & housing in neighborhoods. ESRI has poly layers and tables at the county level & I think also data area available for the census level." Also can get tract level (residential) foreclosure rates via: https://www.huduser.gov/portal/sites/default/files/xls/Neighborhood_Foreclosure_Data.xlsx
