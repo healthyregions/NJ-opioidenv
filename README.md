@@ -16,18 +16,16 @@ A copy of the cleaned final dataset, metdata document, and data dictionary will 
 The following domains were assigned to the UC team for collection. We will extract data for each variable construct and measure it as a specific geographic boundary for the entire state of NJ, using the most recent available data. At this time, we'll likely use Municipalties as the spatial scale, but we're still deciding this.
 
 ### Quality of the Commercial Environment
-- Business foreclosure rates (1,2)  
-    - TBD
-- Numbers & types of businesses open for business (1,3)
-    - Working solution: extract from OSM, container method
-- Downtown conditions (1,4,5,6)
-    - TBD
-- Number of Bars/Liquor stores (1,3)
-    - Working solution: extract from OSM, container method
-- Transportation (5,7)
-    - Working solutions: proportion of no vehicles and transit commuters via ACS? intersection density?
+| Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status<br>(for Internal team use)|
+|:------------------ | -------------- | --------- | ----------------- | ------------- | -------------------------------- |
+| Business foreclosure rates (1,2) | | Working solution: extract from OSM, container method |  |  |  |
+| Numbers & types of businesses open for business (1,3) |  | Working solution: extract from OSM, container method |  |  |  |
+| Downtown conditions (1,4,5,6) |  |  |  |  |  |
+| Number of Bars/Liquor stores (1,3) |  | Open Street Map |  |  | Complete |
+| Transportation (5,7) |  | Working solutions: proportion of no vehicles and transit commuters via ACS? intersection density? |  |  |  |
 
-Barbara notes: " #/% of abandoned buildings in downtown areas & housing in neighborhoods. ESRI has poly layers and tables at the county level & I think also data area available for the census level." Also can get tract level (residential) foreclosure rates via: https://www.huduser.gov/portal/sites/default/files/xls/Neighborhood_Foreclosure_Data.xlsx
+
+Barbara notes: " #% of abandoned buildings in downtown areas & housing in neighborhoods. ESRI has poly layers and tables at the county level & I think also data area available for the census level." Also can get tract level (residential) foreclosure rates via: https://www.huduser.gov/portal/sites/default/files/xls/Neighborhood_Foreclosure_Data.xlsx
 
 ### Quality of the Residential Environment
 - Residential housing stock & market (1,4,8)
@@ -46,11 +44,10 @@ Extract from zoning data, geoprocess.
 - Proportion of land used for residence (5,6,10)
 
 In the research plan the following measures were also identified, which we will need to pull:
-- Access to bike trails 
-    - Working solution: download park trail data, calculate distance to nearest
-    - Note (Gabe): Braun et al. 2018 provides four measures (see section 3.3) https://www.sciencedirect.com/science/article/pii/S096669231830930X
-- Walkability score 
-    - Working solution: use walkscore indicator from 2012
+| Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status<br>(for Internal team use)|
+|:------------------ | -------------- | --------- | ----------------- | ------------- | -------------------------------- |
+| Access to bike trails |  | geofabrik <br> Note (Gabe): [Braun et al. 2018](https://www.sciencedirect.com/science/article/pii/S096669231830930X) provides four measures (see section 3.3) | [Bike Lanes](data_final/metadata_bike_lanes.md) | | Complete |
+| Walkability score  |  | Working solution: use walkscore indicator from 2012| | | |
 
 ### Data Sources
 The following sources were identified for each variable construct in the original proposal. Consider these starting points; we will identify the best available proxy for each variable construct. 
