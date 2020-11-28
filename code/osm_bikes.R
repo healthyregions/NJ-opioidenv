@@ -7,7 +7,7 @@ library(osmdata)
 library(sf)
 library(tmap)
 
-
+# Step 1: Reading =====
 #Read from OSM
 bb_nj <- getbb ('New Jersey', format_out = 'polygon')
 bike_designated_query <- opq(bb_nj) %>% #This is the overpass_query object which becomes the space designated in bb from the pipe
@@ -31,6 +31,7 @@ bike_footpath_query <- opq(bb_nj) %>% #This is the overpass_query object which b
   osmdata_sf() %>%
   trim_osmdata(bb_nj)
 
+#Step 2: Combining Query Data =======
 
 #Two sets of data:
 #Vision: first list includes large group of what could be bike lanes. 
@@ -41,6 +42,8 @@ nj_strong_bikes <-c(bike_designated_query, bike_cycleway_query)
 nj_bikes_and_paths_lines <-nj_bikes_and_paths$osm_lines
 nj_bikes_lines <- nj_strong_bikes$osm_lines
 
+#Step 3: Compute Path Length ======= 
+
 #Convert to same ESPG as Municipalities:
 nj_bikes_and_paths_lines <- st_transform(nj_bikes_and_paths_lines, 3424)
 nj_bikes_lines <- st_transform(nj_bikes_lines, 3424)
@@ -48,6 +51,10 @@ nj_bikes_lines <- st_transform(nj_bikes_lines, 3424)
 #Compute distance of each set of data (to use in ratio with total area):
 nj_bikes_lines$length <- st_length(nj_bikes_lines)
 nj_bikes_and_paths_lines$length <- st_length(nj_bikes_and_paths_lines)
+
+
+#Step 4: Municipality Data Manipulation =======
+
 
 #Read in municipality spatial data:
 mun <- st_read("data_in_progress/mun_boundaries.geojson")
@@ -61,9 +68,12 @@ nj_bikes_centroids <- st_centroid(nj_bikes_lines)
 nj_bikes_and_paths_centroids <-st_centroid(nj_bikes_and_paths_lines)
 
 #Spatial Join of municipalities
-random_joined = st_join(random_points, world["name_long"])
 nj_bikes_centroids <- st_join(nj_bikes_centroids, mun["Place.Name"])
 nj_bikes_and_paths_centroids <- st_join(nj_bikes_and_paths_centroids, mun["Place.Name"])
+
+
+
+#Step 5: Compute distance/area ratio ======
 
 #Group-by Municipality:
 bikes_mun <- nj_bikes_centroids %>%
@@ -89,6 +99,7 @@ bikes_mun <- as.data.frame(bikes_mun) %>%
 #Join files
 bike_paths_mun <- left_join(bikes_paths_mun, bikes_mun)
 
+#Step 6: Write data =====
 #Write file :)
 st_write(bike_paths_mun, "data_in_progress/bike_paths_mun.geojson")
 
