@@ -21,7 +21,7 @@ The following domains were assigned to the UC team for collection. We will extra
 | Business foreclosure rates (1,2) | | Working solution: extract from OSM, container method |  |  |  |
 | Numbers & types of businesses open for business (1,3) |  | Working solution: extract from OSM, container method |  |  |  |
 | Downtown conditions (1,4,5,6) |  |  |  |  |  |
-| Number of Bars/Liquor stores (1,3) | Bars/Liquor store per capita and per area | Open Street Map | [Bars/Liquor stores](data_final/metadata_bars_liquorstores.md) |  | Complete |
+| Number of Bars/Liquor stores (1,3) | Bars/Liquor store per capita and per area | Open Street Map | [Bars/Liquor stores](data_final/metadata_bars_liquorstores.md) |Municipality <br> Olina also calculated at smaller scales  | Complete |
 | Transportation (5,7) |  | Working solutions: proportion of no vehicles and transit commuters via ACS? intersection density? |  |  |  |
 
 Barbara notes: " #% of abandoned buildings in downtown areas & housing in neighborhoods. ESRI has poly layers and tables at the county level & I think also data area available for the census level." Also can get tract level (residential) foreclosure rates via: https://www.huduser.gov/portal/sites/default/files/xls/Neighborhood_Foreclosure_Data.xlsx
@@ -31,14 +31,14 @@ Barbara notes: " #% of abandoned buildings in downtown areas & housing in neighb
 |:------------------ | -------------- | --------- | ----------------- | ------------- | -------------------------------- |
 | Residential housing stock & market (1,4,8) | | Working solutions: multi-unit structures, crowded housing via ACS/SVI? check Zillow data? |  |  |  |
 | Residential conditions (1,4,5,6) | | Working solutions: # households for over 20 yrs? vacant areas? home foreclosures (from 2009)? Housing occupancy rate? Vacancy rate? Mobile home percentage?  |  |  |  |
-| Quality of public schools (9) | | Working solution: use school perf metric indicator from 2012 <br> Alt solutions: scrape metric from linked site? scrape performance scoores from other sites? explore NJ public school site?  |  |  |  |
+| Quality of public schools (9) |Data from walkscore captures the *quantity* of public schools | Working solution: use school perf metric indicator from 2012 <br> Alt solutions: scrape metric from linked site? scrape performance scoores from other sites? explore NJ public school site?  |  |  |In progress: depends on if we want quality or quantity  |
 
 ### Quality of the Physical Environment
 | Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status<br>(for Internal team use)|
 |:------------------ | -------------- | --------- | ----------------- | ------------- | -------------------------------- |
-| Access to bike trails | Bike trails proxied with two OSM data measures (bikes trails and bikes trails + paths) which take ratio distance of bike trail / municipality area  | geofabrik <br> Note (Gabe): [Braun et al. 2018](https://www.sciencedirect.com/science/article/pii/S096669231830930X) provides four measures (see section 3.3) | [Bike Lanes](data_final/metadata_bike_lanes.md) | | Complete |
-| Walkability score  |  | CSDS's copy of 2013 data from [Walkscore](https://www.walkscore.com) [2013 block group data](https://catalog.data.gov/dataset/tiger-line-shapefile-2013-state-new-jersey-current-block-group-state-based)| [Walk Score](data_final/metadata_walkscore.md)| | Complete |
-| Physical Environment  |  | [Rowan University Geodata Center](https://www.njmap2.com/landuse/landuse/) & [NJGIN Open data Portal](https://njogis-newjersey.opendata.arcgis.com/datasets/3d5d1db8a1b34b418c331f4ce1fd0fef_2)| [Physical Environment](data_final/metadata_physical_environment_2015.md)| | Complete |
+| Access to bike trails | Bike trails proxied with two OSM data measures (bikes trails and bikes trails + paths) which take ratio distance of bike trail <br> Note: [Braun et al. 2018](https://www.sciencedirect.com/science/article/pii/S096669231830930X) describes this measure (see section 3.3)/ municipality area  | OSM via osmdata package in R  | [Bike Lanes](data_final/metadata_bike_lanes.md) |Municipality | Complete |
+| Walkability score  |  | CSDS's copy of 2013 data from [Walkscore](https://www.walkscore.com) [2013 block group data](https://catalog.data.gov/dataset/tiger-line-shapefile-2013-state-new-jersey-current-block-group-state-based)| [Walk Score](data_final/metadata_walkscore.md)|Municipality | Complete |
+| Physical Environment  |  | [Rowan University Geodata Center](https://www.njmap2.com/landuse/landuse/) & [NJGIN Open data Portal](https://njogis-newjersey.opendata.arcgis.com/datasets/3d5d1db8a1b34b418c331f4ce1fd0fef_2)| [Physical Environment](data_final/metadata_physical_environment_2015.md)|Municipality | Complete |
 
 ### Data Sources
 The following sources were identified for each variable construct in the original proposal. Consider these starting points; we will identify the best available proxy for each variable construct. 
