@@ -30,16 +30,22 @@ areal_weights <- st_intersection(st_make_valid(mun), ct) %>% #Note st_make_valid
   mutate(area = st_area(geometry)) %>%
   select(Place.Name, TRACTID, area) %>%
   group_by(TRACTID) %>%
-  mutate(prop_of_ct = area / sum(area))
+  mutate(prop_of_ct = area / sum(area)) %>%
+  as.data.frame() %>%
+  select(Place.Name, TRACTID, prop_of_ct)
+
+#Write data:
+
+st_write(areal_weights, "data_final/crosswalk_tract_mun.geojson")
+
+
+
+
 
 #Demonstrative example:
 ex <- areal_weights %>%
   filter(TRACTID == "34001010200")
 #~96% in Abescon City, ~3% in Atlantic City, and ~1% in Galloway TWP
-#Process to use(I think):
-#(1) Import data at tract level
-#(2) Join data to this file by tract  
-#(3) for column X create new column X * prop_of_tract then group_by Place.Name and summarize(sum(X*prop_of_tract))
 
 
 

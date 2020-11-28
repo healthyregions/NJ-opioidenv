@@ -1,0 +1,268 @@
+Identification_Information:
+  Citation:
+    Citation_Information:
+      Originator: U.S. Census Bureau
+      Originator: NJ Office of Information Technology (NJOIT), Office of Geographic Information Systems (OGIS)
+      Publication_Date: 20130107
+      Title: Census Tract boundaries (2010 Census) 2012 release, TIGER-derived, NAD83 NJ State Plane feet
+      Geospatial_Data_Presentation_Form: vector digital data
+      Publication_Information:
+        Publication_Place: Trenton, NJ
+        Publisher: NJ Office of Information Technology (NJOIT), Office of Geographic Information Systems (OGIS)
+      Online_Linkage: https://njgin.state.nj.us/oit/gis/download/Census2010Tr2012.zip
+      Online_Linkage: http://www.census.gov/geo/maps-data/data/tiger.html
+  Description:
+    Abstract:
+      Census Tract boundary polygons (2010 Census) for the State of New Jersey, as of 2012.
+
+      For additional documentation, see the US Census Bureau, TIGER data Web site.
+    Purpose: Data reprojected by NJOIT OGIS for use in state Web maps and for redistribution to GIS desktop users.
+    Supplemental_Information:
+      Shapefile in geographic coordinates was downloaded from the US Census Bureau Web site for New Jersey Partnership Shapefile Batch Download on January 7, 2013:  
+
+            http://www.census.gov/geo/partnerships/pvs/bas/st34_nj.html
+
+            The data were developed in partnership with the NJ State Redistricting Commission, following the 2010 U.S. Census.
+
+            The shapefile was then reprojected to NAD83 NJ State Plane coordinates, US Survey feet, and several empty attributes were deleted.
+  Time_Period_of_Content:
+    Time_Period_Information:
+      Single_Date/Time:
+        Calendar_Date: 20130107
+    Currentness_Reference: publication date
+  Status:
+    Progress: Complete
+    Maintenance_and_Update_Frequency: None planned
+  Spatial_Domain:
+    Bounding_Coordinates:
+      West_Bounding_Coordinate: -75.94
+      East_Bounding_Coordinate: -73.33
+      North_Bounding_Coordinate: 41.79
+      South_Bounding_Coordinate: 38.30
+  Keywords:
+    Theme:
+      Theme_Keyword_Thesaurus: ISO 19115 Topic Category
+      Theme_Keyword: boundaries
+  Access_Constraints: None
+  Use_Constraints:
+    See Purpose and Data Quality sections for conditions that limit appropriate uses.
+
+    Acknowledgement of the data set providers would be appreciated for maps, data or other products derived from this data set.
+
+    The TIGER/Line Shapefile products are not copyrighted however TIGER/Line and Census TIGER are registered trademarks of the U.S. Census Bureau.  These products are free to use in a product or publication, however acknowledgement must be given to the U.S. Census Bureau as the source.
+    The boundary information in the TIGER/Line Shapefiles are for statistical data collection and tabulation purposes only; their depiction and designation for statistical purposes does not constitute a determination of jurisdictional authority or rights of ownership or entitlement and they are not legal land descriptions.Coordinates in the TIGER/Line shapefiles have six implied decimal places, but the positional accuracy of these coordinates is not as great as the six decimal places suggest.
+  Cross_Reference:
+    Citation_Information:
+      Originator: U.S. Department of Commerce, Economics and Statistics Administration, U.S. Census Bureau, Geography Division
+      Publication_Date: 20120817
+      Title: 2012 TIGER/Line Shapefiles Technical Documentation
+      Geospatial_Data_Presentation_Form: document
+      Publication_Information:
+        Publication_Place: Washington, DC
+        Publisher: U.S. Department of Commerce, Economics and Statistics Administration, U.S. Census Bureau, Geography Division
+      Online_Linkage: http://www.census.gov/geo/maps-data/data/pdfs/tiger/tgrshp2012/TGRSHP2012_TechDoc.pdf
+Data_Quality_Information:
+  Logical_Consistency_Report: See Census Bureau TIGER Web site.
+  Completeness_Report: See Census Bureau TIGER Web site.
+  Lineage:
+    Process_Step:
+      Process_Description: U.S. Census Bureau TIGER shapefile, 2012 release of 2010 Census Tracts, was reprojected to NAD83 NJ State Plane feet. Metadata record was created reflecting OGIS processing and redistribution of the projected data by the State of New Jersey. Some information was incorporated from Census Bureau documentation.
+      Source_Used_Citation_Abbreviation: TGRSHP2012_TechDoc.pdf
+      Process_Date: 20130718
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: NJOIT, OGIS
+            Contact_Person: Edith Konopka
+          Contact_Address:
+            Address_Type: mailing address
+            Address: PO Box 212
+            City: Trenton
+            State_or_Province: NJ
+            Postal_Code: 08625-0212
+            Country: USA
+          Contact_Voice_Telephone: 609.777.3774
+          Contact_Electronic_Mail_Address: edith.konopka@oit.state.nj.us
+    Process_Step:
+      Process_Description: Table compare and symmetrical difference tools were run to compare this shapefile to the census tract polygon shapefile released for the 2010 census. The only changes noted were minor spatial changes along the exterior boundaries of New Jersey.
+      Process_Date: 201307
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: NJOIT OGIS
+            Contact_Person: Edith Konopka
+          Contact_Voice_Telephone: 609.777.3774
+          Contact_Electronic_Mail_Address: edith.konopka@oit.state.nj.us
+Spatial_Data_Organization_Information:
+  Direct_Spatial_Reference_Method: Vector
+  Point_and_Vector_Object_Information:
+    SDTS_Terms_Description:
+      SDTS_Point_and_Vector_Object_Type: G-polygon
+      Point_and_Vector_Object_Count: 2010
+Spatial_Reference_Information:
+  Horizontal_Coordinate_System_Definition:
+    Planar:
+      Grid_Coordinate_System:
+        Grid_Coordinate_System_Name: State Plane Coordinate System 1983
+        State_Plane_Coordinate_System:
+          SPCS_Zone_Identifier: 2900
+          Transverse_Mercator:
+            Scale_Factor_at_Central_Meridian: 0.999900
+            Longitude_of_Central_Meridian: -74.500000
+            Latitude_of_Projection_Origin: 38.833333
+            False_Easting: 492125.000000
+            False_Northing: 0.000000
+      Planar_Coordinate_Information:
+        Planar_Coordinate_Encoding_Method: coordinate pair
+        Coordinate_Representation:
+          Abscissa_Resolution: 0.000328
+          Ordinate_Resolution: 0.000328
+        Planar_Distance_Units: survey feet
+    Geodetic_Model:
+      Horizontal_Datum_Name: North American Datum of 1983
+      Ellipsoid_Name: Geodetic Reference System 80
+      Semi-major_Axis: 6378137.000000
+      Denominator_of_Flattening_Ratio: 298.257222
+Entity_and_Attribute_Information:
+  Detailed_Description:
+    Entity_Type:
+      Entity_Type_Label: Govt_TIGER2012_tract2010
+      Entity_Type_Definition: 2012 release of 2010 Census Tract, NJ
+      Entity_Type_Definition_Source: U.S. Census Bureau
+    Attribute:
+      Attribute_Label: FID
+      Attribute_Definition: Internal feature number.
+      Attribute_Definition_Source: ESRI
+      Attribute_Domain_Values:
+        Unrepresentable_Domain: Sequential unique whole numbers that are automatically generated.
+    Attribute:
+      Attribute_Label: Shape
+      Attribute_Definition: Feature geometry.
+      Attribute_Definition_Source: ESRI
+      Attribute_Domain_Values:
+        Unrepresentable_Domain: Coordinates defining the features.
+    Attribute:
+      Attribute_Label: STATEFP
+      Attribute_Definition: 2010 Census state Federal Information Processing Standards (FIPS) codes
+      Attribute_Definition_Source: U.S. Census Bureau
+      Attribute_Domain_Values:
+        Codeset_Domain:
+          Codeset_Name: INCITS.38-200x (R2004), Codes for the Identification of the States, the District of Columbia, Puerto Rico, and the Insular Areas of the United States (Formerly FIPS 5-2)
+          Codeset_Source: U.S. Census Bureau
+    Attribute:
+      Attribute_Label: COUNTYFP
+      Attribute_Definition: Census county Federal Information Processing Standards (FIPS) code
+      Attribute_Definition_Source: U.S. Census Bureau
+      Attribute_Domain_Values:
+        Codeset_Domain:
+          Codeset_Name: INCITS.31-200x (R2007), Codes for the Identification of the Counties and Equivalent Areas of the United States, Puerto Rico, and the Insular Areas of the United States (Formerly FIPS 6-4)
+          Codeset_Source: U.S. Census Bureau
+    Attribute:
+      Attribute_Label: TRACTCE
+      Attribute_Definition: Census census tract code
+      Attribute_Definition_Source: U.S. Census Bureau
+      Attribute_Domain_Values:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: 000000
+          Enumerated_Domain_Value_Definition: Water tract in some coastal and Great Lakes water and territorial sea
+          Enumerated_Domain_Value_Definition_Source: U.S. Census Bureau
+      Attribute_Domain_Values:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: 000100 to 998999
+          Enumerated_Domain_Value_Definition: Census tract number
+          Enumerated_Domain_Value_Definition_Source: U.S. Census Bureau
+    Attribute:
+      Attribute_Label: NAME
+      Attribute_Definition: Census census tract name, this is the census tract code converted to an integer or integer plus two-digit decimal if the last two characters of the code are not both zeros.
+      Attribute_Definition_Source: U.S. Census Bureau
+      Attribute_Domain_Values:
+        Codeset_Domain:
+          Codeset_Name: Refer to the online census tract gazetteer file at URL: http://www.census.gov/geo/www/gazetteer/gazette.html
+          Codeset_Source: U.S. Census Bureau
+    Attribute:
+      Attribute_Label: TRACTID
+      Attribute_Definition: Census tract identifier, a concatenation of Census state Federal Information Processing Standards (FIPS) code, county FIPS code, and census tract code
+      Attribute_Definition_Source: U.S. Census Bureau
+      Attribute_Domain_Values:
+        Codeset_Domain:
+          Codeset_Name: INCITS.38-200x (R2004), Codes for the Identification of the States, the District of Columbia, Puerto Rico, and the Insular Areas of the United States (Formerly FIPS 5-2), INCITS.31-200x (R2007), Codes for the Identification of the Counties and Equivalent Areas of the United States, Puerto Rico, and the Insular Areas of the United States (Formerly FIPS 6-4) and the census tract code that appears in TRACTCE
+          Codeset_Source: U.S. Census Bureau
+    Attribute:
+      Attribute_Label: TRACTTYP
+    Attribute:
+      Attribute_Label: TRACTLABEL
+      Attribute_Definition: TRACTCE with fill zeros to the right of the decimal point if no digits
+      Attribute_Domain_Values:
+        Unrepresentable_Domain: Expanded tract identifiers
+    Attribute:
+      Attribute_Label: PARTFLG
+    Attribute:
+      Attribute_Label: VINTAGE
+    Attribute:
+      Attribute_Label: SHAPE_AREA
+      Attribute_Definition: Area of feature in internal units squared.
+      Attribute_Definition_Source: ESRI
+      Attribute_Domain_Values:
+        Unrepresentable_Domain: Positive real numbers that are automatically generated.
+    Attribute:
+      Attribute_Label: SHAPE_LEN
+      Attribute_Definition: Length of the feature perimeter in internal units
+      Attribute_Definition_Source: ESRI
+      Attribute_Domain_Values:
+        Unrepresentable_Domain: Positive real numbers that are automatically generated.
+Distribution_Information:
+  Distributor:
+    Contact_Information:
+      Contact_Organization_Primary:
+        Contact_Organization: NJ Office of Information Technology (NJOIT), Office of Geographic Information Systems (OGIS)
+      Contact_Address:
+        Address_Type: mailing address
+        Address: PO Box 212
+        City: Trenton
+        State_or_Province: NJ
+        Postal_Code: 08625-0212
+        Country: USA
+      Contact_Voice_Telephone: 609.633.9103
+      Contact_Electronic_Mail_Address: njgin@oit.state.nj.us
+  Resource_Description: Downloadable data
+  Distribution_Liability: The State of New Jersey provides the data set "as is". The State makes no guarantee or warranty concerning the accuracy of information contained in the data. Also, the State makes no warranty, either expressed or implied, regarding the condition of the product or its fitness for any particular purpose. The burden for determining fitness for use lies entirely with the user. Although these data files have been processed successfully on computers at the State, no warranty is made by the State regarding the use of the data on any other system, nor does the fact of distribution constitute or imply such a warranty.
+  Standard_Order_Process:
+    Digital_Form:
+      Digital_Transfer_Information:
+        Format_Name: Shapefile
+        Format_Version_Date: 2013
+        File_Decompression_Technique: ZIP (Windows)
+      Digital_Transfer_Option:
+        Online_Option:
+          Computer_Contact_Information:
+            Network_Address:
+              Network_Resource_Name: https://njgin.state.nj.us/NJ_NJGINExplorer/DataDownloads.jsp
+              Network_Resource_Name: https://njgin.state.nj.us/oit/gis/download/Census2010Tr2012.zip
+    Fees: none
+    Ordering_Instructions:
+      Shapefile in NAD83 NJ State Plane feet can be downloaded from NJGIN Data Download Web page. 
+
+      Data in geographic coordinates can be obtained directly from the Census Bureau Web site.
+  Available_Time_Period:
+    Time_Period_Information:
+      Range_of_Dates/Times:
+        Beginning_Date: 201307
+        Ending_Date: present
+Metadata_Reference_Information:
+  Metadata_Date: 20130718
+  Metadata_Contact:
+    Contact_Information:
+      Contact_Organization_Primary:
+        Contact_Organization: NJOIT OGIS
+        Contact_Person: Edith Konopka
+      Contact_Address:
+        Address_Type: mailing address
+        Address: PO Box 212
+        City: Trenton
+        State_or_Province: NJ
+        Postal_Code: 086025-0212
+        Country: USA
+      Contact_Voice_Telephone: 609.777.3774
+      Contact_Electronic_Mail_Address: edith.konopka@oit.state.nj.us
+  Metadata_Standard_Name: FGDC Content Standards for Digital Geospatial Metadata
+  Metadata_Standard_Version: FGDC-STD-001-1998
