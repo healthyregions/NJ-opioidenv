@@ -36,7 +36,7 @@ Barbara notes: " #% of abandoned buildings in downtown areas & housing in neighb
 ### Quality of the Physical Environment
 | Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status<br>(for Internal team use)|
 |:------------------ | -------------- | --------- | ----------------- | ------------- | -------------------------------- |
-| Access to bike trails |  | geofabrik <br> Note (Gabe): [Braun et al. 2018](https://www.sciencedirect.com/science/article/pii/S096669231830930X) provides four measures (see section 3.3) | [Bike Lanes](data_final/metadata_bike_lanes.md) | | Complete |
+| Access to bike trails | Bike trails proxied with two OSM data measures (bikes trails and bikes trails + paths) which take ratio distance of bike trail / municipality area  | geofabrik <br> Note (Gabe): [Braun et al. 2018](https://www.sciencedirect.com/science/article/pii/S096669231830930X) provides four measures (see section 3.3) | [Bike Lanes](data_final/metadata_bike_lanes.md) | | Complete |
 | Walkability score  |  | CSDS's copy of 2013 data from [Walkscore](https://www.walkscore.com) [2013 block group data](https://catalog.data.gov/dataset/tiger-line-shapefile-2013-state-new-jersey-current-block-group-state-based)| [Walk Score](data_final/metadata_walkscore.md)| | Complete |
 | Physical Environment  |  | [Rowan University Geodata Center](https://www.njmap2.com/landuse/landuse/) & [NJGIN Open data Portal](https://njogis-newjersey.opendata.arcgis.com/datasets/3d5d1db8a1b34b418c331f4ce1fd0fef_2)| [Physical Environment](data_final/metadata_physical_environment_2015.md)| | Complete |
 
