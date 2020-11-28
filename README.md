@@ -31,7 +31,7 @@ Barbara notes: " #% of abandoned buildings in downtown areas & housing in neighb
 |:------------------ | -------------- | --------- | ----------------- | ------------- | -------------------------------- |
 | Residential housing stock & market (1,4,8) | | Working solutions: multi-unit structures, crowded housing via ACS/SVI? check Zillow data? |  |  |  |
 | Residential conditions (1,4,5,6) | | Working solutions: # households for over 20 yrs? vacant areas? home foreclosures (from 2009)? Housing occupancy rate? Vacancy rate? Mobile home percentage?  |  |  |  |
-| Quality of public schools (9) |Data from walkscore captures the *quantity* of public schools | Working solution: use school perf metric indicator from 2012 <br> Alt solutions: scrape metric from linked site? scrape performance scoores from other sites? explore NJ public school site?  |  |  |In progress: depends on if we want quality or quantity  |
+| Quality of public schools (9) |Data from walkscore captures the *quantity* of public schools | Working solution: use school perf metric indicator from 2012 <br> Alt solutions: scrape metric from linked site? scrape performance scoores from other sites? explore NJ public school site?  |  |Needs to be calculated (bin method or maybe count/pop??)  |In progress: depends on if we want quality or quantity  |
 
 ### Quality of the Physical Environment
 | Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status<br>(for Internal team use)|
