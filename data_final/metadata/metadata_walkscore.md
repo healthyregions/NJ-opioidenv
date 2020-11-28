@@ -21,14 +21,14 @@ filtered only to include data from NJ
 filtered only to include columns relevant to walkscore and education variables
 
 ## KEY VARIABLE NAMES AND DEFINITIONS:
-GEOID - unique identifier of block groups
-CBSA - city code 
-CBSA_NAME - name of city 
-SSWS2USE - "Street-smart walkscore: .25 street-based access to amenities, weighted by intersection density etc." see notes for more details. *Note that this is for 2012*
-ED1_NO - Total number of parcels categorized as ED1 (Elementary, Junior-High, and High School)
-ED1_PERC -% area of parcels classified as ED1 (Elementary, Junior-High, and High Schools)
-ED2_NO - Total number of parcels classified as ED2 (University or college, other types of education/institution)
-ED2_PERC - % area of parcels classified as ED2 (University or college, other types of education/institution)
+GEOID - unique identifier of block groups <br>
+CBSA - city code <br>
+CBSA_NAME - name of city <br>
+SSWS2USE - "Street-smart walkscore: .25 street-based access to amenities, weighted by intersection density etc." see notes for more details. *Note that this is for 2012* <br>
+ED1_NO - Total number of parcels categorized as ED1 (Elementary, Junior-High, and High School)<br>
+ED1_PERC -% area of parcels classified as ED1 (Elementary, Junior-High, and High Schools) <br>
+ED2_NO - Total number of parcels classified as ED2 (University or college, other types of education/institution)<br>
+ED2_PERC - % area of parcels classified as ED2 (University or college, other types of education/institution)<br>
 
 ## LINK TO DESCRIPTIVE STATISTICS:
 /data_in_progress/walkscore_education_bg_2013.geojson
