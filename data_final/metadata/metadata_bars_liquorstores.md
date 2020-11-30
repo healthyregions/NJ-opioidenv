@@ -2,21 +2,23 @@
 # Dataset Name # 
 
 - Meta Data Name: Bars and Liquor stores in New Jersey
-- Date Last Modified: /
+- Date Last Modified: Nov. 30, 2020
 - Author: Yingyi (Olina) Liang
 - Data File Name: /
-- Data Location: /
+- Programming File Name(s): osm_bikes.R
+- Data Location: data_final
 
 ## DATA SOURCE(S):
-Open Street Map (data downloaded Nov 20, 2020)
+Open Street Map (data downloaded Nov 30, 2020)
 
 ## DESCRIPTION OF DATA FILE: 
 Municipality level bars/liquor stores per capita and per area.
 
 ## DESCRIPTION OF DATA MANIPULATION:
-Data downloaded from osm, bars/liquor stores within NJ boundaries selected. 
-Population/area data from: ???
-
+Bars/liquor stores data downloaded from OpenStreetMap using R. 
+Tract-level data from https://catalog.data.gov/dataset/tiger-line-shapefile-2019-state-new-jersey-current-census-tract-state-based
+Population data from: ??
+1. 
 
 ## KEY VARIABLE NAMES AND DEFINITIONS:
 /
