@@ -4,9 +4,9 @@
 - Meta Data Name: Bars and Liquor stores in New Jersey
 - Date Last Modified: Nov. 30, 2020
 - Author: Yingyi (Olina) Liang
-- Data File Name: /
-- Programming File Name(s): osm_bikes.R
-- Data Location: data_final
+- Data File Name: nj_bars_liquorstores_sum.geojson
+- Programming File Name(s): osm_alcohol.Rmd
+- Data Location: data_in_progress
 
 ## DATA SOURCE(S):
 Open Street Map (data downloaded Nov 30, 2020)
