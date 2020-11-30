@@ -15,9 +15,9 @@ Open Street Map (data downloaded Nov 30, 2020)
 Municipality level bars/liquor stores per capita and per area.
 
 ## DESCRIPTION OF DATA MANIPULATION:
-Bars/liquor stores data downloaded from OpenStreetMap using R. 
-Tract-level shapefile from https://catalog.data.gov/dataset/tiger-line-shapefile-2019-state-new-jersey-current-census-tract-state-based
-Population data from https://www2.census.gov/geo/docs/reference/cenpop2010/tract/CenPop2010_Mean_TR34.txt
+Bars/liquor stores data downloaded from OpenStreetMap using R. <br />
+Tract-level shapefile from https://catalog.data.gov/dataset/tiger-line-shapefile-2019-state-new-jersey-current-census-tract-state-based<br />
+Population data from https://www2.census.gov/geo/docs/reference/cenpop2010/tract/CenPop2010_Mean_TR34.txt<br />
 1. Extract locations of all bars/liquor stores inside NJ bounds using *osmdata* package.
 2. Combine shapefile with population file.
 3. Join shapefile with bars/liquor stores file and count number in each tract.
@@ -35,7 +35,7 @@ liquorstores_per_capita: n_liquorstores/population<br />
 geometry: shape of tract
 
 ## LINK TO DESCRIPTIVE STATISTICS:
- [Bars/Liquor stores Data](data_in_progress/nj_bars_liquorstores_sum.geojson)
+data_in_progress/nj_bars_liquorstores_sum.geojson
 
 ## DATA LIMITIONS:
 /
