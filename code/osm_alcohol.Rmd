@@ -1,0 +1,139 @@
+---
+title: "osm_alcohol"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Get location of Bars/Liquor stores for New Jersey
+- References
+https://dominicroye.github.io/en/2018/accessing-openstreetmap-data-with-r/
+https://wiki.openstreetmap.org/wiki/Map_Features
+https://njogis-newjersey.opendata.arcgis.com/datasets/municipal-boundaries-of-nj-hosted-3424/data
+https://cengel.github.io/R-spatial/spatialops.html#spatial-aggregation-points-in-polygons
+
+```{r}
+#load packages
+library(tidyverse)
+library(osmdata)
+library(sf)
+library(ggmap)
+library(sp)
+library(rgdal)
+library(stringr)
+```
+
+## Get data from OSM
+### Bars
+```{r}
+# q1 <- getbb("New Jersey") %>% #creates a bordering box for a given place
+#   opq() %>% #build the query
+#   add_osm_feature("amenity", "bar") #filter criteria
+# 
+# nj_bars <- osmdata_sf(q1) #query
+# #check data structure
+# nj_bars
+# #3007 points
+```
+```{r}
+# #save raw data
+# nj_bars_raw = as(nj_bars$osm_points, "Spatial")
+# writeOGR(nj_bars_raw, dsn = "nj_bars_raw.gpkg", layer = "cities", driver = "GPKG")
+```
+```{r}
+nj_bars <- read_sf("nj_bars_raw.gpkg")
+```
+
+
+### Liquor stores
+```{r}
+# q2 <- getbb("New Jersey") %>% 
+#   opq() %>% 
+#   add_osm_feature("shop", "alcohol") 
+# 
+# nj_liquorstores <- osmdata_sf(q2)
+# #check data structure
+# nj_liquorstores
+# #2109 points
+```
+```{r}
+# nj_liquorstores_raw = as(nj_liquorstores$osm_points, "Spatial")
+# writeOGR(nj_liquorstores_raw, dsn = "nj_liquorstores_raw.gpkg", layer = "cities", driver = "GPKG")
+```
+```{r}
+nj_liquorstores <- read_sf("nj_liquorstores_raw.gpkg")
+```
+
+## Import Tract Shapefile
+```{r}
+nj_bounds <- read_sf("data/tl_2019_34_tract/tl_2019_34_tract.shp")
+#2010 tracts
+```
+
+## Import population data
+- From: https://www2.census.gov/geo/docs/reference/cenpop2010/tract/CenPop2010_Mean_TR34.txt
+```{r}
+nj_pop = read.csv("data/NJPopCentroids.csv", header = TRUE)
+nj_pop$TRACTCE = str_pad(nj_pop$TRACTCE, 6, pad = "0")
+nj_pop$COUNTYFP = str_pad(nj_pop$COUNTYFP, 3, pad = "0")
+```
+
+## Combine
+- Combine population with tract
+```{r}
+nj_bounds = merge(x = nj_bounds, y = nj_pop[c("COUNTYFP","TRACTCE","POPULATION")], by = c("TRACTCE", "COUNTYFP"), all.x = TRUE)
+nj_bounds
+```
+
+- Combine bars location with tract
+```{r}
+#unify crs
+nj_bounds = st_transform(nj_bounds, st_crs(nj_bars))
+```
+
+```{r}
+nj_bars_sum <- nj_bounds %>% 
+  mutate(tract_area = st_area(geometry)) %>%
+  st_join(nj_bars) %>%
+  group_by(GEOID) %>% 
+  summarize(n_bars = n(), 
+            tract_area = unique(tract_area), 
+            population = unique(POPULATION),
+            bars_per_area_km2 = n_bars/tract_area * 1e6,
+            bars_per_capita = n_bars/population)
+```
+
+```{r}
+nj_liquorstores_sum <- nj_bounds %>% 
+  mutate(tract_area = st_area(geometry)) %>%
+  st_join(nj_liquorstores) %>%
+  group_by(GEOID) %>% 
+  summarize(n_liquorstores = n(), 
+            tract_area = unique(tract_area), 
+            population = unique(POPULATION),
+            liquorstores_per_area_km2 = n_liquorstores/tract_area * 1e6,
+            liquorstores_per_capita = n_liquorstores/population)
+```
+
+```{r}
+nj_bars_liquorstores <- nj_bars_sum
+nj_bars_liquorstores$liquorstores_per_area_km2 = nj_liquorstores_sum$liquorstores_per_area_km2
+nj_bars_liquorstores$liquorstores_per_capita = nj_liquorstores_sum$liquorstores_per_capita
+```
+```{r}
+nj_bars_liquorstores
+```
+```{r}
+st_write(nj_bars_liquorstores, "nj_bars_liquorstores_sum.geojson")
+```
+```{r}
+nj_bars_liquorstores[nj_bars_liquorstores$n_bars == 0,]
+```
+
+
+
+
+
+
