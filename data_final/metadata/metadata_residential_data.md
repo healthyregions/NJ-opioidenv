@@ -84,12 +84,10 @@ Data in data_in_progress/residential_data.Rmd
 
 
 ## DATA LIMITIONS: 
-Given that Open Street Map (OSM) is a collaborate, open source data source, its OSM's data is inherently limited. Bike lanes are difficult to pick out given that they can be classified reasonably in a number of different ways. I suspect that the bikes only data source created here underestimates the total bike lanes in New Jersey while the bike lanes and paths picks up on some footpaths that are not intended for bike use (OSM Highway Path Wiki). That said, Ferster et al. 2019 uses the three key = highway queries above, and key = bicycle value = designated is also highly intuitive to select bike lanes (see OSM Bicycle wiki). 
 
-See Ferster et al. 2019 (linked below). 
 
 ## COMMENTS/NOTES:  
-The bike_ft_p_mile better captures only bike lanes but may not assess all bike lanes in NJ, but bike_path_ft_p_mile likely overestimates this measure by including some paths that are not "bikeable." 
+ 
 
 
 
@@ -97,8 +95,5 @@ The bike_ft_p_mile better captures only bike lanes but may not assess all bike l
 This project is supported by the National Institute of Drug Abuse at the National Institutes of Health (R21 DA046739-01A1; Developing a public health measure of built environment to assess risk of nonmedical opioid use and related mortality in urban and non-urban areas in New Jersey). 
 
 ## REFERENCES:
-OSM: https://www.openstreetmap.org/#map=4/38.01/-95.84
-osmdata (R package): https://cran.r-project.org/web/packages/osmdata/vignettes/osmdata.html
-Ferster et al. 2019: https://www.researchgate.net/publication/331293632_Using_OpenStreetMap_to_inventory_bicycle_infrastructure_A_comparison_with_open_data_from_cities
-OSM Highway Path Wiki: https://wiki.openstreetmap.org/wiki/Tag:highway%3Dpath
-OSM Bicycle Wiki: https://wiki.openstreetmap.org/wiki/Bicycle
+Census/ACS: https://www.census.gov/data.html
+
