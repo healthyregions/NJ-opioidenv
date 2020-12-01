@@ -9,9 +9,10 @@ library(sf)
 library(tmap)
 
 #Read liquor stores:
-#note: I am relatively sure that these are aggregated to the census tract- will sum and us ls/bar_count
+#These are aggregated to the census tract- will sum and us ls/bar_count
 ls <- st_read("data_raw/nj_liquorstores_summary.gpkg")
 bars <- st_read("data_raw/nj_bars_summary.gpkg")
+pop <- read.csv("data_in_progress/nj_tract_pop_2016.csv")
 
 #Read municipality data:
 mun <- st_read("data_in_progress/mun_boundaries.geojson")

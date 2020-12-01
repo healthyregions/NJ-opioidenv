@@ -4,6 +4,7 @@
 #Access walkscore data (ws)
 #Filter it for nj
 #Attach spatial data via census
+#spatial join to municipality
 #Write it
 
 #Load Packages===== 
@@ -13,12 +14,16 @@ library(tidylog)
 
 #Read Data ====== 
 
+#Municipality Spatial Data:
+mun <- st_read("data_in_progress/mun_boundaries.geojson")
+mun_simp <- mun%>%
+  select(Place.Name)
+
 #Shapefile because shapefile on box didn't have shx :()
-setwd("~/Documents/U_Chicago_Year_4/NJ-opioidenv/data_raw") #Again I am sorry
-bg_2013 <- st_read("tl_2013_34_bg.shp")
+bg_2013 <- st_read("data_raw/tl_2013_34_bg.shp")
 
 #Walkscore Data from Box:
-ws <- read.csv('BGs_MSAs_174186_032013.csv') 
+ws <- read.csv('data_raw/BGs_MSAs_174186_032013.csv') 
 
 ws2 <- ws %>%
   mutate(state = str_sub(CBSA_NAME, -2)) %>%
@@ -30,43 +35,24 @@ ws2 <- ws %>%
 #Join walkscore and shp data together so that walkscore gets spatial data
 ws_2012 <- left_join(ws2, bg_2013, by = "GEOID")
 
+#Set WS CRS for spatial join:
+ws_2012 <- st_transform(st_as_sf(ws_2012), 3424)
+
+#Spatial Join to municipality Data:
+ws_2012_mun <- st_join(st_as_sf(ws_2012), mun_simp)
+
+#Group by municipality:
+ws_mun <- ws_2012_mun %>%
+  group_by(Place.Name) %>%
+  summarise("med_walk_score" = median(SSWS2USE), 
+            "mean_walk_scre" = mean(SSWS2USE),
+            "sum_ed1" = sum(ED1_NO), 
+            "sum_ed2" = sum(ED2_NO))
+
+
+
 #Write:
-st_write(ws_2012, "walkscore_education_bg_2012.geojson")
-
-
-
-
-
-#Cleaning ws ======
-ws_2013 <- ws_2013 %>%
-  select("GEOID", "CBSA", "CBSA_NAME", "POP", "SSWS2USE", "geometry") %>%
-  st_transform(crs = 3424)
-
-
-
-
-
-#Read in and join to pe2015
-setwd("~/Documents/U_Chicago_Year_4/NJ-opioidenv/data_in_progress")
-pe2015 <- st_read("physical_environment_2015.geojson")
-
-
-
-#Spatial Join ======
-# Gives municipality data to ws_204
-st_crs(ws_2013)
-st_crs(pe2015)
-
-ws_2013_mun <- st_join(ws_2013, pe2015["place_name"])
-ws_2013_mun <- ws_2013_mun %>%
-  mutate(pop_ws = POP * SSWS2USE)
-
-mun_ws <- ws_2013_mun %>%
-  group_by(place_name) %>%
-  summarize(pop_ws = sum(pop_ws), pop = sum(POP)) %>%
-  mutate(pop_weighted_ws = pop_ws/pop)
-
-tm_shape(mun_ws) + tm_polygons(col = "pop_weighted_ws")
+st_write(ws_mun, "data_in_progress/walkscore_education_mun_2012.geojson")
 
 
 
