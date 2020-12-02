@@ -2,11 +2,11 @@
 # Dataset Name # 
 
 - Meta Data Name: Bars and Liquor stores in New Jersey
-- Date Last Modified: Nov. 30, 2020
+- Date Last Modified: Dec. 2, 2020
 - Author: Yingyi (Olina) Liang
-- Data File Name: nj_bars_liquorstores_sum.geojson
-- Programming File Name(s): osm_alcohol.Rmd
-- Data Location: data_in_progress
+- Data File Name: nj_bars_liquorstores.geojson
+- Programming File Name(s): code/osm_alcohol.Rmd
+- Data Location: data_in_progress/nj_bars_liquorstores.geojson
 
 ## DATA SOURCE(S):
 Open Street Map (data downloaded Nov 30, 2020)
@@ -20,7 +20,7 @@ Tract-level shapefile from https://catalog.data.gov/dataset/tiger-line-shapefile
 Population data from https://www2.census.gov/geo/docs/reference/cenpop2010/tract/CenPop2010_Mean_TR34.txt<br />
 1. Extract locations of all bars/liquor stores inside NJ bounds using *osmdata* package.
 2. Combine shapefile with population file.
-3. Join shapefile with bars/liquor stores file and count number in each tract.
+3. Join shapefile with bars/liquor stores file and sum number in each tract.
 
 ## KEY VARIABLE NAMES AND DEFINITIONS:
 GEOID: STATEFP+COUNTYFP+TRACTCE <br />
@@ -35,13 +35,13 @@ liquorstores_per_capita: n_liquorstores/population<br />
 geometry: shape of tract
 
 ## LINK TO DESCRIPTIVE STATISTICS:
-data_in_progress/nj_bars_liquorstores_sum.geojson
+data_in_progress/nj_bars_liquorstores.geojson
 
 ## DATA LIMITIONS:
 /
 
 ## COMMENTS/NOTES:  
-/
+Population data is from 2010.
 
 ## ACKNOWLEDGEMENTS:  
 This project is supported by the National Institute of Drug Abuse at the National Institutes of Health (R21 DA046739-01A1; Developing a public health measure of built environment to assess risk of nonmedical opioid use and related mortality in urban and non-urban areas in New Jersey). 
