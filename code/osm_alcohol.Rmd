@@ -96,7 +96,7 @@ nj_bounds = st_transform(nj_bounds, st_crs(nj_bars))
 ```{r}
 nj_bars_sum <- nj_bounds %>% 
   mutate(tract_area = st_area(geometry)) %>%
-  st_join(nj_bars) %>%
+  st_join(nj_bars, left = FALSE) %>%
   group_by(GEOID) %>% 
   summarize(n_bars = n(), 
             tract_area = unique(tract_area), 
@@ -106,31 +106,40 @@ nj_bars_sum <- nj_bounds %>%
 ```
 
 ```{r}
-nj_liquorstores_sum <- nj_bounds %>% 
-  mutate(tract_area = st_area(geometry)) %>%
-  st_join(nj_liquorstores) %>%
-  group_by(GEOID) %>% 
-  summarize(n_liquorstores = n(), 
-            tract_area = unique(tract_area), 
-            population = unique(POPULATION),
-            liquorstores_per_area_km2 = n_liquorstores/tract_area * 1e6,
-            liquorstores_per_capita = n_liquorstores/population)
+plot(nj_bars_sum['n_bars'])
 ```
 
 ```{r}
-nj_bars_liquorstores <- nj_bars_sum
-nj_bars_liquorstores$liquorstores_per_area_km2 = nj_liquorstores_sum$liquorstores_per_area_km2
-nj_bars_liquorstores$liquorstores_per_capita = nj_liquorstores_sum$liquorstores_per_capita
+nj_liquorstores_sum <- nj_bounds %>% 
+  mutate(tract_area = st_area(geometry)) %>%
+  st_join(nj_liquorstores, left = FALSE) %>%
+  group_by(GEOID) %>% 
+  summarize(tract_area = unique(tract_area), 
+            population = unique(POPULATION),
+            n_liquorstores = n(), 
+            liquorstores_per_area_km2 = n_liquorstores/tract_area * 1e6,
+            liquorstores_per_capita = n_liquorstores/population)
 ```
+```{r}
+plot(nj_liquorstores_sum['liquorstores_per_capita'])
+```
+```{r}
+nj_bars_liquorstores <- nj_bounds %>% 
+  left_join(nj_bars_sum%>%st_drop_geometry(), by = "GEOID")  %>% 
+  left_join(nj_liquorstores_sum %>%st_drop_geometry(), by = "GEOID")
+```
+
 ```{r}
 nj_bars_liquorstores
 ```
 ```{r}
+plot(nj_bars_liquorstores['liquorstores_per_capita'])
+```
+
+```{r}
 st_write(nj_bars_liquorstores, "nj_bars_liquorstores_sum.geojson")
 ```
-```{r}
-nj_bars_liquorstores[nj_bars_liquorstores$n_bars == 0,]
-```
+
 
 
 
