@@ -106,10 +106,6 @@ nj_bars_sum <- nj_bounds %>%
 ```
 
 ```{r}
-plot(nj_bars_sum['n_bars'])
-```
-
-```{r}
 nj_liquorstores_sum <- nj_bounds %>% 
   mutate(tract_area = st_area(geometry)) %>%
   st_join(nj_liquorstores, left = FALSE) %>%
@@ -120,13 +116,12 @@ nj_liquorstores_sum <- nj_bounds %>%
             liquorstores_per_area_km2 = n_liquorstores/tract_area * 1e6,
             liquorstores_per_capita = n_liquorstores/population)
 ```
-```{r}
-plot(nj_liquorstores_sum['liquorstores_per_capita'])
-```
+
 ```{r}
 nj_bars_liquorstores <- nj_bounds %>% 
   left_join(nj_bars_sum%>%st_drop_geometry(), by = "GEOID")  %>% 
-  left_join(nj_liquorstores_sum %>%st_drop_geometry(), by = "GEOID")
+  left_join(nj_liquorstores_sum %>%st_drop_geometry()%>%subset(select = -c(tract_area, population)), by = "GEOID")%>%
+  subset(select = -c(TRACTCE, COUNTYFP, STATEFP, NAME, NAMELSAD, MTFCC, FUNCSTAT, ALAND, AWATER, INTPTLAT, INTPTLON))
 ```
 
 ```{r}
@@ -137,7 +132,7 @@ plot(nj_bars_liquorstores['liquorstores_per_capita'])
 ```
 
 ```{r}
-st_write(nj_bars_liquorstores, "nj_bars_liquorstores_sum.geojson")
+st_write(nj_bars_liquorstores, "nj_bars_liquorstores.geojson")
 ```
 
 
