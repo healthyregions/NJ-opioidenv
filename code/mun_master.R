@@ -17,8 +17,11 @@ convert_to_df <- function(df) {
     select(-geometry)
 }
 
-alc_mun <- convert_to_df(alc_mun)
+alc_mun <- convert_to_df(alc_mun) 
 bike_paths <- convert_to_df(bike_paths)
 ws_ed <- convert_to_df(ws_ed)
 
-mun_master <- st_join(pe, ws_ed)
+mun_master <- left_join(pe, ws_ed, by = "Place.Name")
+
+
+mun_master2 <- left_join(mun_master, bike_paths, by = "Place.Name")
