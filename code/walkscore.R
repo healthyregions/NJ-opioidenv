@@ -17,7 +17,7 @@ library(tidylog)
 #Municipality Spatial Data:
 mun <- st_read("data_in_progress/mun_boundaries.geojson")
 mun_simp <- mun%>%
-  select(Place.Name)
+  select(Place.Name, SSN)
 
 #Shapefile because shapefile on box didn't have shx :()
 bg_2013 <- st_read("data_raw/tl_2013_34_bg.shp")
@@ -30,7 +30,7 @@ ws2 <- ws %>%
   filter(state == "NJ") %>%
   filter(!str_detect(CBSA_NAME, "PA-NJ")) %>%
   mutate(GEOID = as.character(geoid2)) %>%
-  select(GEOID, CBSA, CBSA_NAME, state, SSWS2USE, ED1_NO, ED1_PERC, ED2_NO, ED2_PERC) 
+  select(GEOID, CBSA, CBSA_NAME, state, SSWS2USE, Cat6_Flag) 
 
 #Join walkscore and shp data together so that walkscore gets spatial data
 ws_2012 <- left_join(ws2, bg_2013, by = "GEOID")
@@ -41,18 +41,19 @@ ws_2012 <- st_transform(st_as_sf(ws_2012), 3424)
 #Spatial Join to municipality Data:
 ws_2012_mun <- st_join(st_as_sf(ws_2012), mun_simp)
 
-#Group by municipality:
+#Group by municipality and remove spatial to prep to write:
 ws_mun <- ws_2012_mun %>%
-  group_by(Place.Name) %>%
+  group_by(SSN) %>%
   summarise("med_walk_score" = median(SSWS2USE), 
             "mean_walk_scre" = mean(SSWS2USE),
-            "sum_ed1" = sum(ED1_NO), 
-            "sum_ed2" = sum(ED2_NO))
+            "num_schools" = sum(Cat6_Flag)) %>%
+  as.data.frame() %>%
+  select(-geometry)
 
 
 
 #Write:
-st_write(ws_mun, "data_in_progress/walkscore_education_mun_2012.geojson")
+st_write(ws_mun, "data_in_progress/walkscore_education_mun_2012.csv")
 
 
 

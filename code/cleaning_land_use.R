@@ -103,6 +103,6 @@ physical_environment_2015 <- residential_2015 %>%
 
 
 #Writing File
-st_write(physical_environment_2015, "data_in_progress/physical_environment_2015.geojson")
+st_write(physical_environment_2015, "data_in_progress/physical_environment_2015.csv")
 
 
