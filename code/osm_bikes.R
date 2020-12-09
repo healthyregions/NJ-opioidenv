@@ -58,18 +58,17 @@ nj_bikes_and_paths_lines$length <- st_length(nj_bikes_and_paths_lines)
 
 #Read in municipality spatial data:
 mun <- st_read("data_in_progress/mun_boundaries.geojson")
-mun_area <- as.data.frame(mun) %>%
-  select(SQ_MILES, Place.Name)
-
-
+mun_area <- mun %>%
+  as.data.frame() %>%
+  select(SSN, SQ_MILES) 
 
 #Convert to Centroids:
 nj_bikes_centroids <- st_centroid(nj_bikes_lines)
 nj_bikes_and_paths_centroids <-st_centroid(nj_bikes_and_paths_lines)
 
 #Spatial Join of municipalities
-nj_bikes_centroids <- st_join(nj_bikes_centroids, mun["Place.Name"])
-nj_bikes_and_paths_centroids <- st_join(nj_bikes_and_paths_centroids, mun["Place.Name"])
+nj_bikes_centroids <- st_join(nj_bikes_centroids, mun["SSN"])
+nj_bikes_and_paths_centroids <- st_join(nj_bikes_and_paths_centroids, mun["SSN"])
 
 
 
@@ -77,31 +76,32 @@ nj_bikes_and_paths_centroids <- st_join(nj_bikes_and_paths_centroids, mun["Place
 
 #Group-by Municipality:
 bikes_mun <- nj_bikes_centroids %>%
-  group_by(Place.Name) %>%
-  summarise("length_bike" = sum(length)) 
+  group_by(SSN) %>%
+  summarise("length_bike" = sum(length)) #all SQ_MILES are same, so this just returns same val
 
 bikes_paths_mun <- nj_bikes_and_paths_centroids %>%
-  group_by(Place.Name) %>%
+  group_by(SSN) %>%
   summarise("length_path" = sum(length)) 
 
-bikes_mun <- left_join(bikes_mun, mun_area, by ="Place.Name")
-bikes_paths_mun <- left_join(bikes_paths_mun, mun_area, by ="Place.Name")
+bikes_mun <- left_join(bikes_mun, mun_area, by = "SSN")
+bikes_paths_mun <- left_join(bikes_paths_mun, mun_area, by ="SSN")
 
 #Compute ratio of distance/area (ft/sq mile):
 bikes_paths_mun <- as.data.frame(bikes_paths_mun) %>%
   mutate(bike_path_ft_p_mile = length_path / SQ_MILES) %>%
-  select(Place.Name, bike_path_ft_p_mile)
+  select(SSN, bike_path_ft_p_mile)
   
 bikes_mun <- as.data.frame(bikes_mun) %>%
   mutate(bikes_ft_p_mile = length_bike / SQ_MILES) %>%
-  select(Place.Name, bikes_ft_p_mile)
+  select(SSN, bikes_ft_p_mile)
 
 #Join files
-bike_paths_mun <- left_join(bikes_paths_mun, bikes_mun)
+bike_paths_mun <- left_join(bikes_paths_mun, bikes_mun) %>%
+  filter(SSN != 'NA')
 
 #Step 6: Write data =====
 #Write file :)
-st_write(bike_paths_mun, "data_in_progress/bike_paths_mun.geojson")
+st_write(bike_paths_mun, "data_in_progress/bike_paths_mun.csv")
 
 
 

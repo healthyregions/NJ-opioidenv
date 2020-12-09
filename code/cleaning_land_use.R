@@ -97,22 +97,12 @@ physical_environment_2015 <- residential_2015 %>%
   select(c(Place.ID, Place.Name, pct_h_den_res, pct_n_h_density_res)) %>%
   left_join(land_use_2015_proportions) %>%
   select(-c(Place.Total.Area:`Other Urban or Built-up Land`)) %>%
-  mutate(Place.Name = tolower(Place.Name))
+  mutate(Place.Name = tolower(Place.Name)) %>%
+  filter(Place.Name != "statewide")
 
 
-
-
-#Read municipalities file:
-mun_boundaries <- st_read('data_in_progress/mun_boundaries.geojson')
-
-
-#Joining municipal boundaries shapefile and physical environment data
-physical_environment_2015_spatial <- left_join(physical_environment_2015, mun_boundaries, 
-                                       by = c("Place.Name")) %>%
-  clean_names() %>%
-  filter(place_name != "statewide")
 
 #Writing File
-st_write(physical_environment_2015_spatial, "data_in_progress/physical_environment_2015.geojson")
+st_write(physical_environment_2015, "data_in_progress/physical_environment_2015.csv")
 
 

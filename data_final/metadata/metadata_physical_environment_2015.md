@@ -23,7 +23,7 @@ Part 1: Remove unnecessary columns, convert to correct types from data Rowan Uni
 Part 2 a: Create a new dataframe measuring percentage of residential, commercial, and industrial out of all urban land and all land 
 Part 2 b: Creates a new dataframe that measures municiaplities' percentages of high and low density residential areas (ie high density residential area/total residential area)
 Part 2 c: joins the above two dataframes together 
-Part 3: physical environment data joined to municipality spatial data and written as .geojson
+
 
 *municipality_clean.R*
 Reads shapefile NJGIN
