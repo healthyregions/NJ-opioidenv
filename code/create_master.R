@@ -67,10 +67,13 @@ ct_master <- ct_master %>%
 #Conduct Crosswalk:
 prop_of_ct1 <- ct_master$prop_of_ct
   
-ct_master1 <- ct_master %>%
+ct_master <- ct_master %>%
   mutate(across(occupancy_rate:pqns_is_o, {~.x * prop_of_ct})) %>%
   group_by(SSN) %>%
-  summarize(across(occupancy_rate:pqns_is_o, ~sum(., na.rm = T)))
+  summarize(across(occupancy_rate:pqns_is_o, ~sum(., na.rm = T))) %>%
+  mutate(SSN = as.character(SSN)) %>%
+  mutate(SSN = str_pad(SSN, 4, pad = "0"))
+
 
 
 #_________________________________________________________________________
