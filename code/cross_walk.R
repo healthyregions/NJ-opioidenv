@@ -53,10 +53,7 @@ mun_area <- mun %>%
 #Areal interpolation======
 #Compute the % each polygon of ct_div is of the municipality in which they reside
 areal_interpolation <- ct_div %>%
-  left_join(mun_area) %>% #add municipality area
-  mutate(pct_of_mun = area / mun_area_sq_ft) %>% #create percentage of municipality
-  as.data.frame() %>%
-  select(Place.Name, SSN, TRACTID, pct_of_mun)  # #grab only columns desired 
+  select(Place.Name, SSN, TRACTID, prop_of_ct)  # #grab only columns desired 
   
 #Population Weighted Crosswalk ======
 
@@ -79,10 +76,10 @@ ct_div_pop <- st_join(ct_div, bgpop["pop2016"]) %>%
 
 
 
-#Write data:
+#Write data ====
 
 st_write(areal_interpolation, "data_final/cw_areal_interpolation.csv")
-st_write(ct_div_pop, "data_final/cw_pop_weight.csv")
+#st_write(ct_div_pop, "data_final/cw_pop_weight.csv") not complete
 
 
 

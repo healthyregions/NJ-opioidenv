@@ -40,7 +40,7 @@ rd <- read.csv("data_in_progress/residential_data.csv") #Fanmei's residential da
 #Note: IN this file 15 Census Tracts lack data entirely
 
 tract <- st_read('data_raw/tl_2019_34_tract/tl_2019_34_tract.shp') #Spatial Tract Data
-cross <- st_read('data_final/cw_areal_interpolation.csv') # Crosswalk
+cross <- read.csv('data_final/cw_areal_interpolation.csv') # Crosswalk
 
 
 # Basic Set-Up  =====
@@ -49,6 +49,8 @@ cross <- st_read('data_final/cw_areal_interpolation.csv') # Crosswalk
 #For a join of usps and rd files:  
 usps2020$GEOID <- as.character(usps2020$geoid)
 rd$GEOID <- as.character(rd$GEOID)
+cross <- cross %>%
+  mutate(TRACTID = as.character(TRACTID))
 
 ct_master <- left_join(rd, usps2020) %>%
   left_join(cross, by = c("GEOID" = "TRACTID"))
@@ -59,14 +61,14 @@ ct_master <- left_join(rd, usps2020) %>%
 #Clean to prepare for Crosswalk
 ct_master <- ct_master %>%
   select(-geoid) %>% #This is redundant as we have other GEOID
-  relocate(c(GEOID, NAME, Place.Name, pct_of_mun)) %>%#these get these columns out of the way for the simplicity of next call
+  relocate(c(GEOID, NAME, Place.Name, prop_of_ct)) %>%#these get these columns out of the way for the simplicity of next call
   as.data.frame()
 
 #Conduct Crosswalk:
-pct_of_mun_col <- as.numeric(ct_master$pct_of_mun)
+prop_of_ct1 <- ct_master$prop_of_ct
   
-ct_master <- ct_master %>%
-  mutate(across(occupancy_rate:pqns_is_o, {~.* pct_of_mun_col})) %>%
+ct_master1 <- ct_master %>%
+  mutate(across(occupancy_rate:pqns_is_o, {~.x * prop_of_ct})) %>%
   group_by(SSN) %>%
   summarize(across(occupancy_rate:pqns_is_o, ~sum(., na.rm = T)))
 
