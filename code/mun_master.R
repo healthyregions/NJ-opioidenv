@@ -17,3 +17,4 @@ mun_master <- left_join(pe, ws_ed, by = c("Place.ID" = "SSN")) %>%
   left_join(alc_mun, by = c("Place.ID" = "SSN"))
 
 
+write.csv(mun_master, "data_final/mun_master.csv")
