@@ -14,14 +14,15 @@ Municipality spatial whose cleaning was described in metadata_physical_environme
 
 ## DESCRIPTION OF DATA FILE: 
 Create an areal-weighted crosswalk between municipalities and census tracts in NJ. 
-
+Note: there is also code creating a population-weighted interpolation but it hasn't been used
 
 ## DESCRIPTION OF DATA MANIPULATION:
-I followed a tutorial by Jonathan Tannen extremely closely. See the link below.
+I followed a tutorial by Jonathan Tannen. However, I updated to calculate what percent of the municipality each fragment of the census tract constituted. That is, if a census tract was entirely in one municipality and its area constituted 50% of the municility, it would not be divided in the st_transform call and then it would have a .5 in the pct of mun column. 
+
 
 
 ## KEY VARIABLE NAMES AND DEFINITIONS:
-**prop_of_ct**, which stands for proportion of census tract, is the key column. It tells what percent of the area of the census tract falls within a given municipality. If a census tract is divided between two municipalities, it will have two rows whose pro_of_ct sum to 1.00. 
+**pct_of_mun**, which stands for percent of municipality. It tells what the area of the census tract (or fragment) constitutes as an area of the entire municipality. 
 
 Place.Name are the municipality names.
 TRACTID are the unique identifiers for census tracts
@@ -34,10 +35,6 @@ This crosswalk was is an "areal interpolation" meaning that it weights based on 
 
 ## COMMENTS/NOTES:  
 *Recommendations for how to use the data; ideas for future analyses or publications; record of relevant conversations about data* 
-I believe the process that should be used to analyze the data is as follows:
-(1) Import data at tract level
-(2) Join data to this file by tract  
-(3) for column X create new column X * prop_of_tract then group_by Place.Name and summarize(sum(X*prop_of_tract))
 
 
 
