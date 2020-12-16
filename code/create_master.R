@@ -101,7 +101,7 @@ master <- left_join(master, mun_area)
 
 master <- master %>%
   select(-c(occupancy_rate, vacancy_rate, mobile_home_rate)) %>% #Removed because the percent not appropriate for crosswalk
-  select(-Place.ID) #Redundant to SSN
+  select(-Place.ID) %>% #Redundant to SSN
   mutate(occupancy_rate = occupied_units / total_units) %>% #Recreate occupancy, vacancy, mobile home rates
   mutate(vacancy_rate = vacant_units / total_units) %>%
   mutate(mobile_home_rate = mobile_home / total_units) %>%
@@ -111,11 +111,13 @@ master <- master %>%
   mutate(ls_per_pop = count_ls / pop2016) %>%
   mutate(bars_ls_per_sqft = (count_bars + count_ls) / area) %>%
   mutate(bars_ls_per_pop = (count_bars + count_ls) / pop2016) %>%
+  mutate(schools_per_pop = num_schools / pop2016) %>%
   select(-X) %>% #meaningless column removed
   relocate(SSN, .after = Place.Name) %>% #Reordering for more friendly usage 
-  relocate(occupancy_rate:mobile_home_rate, .before = multiunit_struct) %>%
+  #relocate(occupancy_rate:mobile_home_rate, .before = multiunit_struct) %>%
   relocate(bars_per_sqft:bars_ls_per_pop, .after = count_ls) %>%
-  relocate(c(pop2016, area), .after = SSN)
+  relocate(c(pop2016, area), .after = SSN) %>%
+  relocate(schools_per_pop, .after = num_schools)
 
 
 

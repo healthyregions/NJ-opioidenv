@@ -41,6 +41,7 @@ pct_ind_tot - percent of total land in municipality that is industrial
 med_walk_score - median walkscore from SSWS2USE
 mean_walk_score - mean walkscore form SSWS2USE
 num_schools - from Category 6 Flag (education). A count of the number of schools in the geographic area
+schools_per_pop - num_schools / pop2016
 bike_path_ft_p_mile - the number of miles of bike AND other paths summed per sq mile of municipality
 bikes_ft_p_mile - the number of miles of bike paths alone summed per sq mile of municipality
 count_bars - bars in municipality
@@ -60,8 +61,68 @@ pop_own_20yrs_plus: Homeowners who have moved in for more than 20 years
 pop_ren_20yrs_plus: Renters who have moved in for more than 20 years
 no_vehicle: Households with no vehicle available
 public_transit: Means of transportation to work
+AMS_RES: total count of residential addresses
+AMS_BUS: total count of business residences
+AMS_OTH: total count of other addresses
+RES_VAC:    Total Count of Vacant Addresses - Residential
+BUS_VAC:    Total Count of Vacant Addresses - Business
+OTH_VAC:    Total Count of Vacant Addresses - Other
+AVG_VAC_R: Average Days Addresses Vacant - Residential
+AVG_VAC_B: Average Days Addresses Vacant - Business
+VAC_3_RES: Vacant 3 Mos. to Less Count - Residential
+VAC_3_BUS: Vacant 3 Mos. to Less Count - Business
+VAC_3_OTH: Vacant 3 Mos. to Less Count - Other
+VAC_3_6_R: Vacant 3 Mos. to 6 Mos. Count - Residential
+VAC_3_6_B: Vacant 3 Mos. to 6 Mos. Count - Business
+VAC_3_6_O: Vacant 3 Mos. to 6 Mos. Count - Other
+VAC_6_12R: Vacant 6 Mos. to 12 Mos. Count - Residential
+VAC_6_12B: Vacant 6 Mos. to 12 Mos. Count - Business
+VAC_6_12O: Vacant 6 Mos. to 12 Mos. Count - Other
+VAC_12_24R: Vacant 12 Mos. to 24 Mos. Count - Residential
+VAC_12_24B: Vacant 12 Mos. to 24 Mos. Count - Business
+VAC_12_24O: Vacant 12 Mos. to 24 Mos. Count - Other
+VAC_24_36R: Vacant 24 Mos. to 36 Mos. Count - Residential
+VAC_24_36B: Vacant 24 Mos. to 36 Mos. Count - Business
+VAC_24_36O: Vacant 24 Mos. to 36 Mos. Count - Other
+VAC_36_RES: Vacant 36 Mos. or Longer Count - Residential
+VAC_36_BUS: Vacant 36 Mos. or Longer Count - Business
+VAC_36_OTH: Vacant 36 Mos. or Longer Count - Other
 
-see uspsmetadata for specifics on those columns
+PQV_IS_RES: Previous Qtr Vacant Currently In Service Count – Residential
+PQV_IS_BUS: Previous Qtr Vacant Currently In Service Count – Business
+PQV_IS_OTH: Previous Qtr Vacant Currently in Service Count - Other
+PQV_NS_RES: Previous Qtr Vacant Currently No-Stat Count – Residential
+PQV_NS_BUS: Previous Qtr Vacant Currently No-Stat Count – Business
+PQV_NS_OTH: Previous Qtr Vacant Currently No-Stat Count – Other
+NOSTAT_RES: Total Count of No-Stat Addresses - Residential
+NOSTAT_BUS: Total Count of No-Stat Addresses - Business
+NOSTAT_OTH: Total Count of No-Stat Addresses - Other
+AVG_NS_RES: Average Days Addresses No-Stat - Residential
+AVG_NS_BUS: Average Days Addresses No-Stat - Business
+NS_3_RES: No-Stat 3 Mos. to Less Count - Residential
+NS_3_BUS: No-Stat 3 Mos. to Less Count - Business
+NS_3_OTH: No-Stat 3 Mos. to Less Count - Other
+NS_3_6_RES: No-Stat 3 Mos. to 6 Mos. Count - Residential
+NS_3_6_BUS: No-Stat 3 Mos. to 6 Mos. Count - Business
+NS_3_6_OTH: No-Stat 3 Mos. to 6 Mos. Count - Other
+NS_6_12_R: No-Stat 6 Mos. to 12 Mos. Count - Residential
+NS_6_12_B: No-Stat 6 Mos. to 12 Mos. Count - Business
+NS_6_12_O: No-Stat 6 Mos. to 12 Mos. Count - Other
+NS_12_24_R: No-Stat 12 Mos. to 24 Mos. Count - Residential
+NS_12_24_B: No-Stat 12 Mos. to 24 Mos. Count - Business
+NS_12_24_O: No-Stat 12 Mos. to 24 Mos. Count - Other
+NS_24_36_R: No-Stat 24 Mos. to 36 Mos. Count - Residential
+NS_24_36_B: No-Stat 24 Mos. to 36 Mos. Count - Business
+NS_24_36_O: No-Stat 24 Mos. to 36 Mos. Count - Other
+NS_36_RES: No-Stat 36 Mos. or Longer Count - Residential
+NS_36_BUS: No-Stat 36 Mos. or Longer Count - Business
+NS_36_OTH: No-Stat 36 Mos. or Longer Count - Other
+PQNS_IS_R: Previous Qtr No-Stat Currently In Service Count – Residential
+PQNS_IS_B: Previous Qtr No-Stat Currently In Service Count – Business
+PQNS_IS_O: Previous Qtr No-Stat Currently In Service Count – Other
+
+
+
 
 ## LINK TO DESCRIPTIVE STATISTICS:
 *Provide directory link to file with DS*
