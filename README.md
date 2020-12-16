@@ -18,19 +18,41 @@ The following domains were assigned to the UC team for collection. We will extra
 ### Quality of the Commercial Environment
 | Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status|
 |:------------------ | -------------- | --------- | ----------------- | ------------- | -------------------------------- |
-| Business vacancy rates (1,2) | Commercial vacancies| USPS quarterly vacancy reports |  |  |  |
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+| Business vacancy rates (1,2) | Commercial vacancies| USPS quarterly vacancy reports | [USPS_VAC_2018](data_final/metadata/metadata_usps_vac_2018.md) |  |  |
 | Numbers & types of businesses open for business (1,3) | TBD | ESRI Business License, TBD |  |  |  |
 | Downtown conditions (1,4,5,6) |  |  |  |  |  |
 | Number of Bars/Liquor stores (1,3) | Bars/Liquor store per capita and per area | Open Street Map | [Bars/Liquor stores](data_final/metadata/metadata_bars_liquorstores.md) |Municipality <br> Olina also calculated at smaller scales  | Complete |
 | Transportation (5,7) | no vehciles, % commuters via car and transit by household | ACS |  |Tract   |  |
+=======
+=======
+>>>>>>> Stashed changes
+| Business foreclosure rates (1,2) | | Working solution: extract from OSM, container method |  | [USPS_Vac_2018](data_final/metadata_usps_vac_2018.md) |  |
+| Numbers & types of businesses open for business (1,3) |  | Working solution: extract from OSM, container method |  |  |  |
+| Downtown conditions (1,4,5,6) |  |  |  |  |  |
+| Number of Bars/Liquor stores (1,3) | Bars/Liquor store per capita and per area | Open Street Map | [Bars/Liquor stores](data_final/metadata_bars_liquorstores.md) |Municipality <br> Olina also calculated at smaller scales  | Complete |
+| Transportation (5,7) |  | Working solutions: proportion of no vehicles and transit commuters via ACS? intersection density? |  |Tract (no vehicles & transit commuters)  |  | 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 
 Barbara notes: " #% of abandoned buildings in downtown areas & housing in neighborhoods. ESRI has poly layers and tables at the county level & I think also data area available for the census level." Also can get tract level (residential) foreclosure rates via: https://www.huduser.gov/portal/sites/default/files/xls/Neighborhood_Foreclosure_Data.xlsx
 
 ### Quality of the Residential Environment
 | Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status|
 |:------------------ | -------------- | --------- | ----------------- | ------------- | -------------------------------- |
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 | Residential housing stock & market (1,4,8) | multi-unit structures, crowded housing, mobile home percentage | Census/ACS | [Residential Data](data_final/metadata_residential_data.md) | Tract | In progress: crowded housing via AHS? |
 | Residential conditions (1,4,5,6) | housing stability (# households for over 20 yrs), housing occupancy rate, housnig vacancy rate |  Census/ACS  | [Residential Data](data_final/metadata_residential_data.md) | Tract | Complete |
+=======
+=======
+>>>>>>> Stashed changes
+| Residential housing stock & market (1,4,8) |  Working solutions: multi-unit structures, crowded housing via ACS/SVI? check Zillow data? | Census/ACS | [Residential Data](data_final/metadata_residential_data.md) | Tract | Complete |
+| Residential conditions (1,4,5,6) | Working solutions: # households for over 20 yrs? vacant areas? home foreclosures (from 2009)? Housing occupancy rate? Vacancy rate? Mobile home percentage? |  Census/ACS  | [Residential Data](data_final/metadata_residential_data.md) | Tract | Complete |
+>>>>>>> Stashed changes
 | Quality of public schools (9) |Data from walkscore captures the *quantity* of public schools | Working solution: use school perf metric indicator from 2012 <br> Alt solutions: scrape metric from linked site? scrape performance scoores from other sites? explore NJ public school site?  |metadata_walkscore.md  |Needs to be calculated (bin method or maybe count/pop??)  |In progress: depends on if we want quality or quantity  |
 
 ### Quality of the Physical Environment

@@ -1,4 +1,4 @@
-#Getting up to data Population data for Tract:
+#Getting up to data Population data for Tract and block:
 
 library(sf)
 library(tidycensus)
@@ -13,3 +13,14 @@ nj_tract_pop_16 <-  get_acs(geography = 'tract',
   rename("pop2016" = estimate)
 
 st_write(nj_tract_pop_16, "data_in_progress/nj_tract_pop_2016.csv")
+
+
+nj_b_pop_16 <- get_acs(geography = 'block group',
+                       variables = c(totpop16 = "B01001_001"),
+                       year = 2018, 
+                       state = "NJ",
+                       geometry = TRUE) %>%
+  select(GEOID, estimate) %>%
+  rename("pop2016" = estimate)
+
+st_write(nj_b_pop_16, "data_in_progress/nj_bg_pop_2016.geojson")

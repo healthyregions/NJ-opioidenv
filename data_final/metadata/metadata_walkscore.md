@@ -2,7 +2,7 @@
 # Dataset Name # 
 
 - Meta Data Name: meta_data_walkscore
-- Date Last Modified: 2 November 2020
+- Date Last Modified: 15 December 2020
 - Author: Gabriel Morrison
 - Data File Name: walkscore_education_bg_2013.geojson
 - Programming File Name(s): walkscore.R  
@@ -14,21 +14,18 @@ CSDS's copy of 2013 data from Walkscore (https://www.walkscore.com)
 
 
 ## DESCRIPTION OF DATA FILE: 
-The goal of this data is twofold. First is to categorize regions (in this dataset block group, but ultimately municipalities') "walkability". Second is to assess their quality of public schools. 
+The goal of this data is twofold. First is to categorize regions (in this dataset block group, but ultimately municipalities') "walkability". Second is to assess their quality of public schools. Data originally from walkscroe but previously processed by other CSDS researchers/ 
 
 ## DESCRIPTION OF DATA MANIPULATION:
 filtered only to include data from NJ
 filtered only to include columns relevant to walkscore and education variables
 
 ## KEY VARIABLE NAMES AND DEFINITIONS:
-GEOID - unique identifier of block groups <br>
-CBSA - city code <br>
-CBSA_NAME - name of city <br>
-SSWS2USE - "Street-smart walkscore: .25 street-based access to amenities, weighted by intersection density etc." see notes for more details. *Note that this is for 2012* <br>
-ED1_NO - Total number of parcels categorized as ED1 (Elementary, Junior-High, and High School)<br>
-ED1_PERC -% area of parcels classified as ED1 (Elementary, Junior-High, and High Schools) <br>
-ED2_NO - Total number of parcels classified as ED2 (University or college, other types of education/institution)<br>
-ED2_PERC - % area of parcels classified as ED2 (University or college, other types of education/institution)<br>
+SSN - Unique ID
+med_walk_score - median walkscore from SSWS2USE
+mean_walk_score - mean walkscore form SSWS2USE
+num_schools - from Category 6 Flag (education). A count of the number of schools in the geographic area
+
 
 ## LINK TO DESCRIPTIVE STATISTICS:
 /data_in_progress/walkscore_education_bg_2013.geojson

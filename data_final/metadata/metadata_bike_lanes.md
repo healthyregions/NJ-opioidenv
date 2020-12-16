@@ -52,6 +52,9 @@ Joined the bike lane and bike lane and path dfs
 
 
 ## KEY VARIABLE NAMES AND DEFINITIONS:
+bike_path_ft_p_mile - the number of miles of bike AND other paths summed per sq mile of municipality
+bikes_ft_p_mile - the number of miles of bike paths alone summed per sq mile of municipality
+
 
 ## LINK TO DESCRIPTIVE STATISTICS:
 Data in data_in_progress/bike_path_mun.geojson
