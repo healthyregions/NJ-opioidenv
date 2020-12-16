@@ -2,7 +2,4 @@
 .Rhistory
 .RData
 .Ruserdata
-.DS_Store
-code/.DS_Store
-data_raw/.DS_Store
-data_final/.DS_Store
+**/.DS_Store
