@@ -1,0 +1,50 @@
+---
+title: "nj-moud"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Libraries
+```{r}
+library(sf)
+library(dplyr)  
+library(tidyverse)
+```
+
+# Read NJ mun bounds
+```{r}
+mun <- st_read("data_in_progress/mun_boundaries.geojson")
+mun_simp <- mun %>%
+  st_transform(3424) %>%
+  select(SSN, SQ_MILES)
+```
+
+# Clean MOUD data
+```{r}
+moud_data <- read.csv("us-wide-moudsCleaned.csv") %>%
+  subset(state =='NJ') %>%
+  st_as_sf(coords = c("Longitude", "Latitude"), crs = 4326) %>%
+  st_transform(3424) %>%
+  st_join(mun_simp["SSN"]) %>%
+  mutate(ones = 1) %>%
+  group_by(SSN, category)%>%
+  summarize("count" = sum(ones), .groups = 'drop') 
+```
+```{r}
+moud_final <- moud_data %>% 
+  spread(key = category, value = count)%>% 
+  st_set_geometry(NULL) 
+moud_final[is.na(moud_final)] <- 0
+```
+
+```{r}
+st_write(moud_final, "data_in_progress/moud_mun.csv")
+```
+
+
+
+
+
