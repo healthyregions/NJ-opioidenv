@@ -29,32 +29,40 @@ view(ACS18var)
 ```{r }
 # get data of interest by geography (tract)
 
-## identify variables for NO HIGH SCHOOL DIPLOMA
+## identify variables for NO HIGH SCHOOL DIPLOMA (percent of the 25-year-old population without a high school diploma or equivalent)
 # 1. B06009_002: Estimate!!Total!!Less than high school graduate
+# 2. B17024_054: Estimate!!Total!!25 to 34 years
+# 3. B17024_067: Estimate!!Total!!35 to 44 years
+# 4. B17024_080: Estimate!!Total!!45 to 54 years
+# 5. B17024_093:	Estimate!!Total!!55 to 64 years
+# 6. B17024_106:	Estimate!!Total!!65 to 74 years
+# 7. B17024_119:	Estimate!!Total!!75 years and over
+# 4. 
 
+## identify variables for Housing Vancancy Rate (percent of habitable housing that is unoccupied, excluding properties that are for seasonal, recreational, or occational use)
+#  1. total_units = "B25002_001",
+#  2. occupied_units = "B25002_002",
+#  3. vacant_units = "B25002_003"
 
-## identify variables for Housing Vancancy Rate
+## identify variables for Adults Not Working (percent of the prime age, 25-54, population not currently employed)
 #  1. 
 
-## identify variables for Adults Not Working
+## identify variables for Poverty Rate (percent of the population living under poverty line)
 #  1. 
 
-## identify variables for Poverty Rate
+## identify variables for Median Income Ratio (Median household income as a percent of of metro area median household income)
+#  1. 
+
+## identify variables for Change in Employment (percent change in the number of jobs from 2014-2018)
+#  1. 
+
+## identify variables for Change in Establishments (percent change in the number of business establishments from 2014 to 2018)
 #  1. 
 
 ## identify variables for Median Income Ratio
 #  1. 
 
-## identify variables for Median Income Ratio
-#  1. 
-
-## identify variables for Change in Employment
-#  1. 
-
-## identify variables for Change in Establishments
-#  1. 
-
-housing_acs <- get_acs(
+distress_variables <- get_acs(
                 state = "NJ",
                 geography = "tract",
                 variables = c(total_units = "B25002_001",
