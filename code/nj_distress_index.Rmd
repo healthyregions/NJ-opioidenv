@@ -1,0 +1,112 @@
+---
+title: "Distress Index from the ACS Data"
+author: "Fanmei Xia"
+date: "`r lubridate::today()`"
+output: github_document
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+```
+
+```{r, include = FALSE}
+library(tidyverse)
+library(tidycensus)
+library(sf)
+library(tigris)
+```
+
+## 1. Import Data
+
+```{r check_vars, include = FALSE, }
+# check for available variables in the census data (in this case American Community Survey)
+ACS18var <- load_variables(2018, "acs5", cache = TRUE)
+view(ACS18var)
+```
+
+```{r }
+# get data of interest by geography (tract)
+
+## identify variables for NO HIGH SCHOOL DIPLOMA
+# 1. B06009_002: Estimate!!Total!!Less than high school graduate
+
+
+## identify variables for Housing Vancancy Rate
+#  1. 
+
+## identify variables for Adults Not Working
+#  1. 
+
+## identify variables for Poverty Rate
+#  1. 
+
+## identify variables for Median Income Ratio
+#  1. 
+
+## identify variables for Median Income Ratio
+#  1. 
+
+## identify variables for Change in Employment
+#  1. 
+
+## identify variables for Change in Establishments
+#  1. 
+
+housing_acs <- get_acs(
+                state = "NJ",
+                geography = "tract",
+                variables = c(total_units = "B25002_001",
+                              occupied_units = "B25002_002",
+                              vacant_units = "B25002_003",
+                              occupied_owner = "B25003_002",
+                              occupied_renter = "B25003_003",
+                              no_vehicle = "B08201_002",
+                              public_transit = "B08301_010",
+                              mobile_home = "B25024_010",
+                              multiunits_two = "B25024_004",
+                              multiunits_three_or_four = "B25024_005",
+                              multiunits_five_to_nine = "B25024_006",
+                              multiunits_10_to_19 = "B25024_007",
+                              multiunits_20_to_49 = "B25024_008",
+                              multiunits_50plus = "B25024_009",
+                              pop_own_occ = "B25026_002",
+                              pop_own_90_99 = "B25026_007",
+                              pop_own_bfr89 = "B25026_008",
+                              pop_ren_occ = "B25026_009",
+                              pop_ren_90_99 = "B25026_014",
+                              pop_ren_bfr89 = "B25026_015"
+                              ),
+                year = 2018,
+                geometry = FALSE
+                )
+
+# cleaning
+residential_data <- housing_acs %>% 
+  select(GEOID, NAME, variable, estimate) %>% 
+  spread(variable, estimate) %>% 
+  mutate(
+    occupancy_rate = occupied_units/total_units, 
+    vacancy_rate = vacant_units/total_units,
+    mobile_home_rate = mobile_home/total_units,
+    multiunit_struct = multiunits_two + multiunits_three_or_four + multiunits_five_to_nine + multiunits_10_to_19 + multiunits_20_to_49 + multiunits_50plus,
+    pop_own_20yrs_plus = pop_own_90_99 + pop_own_bfr89,
+    pop_ren_20yrs_plus = pop_ren_90_99 + pop_ren_bfr89,
+    pop_20yrs_plus = pop_own_20yrs_plus + pop_ren_20yrs_plus
+    ) %>%
+  select(GEOID,occupancy_rate, vacancy_rate, multiunit_struct, mobile_home_rate, pop_20yrs_plus, no_vehicle, public_transit, everything())
+
+head(residential_data)
+
+# Save as csv file
+write_csv(residential_data, "residential_data.csv")
+```
+
+
+```{r }
+# download shapefile
+tract_shp <- tracts(state = 'NJ', year = 2018, cb = TRUE) 
+
+```
+
