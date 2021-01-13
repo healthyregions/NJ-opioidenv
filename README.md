@@ -25,15 +25,12 @@ The following domains were assigned to the UC team for collection. We will extra
 ### Quality of the Residential Environment
 | Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status|
 |:------------------ | -------------- | --------- | ----------------- | ------------- | -------------------------------- |
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-| Residential housing stock & market (1,4,8) | multi-unit structures, crowded housing, mobile home percentage | Census/ACS | [Residential Data](data_final/metadata_residential_data.md) | Tract | In progress: crowded housing via AHS? |
-| Residential conditions (1,4,5,6) | housing stability (# households for over 20 yrs), housing occupancy rate, housnig vacancy rate |  Census/ACS  | [Residential Data](data_final/metadata_residential_data.md) | Tract | Complete |
-| Residential housing stock & market (1,4,8) |  Working solutions: multi-unit structures, crowded housing via ACS/SVI? check Zillow data? | Census/ACS | [Residential Data](data_final/metadata_residential_data.md) | Tract | Complete |
-| Residential conditions (1,4,5,6) | Working solutions: # households for over 20 yrs? vacant areas? home foreclosures (from 2009)? Housing occupancy rate? Vacancy rate? Mobile home percentage? |  Census/ACS  | [Residential Data](data_final/metadata_residential_data.md) | Tract | Complete |
-| Quality of public schools (9) |Data from walkscore captures the *quantity* of public schools | Working solution: use school perf metric indicator from 2012 <br> Alt solutions: scrape metric from linked site? scrape performance scoores from other sites? explore NJ public school site?  |metadata_walkscore.md  |Needs to be calculated (bin method or maybe count/pop??)  |In progress: depends on if we want quality or quantity  |
-| Transportation (5,7) | no vehicles, % commuters via car and transit by household | ACS |  |Tract   |  |
-
+| Residential housing stock |  Multi-unit structures, mobile home percentage, crowded housing, % rental housing | Census/ACS | [Residential Data](data_final/metadata_residential_data.md) | Tract | Complete |
+| Residential stability |  # households for over 20 yrs | Census/ACS |  | Tract |  |
+| Residential affordability |  average rent, high rent burden, average housing cost | Census/ACS |  | Tract |  |
+| Residential conditions | residential vacancy rates (2018), home foreclosures (2009), Housing occupancy rate|  Census/ACS  | [Residential Data](data_final/metadata_residential_data.md) | Tract | Complete |
+| Quality of public schools (9) | Data from walkscore captures the *quantity* of public schools | use school perf metric indicator from 2012 | metadata_walkscore.md  |Needs to be calculated (bin method or maybe count/pop??)  |In progress: depends on if we want quality or quantity  |
+| Transportation | no vehicles, % commuters via car and transit by household | ACS |  |Tract   |  |
 
 ### Quality of the Physical Environment
 | Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status<br>(for Internal team use)|
