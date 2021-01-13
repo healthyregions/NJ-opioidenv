@@ -21,10 +21,11 @@ filtered only to include data from NJ
 filtered only to include columns relevant to walkscore and education variables
 
 ## KEY VARIABLE NAMES AND DEFINITIONS:
-SSN - Unique ID
-med_walk_score - median walkscore from SSWS2USE
-mean_walk_score - mean walkscore form SSWS2USE
-num_schools - from Category 6 Flag (education). A count of the number of schools in the geographic area
+
+- SSN - Unique ID
+- med_walk_score - median walkscore from SSWS2USE
+- mean_walk_score - mean walkscore form SSWS2USE
+- num_schools - from Category 6 Flag (education). A count of the number of schools in the geographic area
 
 
 ## LINK TO DESCRIPTIVE STATISTICS:
