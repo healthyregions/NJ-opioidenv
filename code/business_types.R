@@ -11,7 +11,7 @@ library(vegan)
 
 #PART 1: GETTING A USABLE df/sf object ========
 #Prep for getting documents
-#Note: here I read the data with 1 row and then extracted column type. I used that in the fread/colClasses call  
+#Note: here I read the data with 20 rows and then extract column type. I used that in the fread/colClasses call  
   
   #bdhead <- fread("data_raw/2014_Business_Academic_QCQ.txt",
   #                nrows = 20)
@@ -21,7 +21,9 @@ library(vegan)
 #Read Data function:
 #Reads text data and only selects potentially relevant columns 
 #Also filters only for NJ and adds a geometry column
-read_data <- function(location_of_file) {
+read_data <- function(location_of_file, data_year = "2014") {
+  if (data_year == "2014"){
+    print("2014 route")
   df <- fread(location_of_file, 
               colClasses=c(
                 "logical", "character",
@@ -52,17 +54,55 @@ read_data <- function(location_of_file) {
                 "logical", "logical",
                 "logical"), 
               showProgress = TRUE)
-  df <- df[State == "NJ"]
+  df <- df[State == "NJ", ]
   df <- df %>%
     as.data.frame() %>%
     st_as_sf(coords = c("Longitude", "Latitude"))
+  }
+  else {
+    df <- fread(location_of_file, 
+                colClasses=c("character", "NULL", 
+                             "NULL", "character", 
+                             "NULL", "NULL", 
+                             "NULL", "NULL", 
+                             "NULL", "NULL", 
+                             "NULL", "NULL", 
+                             "NULL", "integer", 
+                             "NULL", "NULL", 
+                             "NULL", "NULL", 
+                             "NULL", "NULL", 
+                             "NULL", "NULL", 
+                             "NULL", "NULL", 
+                             "NULL", "NULL", 
+                             "NULL", "integer", 
+                             "integer", "NULL", 
+                             "NULL", "NULL", 
+                             "logical", "NULL", 
+                             "NULL", "NULL", 
+                             "NULL", "NULL", 
+                             "NULL", "NULL", 
+                             "NULL", "NULL", 
+                             "NULL", "NULL", 
+                             "NULL", "NULL", 
+                             "NULL", "NULL", 
+                             "NULL", "NULL", 
+                             "NULL", "NULL", 
+                             "NULL"), 
+              showProgress = TRUE)
+  }
+  df <- df[State == "NJ", ]
+  df <- df %>%
+    as.data.frame()
 }
 
 #Call Function:
 njbd2014 <- read_data("data_raw/2014_Business_Academic_QCQ.txt")
+njbd2018 <- read_data("data_raw/2018_Business_Academic_QCQ.txt", data_year = "2018")
+
 
 #Write 
 st_write(njbd2014, "data_in_progress/njbd2014.geojson")
+st_write(njbd2018, "data_in_progress/njbd2018.geojson")
 
 
 ## PART 2: SIMPLIFY DF AND CREATE COUNT FOR 2 DIGIT NAICS BY MUNICIPALITY ======
@@ -73,12 +113,21 @@ mun <- st_read("data_in_progress/mun_boundaries.geojson") %>%
   st_transform(3424)
 
 #Function that cleans data by selecting relevant columns (naics code, sales volume, employee size)
-clean_add_mun <- function(df) {
-  df %>%
+clean_add_mun <- function(df, data_year = "2014") {
+  if (data_year=="2014") {
+    print("2014 branch")
+    df <- df %>%
     select(Company, naics9 = Primary.NAICS.Code, sales_volume = Sales.Volume..9....Location, 
-           emp_size = Employee.Size..5....Location, office_size = Office.Size.Code) %>%
+           emp_size = Employee.Size..5....Location, office_size = Office.Size.Code)
+  } else {
+    df <- df %>%
+      select(Company, naics9 = "Primary NAICS Code", sales_volume = "Sales Volume (9) - Location", 
+             emp_size = "Employee Size (5) - Location")
+  }
+  df %>%
     mutate(naics_2 = str_sub(naics9, start = 1L, end = 2L)) %>% 
-    st_transform(crs = st_crs(mun)) %>% #Actually sets crs
+    st_as_sf()%>%
+    st_transform(crs = st_crs(mun)) %>% #sets crs
     st_join(mun) %>%#Adds municipality via spatial join
     as.data.frame() %>% #Converts to dataframe
     select(-geometry)
@@ -111,14 +160,24 @@ bus_size_emp <- function(df) {
 
 #Read Data Previously Written:
 njbd2014 <- st_read("data_in_progress/njbd2014.geojson")
+njbd2018 <- st_read("data_in_progress/njbd2018.geojson")
+
 
 #Call functions:
 njbd2014 <- clean_add_mun(njbd2014)
 nj_naics2014 <- bus_naics_count(njbd2014)
 nj_buscount2014 <-bus_size_emp(njbd2014)
 
+njbd2018 <- clean_add_mun(njbd2018, data_year = "2018")
+nj_naics2018 <- bus_naics_count(njbd2018)
+nj_buscount2018 <-bus_size_emp(njbd2018)
+
+
+
 #Join 
 nj_bus_mun2014 <- left_join(nj_buscount2014, nj_naics2014)
+nj_bus_mun2014 <- left_join(nj_buscount2018, nj_naics2018)
+
 
 
 
