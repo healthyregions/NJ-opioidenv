@@ -1,0 +1,48 @@
+---
+title: "Opioid Project Meeting Jan 21, 2020"
+author: "Gabe Morrison"
+date: "1/18/2021"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Concerns about Data:
+**Franchise vs individual establishment:** The data is listed by individual establishment. For example, in the first 5 rows, there are 7 McDonalds (in PR). 
+
+**Square footage:** I double checked and didn't find this. There is an Office Size Code column but it is empty. 
+
+```{R}
+library(tidyverse)
+library(tidylog)
+library(sf)
+library(tmap)
+ 
+bus_data <- read.csv("data_in_progress/nj_bus_mun.csv",
+                     colClasses = c("SSN" = "character")) 
+
+mun <- st_read("data_in_progress/mun_boundaries.geojson") %>%
+  select(SSN) 
+
+bus_data <- left_join(bus_data, mun) %>%
+  st_as_sf
+```
+
+```{r}
+col_names <- colnames(bus_data)
+col_names <- col_names[-(1:2)]
+col_names <- col_names[-97]
+
+make_map <- function(col_name) {
+  tm_shape(bus_data) + tm_polygons(col = col_name, style = "jenks")
+}
+maps <- lapply(col_names, make_map)
+
+for (map in maps) {print(map)}
+```
+
+
