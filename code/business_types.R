@@ -160,20 +160,20 @@ nj_bus_mun2018 <- left_join(nj_bus_mun2018, njbd_simpson2018) %>%
 
 #Code modeled after louish's comment: https://stackoverflow.com/questions/29948876/adding-prefix-or-suffix-to-most-data-frame-variable-names-in-piped-r-workflow?rq=1
 nj_bus_mun2014_rename <- nj_bus_mun2014 %>%
-  rename_with(~paste0("2014_", .), -SSN)
+  rename_with(~paste0(.,"_2014"), -SSN)
 nj_bus_mun2018_rename <- nj_bus_mun2018 %>%
-  rename_with(~paste0("2018_", .), -SSN)
+  rename_with(~paste0(.,"_2018"), -SSN)
 
 nj_bus_mun <- left_join(nj_bus_mun2018_rename, nj_bus_mun2014_rename, by = "SSN") 
 
 
 #Set up new col names:
 col_names <- colnames(nj_bus_mun2014)
-col_names <- paste0("dif_", col_names)
+col_names <- paste0("pct_change_", col_names)
 col_names <- col_names[-1]
 
 nj_bus_mun[, col_names] <- NA #This line inspired by Dayne's response: https://stackoverflow.com/questions/18214395/add-empty-columns-to-a-dataframe-with-specified-names-from-a-vector
-nj_bus_mun[, 66:97] <- nj_bus_mun[, 2:33] - nj_bus_mun[, 34:65]  #This inspired by G5W's comment:https://stackoverflow.com/questions/48255895/loop-through-each-column-and-subtract-another-column-in-r
+nj_bus_mun[, 66:97] <- (nj_bus_mun[, 2:33] - nj_bus_mun[, 34:65])/nj_bus_mun[, 34:65]  #This inspired by G5W's comment:https://stackoverflow.com/questions/48255895/loop-through-each-column-and-subtract-another-column-in-r
 
 
 #Write Data:
