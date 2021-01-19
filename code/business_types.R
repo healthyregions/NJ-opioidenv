@@ -155,6 +155,32 @@ nj_bus_mun2018 <- left_join(nj_bus_mun2018, njbd_simpson2018) %>%
   relocate(simp_index_emp_size, .after = "med_sales_vol")
 
 
+
+#PART 4 JOIN DFS ===========
+
+#Code modeled after louish's comment: https://stackoverflow.com/questions/29948876/adding-prefix-or-suffix-to-most-data-frame-variable-names-in-piped-r-workflow?rq=1
+nj_bus_mun2014_rename <- nj_bus_mun2014 %>%
+  rename_with(~paste0("2014_", .), -SSN)
+nj_bus_mun2018_rename <- nj_bus_mun2018 %>%
+  rename_with(~paste0("2018_", .), -SSN)
+
+nj_bus_mun <- left_join(nj_bus_mun2018_rename, nj_bus_mun2014_rename, by = "SSN") 
+
+
+#Set up new col names:
+col_names <- colnames(nj_bus_mun2014)
+col_names <- paste0("dif_", col_names)
+col_names <- col_names[-1]
+
+nj_bus_mun[, col_names] <- NA #This line inspired by Dayne's response: https://stackoverflow.com/questions/18214395/add-empty-columns-to-a-dataframe-with-specified-names-from-a-vector
+nj_bus_mun[, 66:97] <- nj_bus_mun[, 2:33] - nj_bus_mun[, 34:65] 
+
+
 #Write Data:
 write.csv(nj_bus_mun2014, "data_in_progress/nj_bus_mun2014.csv")
+write.csv(nj_bus_mun2018, "data_in_progress/nj_bus_mun2018.csv")
+write.csv(nj_bus_mun, "data_in_progress/nj_bus_mun.csv")
+
+
 `
+
