@@ -73,20 +73,20 @@ njbd2018 <- read_data("data_raw/2018_Business_Academic_QCQ.txt")
 #Bring in municipality data for spatial join:
 mun <- st_read("data_in_progress/mun_boundaries.geojson") %>%
   select(SSN) %>%
-  st_transform(3424)
+  st_transform(4326)
 
 #Function that cleans data by selecting relevant columns (naics code, sales volume, employee size)
 clean_add_mun <- function(df) {
-  st_crs(df) <- 3424
+  st_crs(df) <- 4326
   
     df <- df %>%
+      st_transform(4326) %>%
     select(Company, naics9 = "Primary NAICS Code", sales_volume = "Sales Volume (9) - Location", 
            emp_size = "Employee Size (5) - Location") %>%
     mutate(naics_2 = str_sub(naics9, start = 1L, end = 2L)) %>%
-    st_transform(3424) %>%
-    st_join(mun) #%>%#Adds municipality via spatial join
-    #as.data.frame() %>% #Converts to dataframe
-    #select(-geometry)
+    st_join(mun) %>% #Adds municipality via spatial join
+    as.data.frame() %>% #Converts to dataframe
+    select(-geometry)
 }
 
 #Function to count the number of businesses in each municipality and to find what percent each
@@ -98,7 +98,7 @@ bus_naics_count <- function(df) {
     mutate(naics_2 = as.character(naics_2)) %>% 
     mutate(naics_2 = paste0("pct_naics_2_", naics_2)) %>% #Renames naics2 to pct_naics_2_{naicscode} 
     pivot_wider(names_from = naics_2, values_from = n, values_fill = 0) %>% #Reshapes to organize by mun
-    mutate(all_bus = rowSums(across(pct_naics_2_21:pct_naics_2_NA))) %>% #Gets new column with sum of all businesses in the mun
+    mutate(all_bus = rowSums(across(starts_with("pct_naics")))) %>% #Gets new column with sum of all businesses in the mun
     mutate(across(starts_with("pct_naics"), {~.x / all_bus})) #%>% #Converts rows from counts to percent 
     #mutate(across(starts_with("pct_naics"), ~replace(., .==NaN, 0))) %>%
     #mutate(across(starts_with("pct_naics"), ~replace(., .==Inf, 0))) 
@@ -115,17 +115,13 @@ bus_size_emp <- function(df) {
     )
 }
 
-#Read Data Previously Written:
-#njbd2014 <- st_read("data_in_progress/njbd2014.geojson")
-#njbd2018 <- st_read("data_in_progress/njbd2018.geojson")
-
 
 #Call functions:
 njbd2014_clean_mun <- clean_add_mun(njbd2014)
 nj_naics2014 <- bus_naics_count(njbd2014_clean_mun)
 nj_buscount2014 <-bus_size_emp(njbd2014_clean_mun)
 
-njbd2018_clean_mun <- clean_add_mun(njbd2018, data_year = "2018")
+njbd2018_clean_mun <- clean_add_mun(njbd2018)
 nj_naics2018 <- bus_naics_count(njbd2018_clean_mun)
 nj_buscount2018 <-bus_size_emp(njbd2018_clean_mun)
 
@@ -133,14 +129,14 @@ nj_buscount2018 <-bus_size_emp(njbd2018_clean_mun)
 
 #Join 
 nj_bus_mun2014 <- left_join(nj_buscount2014, nj_naics2014)
-nj_bus_mun2014 <- left_join(nj_buscount2018, nj_naics2018)
+nj_bus_mun2018 <- left_join(nj_buscount2018, nj_naics2018)
 
 
 
 
 
 #PART 3 SIMPSON INICES ==================
-`
+
 
 compute_simpson <- function (df) {
   df %>%
@@ -149,12 +145,14 @@ compute_simpson <- function (df) {
     summarize(simp_index_emp_size = diversity(emp_size, index = "simpson"))
 }
 
-njbd_simpson2014 <- compute_simpson(njbd2014)
+njbd_simpson2014 <- compute_simpson(njbd2014_clean_mun)
+njbd_simpson2018 <- compute_simpson(njbd2018_clean_mun)
 
 #Join to data from part2:
 nj_bus_mun2014 <- left_join(nj_bus_mun2014, njbd_simpson2014) %>%
   relocate(simp_index_emp_size, .after = "med_sales_vol")
-
+nj_bus_mun2018 <- left_join(nj_bus_mun2018, njbd_simpson2018) %>%
+  relocate(simp_index_emp_size, .after = "med_sales_vol")
 
 
 #Write Data:
