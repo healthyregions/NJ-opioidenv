@@ -173,7 +173,7 @@ col_names <- paste0("dif_", col_names)
 col_names <- col_names[-1]
 
 nj_bus_mun[, col_names] <- NA #This line inspired by Dayne's response: https://stackoverflow.com/questions/18214395/add-empty-columns-to-a-dataframe-with-specified-names-from-a-vector
-nj_bus_mun[, 66:97] <- nj_bus_mun[, 2:33] - nj_bus_mun[, 34:65] 
+nj_bus_mun[, 66:97] <- nj_bus_mun[, 2:33] - nj_bus_mun[, 34:65]  #This inspired by G5W's comment:https://stackoverflow.com/questions/48255895/loop-through-each-column-and-subtract-another-column-in-r
 
 
 #Write Data:
