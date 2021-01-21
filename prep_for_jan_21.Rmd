@@ -5,6 +5,7 @@ date: "1/18/2021"
 output:
   html_document:
     df_print: paged
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -12,11 +13,14 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ### Concerns about Data:
-**Franchise vs individual establishment:** The data is listed by individual establishment. For example, in the first 5 rows, there are 7 McDonalds (in PR). 
+**Franchise vs individual establishment:** The data is listed by individual establishment. For example, in the first 400 rows, there are 7 McDonalds (in PR). 
 
 **Square footage:** I double checked and didn't find this. There is an Office Size Code column but it is empty. 
 
-```{R}
+### Other Notes:
+Data also contains the percent of businesses in each municipality that are in each 2-digit NAICS classification. I did not visualize those for eac
+
+```{R, warning = F, error = F}
 library(tidyverse)
 library(tidylog)
 library(sf)
@@ -32,17 +36,89 @@ bus_data <- left_join(bus_data, mun) %>%
   st_as_sf
 ```
 
-```{r}
+```{r, warning = F, error = F}
 col_names <- colnames(bus_data)
 col_names <- col_names[-(1:2)]
 col_names <- col_names[-97]
 
 make_map <- function(col_name) {
-  tm_shape(bus_data) + tm_polygons(col = col_name, style = "jenks")
+  tm_shape(bus_data) + tm_fill(col = col_name, style = "jenks") + tm_borders(alpha = .15)
 }
 maps <- lapply(col_names, make_map)
-
-for (map in maps) {print(map)}
 ```
 
 
+## Emp Size 18, 14, dif:
+
+Takeaways: Generally small employment size near NYC; mean size increased slightly in rural areas, not a ton in urban NE and E. 
+```{r, error =F}
+maps[1]
+maps[2]
+maps[33]
+maps[34]
+maps[65]
+maps[66]
+```
+
+
+##Sales Volume:
+
+Takeaways: Again relatively consistent patterns. Appears that sales volume was relatively consistent but went down in rural western side. 
+```{r, warning = F, error = F}
+maps[3]
+maps[4]
+maps[35]
+maps[36]
+maps[67]
+maps[68]
+```
+
+
+##Simpson Index Number of employees:
+
+Relatively high diversity across the state. Not a lot of variability in the measures :(, so may not be great for modelling.
+```{r, warning = F, error = F}
+maps[5]
+maps[37]
+maps[69]
+```
+
+##Business Counts:
+
+Takeaway: Consistently more businesses where there are more people, even as those municipalities are smaller. These data don't change a ton 2014-2018 (light yellow is close to no change). 
+```{r, warning = F, error = F}
+maps[32]
+maps[64]
+maps[96]
+```
+
+
+## Using NAICS to identify urban:
+Not terribly successful; may need raw counts rather than percents
+
+### NAICS 54- Professional, Scientific, and Technical Services:
+
+```{r, warning = F, error = F}
+maps[18]
+maps[52]
+maps[84]
+```
+
+
+
+#NAICS 55- Management of Companies and Enterprises:
+
+```{r, warning = F, error = F}
+maps[21]
+maps[53]
+maps[85]
+```
+
+
+#NAICS 71- Arts, Entertainment, and Recreation:
+
+```{r}
+maps[23]
+maps[57]
+maps[89]
+```
