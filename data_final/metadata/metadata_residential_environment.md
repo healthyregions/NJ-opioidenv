@@ -2,10 +2,10 @@
 # Dataset Name # 
 
 - Meta Data Name: residential_data
-- Date Last Modified: 11/29/20
+- Date Last Modified: 1/19/21
 - Author: Fanmei Xia
-- Data File Name: residential_data
-- Programming File Name(s): residential_data.Rmd
+- Data File Name: residential_environment
+- Programming File Name(s): residential_environment.Rmd
 - Data Location: data_in_progress
 
 ## DATA SOURCE(S):

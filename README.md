@@ -27,7 +27,7 @@ The following domains were assigned to the UC team for collection. We will extra
 |:------------------ | -------------- | --------- | ----------------- | ------------- | -------------------------------- |
 | Residential housing stock |  Multi-unit structures, mobile home percentage, crowded housing, % rental housing | Census/ACS | [Residential Data](data_final/metadata_residential_environment.md) | Tract | Complete |
 | Residential stability |  # households for over 20 yrs, Housing occupancy rate | Census/ACS | [Residential Data](data_final/metadata_residential_environment.md) | Tract | Complete |
-| Residential affordability |  average rent, high rent burden, average housing cost | Census/ACS |  | Tract | Complete |
+| Residential affordability |  average rent, high rent burden, average housing cost | Census/ACS |  | | |
 | Residential conditions | residential vacancy rates (USPS 2018), home foreclosures (HUD 2009),  | multiple  | [Residential Data](data_final/metadata_residential_environment.md) | Tract | Complete |
 | Quality of public schools (9) | Data from walkscore captures the *quantity* of public schools | use school perf metric indicator from 2012 | metadata_walkscore.md  |Needs to be calculated (bin method or maybe count/pop??)  |In progress: depends on if we want quality or quantity  |
 | Transportation | no vehicles, % commuters via car and transit by household | ACS |  |Tract   |  |
