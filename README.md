@@ -18,7 +18,7 @@ The following domains were assigned to the UC team for collection. We will extra
 ### Quality of the Commercial Environment
 | Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status|
 |:------------------ | -------------- | --------- | ----------------- | ------------- | -------------------------------- |
-| Business vacancy rates | Commercial vacancies| USPS quarterly vacancy reports | [USPS_VAC_2018](data_final/metadata/metadata_usps_vac_2018.md) |  |  |
+| Business vacancy rates | Commercial vacancies| USPS quarterly vacancy reports | [USPS_VAC_2018](data_final/metadata/metadata_usps_vac_2018_variables.md) | tract | Complete |
 | Numbers & types of businesses open for business | TBD | ESRI Business License, TBD |  |  |  |
 | Number of Bars/Liquor stores (1,3) | Bars/Liquor store per capita and per area | Open Street Map | [Bars/Liquor stores](data_final/metadata/metadata_bars_liquorstores.md) |Municipality <br> Olina also calculated at smaller scales  | Complete |
 
