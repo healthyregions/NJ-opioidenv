@@ -1,7 +1,7 @@
 
 # Dataset Name # 
 
-- Meta Data Name: residential_data
+- Meta Data Name: residential_environment
 - Date Last Modified: 1/19/21
 - Author: Fanmei Xia
 - Data File Name: residential_environment
