@@ -32,16 +32,17 @@ using ms_simplify, simplifies the polygons by removing 75% of their points. This
 writes file as .geojson 
 
 ## KEY VARIABLE NAMES AND DEFINITIONS:
-Place.ID - municipality ID (numeric)
-Place.Name - municipality (string)
-pct_h_d_res - percent of residential area that is high density 
-pct_n_h_density_res - percent of residential area that is not high density 
-pct_res_urb - percent of urban land in municipality that is residential of any kind
-pct_com_urb - percent of urban land in municipality that is commercial 
-pct_ind_urb -  percent of urban land in municipality that is industrial 
-pct_res_tot - percent of total land in municipality that is residential of any kind
-pct_com_tot - percent of total land in municipality that is commercial 
-pct_ind_tot - percent of total land in municipality that is industrial  
+
+- Place.ID - municipality ID (numeric)
+- Place.Name - municipality (string)
+- pct_h_d_res - percent of residential area that is high density 
+- pct_n_h_density_res - percent of residential area that is not high density 
+- pct_res_urb - percent of urban land in municipality that is residential of any kind
+- pct_com_urb - percent of urban land in municipality that is commercial 
+- pct_ind_urb -  percent of urban land in municipality that is industrial 
+- pct_res_tot - percent of total land in municipality that is residential of any kind
+- pct_com_tot - percent of total land in municipality that is commercial 
+= pct_ind_tot - percent of total land in municipality that is industrial  
 
 ## LINK TO DESCRIPTIVE STATISTICS:
 
