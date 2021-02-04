@@ -17,7 +17,7 @@ Create an areal-weighted crosswalk between municipalities and census tracts in N
 Note: there is also code creating a population-weighted interpolation but it hasn't been used
 
 ## DESCRIPTION OF DATA MANIPULATION:
-I followed a tutorial by Jonathan Tannen. However, I updated to calculate what percent of the municipality each fragment of the census tract constituted. That is, if a census tract was entirely in one municipality and its area constituted 50% of the municility, it would not be divided in the st_transform call and then it would have a .5 in the pct of mun column. 
+I followed a tutorial by Jonathan Tannen. However, I updated to calculate what percent of the municipality each fragment of the census tract constituted. That is, if a census tract was entirely in one municipality and its area constituted 50% of the municipality, it would not be divided in the st_transform call and then it would have a .5 in the pct of mun column. 
 
 
 
