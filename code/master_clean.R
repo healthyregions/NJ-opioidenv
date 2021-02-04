@@ -10,7 +10,7 @@ master_clean <- master %>%
             multiunits_10_to_19, multiunits_20_to_49, multiunits_50plus, multiunits_five_to_nine, multiunits_three_or_four, multiunits_two,
             occupied_owner, occupied_renter, occupied_units,
             pop_own_90_99, pop_own_bfr89, pop_own_occ, pop_ren_90_99, pop_ren_bfr89, pop_ren_occ, 
-            pop_own_20yrs_plus, pop_ren_20yrs_plus,
+            pop_own_20yrs_plus, pop_ren_20yrs_plus, pop_20yrs_plus, 
             vac_3_res, vac_3_bus, vac_3_oth, vac_3_6_r, vac_3_6_b, vac_3_6_o, 
             vac_6_12r, vac_12_24r, vac_12_24b, vac_12_24o, vac_24_36r, vac_24_36b, vac_24_36o,
             vac_36_res, vac_36_bus, vac_36_oth, vac_6_12b, vac_6_12o, 
@@ -24,4 +24,4 @@ master_clean <- master %>%
          )
 
 write_csv(master_clean, file = "master_clean.csv")
-
+colnames(master_clean)
