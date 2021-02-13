@@ -88,4 +88,15 @@ maps[22] #22 vacancy_rate
 maps[23] #23 mobile_home_rate
 ```
 
+##Physical Environ:
+
+
+```{r, warning = F, error = F}
+maps[1] #1. 	pct_h_den_res
+maps[2] #2. med_walk_score
+maps[3] #3. mean_walk_scre
+maps[6] #6. bike_path_ft_p_mile"
+maps[7] #7. "bikes_ft_p_mile"
+
+```
 
