@@ -39,3 +39,31 @@ make_map <- function(col_name) {
 }
 maps <- lapply(col_names, make_map)
 ```
+
+## Commercial Environment:
+Bars/Liquor store per capita and per area: 
+8. count_bars
+9. count_ls
+10. bars_per_sqft
+11. bars_per_pop
+12. ls_per_sqft
+13. ls_per_pop
+14. bars_ls_per_pop
+
+Comments: 
+1. very limited data points in selected areas;
+2. per pop seems to be a better variable?
+
+```{r, warning=FALSE, error=FALSE, message=FALSE}
+par(mfrow=c(1,2))
+maps[8] #8. count_bars
+maps[9] #9. count_ls
+
+par(mfrow=c(3,2))
+maps[10] #10. bars_per_sqft
+maps[11] #11. bars_per_pop
+maps[12] #12. ls_per_sqft
+maps[13] #13. ls_per_pop
+maps[14] #14. bars_ls_per_pop
+```
+
