@@ -28,3 +28,14 @@ master_shape <- left_join(master_clean, mun) %>%
   st_as_sf()
 
 ```
+
+```{r, warning = F, error = F}
+col_names <- colnames(master_shape)
+col_names <- col_names[c(5, 10:21, 23:29, 39:41)]
+print(col_names)
+
+make_map <- function(col_name) {
+  tm_shape(master_shape) + tm_fill(col = col_name, style = "jenks") + tm_borders(alpha = .15)
+}
+maps <- lapply(col_names, make_map)
+```
