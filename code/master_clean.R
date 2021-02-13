@@ -1,7 +1,7 @@
 library(tidyverse)
 
-path <- "/Users/xiafm/Documents/GitHub/NJ-opioidenv/data_final/master.csv"
-master <- read.csv(path)
+path <- "/Users/xiafm/Documents/GitHub/NJ-opioidenv/data_final/"
+master <- read.csv(paste0(path, "master.csv"))
 
 colnames(master)
 
@@ -25,3 +25,5 @@ master_clean <- master %>%
 
 #write_csv(master_clean, file = "master_clean.csv")
 colnames(master_clean)
+
+master_clean <- read.csv(paste0(path, "master_clean.csv"))
