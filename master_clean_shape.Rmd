@@ -90,7 +90,8 @@ maps[23] #23 mobile_home_rate
 
 ##Physical Environ:
 
-
+Comment:
+1. we may need better measures?
 ```{r, warning = F, error = F}
 maps[1] #1. 	pct_h_den_res
 maps[2] #2. med_walk_score
