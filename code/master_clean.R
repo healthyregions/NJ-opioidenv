@@ -23,5 +23,5 @@ master_clean <- master %>%
             )
          )
 
-write_csv(master_clean, file = "master_clean.csv")
+#write_csv(master_clean, file = "master_clean.csv")
 colnames(master_clean)
