@@ -67,3 +67,25 @@ maps[13] #13. ls_per_pop
 maps[14] #14. bars_ls_per_pop
 ```
 
+##Residential Environment:
+
+Comment: 
+1. school measures don't have enough data
+2. public transit most availabel in central area
+3. relatively consistent patterns that the souther side of NJ has a higher rate of mobile home, vacancy rate, 
+Takeaways: Again relatively consistent patterns. Appears that sales volume was relatively consistent but went down in rural western side. 
+```{r, warning = F, error = F}
+maps[4] #4	num_schools
+maps[5] # 5	schools_per_pop
+maps[15] #15 multiunit_struct"  
+maps[16] #16 no_vehicle 
+maps[17] #17 public_transit
+maps[18] #18 mobile_home
+maps[19] #19 total_units 
+maps[20] #20 vacant_units
+maps[21] #21 occupancy_rate
+maps[22] #22 vacancy_rate
+maps[23] #23 mobile_home_rate
+```
+
+
