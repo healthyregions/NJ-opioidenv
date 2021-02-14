@@ -18,3 +18,14 @@ library(tigris)
 First we need to load some libraries. We use R to get all of our census data from the American Community Survey.
 
 Below, we will use counties in New Jersey and use the 2015 ACS B03002 table. This table gives population estimates by race and Hispanic ethnicity.
+
+
+```{r NJ }
+## Getting data from the 2011-2015 5-year ACS
+# check for available variables in the census data (in this case American Community Survey)
+ACS18var <- load_variables(2018, "acs5", cache = TRUE)
+view(ACS18var)
+
+
+```
+
