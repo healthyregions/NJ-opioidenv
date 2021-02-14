@@ -45,3 +45,11 @@ trdat<-race_table%>%
 head(trdat)
 ```
 
+```{r, echo=FALSE}
+#We need the county-level totals for the total population and each race group
+codat<-trdat%>%
+  group_by(cofips)%>%
+  summarise(co_total=sum(total), co_wht=sum(nhwhite), co_blk=sum(nhblack), co_asian=sum(nhasian), co_oth=sum(nhother), co_hisp=sum(hisp))
+
+
+```
