@@ -3,8 +3,8 @@ title: "racial_isolation_index"
 author: "Fanmei Xia"
 date: "2/14/2021"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
