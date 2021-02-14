@@ -145,3 +145,4 @@ nj_seg_h <- list(co.dis.h, co.int.h, co.iso.h) %>%
 # merge with the shapefile
 nj_seg_dat_h<- geo_join(nj_counties, nj_seg_h, by_sp="cofips", by_df="cofips")
 ```
+
