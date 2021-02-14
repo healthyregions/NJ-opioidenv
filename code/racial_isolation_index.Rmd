@@ -156,3 +156,6 @@ nj_seg_dat_h %>%
   ggtitle("Hispanic Isolation Index", subtitle = "2015 ACS")
 
 ```
+
+## Asian Isolation Index
+
