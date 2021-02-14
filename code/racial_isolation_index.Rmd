@@ -189,3 +189,7 @@ co.iso.a <- merged %>%
 nj_seg_a <- list(co.dis.a, co.int.a, co.iso.a) %>% 
   reduce (left_join, by="cofips")
 
+# merge with the shapefile
+nj_seg_dat_a <- geo_join(nj_counties, nj_seg_a, by_sp="cofips", by_df="cofips")
+```
+
