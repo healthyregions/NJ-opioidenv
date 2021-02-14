@@ -193,3 +193,13 @@ nj_seg_a <- list(co.dis.a, co.int.a, co.iso.a) %>%
 nj_seg_dat_a <- geo_join(nj_counties, nj_seg_a, by_sp="cofips", by_df="cofips")
 ```
 
+```{r, echo=FALSE}
+# plot the Asian isolation index:
+nj_seg_dat_a %>%
+  ggplot() +
+  geom_sf(aes(fill=iso.a)) +
+  scale_fill_viridis_c() +
+  scale_color_viridis_c() +
+  ggtitle("Asian Isolation Index", subtitle = "2015 ACS")
+
+```
