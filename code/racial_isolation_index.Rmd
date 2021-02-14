@@ -176,3 +176,16 @@ co.int.a <- merged %>%
   mutate(int.aw = (nhasian/co_asian * nhwhite/total)) %>%
   group_by(cofips)%>%
   summarise(inter.aw = sum(int.aw, na.rm=T))
+
+# Isolation Index - Asian
+## Next is is the isolation index for Hispanics. The formula is:
+# Isolation=∑i hi/H ∗ hi/ti
+
+co.iso.a <- merged %>%
+  mutate(iso.a = (nhasian/co_asian * nhasian/total))%>%
+  group_by(cofips)%>%
+  summarise(iso.a = sum(iso.a, na.rm=T))
+
+nj_seg_a <- list(co.dis.a, co.int.a, co.iso.a) %>% 
+  reduce (left_join, by="cofips")
+
