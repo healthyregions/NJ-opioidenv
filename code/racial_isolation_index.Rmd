@@ -56,3 +56,5 @@ merged<-left_join(x=trdat,y=codat, by="cofips")
 #have a look and make sure it looks ok
 head(merged)
 ```
+
+## group segregation measures in counties
