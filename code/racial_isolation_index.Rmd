@@ -60,13 +60,22 @@ head(merged)
 ## group segregation measures in counties
 
 ```{r, echo=FALSE}
-# Dissimilarty Index 
+# Dissimilarity Index 
 ## Now we begin the segregation calculations, First we calculate the tract-specific contribution to the county dissimilarity index, then we use the tapply() function to sum the tract-specific contributions within counties. The Dissimilarity index for blacks and whites is: D=.5∗∑i ∣(bi/B) − (wi/W)∣ where bi is the number of blacks in each tract, B is the number of blacks in the county, wi is the number of whites in the tract, and W is the number of whites in the county.
 
 co.dis <- merged %>%
   mutate(d.wb=abs(nhwhite/co_wht - nhblack/co_blk))%>%
   group_by(cofips)%>%
   summarise(dissim= .5*sum(d.wb, na.rm=T))
+
+# Interaction Index
+## Next is the interaction index for blacks and whites. In the calculation first population is minority population, second is non-minority population. The formula is: 
+# Interaction = ∑i bi/B ∗ wi/ti
+
+co.int<-merged%>%
+  mutate(int.bw=(nhblack/co_blk * nhwhite/total))%>%
+  group_by(cofips)%>%
+  summarise(inter.bw= sum(int.bw, na.rm=T))
 
 
 ```
