@@ -89,3 +89,12 @@ co.isob<-merged%>%
 nj_seg<-list(co.dis, co.int, co.isob) %>% 
   reduce (left_join, by="cofips")
 ```
+
+```{r, echo=FALSE}
+# get the shapefile
+options(tigris_class = "sf")
+nj_counties<- counties(state="NJ", cb=T, year=2010)
+nj_counties$cofips<-substr(nj_counties$GEO_ID, 10,15)
+
+
+```
