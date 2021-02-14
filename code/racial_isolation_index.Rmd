@@ -51,5 +51,8 @@ codat<-trdat%>%
   group_by(cofips)%>%
   summarise(co_total=sum(total), co_wht=sum(nhwhite), co_blk=sum(nhblack), co_asian=sum(nhasian), co_oth=sum(nhother), co_hisp=sum(hisp))
 
-
+#we merge the county data back to the tract data by the county FIPS code
+merged<-left_join(x=trdat,y=codat, by="cofips")
+#have a look and make sure it looks ok
+head(merged)
 ```
