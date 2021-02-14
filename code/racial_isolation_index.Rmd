@@ -159,3 +159,11 @@ nj_seg_dat_h %>%
 
 ## Asian Isolation Index
 
+```{r, echo=FALSE}
+# Dissimilarty Index -- Asian
+## Now we begin the segregation calculations, First we calculate the tract-specific contribution to the county dissimilarity index, then we use the tapply() function to sum the tract-specific contributions within counties. The Dissimilarity index for Asians and whites is: D=.5∗∑i ∣(ai/A) − (wi/W)∣ where ai is the number of Asians in each tract, A is the number of Asians in the county, wi is the number of whites in the tract, and W is the number of whites in the county.
+
+co.dis.a <- merged %>%
+  mutate(d.wa=abs(nhwhite/co_wht - nhasian/co_asian))%>%
+  group_by(cofips)%>%
+  summarise(dissim.a = .5*sum(d.wa, na.rm=T))
