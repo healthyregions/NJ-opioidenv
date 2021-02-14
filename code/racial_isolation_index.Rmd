@@ -146,3 +146,13 @@ nj_seg_h <- list(co.dis.h, co.int.h, co.iso.h) %>%
 nj_seg_dat_h<- geo_join(nj_counties, nj_seg_h, by_sp="cofips", by_df="cofips")
 ```
 
+```{r, echo=FALSE}
+# plot the hispanic isolation index:
+nj_seg_dat_h %>%
+  ggplot() +
+  geom_sf(aes(fill=iso.h)) +
+  scale_fill_viridis_c() +
+  scale_color_viridis_c() +
+  ggtitle("Hispanic Isolation Index", subtitle = "2015 ACS")
+
+```
