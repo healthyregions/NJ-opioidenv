@@ -109,3 +109,15 @@ nj_seg_dat%>%
   ggtitle("Non-Hispanic Black Isolation Index", subtitle = "2015 ACS")
 
 ```
+
+```{r, echo=FALSE}
+# Dissimilarity Index - Hispanic
+## Now we begin the segregation calculations, First we calculate the tract-specific contribution to the county dissimilarity index, then we use the tapply() function to sum the tract-specific contributions within counties. The Dissimilarity index for blacks and whites is: D=.5∗∑i ∣(hi/H) − (wi/W)∣ where hi is the number of Hispanics in each tract, H is the number of Hispanics in the county, wi is the number of whites in the tract, and W is the number of whites in the county.
+
+co.dis.h <- merged %>%
+  mutate(d.wh=abs(nhwhite/co_wht - hisp/co_hisp))%>%
+  group_by(cofips)%>%
+  summarise(dissim.h = .5*sum(d.wh, na.rm=T))
+
+
+```
