@@ -167,3 +167,12 @@ co.dis.a <- merged %>%
   mutate(d.wa=abs(nhwhite/co_wht - nhasian/co_asian))%>%
   group_by(cofips)%>%
   summarise(dissim.a = .5*sum(d.wa, na.rm=T))
+
+# Interaction Index - Asian
+## Next is the interaction index for Hispanics and whites. In the calculation first population is minority population, second is non-minority population. The formula is: 
+# Interaction = ∑i hi/H ∗ wi/ti
+
+co.int.a <- merged %>%
+  mutate(int.aw = (nhasian/co_asian * nhwhite/total)) %>%
+  group_by(cofips)%>%
+  summarise(inter.aw = sum(int.aw, na.rm=T))
