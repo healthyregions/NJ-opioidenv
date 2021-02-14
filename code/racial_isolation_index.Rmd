@@ -77,5 +77,14 @@ co.int<-merged%>%
   group_by(cofips)%>%
   summarise(inter.bw= sum(int.bw, na.rm=T))
 
+# Isolation Index
+## Next is is the isolation index for blacks. The formula is:
+# Isolation=∑i bi/B ∗ bi/ti
+
+co.isob<-merged%>%
+  mutate(isob=(nhblack/co_blk * nhblack/total))%>%
+  group_by(cofips)%>%
+  summarise(iso.b= sum(isob, na.rm=T))
+
 
 ```
