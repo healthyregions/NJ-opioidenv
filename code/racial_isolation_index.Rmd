@@ -12,3 +12,9 @@ library(tidycensus)
 library(tidyverse)
 library(tigris)
 ```
+
+
+## Calculating Segregation
+First we need to load some libraries. We use R to get all of our census data from the American Community Survey.
+
+Below, we will use counties in New Jersey and use the 2015 ACS B03002 table. This table gives population estimates by race and Hispanic ethnicity.
