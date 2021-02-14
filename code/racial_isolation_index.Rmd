@@ -130,5 +130,17 @@ co.int.h <- merged %>%
   group_by(cofips)%>%
   summarise(inter.hw = sum(int.hw, na.rm=T))
 
+# Isolation Index
+## Next is is the isolation index for Hispanics. The formula is:
+# Isolation=∑i hi/H ∗ hi/ti
+
+co.iso.h <- merged %>%
+  mutate(isoh = (hisp/co_hisp * hisp/total))%>%
+  group_by(cofips)%>%
+  summarise(iso.h= sum(isoh, na.rm=T))
+
+nj_seg_h <- list(co.dis.h, co.int.h, co.iso.h) %>% 
+  reduce (left_join, by="cofips")
+
 
 ```
