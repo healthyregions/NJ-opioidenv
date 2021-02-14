@@ -47,7 +47,7 @@ trdat<-race_table%>%
 head(trdat)
 ```
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 #We need the county-level totals for the total population and each race group
 codat<-trdat%>%
   group_by(cofips)%>%
@@ -61,7 +61,7 @@ head(merged)
 
 ## group segregation measures in counties
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Dissimilarity Index 
 ## Now we begin the segregation calculations, First we calculate the tract-specific contribution to the county dissimilarity index, then we use the tapply() function to sum the tract-specific contributions within counties. The Dissimilarity index for blacks and whites is: D=.5∗∑i ∣(bi/B) − (wi/W)∣ where bi is the number of blacks in each tract, B is the number of blacks in the county, wi is the number of whites in the tract, and W is the number of whites in the county.
 
@@ -92,7 +92,7 @@ nj_seg<-list(co.dis, co.int, co.isob) %>%
   reduce (left_join, by="cofips")
 ```
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # get the shapefile
 options(tigris_class = "sf")
 nj_counties<- counties(state="NJ", cb=T, year=2010)
