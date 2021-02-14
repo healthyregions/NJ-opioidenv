@@ -101,7 +101,7 @@ nj_counties$cofips<-substr(nj_counties$GEO_ID, 10,15)
 nj_seg_dat<- geo_join(nj_counties, nj_seg, by_sp="cofips", by_df="cofips")
 ```
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # plot the black isolation index:
 nj_seg_dat%>%
   ggplot() +
