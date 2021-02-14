@@ -96,5 +96,5 @@ options(tigris_class = "sf")
 nj_counties<- counties(state="NJ", cb=T, year=2010)
 nj_counties$cofips<-substr(nj_counties$GEO_ID, 10,15)
 
-
+nj_seg_dat<- geo_join(nj_counties, nj_seg, by_sp="cofips", by_df="cofips")
 ```
