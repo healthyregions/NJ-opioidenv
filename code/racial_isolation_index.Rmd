@@ -86,5 +86,6 @@ co.isob<-merged%>%
   group_by(cofips)%>%
   summarise(iso.b= sum(isob, na.rm=T))
 
-
+nj_seg<-list(co.dis, co.int, co.isob) %>% 
+  reduce (left_join, by="cofips")
 ```
