@@ -204,4 +204,18 @@ nj_seg_dat_a %>%
   scale_color_viridis_c() +
   ggtitle("Asian Isolation Index", subtitle = "2015 ACS")
 
+
+####
+coord_sf(
+  xlim = NULL,
+  ylim = NULL,
+  expand = TRUE,
+  crs = NULL,
+  datum = sf::st_crs(4326),
+  label_graticule = waiver(),
+  label_axes = waiver(),
+  ndiscr = 100,
+  default = FALSE,
+  clip = "on"
+)
 ```
