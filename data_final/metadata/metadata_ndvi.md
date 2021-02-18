@@ -3,7 +3,7 @@
 
 - Meta Data Name: 
 - Date Last Modified: 
-- Author: 
+- Author: Emily Selch
 - Data File Name: 
 - Programming File Name(s): 
 - Data Location: 
