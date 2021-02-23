@@ -1,5 +1,5 @@
 ---
-title: "racial_isolation_index"
+title: "Racial Isolation Index"
 author: "Fanmei Xia"
 date: "2/22/2021"
 output:
@@ -16,10 +16,10 @@ library(tigris)
 ```
 
 
-## Calculating Segregation
+# Calculating Segregation
 First we need to load some libraries. We use R to get all of our census data from the American Community Survey.
 
-Below, we will use counties in New Jersey and use the 2015 ACS B03002 table. This table gives population estimates by race and Hispanic ethnicity.
+Below, we will use counties in New Jersey and use the 2018 ACS B03002 table. This table gives population estimates by race and Hispanic ethnicity.
 
 
 ```{r NJ, message=FALSE, warning=FALSE}
@@ -47,7 +47,7 @@ trdat<-race_table%>%
 head(trdat)
 ```
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE}
 #We need the county-level totals for the total population and each race group
 codat<-trdat%>%
   group_by(cofips)%>%
@@ -59,9 +59,9 @@ merged<-left_join(x=trdat,y=codat, by="cofips")
 head(merged)
 ```
 
-## group segregation measures in counties
+# Group Segregation Measures in Counties
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
+```{r, include=FALSE, collapse = TRUE, }
 # Dissimilarity Index 
 ## Now we begin the segregation calculations, First we calculate the tract-specific contribution to the county dissimilarity index, then we use the tapply() function to sum the tract-specific contributions within counties. The Dissimilarity index for blacks and whites is: D=.5∗∑i ∣(bi/B) − (wi/W)∣ where bi is the number of blacks in each tract, B is the number of blacks in the county, wi is the number of whites in the tract, and W is the number of whites in the county.
 
@@ -92,7 +92,7 @@ nj_seg<-list(co.dis, co.int, co.isob) %>%
   reduce (left_join, by="cofips")
 ```
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
+```{r, echo=FALSE, message=FALSE, warning=FALSE, include=FALSE, collapse = TRUE,}
 # get the shapefile
 options(tigris_class = "sf")
 nj_counties<- counties(state="NJ", cb=T, year=2010)
@@ -100,6 +100,8 @@ nj_counties$cofips<-substr(nj_counties$GEO_ID, 10,15)
 
 nj_seg_dat<- geo_join(nj_counties, nj_seg, by_sp="cofips", by_df="cofips")
 ```
+
+## Non-Hispanic Black Isolation Index
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # plot the black isolation index:
