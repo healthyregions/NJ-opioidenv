@@ -110,7 +110,7 @@ nj_seg_dat%>%
   geom_sf(aes(fill=iso.b)) +
   scale_fill_viridis_c() +
   scale_color_viridis_c() +
-  ggtitle("Non-Hispanic Black Isolation Index", subtitle = "2015 ACS")
+  ggtitle("Non-Hispanic Black Isolation Index", subtitle = "2018 ACS")
 
 ```
 
@@ -157,7 +157,7 @@ nj_seg_dat_h %>%
   geom_sf(aes(fill=iso.h)) +
   scale_fill_viridis_c() +
   scale_color_viridis_c() +
-  ggtitle("Hispanic Isolation Index", subtitle = "2015 ACS")
+  ggtitle("Hispanic Isolation Index", subtitle = "2018 ACS")
 
 ```
 
@@ -204,7 +204,7 @@ nj_seg_dat_a %>%
   geom_sf(aes(fill=iso.a)) +
   scale_fill_viridis_c() +
   scale_color_viridis_c() +
-  ggtitle("Asian Isolation Index", subtitle = "2015 ACS")
+  ggtitle("Asian Isolation Index", subtitle = "2018 ACS")
 
 
 ####
