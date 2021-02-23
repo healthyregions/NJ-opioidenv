@@ -108,8 +108,8 @@ nj_seg_dat<- geo_join(nj_counties, nj_seg, by_sp="cofips", by_df="cofips")
 nj_seg_dat%>%
   ggplot() +
   geom_sf(aes(fill=iso.b)) +
-  scale_fill_viridis_c() +
-  scale_color_viridis_c() +
+  scale_fill_viridis_c(limits = c(0, 0.8)) +
+  scale_color_viridis_c(limits = c(0, 0.8)) +
   ggtitle("Non-Hispanic Black Isolation Index", subtitle = "2018 ACS")
 
 ```
@@ -155,8 +155,8 @@ nj_seg_dat_h<- geo_join(nj_counties, nj_seg_h, by_sp="cofips", by_df="cofips")
 nj_seg_dat_h %>%
   ggplot() +
   geom_sf(aes(fill=iso.h)) +
-  scale_fill_viridis_c() +
-  scale_color_viridis_c() +
+  scale_fill_viridis_c(limits = c(0, 0.8)) +
+  scale_color_viridis_c(limits = c(0, 0.8)) +
   ggtitle("Hispanic Isolation Index", subtitle = "2018 ACS")
 
 ```
@@ -202,22 +202,8 @@ nj_seg_dat_a <- geo_join(nj_counties, nj_seg_a, by_sp="cofips", by_df="cofips")
 nj_seg_dat_a %>%
   ggplot() +
   geom_sf(aes(fill=iso.a)) +
-  scale_fill_viridis_c() +
-  scale_color_viridis_c() +
+  scale_fill_viridis_c(limits = c(0, 0.8)) +
+  scale_color_viridis_c(limits = c(0, 0.8)) +
   ggtitle("Asian Isolation Index", subtitle = "2018 ACS")
 
-
-####
-coord_sf(
-  xlim = NULL,
-  ylim = NULL,
-  expand = TRUE,
-  crs = NULL,
-  datum = sf::st_crs(4326),
-  label_graticule = waiver(),
-  label_axes = waiver(),
-  ndiscr = 100,
-  default = FALSE,
-  clip = "on"
-)
 ```
