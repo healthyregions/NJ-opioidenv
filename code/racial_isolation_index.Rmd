@@ -1,7 +1,7 @@
 ---
 title: "racial_isolation_index"
 author: "Fanmei Xia"
-date: "2/14/2021"
+date: "2/22/2021"
 output:
   html_document: default
   pdf_document: default
@@ -28,8 +28,8 @@ Below, we will use counties in New Jersey and use the 2015 ACS B03002 table. Thi
 ACS18var <- load_variables(2018, "acs5", cache = TRUE)
 view(ACS18var)
 
-## Loading ACS5 variables for 2015 from table B03002 and caching the dataset for faster future access.
-race_table <-  get_acs(geography = "tract", year=2015, geometry = F, output="wide", table = "B03002", cache_table = T, state = "NJ")
+## Loading ACS5 variables for 2018 from table B03002 and caching the dataset for faster future access.
+race_table <-  get_acs(geography = "tract", year=2018, geometry = F, output="wide", table = "B03002", cache_table = T, state = "NJ")
 
 trdat<-race_table%>%
   mutate(nhwhite=B03002_003E,
@@ -38,7 +38,7 @@ trdat<-race_table%>%
          nhother= B03002_005E+B03002_007E+B03002_008E+B03002_009E+B03002_010E,
          hisp=B03002_012E, 
          total=B03002_001E,
-         year=2015,
+         year=2018,
          cofips=substr(GEOID, 1,5))%>%
   select(GEOID, nhwhite, nhblack, nhasian, hisp, nhother, total, year, cofips )%>%
   arrange(cofips, GEOID)
