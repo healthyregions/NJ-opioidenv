@@ -57,6 +57,33 @@ areal_interpolation <- ct_div %>%
   mutate(TRACTID = as.character(TRACTID))
 
 
+#Note ==== 
+#As Emily noted, there are 2008 tracts in the areal_interpolation file and 2010 in the original tracts file:
+#Below identifies the tract ids, visualizes them. 
+#Notably they fall outside of the municipality shapes in water; one in the Atlantic and one in Deleware Bay:
+
+#Defines opposite of %in%; 
+#code from here: https://stackoverflow.com/questions/5831794/opposite-of-in-exclude-rows-with-values-specified-in-a-vector
+'%!in%' <- function(x,y)!('%in%'(x,y))
+
+#Creates list of TRACTIDs:
+ids_ct <- ct$TRACTID
+ids_areal_interp <- areal_interpolation$TRACTID
+
+#Function to identify discrepancy between the lists:
+for (val in ids_ct)
+{if (val %!in% ids_areal_interp) 
+    print(val)}
+
+#Identifying rows from the discrepancy values:
+problem_1 <- ct[ct$TRACTID == "34001990000", ]
+problem_2 <- ct[ct$TRACTID == "34033990000", ]
+
+#Visualizing problem:
+check_problems <- tm_shape(nj_union) + tm_polygons(col = "black") + 
+  tm_shape(problem_1)+tm_polygons(col = "grey") + 
+  tm_shape(problem_2) + tm_polygons(col = "white", alpha=.5)
+check_problems
 
 
 #Population Weighted Crosswalk ======
