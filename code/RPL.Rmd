@@ -31,10 +31,10 @@ head(svi)
 ```
 
 ```{r NJ, message=FALSE, warning=FALSE}
-## Loading ACS5 variables for 2018 from table B03002 and caching the dataset for faster future access.
-race_table <-  get_acs(geography = "tract", year=2018, geometry = F, output="wide", table = "B03002", cache_table = T, state = "NJ")
+## select variables
+svi_clean <- svi %>%
+  select(-ST, -ST_ABBR)
 
-trdat<-race_table%>%
   mutate(nhwhite=B03002_003E,
          nhblack=B03002_004E,
          nhasian=B03002_006E,
