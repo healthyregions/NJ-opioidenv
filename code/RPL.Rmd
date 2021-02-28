@@ -15,3 +15,17 @@ library(tidyverse)
 library(tigris)
 ```
 
+
+# Calculating Segregation
+First we need to load some libraries. We use R to get all of our census data from the American Community Survey.
+
+Below, we will use counties in New Jersey and use the 2018 ACS B03002 table. This table gives population estimates by race and Hispanic ethnicity.
+
+
+```{r NJ, message=FALSE, warning=FALSE}
+## Getting data from CDC SVI website (2018, New Jersey)
+# check for available variables in the census data (in this case American Community Survey)
+path <- ("/Users/xiafm/Documents/GitHub/NJ-opioidenv/data_raw/SVI/")
+svi <- read_csv(paste0(path, "NewJersey.csv"))
+head(svi)
+```
