@@ -13,7 +13,7 @@ ct <- st_read("data_raw/Census2010Tr2012/Govt_TIGER2012_tract2010.shp") %>%
 mun <- st_read("data_in_progress/mun_boundaries.geojson") %>%
   select(Place.Name, SSN, POP2010)
 
-bgpop <- st_read("data_in_progress/nj_bg_pop_2016.geojson")
+#bgpop <- st_read("data_in_progress/nj_bg_pop_2016.geojson")
 
 
 #Spatial Data Configuration ====== 
@@ -45,29 +45,60 @@ ct_div <- st_intersection(st_make_valid(mun), ct) %>% #Note st_make_valid from l
 #Below I bring back in the area of the municipality to compute what percent area each municipality is
 
 #Get df just of municipalities and their areas:
-mun_area <- mun %>%
-  as.data.frame() %>%
-  select(SSN, mun_area_sq_ft)
+#mun_area <- mun %>%
+#  as.data.frame() %>%
+#  select(SSN, mun_area_sq_ft)
 
 
 #Areal interpolation======
 #Compute the % each polygon of ct_div is of the municipality in which they reside
 areal_interpolation <- ct_div %>%
-  select(Place.Name, SSN, TRACTID, prop_of_ct)  # #grab only columns desired 
-  
+  select(Place.Name, SSN, TRACTID, prop_of_ct) %>%  # #grab only columns desired 
+  mutate(TRACTID = as.character(TRACTID))
+
+
+#Note ==== 
+#As Emily noted, there are 2008 tracts in the areal_interpolation file and 2010 in the original tracts file:
+#Below identifies the tract ids, visualizes them. 
+#Notably they fall outside of the municipality shapes in water; one in the Atlantic and one in Deleware Bay:
+
+#Defines opposite of %in%; 
+#code from here: https://stackoverflow.com/questions/5831794/opposite-of-in-exclude-rows-with-values-specified-in-a-vector
+'%!in%' <- function(x,y)!('%in%'(x,y))
+
+#Creates list of TRACTIDs:
+ids_ct <- ct$TRACTID
+ids_areal_interp <- areal_interpolation$TRACTID
+
+#Function to identify discrepancy between the lists:
+for (val in ids_ct)
+{if (val %!in% ids_areal_interp) 
+    print(val)}
+
+#Identifying rows from the discrepancy values:
+problem_1 <- ct[ct$TRACTID == "34001990000", ]
+problem_2 <- ct[ct$TRACTID == "34033990000", ]
+
+#Visualizing problem:
+check_problems <- tm_shape(nj_union) + tm_polygons(col = "black") + 
+  tm_shape(problem_1)+tm_polygons(col = "grey") + 
+  tm_shape(problem_2) + tm_polygons(col = "white", alpha=.5)
+check_problems
+
+
 #Population Weighted Crosswalk ======
 
 #Give population Data to each fragment at small (block group) spatial scale:
-ct_div_pop <- st_join(ct_div, bgpop["pop2016"]) %>%
-  #filter(pop2016 > 0) %>% #This removes all areas where populations are 0/NA which makes theoretical sense
-  rename(ct_div_pop = pop2016) %>%
-  mutate(ct_div_pop = replace_na(ct_div_pop, 0)) %>%
-  group_by(SSN) %>% #Begins computation for total pop for mun 
-  mutate(pop_mun = sum(ct_div_pop, na.rm = TRUE)) %>% #computes total pop for mun
-  mutate(pct_of_mun_pop = ct_div_pop /pop_mun) %>% #Assign area a percentage of the municipality 
+#ct_div_pop <- st_join(ct_div, bgpop["pop2016"]) %>%
+#  #filter(pop2016 > 0) %>% #This removes all areas where populations are 0/NA which makes theoretical sense
+#  rename(ct_div_pop = pop2016) %>%
+#  mutate(ct_div_pop = replace_na(ct_div_pop, 0)) %>%
+#  group_by(SSN) %>% #Begins computation for total pop for mun 
+#  mutate(pop_mun = sum(ct_div_pop, na.rm = TRUE)) %>% #computes total pop for mun
+#  mutate(pct_of_mun_pop = ct_div_pop /pop_mun) %>% #Assign area a percentage of the municipality 
                                                     #it is in based on its pop relative to the total pop
-  as.data.frame() %>%
-  select(c(Place.Name, SSN, TRACTID, pct_of_mun_pop)) 
+#  as.data.frame() %>%
+#  select(c(Place.Name, SSN, TRACTID, pct_of_mun_pop)) 
   
 
 
