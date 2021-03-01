@@ -31,9 +31,20 @@ head(svi)
 ```
 
 ```{r NJ, message=FALSE, warning=FALSE}
+## county level totals
+svi_county <- svi %>%
+  group_by(COUNTY) %>%
+  summarise(co_total=sum(total), co_wht=sum(nhwhite), co_blk=sum(nhblack), co_asian=sum(nhasian), co_oth=sum(nhother), co_hisp=sum(hisp))
+
+#we merge the county data back to the tract data by the county FIPS code
+merged<-left_join(x=trdat,y=codat, by="cofips")
+#have a look and make sure it looks ok
+head(merged)
+
+
 ## select variables
-svi_clean <- svi %>%
-  select(-ST, -ST_ABBR)
+rpl_1 <- svi %>%
+  select(ST, STCNTY, COUNTY, FIPS, LOCATION, AREA_SQMI, E_TOTPOP, E_HU, E_HH, )
 
   mutate(nhwhite=B03002_003E,
          nhblack=B03002_004E,
