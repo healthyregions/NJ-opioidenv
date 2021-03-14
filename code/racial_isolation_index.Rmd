@@ -31,7 +31,7 @@ view(ACS18var)
 ## Loading ACS5 variables for 2018 from table B03002 and caching the dataset for faster future access.
 race_table <-  get_acs(geography = "tract", year=2018, geometry = F, output="wide", table = "B03002", cache_table = T, state = "NJ")
 
-trdat<-race_table%>%
+trdat <- race_table %>%
   mutate(nhwhite=B03002_003E,
          nhblack=B03002_004E,
          nhasian=B03002_006E,
@@ -39,12 +39,56 @@ trdat<-race_table%>%
          hisp=B03002_012E, 
          total=B03002_001E,
          year=2018,
-         cofips=substr(GEOID, 1,5))%>%
+         cofips=substr(GEOID, 1,5)) %>%
   select(GEOID, nhwhite, nhblack, nhasian, hisp, nhother, total, year, cofips )%>%
   arrange(cofips, GEOID)
 
 #look at the first few cases
 head(trdat)
+```
+
+```{r, message=FALSE, warning=FALSE}
+#Merge with the interpolation 
+path <- ("/Users/xiafm/Documents/GitHub/NJ-opioidenv/data_final/")
+interpolation <- read_csv(paste0(path, "cw_areal_interpolation.csv"))
+interpolation$TRACTID <- as.character(interpolation$TRACTID)
+
+muni_trdat <- left_join(x = trdat, y = interpolation, by = c("GEOID" = "TRACTID"))
+head(muni_trdat)
+```
+
+
+# Group Segregation Measures in Municipalities
+
+```{r, include=FALSE, collapse = TRUE, }
+# Dissimilarity Index 
+## Now we begin the segregation calculations, First we calculate the tract-specific contribution to the county dissimilarity index, then we use the tapply() function to sum the tract-specific contributions within counties. The Dissimilarity index for blacks and whites is: D=.5∗∑i ∣(bi/B) − (wi/W)∣ where bi is the number of blacks in each tract, B is the number of blacks in the county, wi is the number of whites in the tract, and W is the number of whites in the county.
+
+co.dis <- merged %>%
+  mutate(d.wb=abs(nhwhite/co_wht - nhblack/co_blk))%>%
+  group_by(cofips)%>%
+  summarise(dissim= .5*sum(d.wb, na.rm=T))
+
+# Interaction Index
+## Next is the interaction index for blacks and whites. In the calculation first population is minority population, second is non-minority population. The formula is: 
+# Interaction = ∑i bi/B ∗ wi/ti
+
+co.int<-merged%>%
+  mutate(int.bw=(nhblack/co_blk * nhwhite/total))%>%
+  group_by(cofips)%>%
+  summarise(inter.bw= sum(int.bw, na.rm=T))
+
+# Isolation Index
+## Next is is the isolation index for blacks. The formula is:
+# Isolation=∑i bi/B ∗ bi/ti
+
+co.isob<-merged%>%
+  mutate(isob=(nhblack/co_blk * nhblack/total))%>%
+  group_by(cofips)%>%
+  summarise(iso.b= sum(isob, na.rm=T))
+
+nj_seg<-list(co.dis, co.int, co.isob) %>% 
+  reduce (left_join, by="cofips")
 ```
 
 ```{r, message=FALSE, warning=FALSE}
