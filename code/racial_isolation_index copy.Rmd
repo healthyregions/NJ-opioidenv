@@ -58,23 +58,23 @@ interpolation$TRACTID <- as.character(interpolation$TRACTID)
 #We need the municipality-level totals for the total population and each race group
 tr_mun <- left_join(x = interpolation, y = trdat, by = c("TRACTID" = "GEOID"))
 
-test <- tr_mun %>%
-  mutate(weighted_wht = nhwhite*prop_of_ct)
+weighted <- tr_mun %>%
+  mutate(weighted_wht = nhwhite*prop_of_ct,
+         weighted_blk = nhblack*prop_of_ct,
+         weighted_asian = nhasian*prop_of_ct,
+         weighted_oth = nhother*prop_of_ct,
+         weighted_hisp = hisp*prop_of_ct)
 
-mun_sum <- tr_mun %>%
-  group_by(Place.Name, SSN) %>%
-  summarise(mun_total=sum(total), mun_wht=sum(nhwhite), mun_blk=sum(nhblack), mun_asian=sum(nhasian), mun_oth=sum(nhother), mun_hisp=sum(hisp))
+mun_sum <- weighted %>%
+  group_by(SSN) %>%
+  mutate(mun_total=sum(total), 
+         mun_wht=sum(weighted_wht),
+         mun_blk=sum(weighted_blk), 
+         mun_asian=sum(weighted_asian), 
+         mun_oth=sum(weighted_oth), 
+         mun_hisp=sum(weighted_hisp))
 
-test <- left_join(tr_mun, mun_sum, by = "Place.Name")
-colSums(is.na(test))
-test <- tr_mun %>%
-  group_by(Place.Name, SSN) %>%
-  mutate(summarise(mun_total=sum(total), mun_wht=sum(nhwhite), mun_blk=sum(nhblack), mun_asian=sum(nhasian), mun_oth=sum(nhother), mun_hisp=sum(hisp)))
-
-muni_trdat <- left_join(x = trdat, y = mun_sum, by = "GEOID")
-head(muni_trdat)
-
-merged <- left_join(x = muni_trdat, y = interpolation, by = c("GEOID" = "TRACTID"))
+head(mun_sum)
 
 ```
 
@@ -82,7 +82,7 @@ merged <- left_join(x = muni_trdat, y = interpolation, by = c("GEOID" = "TRACTID
 
 ```{r, include=FALSE, collapse = TRUE, }
 # Dissimilarity Index 
-## Now we begin the segregation calculations, First we calculate the tract-specific contribution to the county dissimilarity index, then we use the tapply() function to sum the tract-specific contributions within counties. The Dissimilarity index for blacks and whites is: D=.5∗∑i ∣(bi/B) − (wi/W)∣ where bi is the number of blacks in each tract, B is the number of blacks in the county, wi is the number of whites in the tract, and W is the number of whites in the county.
+## Now we begin the segregation calculations, First we calculate the tract-specific contribution to the municipality dissimilarity index, then we use the tapply() function to sum the tract-specific contributions within municipalities. The Dissimilarity index for blacks and whites is: D=.5∗∑i ∣(bi/B) − (wi/W)∣ where bi is the number of blacks in each tract, B is the number of blacks in the municipality, wi is the number of whites in the tract, and W is the number of whites in the municipality.
 
 co.dis <- merged %>%
   mutate(d.wb=abs(nhwhite/co_wht - nhblack/co_blk))%>%
