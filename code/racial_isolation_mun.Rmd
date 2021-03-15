@@ -117,6 +117,9 @@ nj_seg <- list(mun.dis, mun.int, mun.isob) %>%
 # get the shapefile
 json <- geojson_read(paste0(path, "master_geog.geojson"), what = "sp")
 nj_seg_dat <- geo_join(json, nj_seg, by_sp = "SSN", by_df = "SSN")
+
+# convert to sf
+nj_seg_dat <- st_as_sf(nj_seg_dat)
 ```
 
 ## Non-Hispanic Black Isolation Index
@@ -129,8 +132,6 @@ nj_seg_dat %>%
   scale_fill_viridis_c(limits = c(0, 0.8)) +
   scale_color_viridis_c(limits = c(0, 0.8)) +
   ggtitle("Non-Hispanic Black Isolation Index", subtitle = "2018 ACS")
-
-geojson_sp(nj_seg_dat)
 ```
 
 ## Hispanic Isolation Index
@@ -167,6 +168,10 @@ nj_seg_h <- list(mun.dis.h, mun.int.h, mun.iso.h) %>%
 
 # merge with the shapefile
 nj_seg_dat_h<- geo_join(json, nj_seg_h, by_sp="SSN", by_df="SSN")
+
+# convert to sf 
+nj_seg_dat_h <- st_as_sf(nj_seg_dat_h)
+  
 ```
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
@@ -177,5 +182,4 @@ nj_seg_dat_h %>%
   scale_fill_viridis_c(limits = c(0, 0.8)) +
   scale_color_viridis_c(limits = c(0, 0.8)) +
   ggtitle("Hispanic Isolation Index", subtitle = "2018 ACS")
-
 ```
