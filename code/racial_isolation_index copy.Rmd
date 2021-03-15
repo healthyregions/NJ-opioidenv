@@ -125,14 +125,10 @@ nj_seg_dat <- geo_join(json, nj_seg, by_sp = "SSN", by_df = "SSN")
 # plot the black isolation index:
 nj_seg_dat %>%
   ggplot() +
-  geom_polygon(aes(fill = iso.b)) +
+  geom_sf(aes(fill = iso.b)) +
   scale_fill_viridis_c(limits = c(0, 0.8)) +
   scale_color_viridis_c(limits = c(0, 0.8)) +
   ggtitle("Non-Hispanic Black Isolation Index", subtitle = "2018 ACS")
-
-sf::read_sf(my_json_file)
-setwd("/Users/xiafm/Documents/GitHub/NJ-opioidenv/data_final")
-nj_mun <- sf::read_sf(master_geog.geojson)
 
 ```
 
