@@ -84,18 +84,18 @@ head(mun_sum)
 # Dissimilarity Index 
 ## Now we begin the segregation calculations, First we calculate the tract-specific contribution to the municipality dissimilarity index, then we use the tapply() function to sum the tract-specific contributions within municipalities. The Dissimilarity index for blacks and whites is: D=.5∗∑i ∣(bi/B) − (wi/W)∣ where bi is the number of blacks in each tract, B is the number of blacks in the municipality, wi is the number of whites in the tract, and W is the number of whites in the municipality.
 
-co.dis <- merged %>%
-  mutate(d.wb=abs(nhwhite/co_wht - nhblack/co_blk))%>%
-  group_by(cofips)%>%
+mun.dis <- mun_sum %>%
+  mutate(d.wb = abs(nhwhite/mun_wht - nhblack/mun_blk))%>%
+  group_by(SSN)%>%
   summarise(dissim= .5*sum(d.wb, na.rm=T))
 
 # Interaction Index
 ## Next is the interaction index for blacks and whites. In the calculation first population is minority population, second is non-minority population. The formula is: 
 # Interaction = ∑i bi/B ∗ wi/ti
 
-co.int<-merged%>%
-  mutate(int.bw=(nhblack/co_blk * nhwhite/total))%>%
-  group_by(cofips)%>%
+mun.int <- mun_sum %>%
+  mutate(int.bw = (nhblack/mun_blk * nhwhite/total))%>%
+  group_by(SSN)%>%
   summarise(inter.bw= sum(int.bw, na.rm=T))
 
 # Isolation Index
