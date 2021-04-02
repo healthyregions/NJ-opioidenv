@@ -15,10 +15,11 @@ All data came from the US Geological Survey through their EarthExplorer product.
 The data file describes the average NDVI for each municipality in NJ over the course of the summer months in 2018 (May 29, 2018 - September 3, 2018).  
 
 ## DESCRIPTION OF DATA MANIPULATION:
-USGS puts out a .tif image for every 6-day period, which I downloaded from their website. I specified the period of time, navigated to "Vegetation Monitoring," and selected eMODIS NDVI V6. I loaded each of these .tif images (14 images) into my R environment, calculated an average for each raster, cropped the averaged image to a reprojected municipal shapefile (reprojected to the USGS projection), masked the cropped image to the reprojected shapefile, extracted the data, and then merged it to the municipal shapefile.  
+USGS puts out a .tif image for every 6-day period, which I downloaded from their website. I specified the period of time, navigated to "Vegetation Monitoring," and selected eMODIS NDVI V6. I loaded each of these .tif images (14 images) into my R environment, calculated an average for each raster, cropped the averaged image to a reprojected municipal shapefile (reprojected to the USGS projection), masked the cropped image to the reprojected shapefile, extracted the data, and then merged it to the municipal shapefile. I then removed the spatial data and saved the file as a .csv.  
 
 ## KEY VARIABLE NAMES AND DEFINITIONS:
-V1 = NDVI 
+municipality = municiaplity name
+ndvi = ndvi
 
 ## LINK TO DESCRIPTIVE STATISTICS:
 *Provide directory link to file with DS*
