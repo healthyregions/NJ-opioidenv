@@ -1,11 +1,11 @@
 library(tidyverse)
 
-path <- "/Users/xiafm/Documents/GitHub/NJ-opioidenv/data_final/"
-master <- read.csv(paste0(path, "master.csv"))
-
+master <- read.csv("master.csv")
 colnames(master)
 
-master_clean <- master %>%
+distance_matrix_ndvi <- read.csv("distance_matrix_ndvi.csv")
+
+selected_var <- master %>%
   select(-c(X, pct_res_tot, pct_com_tot, pct_ind_tot, 
             multiunits_10_to_19, multiunits_20_to_49, multiunits_50plus, multiunits_five_to_nine, multiunits_three_or_four, multiunits_two,
             occupied_owner, occupied_renter, occupied_units,
@@ -23,7 +23,13 @@ master_clean <- master %>%
             )
          )
 
-#write_csv(master_clean, file = "master_clean.csv")
+master_clean <- selected_var %>%
+  full_join(distance_matrix_ndvi, by = "SSN") %>%
+  select(-Place.Name) %>%
+  select(SSN, municipality, everything())
+
 colnames(master_clean)
 
-master_clean <- read.csv(paste0(path, "master_clean.csv"))
+#write_csv(master_clean, file = "master_clean.csv")
+
+
