@@ -1,10 +1,10 @@
 library(tidyverse)
 
+setwd("/Users/xiafm/Documents/GitHub/NJ-opioidenv/data_final")
 master <- read.csv("master.csv")
 colnames(master)
 
-distance_matrix_ndvi <- read.csv("distance_matrix_ndvi.csv")
-
+# selected variables from the master file
 selected_var <- master %>%
   select(-c(X, pct_res_tot, pct_com_tot, pct_ind_tot, 
             multiunits_10_to_19, multiunits_20_to_49, multiunits_50plus, multiunits_five_to_nine, multiunits_three_or_four, multiunits_two,
@@ -23,8 +23,17 @@ selected_var <- master %>%
             )
          )
 
-master_clean <- selected_var %>%
+# merge with ndvi
+distance_matrix_ndvi <- read.csv("distance_matrix_ndvi.csv")
+
+merge_ndvi <- selected_var %>%
   full_join(distance_matrix_ndvi, by = "SSN") %>%
+  select(-Place.Name) %>%
+  select(SSN, municipality, everything())
+
+# merge with SVI
+master_clean <- merge_ndvi %>%
+  full_join(svi_mun, by = "SSN") %>%
   select(-Place.Name) %>%
   select(SSN, municipality, everything())
 
@@ -32,4 +41,6 @@ colnames(master_clean)
 
 #write_csv(master_clean, file = "master_clean.csv")
 
+master_clean <- read.csv("/Users/xiafm/Documents/GitHub/NJ-opioidenv/data_final/master_clean.csv")
+test <- read.csv("/Users/xiafm/Documents/GitHub/NJ-opioidenv/data_raw/SVI/NewJersey.csv")
 
