@@ -8,7 +8,8 @@
 - Programming File Name(s): 
 - Data Location: data_final
 
-## DATA SOURCE(S): Original data filed downloaded from NJGIN Open Data at:
+## DATA SOURCE(S): 
+Original data filed downloaded from NJGIN Open Data at:
 https://njogis-newjersey.opendata.arcgis.com/datasets/school-point-locations-of-nj-public-private-and-charter?geometry=-81.880%2C38.635%2C-67.564%2C41.575&orderBy=X
 
 
