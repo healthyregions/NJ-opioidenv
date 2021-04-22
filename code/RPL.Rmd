@@ -16,208 +16,66 @@ library(tigris)
 ```
 
 
-# Calculating Segregation
-First we need to load some libraries. We use R to get all of our census data from the American Community Survey.
-
-Below, we will use counties in New Jersey and use the 2018 ACS B03002 table. This table gives population estimates by race and Hispanic ethnicity.
-
-
 ```{r NJ, message=FALSE, warning=FALSE}
 ## Getting data from CDC SVI website (2018, New Jersey)
 # check for available variables in the data
-path <- ("/Users/xiafm/Documents/GitHub/NJ-opioidenv/data_raw/SVI/")
-svi <- read_csv(paste0(path, "NewJersey.csv"))
-head(svi)
-```
-
-```{r NJ, message=FALSE, warning=FALSE}
-## county level totals
-svi_county <- svi %>%
-  group_by(COUNTY) %>%
-  summarise(co_total=sum(total), co_wht=sum(nhwhite), co_blk=sum(nhblack), co_asian=sum(nhasian), co_oth=sum(nhother), co_hisp=sum(hisp))
-
-#we merge the county data back to the tract data by the county FIPS code
-merged<-left_join(x=trdat,y=codat, by="cofips")
-#have a look and make sure it looks ok
-head(merged)
-
-
-## select variables
-rpl_1 <- svi %>%
-  select(ST, STCNTY, COUNTY, FIPS, LOCATION, AREA_SQMI, E_TOTPOP, E_HU, E_HH, )
-
-  mutate(nhwhite=B03002_003E,
-         nhblack=B03002_004E,
-         nhasian=B03002_006E,
-         nhother= B03002_005E+B03002_007E+B03002_008E+B03002_009E+B03002_010E,
-         hisp=B03002_012E, 
-         total=B03002_001E,
-         year=2018,
-         cofips=substr(GEOID, 1,5))%>%
-  select(GEOID, nhwhite, nhblack, nhasian, hisp, nhother, total, year, cofips )%>%
-  arrange(cofips, GEOID)
-
-#look at the first few cases
-head(trdat)
+setwd("/Users/xiafm/Documents/GitHub/NJ-opioidenv/data_raw")
+svi <- read_csv("SVI-NewJersey2018.csv")
+svi$FIPS <- as.character(svi$FIPS)
+svi <- na_if(svi, '-999') 
 ```
 
 ```{r, message=FALSE, warning=FALSE}
-#We need the county-level totals for the total population and each race group
-codat<-trdat%>%
-  group_by(cofips)%>%
-  summarise(co_total=sum(total), co_wht=sum(nhwhite), co_blk=sum(nhblack), co_asian=sum(nhasian), co_oth=sum(nhother), co_hisp=sum(hisp))
+#Merge with the interpolation 
+path <- ("/Users/xiafm/Documents/GitHub/NJ-opioidenv/data_final/")
+interpolation <- read_csv(paste0(path, "cw_areal_interpolation.csv"))
+interpolation$TRACTID <- as.character(interpolation$TRACTID)
 
-#we merge the county data back to the tract data by the county FIPS code
-merged<-left_join(x=trdat,y=codat, by="cofips")
-#have a look and make sure it looks ok
-head(merged)
+tr_mun <- left_join(x = interpolation, y = svi, by = c("TRACTID" = "FIPS"))
 ```
 
-# Group Segregation Measures in Counties
+```{r, message=FALSE, warning=FALSE}
+#We need the municipality-level totals for the RPL themes
+weighted <- tr_mun %>%
+  mutate(weighted_SPL_THEME1 = SPL_THEME1*prop_of_ct,
+         weighted_RPL_THEME1 = RPL_THEME1*prop_of_ct,
+         weighted_SPL_THEME2 = SPL_THEME2*prop_of_ct,
+         weighted_RPL_THEME2 = RPL_THEME2*prop_of_ct,
+         weighted_SPL_THEME3 = SPL_THEME3*prop_of_ct,
+         weighted_RPL_THEME3 = RPL_THEME3*prop_of_ct,
+         weighted_SPL_THEME4 = SPL_THEME4*prop_of_ct,
+         weighted_RPL_THEME4 = RPL_THEME4*prop_of_ct,
+         weighted_SPL_THEMES = SPL_THEMES*prop_of_ct,
+         weighted_RPL_THEMES = RPL_THEMES*prop_of_ct
+         )
 
-```{r, include=FALSE, collapse = TRUE, }
-# Dissimilarity Index 
-## Now we begin the segregation calculations, First we calculate the tract-specific contribution to the county dissimilarity index, then we use the tapply() function to sum the tract-specific contributions within counties. The Dissimilarity index for blacks and whites is: D=.5∗∑i ∣(bi/B) − (wi/W)∣ where bi is the number of blacks in each tract, B is the number of blacks in the county, wi is the number of whites in the tract, and W is the number of whites in the county.
+mun_sum <- weighted %>%
+  group_by(SSN) %>%
+  mutate(mun_SPL_THEME1 = sum(weighted_SPL_THEME1), 
+         mun_RPL_THEME1 = sum(weighted_RPL_THEME1),
+         mun_SPL_THEME2 = sum(weighted_SPL_THEME2), 
+         mun_RPL_THEME2 = sum(weighted_RPL_THEME2), 
+         mun_SPL_THEME3 = sum(weighted_SPL_THEME3), 
+         mun_RPL_THEME3 = sum(weighted_RPL_THEME3),
+         mun_SPL_THEME4 = sum(weighted_SPL_THEME4), 
+         mun_RPL_THEME4 = sum(weighted_RPL_THEME4),
+         mun_SPL_THEMES = sum(weighted_SPL_THEMES),
+         mun_RPL_THEMES = sum(weighted_RPL_THEMES)
+         )
 
-co.dis <- merged %>%
-  mutate(d.wb=abs(nhwhite/co_wht - nhblack/co_blk))%>%
-  group_by(cofips)%>%
-  summarise(dissim= .5*sum(d.wb, na.rm=T))
-
-# Interaction Index
-## Next is the interaction index for blacks and whites. In the calculation first population is minority population, second is non-minority population. The formula is: 
-# Interaction = ∑i bi/B ∗ wi/ti
-
-co.int<-merged%>%
-  mutate(int.bw=(nhblack/co_blk * nhwhite/total))%>%
-  group_by(cofips)%>%
-  summarise(inter.bw= sum(int.bw, na.rm=T))
-
-# Isolation Index
-## Next is is the isolation index for blacks. The formula is:
-# Isolation=∑i bi/B ∗ bi/ti
-
-co.isob<-merged%>%
-  mutate(isob=(nhblack/co_blk * nhblack/total))%>%
-  group_by(cofips)%>%
-  summarise(iso.b= sum(isob, na.rm=T))
-
-nj_seg<-list(co.dis, co.int, co.isob) %>% 
-  reduce (left_join, by="cofips")
+svi_mun <- mun_sum %>%
+  select(Place.Name, SSN, 
+         mun_SPL_THEME1, mun_RPL_THEME1,
+         mun_SPL_THEME2, mun_RPL_THEME2,
+         mun_SPL_THEME3, mun_RPL_THEME3,
+         mun_SPL_THEME4, mun_RPL_THEME4,
+         mun_SPL_THEMES, mun_RPL_THEMES
+         )
+  
+svi_mun <- unique(svi_mun)
 ```
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE, include=FALSE, collapse = TRUE,}
-# get the shapefile
-options(tigris_class = "sf")
-nj_counties<- counties(state="NJ", cb=T, year=2010)
-nj_counties$cofips<-substr(nj_counties$GEO_ID, 10,15)
-
-nj_seg_dat<- geo_join(nj_counties, nj_seg, by_sp="cofips", by_df="cofips")
-```
-
-## Non-Hispanic Black Isolation Index
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-# plot the black isolation index:
-nj_seg_dat%>%
-  ggplot() +
-  geom_sf(aes(fill=iso.b)) +
-  scale_fill_viridis_c(limits = c(0, 0.8)) +
-  scale_color_viridis_c(limits = c(0, 0.8)) +
-  ggtitle("Non-Hispanic Black Isolation Index", subtitle = "2018 ACS")
-
-```
-
-## Hispanic Isolation Index
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-# Dissimilarity Index - Hispanic
-## Now we begin the segregation calculations, First we calculate the tract-specific contribution to the county dissimilarity index, then we use the tapply() function to sum the tract-specific contributions within counties. The Dissimilarity index for blacks and whites is: D=.5∗∑i ∣(hi/H) − (wi/W)∣ where hi is the number of Hispanics in each tract, H is the number of Hispanics in the county, wi is the number of whites in the tract, and W is the number of whites in the county.
-
-co.dis.h <- merged %>%
-  mutate(d.wh=abs(nhwhite/co_wht - hisp/co_hisp))%>%
-  group_by(cofips)%>%
-  summarise(dissim.h = .5*sum(d.wh, na.rm=T))
-
-# Interaction Index
-## Next is the interaction index for Hispanics and whites. In the calculation first population is minority population, second is non-minority population. The formula is: 
-# Interaction = ∑i hi/H ∗ wi/ti
-
-co.int.h <- merged %>%
-  mutate(int.hw = (hisp/co_hisp * nhwhite/total)) %>%
-  group_by(cofips)%>%
-  summarise(inter.hw = sum(int.hw, na.rm=T))
-
-# Isolation Index
-## Next is is the isolation index for Hispanics. The formula is:
-# Isolation=∑i hi/H ∗ hi/ti
-
-co.iso.h <- merged %>%
-  mutate(isoh = (hisp/co_hisp * hisp/total))%>%
-  group_by(cofips)%>%
-  summarise(iso.h= sum(isoh, na.rm=T))
-
-nj_seg_h <- list(co.dis.h, co.int.h, co.iso.h) %>% 
-  reduce (left_join, by="cofips")
-
-# merge with the shapefile
-nj_seg_dat_h<- geo_join(nj_counties, nj_seg_h, by_sp="cofips", by_df="cofips")
-```
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-# plot the hispanic isolation index:
-nj_seg_dat_h %>%
-  ggplot() +
-  geom_sf(aes(fill=iso.h)) +
-  scale_fill_viridis_c(limits = c(0, 0.8)) +
-  scale_color_viridis_c(limits = c(0, 0.8)) +
-  ggtitle("Hispanic Isolation Index", subtitle = "2018 ACS")
-
-```
-
-## Asian Isolation Index
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-# Dissimilarity Index -- Asian
-## Now we begin the segregation calculations, First we calculate the tract-specific contribution to the county dissimilarity index, then we use the tapply() function to sum the tract-specific contributions within counties. The Dissimilarity index for Asians and whites is: D=.5∗∑i ∣(ai/A) − (wi/W)∣ where ai is the number of Asians in each tract, A is the number of Asians in the county, wi is the number of whites in the tract, and W is the number of whites in the county.
-
-co.dis.a <- merged %>%
-  mutate(d.wa=abs(nhwhite/co_wht - nhasian/co_asian))%>%
-  group_by(cofips)%>%
-  summarise(dissim.a = .5*sum(d.wa, na.rm=T))
-
-# Interaction Index - Asian
-## Next is the interaction index for Hispanics and whites. In the calculation first population is minority population, second is non-minority population. The formula is: 
-# Interaction = ∑i hi/H ∗ wi/ti
-
-co.int.a <- merged %>%
-  mutate(int.aw = (nhasian/co_asian * nhwhite/total)) %>%
-  group_by(cofips)%>%
-  summarise(inter.aw = sum(int.aw, na.rm=T))
-
-# Isolation Index - Asian
-## Next is is the isolation index for Hispanics. The formula is:
-# Isolation=∑i hi/H ∗ hi/ti
-
-co.iso.a <- merged %>%
-  mutate(iso.a = (nhasian/co_asian * nhasian/total))%>%
-  group_by(cofips)%>%
-  summarise(iso.a = sum(iso.a, na.rm=T))
-
-nj_seg_a <- list(co.dis.a, co.int.a, co.iso.a) %>% 
-  reduce (left_join, by="cofips")
-
-# merge with the shapefile
-nj_seg_dat_a <- geo_join(nj_counties, nj_seg_a, by_sp="cofips", by_df="cofips")
-```
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-# plot the Asian isolation index:
-nj_seg_dat_a %>%
-  ggplot() +
-  geom_sf(aes(fill=iso.a)) +
-  scale_fill_viridis_c(limits = c(0, 0.8)) +
-  scale_color_viridis_c(limits = c(0, 0.8)) +
-  ggtitle("Asian Isolation Index", subtitle = "2018 ACS")
-
+```{r}
+#write_csv(svi_mun, file = "svi_mun.csv")
+read.csv("svi_mun.csv")
 ```
