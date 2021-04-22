@@ -22,6 +22,8 @@ The purpose of this data file is to calculate the average distance from each mun
 7) I aggregtated the distance at each census tract up to the municipal level
 
 ## KEY VARIABLE NAMES AND DEFINITIONS:
+SSN: unique municipality identifier
+average_distance: average distance (renamed when merging to average_d_cultural)
 
 ## LINK TO DESCRIPTIVE STATISTICS:
 *Provide directory link to file with DS*
