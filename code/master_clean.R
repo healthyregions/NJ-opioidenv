@@ -32,6 +32,8 @@ merge_ndvi <- selected_var %>%
   select(SSN, municipality, everything())
 
 # merge with SVI
+svi_mun <- read.csv("svi_mun.csv")
+
 master_clean <- merge_ndvi %>%
   full_join(svi_mun, by = "SSN") %>%
   select(-Place.Name) %>%
@@ -40,7 +42,4 @@ master_clean <- merge_ndvi %>%
 colnames(master_clean)
 
 #write_csv(master_clean, file = "master_clean.csv")
-
-master_clean <- read.csv("/Users/xiafm/Documents/GitHub/NJ-opioidenv/data_final/master_clean.csv")
-test <- read.csv("/Users/xiafm/Documents/GitHub/NJ-opioidenv/data_raw/SVI/NewJersey.csv")
 
