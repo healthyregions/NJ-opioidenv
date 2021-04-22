@@ -1,14 +1,17 @@
 
-# Dataset Name # 
+# svi_mun.csv # 
 
-- Meta Data Name: 
-- Date Last Modified: 
-- Author: 
-- Data File Name: 
-- Programming File Name(s): 
-- Data Location: 
+- Meta Data Name: metadata_svi_mun
+- Date Last Modified: 04/22/2021
+- Author: Fanmei Xia
+- Data File Name: svi_mun.csv
+- Programming File Name(s): code/svi_mun.rmd
+- Data Location: data_final
 
 ## DATA SOURCE(S):
+- sent from the UIC team (box folder)
+- also accessible directly from the CDC website:
+https://www.atsdr.cdc.gov/placeandhealth/svi/index.html
 
 ## DESCRIPTION OF DATA FILE: 
 *What is the rationale or purpose of the data?*
