@@ -1,19 +1,20 @@
 
-# Dataset Name # 
+# master_clean.csv # 
 
-- Meta Data Name: master
-- Date Last Modified: 2/2/21
+- Meta Data Name: master_clean.csv
+- Date Last Modified: 04/22/2021
 - Author: Fanmei Xia
 - Data File Name: master_clean.csv, master_geog.geojson
-- Programming File Name(s): create_master_clean.R
+- Programming File Name(s): code/master_clean.R
 - Data Location: data_final
 
 ## DATA SOURCE(S):
-master.csv (all data previously compiled)
+master.csv (all data previously compiled from ACS)
+municipal_ndvi.csv
+svi_mun.csv (CDC Social Vulnerability Index)
 
 ## DESCRIPTION OF DATA FILE: 
 Compile all previously pulled data into one location
-
 
 ## DESCRIPTION OF DATA MANIPULATION:
 For data already at municipality scale, the only manipulations conducted were to facilitate the data join. 
@@ -58,6 +59,17 @@ public_transit: Means of transportation to work
 AMS_RES: total count of residential addresses
 AMS_BUS: total count of business residences
 AMS_OTH: total count of other addresses
+ndvi = ndvi
+SPL_THEME1:	Sum of series for Socioeconomic theme
+RPL_THEME1:	Percentile ranking for Socioeconomic theme summary
+SPL_THEME2	Sum of series for Household Composition theme
+RPL_THEME2	Percentile ranking for Household Composition theme summary
+SPL_THEME3	Sum of series for Minority Status/Languag e theme
+RPL_THEME3	Percentile ranking for Minority Status/Language theme
+SPL_THEME4	Sum of series for Housing Type / Transportation theme
+RPL_THEME4	Percentile ranking for Housing Type / Transportation theme
+SPL_THEMES	Sum of series themes
+RPL_THEMES	Overall percentile ranking
 
 ## LINK TO DESCRIPTIVE STATISTICS:
 *Provide directory link to file with DS*
