@@ -16,9 +16,8 @@ library(tidyverse)
 
 ```{r NJ, message=FALSE, warning=FALSE}
 # Read in the crime data from 2017 - 2019
-setwd("/Users/xiafm/Documents/GitHub/NJ-opioidenv/data_raw")
-crime_17 <- read.csv("/Users/xiafm/Documents/GitHub/NJ-opioidenv/data_raw/crime_data_2017.csv")
-crime_1819 <- read.csv("/Users/xiafm/Documents/GitHub/NJ-opioidenv/data_raw/crime_data_2018-2019.csv")
+crime_17 <- read.csv("crime_data_2017.csv")
+crime_1819 <- read.csv("crime_data_2018-2019.csv")
 
 ```
 
