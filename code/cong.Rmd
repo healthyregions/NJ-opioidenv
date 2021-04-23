@@ -1,0 +1,39 @@
+---
+title: "U.S. Religion Census Religious Congregations and Membership Study (2010, County Level)"
+author: "Fanmei Xia"
+date: "04/22/2021"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidycensus)
+library(tidyverse)
+library(tigris)
+```
+
+
+```{r NJ, message=FALSE, warning=FALSE}
+# Read in the congregational data (from 2010)
+cong <- read.csv("U.S. Religion Census Religious Congregations and Membership Study, 2010 (County File).csv")
+
+```
+
+```{r, message=FALSE, warning=FALSE}
+cong <- cong %>%
+  select(CountyFIPS, TOTCNG, TOTRATE) 
+cong$CountyFIPS <- as.character(cong$CountyFIPS)
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, include=FALSE, collapse = TRUE,}
+# get the shapefile
+options(tigris_class = "sf")
+nj_counties<- counties(state="NJ", cb=T, year=2010)
+nj_counties$cofips <- substr(nj_counties$GEO_ID, 10,15)
+
+nj_cong <- geo_join(nj_counties, cong, by_sp="cofips", by_df="CountyFIPS")
+
+```
