@@ -10,16 +10,14 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
-library(tidycensus)
 library(tidyverse)
-library(tigris)
 ```
 
 
 ```{r NJ, message=FALSE, warning=FALSE}
 ## Getting data from CDC SVI website (2018, New Jersey)
 # check for available variables in the data
-setwd("/Users/xiafm/Documents/GitHub/NJ-opioidenv/data_raw")
+
 svi <- read_csv("SVI-NewJersey2018.csv")
 svi$FIPS <- as.character(svi$FIPS)
 svi <- na_if(svi, '-999') 
@@ -27,8 +25,7 @@ svi <- na_if(svi, '-999')
 
 ```{r, message=FALSE, warning=FALSE}
 #Merge with the interpolation 
-path <- ("/Users/xiafm/Documents/GitHub/NJ-opioidenv/data_final/")
-interpolation <- read_csv(paste0(path, "cw_areal_interpolation.csv"))
+interpolation <- read_csv("cw_areal_interpolation.csv")
 interpolation$TRACTID <- as.character(interpolation$TRACTID)
 
 tr_mun <- left_join(x = interpolation, y = svi, by = c("TRACTID" = "FIPS"))
