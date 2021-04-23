@@ -43,3 +43,18 @@ crime <- bind_rows(sum_17, sum_1819) %>%
 #write_csv(crime, file = "crime_county.csv")
 read.csv("crime_county.csv")
 ```
+
+```{r}
+crime %>%
+  ggplot(aes(x=County, y = Co_tot, color = Year)) +
+  geom_point() +
+    theme_classic() +
+    labs(
+        x = "County",
+        y = "Total Crime Incidents",
+        title = paste(
+            "Crime Data by County"
+        ) 
+    ) +
+  coord_flip()
+```
