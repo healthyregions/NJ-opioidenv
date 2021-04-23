@@ -10,7 +10,9 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
+library(tidycensus)
 library(tidyverse)
+library(tigris)
 ```
 
 
@@ -35,7 +37,8 @@ sum_1819$Year <- as.character(sum_1819$Year)
             
 # Create one dataset that has all three years' data
 crime <- bind_rows(sum_17, sum_1819) %>%
-  arrange(CountyFIPS)
+  arrange(CountyFIPS) 
+crime$CountyFIPS <- as.character(crime$CountyFIPS)
 
 ```
 
@@ -57,4 +60,26 @@ crime %>%
         ) 
     ) +
   coord_flip()
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, include=FALSE, collapse = TRUE,}
+# get the shapefile
+options(tigris_class = "sf")
+nj_counties<- counties(state="NJ", cb=T, year=2010)
+nj_counties$cofips<-substr(nj_counties$GEO_ID, 10,15)
+
+nj_crime <- geo_join(nj_counties, crime, by_sp="cofips", by_df="CountyFIPS")
+
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+# plot
+nj_crime %>%
+  filter(Year == "2017") %>%
+  ggplot() +
+  geom_sf(aes(fill=Co_tot)) +
+  scale_fill_viridis_c(limits = c(0, 0.8)) +
+  scale_color_viridis_c(limits = c(0, 0.8)) +
+  ggtitle("crime", subtitle = "County level")
+
 ```
