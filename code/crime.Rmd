@@ -49,15 +49,23 @@ read.csv("crime_county.csv")
 
 ```{r}
 crime %>%
-  ggplot(aes(x=County, y = Co_tot, color = Year)) +
-  geom_point() +
+  ggplot(
+    aes(
+      x = County, 
+      y = Co_tot, 
+      fill = as.factor(Year)
+      )
+    ) +
+  geom_bar(
+    position="dodge",
+    stat = "identity", 
+    width = 0.75
+    ) +
     theme_classic() +
     labs(
         x = "County",
         y = "Total Crime Incidents",
-        title = paste(
-            "Crime Data by County"
-        ) 
+        title = paste("Crime Data by County") 
     ) +
   coord_flip()
 ```
