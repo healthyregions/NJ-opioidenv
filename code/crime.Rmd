@@ -85,9 +85,9 @@ nj_crime <- geo_join(nj_counties, crime, by_sp="cofips", by_df="CountyFIPS")
 nj_crime %>%
   filter(Year == "2017") %>%
   ggplot() +
-  geom_sf(aes(fill=Co_tot)) +
-  scale_fill_viridis_c(limits = c(0, 0.8)) +
-  scale_color_viridis_c(limits = c(0, 0.8)) +
-  ggtitle("crime", subtitle = "County level")
+  geom_sf(mapping=aes(fill=Co_tot)) +
+  scale_fill_viridis_c() +
+  scale_color_viridis_c() +
+  ggtitle("Crime Data", subtitle = "New Jersey - county level")
 
 ```
