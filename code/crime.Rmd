@@ -44,7 +44,7 @@ crime$CountyFIPS <- as.character(crime$CountyFIPS)
 
 ```{r}
 #write_csv(crime, file = "crime_county.csv")
-read.csv("crime_county.csv")
+crime <-  read.csv("/Users/xiafm/Documents/GitHub/NJ-opioidenv/data_final/crime_county.csv")
 ```
 
 ```{r}
@@ -75,6 +75,7 @@ crime %>%
 options(tigris_class = "sf")
 nj_counties<- counties(state="NJ", cb=T, year=2010)
 nj_counties$cofips<-substr(nj_counties$GEO_ID, 10,15)
+crime$CountyFIPS <- as.character(crime$CountyFIPS)
 
 nj_crime <- geo_join(nj_counties, crime, by_sp="cofips", by_df="CountyFIPS")
 
@@ -88,6 +89,7 @@ nj_crime %>%
   geom_sf(mapping=aes(fill=Co_tot)) +
   scale_fill_viridis_c() +
   scale_color_viridis_c() +
-  ggtitle("Crime Data", subtitle = "New Jersey - county level")
+  ggtitle("Crime Data", subtitle = "New Jersey - county level") +
+  theme_minimal()
 
 ```
