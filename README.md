@@ -58,8 +58,8 @@ The following domains were assigned to the UC team for collection. We will extra
 |:------------------ | -------------- | --------- | ----------------- | ------------- | -------------------------------- |
 | Religion Congregations per capita | Rates of adherence per 1,000 population |  [the Association of Religion Data Archive / U.S. Religion Census: Religious Congregations and Membership Study, 2010](https://www.thearda.com/Archive/Files/Descriptions/RCMSMT10.asp) | [Religious Congregations](data_final/metadata/metadata_religious_congregations.md) | Municipality (raw data available at the County level) | Complete |
 | Volunteerism per capita |  |   |  | |  |
-| Community; Adult Learning; Recreational Centers |  | [NJGIN Open Data](https://njogis-newjersey.opendata.arcgis.com/datasets/school-point-locations-of-nj-public-private-and-charter?geometry=-81.880%2C38.635%2C-67.564%2C41.575&orderBy=X)  | Average distance to the nearest adult education program | Municipality | Complete |
-| Cultural Centers/Museum/Art Galleries |  |   |  | | Complete |
+| Community; Adult Learning; Recreational Centers | Average distance to the nearest adult education program | [NJGIN Open Data](https://njogis-newjersey.opendata.arcgis.com/datasets/school-point-locations-of-nj-public-private-and-charter?geometry=-81.880%2C38.635%2C-67.564%2C41.575&orderBy=X)  | [Adult Learning](data_final/metadata/metadata_adult_ed_distance.md) | Municipality | Complete |
+| Cultural Centers/Museum/Art Galleries | Average distance from each municipality to the nearest cultural points (cultural center, art gallery, or museum) | ?  | [Cultural distance](data_final/metadata/metadata_cultural_distance.md) | Municipality | Complete |
 
 ### Strength of community economy
 
