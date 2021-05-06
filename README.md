@@ -3,8 +3,8 @@
 ## Git Structure
 We will use the following standards for this github repo. 
 + code[folder]: Stores R scripts used to access, clean, and process data.
-+ data_raw [folder]:raw data pulled prior to processing
-+ data_in_progress [folder]:data files saved for futher processing
++ data_raw [folder]: Raw data pulled prior to processing
++ data_in_progress [folder]: Data files saved for futher processing
 + data_final[folder]:
     - geometryFiles [folder]: Stores geometry files
     - metadata [folder]: Stores metadata files as R markdown documents
