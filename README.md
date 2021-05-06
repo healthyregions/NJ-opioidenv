@@ -14,7 +14,7 @@ We will use the following standards for this github repo.
 A copy of the cleaned final dataset, metdata document, and data dictionary will be added to the UChicago Box drive.
 
 ## Built Environment Measures By Domain:
-The following domains were assigned to the UC team for collection. We will extract data for each variable construct and measure it as a specific geographic boundary for the entire state of NJ, using the most recent available data. At this time, we'll likely use Municipalties as the spatial scale, but we're still deciding this.
+The following domains were assigned to the UC team for collection. We will extract data for each variable construct and measure it as a specific geographic boundary for the entire state of NJ, using the most recent available data. At this time, we are mostly using Municipality (and county when municipality is not available) as the spatial scale.
 
 ### Quality of the Commercial Environment
 | Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status|
