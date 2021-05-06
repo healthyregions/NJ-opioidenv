@@ -22,6 +22,7 @@ The following domains were assigned to the UC team for collection. We will extra
 | Business vacancy rates | Commercial vacancies| USPS quarterly vacancy reports | [USPS_VAC_2018](data_final/metadata/metadata_usps_vac_2018_variables.md) | tract | Complete |
 | Numbers & types of businesses open for business | Number of businesses/municipality, percentage of businesses in municipality in each 2-digit NAICS classification code | UC library business data | [business types](data_final/metadata/metadata_business_types.md) |Municipality  |Complete  |
 | Number of Bars/Liquor stores (1,3) | Bars/Liquor store per capita and per area | Open Street Map | [Bars/Liquor stores](data_final/metadata/metadata_bars_liquorstores.md) |Municipality <br> Olina also calculated at smaller scales  | Complete |
+| Transportation | no vehicles, % commuters via car and transit by household | ACS | [Residential Environment](data_final/metadata/metadata_residential_environment.md) |Tract   | Complete |
 
 ### Quality of the Residential Environment
 | Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status|
@@ -31,7 +32,7 @@ The following domains were assigned to the UC team for collection. We will extra
 | Residential affordability |  average rent, high rent burden, average housing cost | Census/ACS |  | | |
 | Residential conditions | residential vacancy rates (USPS 2018), home foreclosures (HUD 2009),  | multiple  | [Residential Environment](data_final/metadata/metadata_residential_environment.md) | Tract | Complete |
 | Quality of public schools (9) | Data from walkscore captures the *quantity* of public schools | use school perf metric indicator from 2012 | [Walk Score](data_final/metadata/metadata_walkscore.md)  |Needs to be calculated (bin method or maybe count/pop??)  |In progress: depends on if we want quality or quantity  |
-| Transportation | no vehicles, % commuters via car and transit by household | ACS | [Residential Environment](data_final/metadata/metadata_residential_environment.md) |Tract   | Complete |
+
 
 ### Quality of the Physical Environment
 | Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status<br>(for Internal team use)|
