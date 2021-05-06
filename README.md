@@ -42,6 +42,12 @@ The following domains were assigned to the UC team for collection. We will extra
 | Zoning |  | [Rowan University Geodata Center](https://www.njmap2.com/landuse/landuse/) & [NJGIN Open data Portal](https://njogis-newjersey.opendata.arcgis.com/datasets/3d5d1db8a1b34b418c331f4ce1fd0fef_2)| [Physical Environment](data_final/metadata/metadata_physical_environment_2015.md)|Municipality | Complete |
 | Vegetation | NDVI | NASA Modis |[NDVI](data_final/metadata/metadata_ndvi.md)|Municipality | Complete |
 
+### Health service availability
+
+| Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status<br>(for Internal team use)|
+|:------------------ | -------------- | --------- | ----------------- | ------------- | -------------------------------- |
+| Buprenorphine scripts |  |   | [Bike Lanes](data_final/metadata/metadata_bike_lanes.md) |Municipality | Complete |
+
 ### Data Sources
 The following sources were identified for each variable construct in the original proposal. Consider these starting points; we will identify the best available proxy for each variable construct. 
 
