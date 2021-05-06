@@ -19,10 +19,10 @@ The following domains were assigned to the UC team for collection. We will extra
 ### Quality of the Commercial Environment
 | Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status|
 |:------------------ | -------------- | --------- | ----------------- | ------------- | -------------------------------- |
-| Business vacancy rates | Commercial vacancies| USPS quarterly vacancy reports | [USPS_VAC_2018](data_final/metadata/metadata_usps_vac_2018_variables.md) | tract | Complete |
-| Numbers & types of businesses open for business | Number of businesses/municipality, percentage of businesses in municipality in each 2-digit NAICS classification code | UC library business data | [business types](data_final/metadata/metadata_business_types.md) |Municipality  |Complete  |
+| Business vacancy rates | Commercial vacancies| USPS quarterly vacancy reports | [USPS_VAC_2018](data_final/metadata/metadata_usps_vac_2018_variables.md) | Tract | Complete |
+| Numbers & types of businesses open for business | Number of businesses/municipality, percentage of businesses in municipality in each 2-digit NAICS classification code | UC library business data | [Business types](data_final/metadata/metadata_business_types.md) |Municipality  |Complete  |
 | Number of Bars/Liquor stores (1,3) | Bars/Liquor store per capita and per area | Open Street Map | [Bars/Liquor stores](data_final/metadata/metadata_bars_liquorstores.md) |Municipality <br> Olina also calculated at smaller scales  | Complete |
-| Transportation | no vehicles, % commuters via car and transit by household | ACS | [Residential Environment](data_final/metadata/metadata_residential_environment.md) |Tract   | Complete |
+| Transportation | No vehicles, % commuters via car and transit by household | ACS | [Residential Environment](data_final/metadata/metadata_residential_environment.md) |Tract   | Complete |
 
 ### Quality of the Residential Environment
 | Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status|
@@ -38,7 +38,7 @@ The following domains were assigned to the UC team for collection. We will extra
 | Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status<br>(for Internal team use)|
 |:------------------ | -------------- | --------- | ----------------- | ------------- | -------------------------------- |
 | Access to bike trails | Bike trails proxied with two OSM data measures (bikes trails and bikes trails + paths) which take ratio distance of bike trail <br> Note: [Braun et al. 2018](https://www.sciencedirect.com/science/article/pii/S096669231830930X) describes this measure (see section 3.3)/ municipality area  | OSM via osmdata package in R  | [Bike Lanes](data_final/metadata/metadata_bike_lanes.md) |Municipality | Complete |
-| Walkability score  | Median and Mean walkscore from SSWS2USE | CSDS's copy of 2013 data from [Walkscore](https://www.walkscore.com) \ [2013 block group data](https://catalog.data.gov/dataset/tiger-line-shapefile-2013-state-new-jersey-current-block-group-state-based)| [Walk Score](data_final/metadata/metadata_walkscore.md)|Municipality | Complete |
+| Walkability score  | Median and Mean walkscore | CSDS's copy of 2013 data from [Walkscore](https://www.walkscore.com) \ [2013 block group data](https://catalog.data.gov/dataset/tiger-line-shapefile-2013-state-new-jersey-current-block-group-state-based)| [Walk Score](data_final/metadata/metadata_walkscore.md)|Municipality | Complete |
 | Zoning | ? | [Rowan University Geodata Center](https://www.njmap2.com/landuse/landuse/) & [NJGIN Open data Portal](https://njogis-newjersey.opendata.arcgis.com/datasets/3d5d1db8a1b34b418c331f4ce1fd0fef_2)| [Physical Environment](data_final/metadata/metadata_physical_environment_2015.md)|Municipality | Complete |
 | Vegetation | NDVI | NASA Modis |[NDVI](data_final/metadata/metadata_ndvi.md)|Municipality | Complete |
 
