@@ -46,7 +46,29 @@ The following domains were assigned to the UC team for collection. We will extra
 
 | Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status<br>(for Internal team use)|
 |:------------------ | -------------- | --------- | ----------------- | ------------- | -------------------------------- |
-| Buprenorphine scripts |  |   | [Bike Lanes](data_final/metadata/metadata_bike_lanes.md) |Municipality | Complete |
+| Buprenorphine scripts |  |   |  | | |
+| Medication-assisted treatment & opioid treatment programs |  |   |  | |  |
+| Drug treatment programs |  |   |  | |  |
+| Syringe exchange programs |  |   |  | |  |
+| Mental health programs |  |   |  | |  |
+
+### Strength of community participation
+
+| Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status<br>(for Internal team use)|
+|:------------------ | -------------- | --------- | ----------------- | ------------- | -------------------------------- |
+| Religion Congregations per capita |  |   |  | | Complete |
+| Volunteerism per capita |  |   |  | |  |
+| Community; Adult Learning; Recreational Centers |  |   |  | | Complete |
+| Cultural Centers/Museum/Art Galleries |  |   |  | | Complete |
+
+### Strength of community economy
+
+| Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status<br>(for Internal team use)|
+|:------------------ | -------------- | --------- | ----------------- | ------------- | -------------------------------- |
+| Residential income per capita |  |   |  | |  |
+| Residential employment per capita |  |   |  | |  |
+| Community investment |  |   |  | |  |
+
 
 ### Data Sources
 The following sources were identified for each variable construct in the original proposal. Consider these starting points; we will identify the best available proxy for each variable construct. 
