@@ -85,4 +85,6 @@ Washington, DC: US Census Bureau. 2012.
  Geospatial Research, Analysis, and Services Program. Social Vulnerability Index Database US. 2014.
 9. Neighborhood Scout (https://www.neighborhoodscout.com/nj/schools).
 10. NewJerseyParkServiceTrails(https://data.nj.gov/).
+11. US Geological Survey
+12. The Association of Religion Data Archive (https://www.thearda.com/Archive/Files/Descriptions/RCMSMT10.asp)
 
