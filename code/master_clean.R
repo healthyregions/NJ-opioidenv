@@ -34,12 +34,39 @@ merge_ndvi <- selected_var %>%
 # merge with SVI
 svi_mun <- read.csv("svi_mun.csv")
 
-master_clean <- merge_ndvi %>%
+merge_svi <- merge_ndvi %>%
   full_join(svi_mun, by = "SSN") %>%
   select(-Place.Name) %>%
+  select(SSN, municipality, everything())
+
+# merge with adult_ed_distance
+adult_ed_distance <- read.csv("adult_ed_distance.csv")
+
+# merge with cultural_distance
+cultural_distance <- read.csv("cultural_distance.csv")
+cultural_distance <- cultural_distance %>%
+  rename(cultural_dist = average_distance)
+
+# merge with naloxone_distance
+naloxone_distance <- read.csv("naloxone_distance.csv")
+naloxone_distance <- naloxone_distance %>%
+  rename(naloxone_dist = average_distance)
+
+# merge with syringe_distance
+syringe_distance <- read.csv("syringe_distance.csv")
+syringe_distance <- syringe_distance %>%
+  rename(syringe_distance = average_distance)
+
+master_clean <- merge_svi %>%
+  full_join(adult_ed_distance, by = "SSN") %>%
+  full_join(cultural_distance, by = "SSN") %>%
+  full_join(naloxone_distance, by = "SSN") %>%
+  full_join(syringe_distance, by = "SSN") %>%
   select(SSN, municipality, everything())
 
 colnames(master_clean)
 
 #write_csv(master_clean, file = "master_clean.csv")
+
+master_clean <- read.csv("master_clean.csv")
 
