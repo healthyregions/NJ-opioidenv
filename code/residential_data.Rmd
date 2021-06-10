@@ -24,7 +24,7 @@ library(tigris)
 # to obtain a census api go here https://api.census.gov/data/key_signup.html
 # to access the census data remove '#' enter your own API key below
 
-# census_api_key(42f846433970adad431d7c983bdd0d445ada8428", install=TRUE)
+# census_api_key(YOUR KEY, install=TRUE)
 
 # Note: doing this once is enough for R. Tidycensus includes census_api_key() which automatically stores your key in .Renviron. You can use "tidycensus" anytime without re-entering your API key.
 ```
