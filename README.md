@@ -21,7 +21,7 @@ The following domains were assigned to the UC team for collection. We will extra
 |:------------------ | -------------- | --------- | ----------------- | ------------- | -------------------------------- |
 | Business vacancy rates | Commercial vacancies| USPS quarterly vacancy reports | [USPS_VAC_2018](data_final/metadata/metadata_usps_vac_2018_variables.md) | Tract | Complete |
 | Numbers & types of businesses open for business | Number of businesses/municipality, percentage of businesses in municipality in each 2-digit NAICS classification code | UC library business data | [Business types](data_final/metadata/metadata_business_types.md) |Municipality  |Complete  |
-| Number of Bars/Liquor stores (1,3) | Bars/Liquor store per capita and per area | Open Street Map | [Bars/Liquor stores](data_final/metadata/metadata_bars_liquorstores.md) |Municipality <br> Olina also calculated at smaller scales  | Complete |
+| Number of Bars/Liquor stores (1,3) | Bars/Liquor store per capita and per area | Open Street Map | [Bars/Liquor stores](data_final/metadata/metadata_bars_liquorstores.md) |Municipality (Olina also calculated at smaller scales)  | Complete |
 | Transportation | No vehicles, % commuters via car and transit by household | ACS | [Residential Environment](data_final/metadata/metadata_residential_environment.md) |Tract   | Complete |
 
 ### Quality of the Residential Environment
