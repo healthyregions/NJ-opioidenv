@@ -23,15 +23,19 @@ Check for available variables in the census data (in this case American Communit
 
 Pulled tract level data of New Jersey:
 B19301_001: income per capita
-
+B23025_001: employment status for the population 16 years and over
+B23025_004: employed of the population 16 years and over who are in the labor force
+B23025_005: unemployed of the population 16 years and over who are in the labor force
 
 ### Step 2: Cleaning
+calcuated the employment per capita by the number of people employed (employed), over the total population (employ_total).
 
 ### Step 3: Write Data
 
 ## KEY VARIABLE NAMES AND DEFINITIONS:
 
 income_per_cap: income per capita
+employ_per_cap: employment per capita
 
 ## LINK TO DESCRIPTIVE STATISTICS:
 Data in data_final/community_econ.Rmd
