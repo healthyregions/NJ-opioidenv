@@ -65,8 +65,8 @@ The following domains were assigned to the UC team for collection. We will extra
 | Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status<br>(for Internal team use)|
 |:------------------ | -------------- | --------- | ----------------- | ------------- | -------------------------------- |
 | Residential income per capita | income per capita | ACS  | [Community Economy](data_final/metadata/metadata_community_econ.md) | Tract | Complete |
-| Residential employment per capita |  |   |  | |  |
-| Community investment |  |   |  | |  |
+| Residential employment per capita | employment per capita (unemployment may be a better measure?) | ACS  | [Community Economy](data_final/metadata/metadata_community_econ.md) |Tract | Complete |
+| Community investment |  |   |  | | *pending updated source (from UIC team) |
 
 
 ### Data Sources
