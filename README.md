@@ -48,7 +48,7 @@ The following domains were assigned to the UC team for collection. We will extra
 |:------------------ | -------------- | --------- | ----------------- | ------------- | -------------------------------- |
 | Medication-assisted treatment & opioid treatment programs |  |   |  | |  |
 | Drug treatment programs |  |   |  | | *pending updated source (from UIC/Mark's team) |
-| Syringe exchange programs |  |   |  | | *pending updated source (from Leslie/UIC team) |
+| Syringe exchange programs |  |   |  | | data in box; needs updating |
 | Mental health programs | Distance to nearest mental health provider | US Census, SAMSHA 2020  | Policy Scan/[Access: Mental Health Providers](data_final/metadata/Access_MentalHealth_MinDistance.md) |Tract, Zip | Complete |
 
 ### Strength of community participation
