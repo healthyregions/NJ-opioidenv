@@ -16,7 +16,7 @@ library(ggplot2)
 Loading data, converting age to numeric
 ```{r}
 me <- read.csv(here("me_data_geocoded_final.csv")) %>% 
-  filter(!is.na(me$AGE))
+  filter(!is.na(AGE))
 
 me$AGE <- me$AGE %>% 
   substr(1,2) %>% #only takes first two characters: numeric age (previously there was "Years")
