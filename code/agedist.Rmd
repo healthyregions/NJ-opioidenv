@@ -1,0 +1,55 @@
+---
+title: "Age Distribution of Deaths in ME Data"
+author: "Clyde Schwab"
+date: "1-7-2021"
+output: html_notebook
+---
+
+Setting up environment and packages
+```{r}
+library(tidyverse)
+library(sf)
+library(here)
+library(ggplot2)
+```
+
+Loading data, converting age to numeric
+```{r}
+me <- read.csv(here("me_data_geocoded_final.csv")) %>% 
+  filter(!is.na(me$AGE))
+
+me$AGE <- me$AGE %>% 
+  substr(1,2) %>% #only takes first two characters: numeric age (previously there was "Years")
+  as.numeric() 
+
+unique(me$RACE)
+me$RACE[me$RACE == "black"] <- "Black"
+me$RACE[me$RACE == "Asian"] <- "Asian/Pacific"
+me$RACE[me$RACE == "OTHER"] <- "Other"
+```
+
+creating a summary table of age distribution
+```{r}
+summary(me$AGE)
+```
+
+generating histogram of ages
+```{r}
+ggplot(me, aes(x=AGE)) + 
+  geom_histogram(binwidth = 1, color="black", fill="white")
+```
+
+generating histogram by race
+```{r}
+ggplot(me, aes(x=AGE, fill=RACE)) + 
+  geom_histogram(binwidth = 1, color="black")
+```
+
+```{r}
+ggplot(me, aes(x=AGE)) + 
+  geom_histogram(binwidth = 1, color="black", fill="white") + 
+  facet_wrap( ~ RACE)
+```
+
+
+
