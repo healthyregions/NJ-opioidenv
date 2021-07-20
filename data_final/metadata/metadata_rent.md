@@ -24,16 +24,7 @@ Check for available variables in the census data (in this case American Communit
 Pulled tract level data of New Jersey:
 B25063_001	Estimate!!Total	GROSS RENT
 
-### Step 2: Compute Occupance/Vancancy Rate, Mobile Home Percentage, Multi-Units Structure, Population who have moved in for more than 20 years
-occupancy_rate = occupied_units/total_units, 
-vacancy_rate = vacant_units/total_units,
-mobile_home_rate = mobile_home/total_units,
-multiunit_struct = multiunits_two + multiunits_three_or_four + multiunits_five_to_nine + multiunits_10_to_19 + multiunits_20_to_49 + multiunits_50plus,
-pop_own_20yrs_plus = pop_own_90_99 + pop_own_bfr89,
-pop_ren_20yrs_plus = pop_ren_90_99 + pop_ren_bfr89,
-pop_20yrs_plus = pop_own_20yrs_plus + pop_ren_20yrs_plus
-
-### Step 3: Write Data
+### Step 2: Write Data
 
 ## KEY VARIABLE NAMES AND DEFINITIONS:
 
