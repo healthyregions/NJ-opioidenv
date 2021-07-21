@@ -30,7 +30,7 @@ tracts <- read_sf("tl_2018_34_tract.shp")
 
 merge <- left_join(MOUD_min_dist_t, tracts, by = "TRACTCE")
 
-
+merge <- merge(MOUD_min_dist_t, tracts,by="TRACTCE")
 
 ### Read in crosswalk
 
@@ -42,7 +42,7 @@ cw <- read.csv("cw_areal_interpolation.csv")
 ### Merge 'merge' with cw
 # Left Join
 
-merge_cw <- left_join(cw, merge, by = "TRACTID")
+merge_cw <- merge(cw, merge, by = "TRACTID")
 
 
 ### New by subset
@@ -59,14 +59,9 @@ subset <- subset %>%
 
 ## agg avg min dist
 
-mindist_mun2 <- subset %>%
-  group_by(SSN) %>%
-  summarise(avg_distance = mean(weighted_d))
-
-
 
 mindist_mun <- aggregate(subset$weighted_d, by=list(SSN=subset$SSN), FUN=mean)
-mindist_mun <- rename(mindist_mun, avg_min_dist = x)
+mindist_mun <- rename(mindist_mun, avg_MOUD_min_dist = x)
 
 
 ## agg % of tracts closer than 10 miles
@@ -89,7 +84,7 @@ dummy_merge <- left_join(sub_10, all, by = "SSN")
 
 #new column for num less / total
 
-dummy_merge$prop_under_10mi <- dummy_merge$num_less / dummy_merge$all
+dummy_merge$MOUD_prop_under_10mi <- dummy_merge$num_less / dummy_merge$all
 
 
 # left merge with avg min dist
