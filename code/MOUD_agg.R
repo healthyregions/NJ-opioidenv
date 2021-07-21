@@ -12,23 +12,23 @@ MOUD_min_dist_t <- rename(MOUD_min_dist_t, TRACTID = GEOID)
 
 
 ### Read in tract data
-setwd("~/Documents/HEROP/nhgis0003_csv")
-tracts <- read.csv ("nhgis0003_ds244_20195_2019_tract.csv")
+setwd("~/Documents/HEROP/tl_2018_34_tract")
+tracts <- read_sf("tl_2018_34_tract.shp")
 
 ## clean
 #library(splitstackshape)
 
-tracts <- cSplit(tracts, "GEOID", "US")
+#tracts <- cSplit(tracts, "GEOID", "US")
 
-tracts = subset(tracts, select = -c(GEOID_1))
+#tracts = subset(tracts, select = -c(GEOID_1))
 
-tracts <- rename(tracts, TRACTID = GEOID_2)
+#tracts <- rename(tracts, TRACTID = GEOID_2)
 
 
 ### Merge tract with MOUD
 # Left Join
 
-merge <- left_join(MOUD_min_dist_t, tracts, by = "TRACTID")
+merge <- left_join(MOUD_min_dist_t, tracts, by = "TRACTCE")
 
 
 
@@ -46,12 +46,26 @@ merge_cw <- left_join(cw, merge, by = "TRACTID")
 
 
 ### New by subset
-new <- c("Place.Name", "SSN", "TRACTID", "minDisMOUD")
+new <- c("Place.Name", "SSN", "TRACTID", "minDisMOUD", "prop_of_ct")
 
 subset <- merge_cw[new]
 
+
+## Create weighted column
+
+subset <- subset %>%
+  mutate(weighted_d = minDisMOUD * prop_of_ct)
+
+
 ## agg avg min dist
-mindist_mun <- aggregate(subset$minDisMOUD, by=list(SSN=subset$SSN), FUN=mean)
+
+mindist_mun2 <- subset %>%
+  group_by(SSN) %>%
+  summarise(avg_distance = mean(weighted_d))
+
+
+
+mindist_mun <- aggregate(subset$weighted_d, by=list(SSN=subset$SSN), FUN=mean)
 mindist_mun <- rename(mindist_mun, avg_min_dist = x)
 
 
@@ -88,7 +102,7 @@ final = subset(final, select = -c(num_less, all))
 
 setwd("~/Documents/GitHub/NJ-opioidenv/data_final")
 
-write.csv(final, "MOUD_distance_municipality.csv") 
+write.csv(final, "MOUD_distance_municipality.csv", row.names = FALSE) 
 
 
 
