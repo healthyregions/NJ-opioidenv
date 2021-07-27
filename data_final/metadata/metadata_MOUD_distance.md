@@ -25,7 +25,9 @@ The purpose of this data file is to calculate the average distance from each mun
 
 ## KEY VARIABLE NAMES AND DEFINITIONS:
 SSN: unique municipality identifier 
+
 avg_min_dist: average distance (renamed when merging to avg_MOUD_min_dist)
+
 prop_under_10mi: proprtion of tracts within a municipality within 10miles of an MOUD site (renamed when merging to MOUD_prop_under_10mi)
 
 ## LINK TO DESCRIPTIVE STATISTICS:
