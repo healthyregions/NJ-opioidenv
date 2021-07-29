@@ -18,6 +18,11 @@ The source SAMSHA mental health provider dataset includes provider name, locatio
 ### Description of Data Processing: 
 Data was scraped from the SAMSHA Treatment Locator tool, filtered for mental health providers, cleaned, and then converted to spatial data. Next, we conducted a nearest resource analysis using minimum Euclidean distance as a proxy variable for access. This analysis included calculating centroids for all census tracts and ZCTAs, identifying the nearest mental health provider to each centroid, and calculating the distance in miles. 
 
+### Description of Data Manipulation
+
+1) Nearest provider values were weighted according to the proportion of its corresponding census tract within the municipality
+2) Data were aggregated to the municipal level and all distances within a municipality were averaged
+
 ### Key Variable and Definitions:
 
 | Variable | Variable ID in .csv | Description |
@@ -28,6 +33,8 @@ Data was scraped from the SAMSHA Treatment Locator tool, filtered for mental hea
 | State | STATEFP | Unique 2-digit ID for states |
 | County | COUNTYFP | 3-digit ID for counties |
 | Census Tract | TRACTCE | 6-digit ID for census tracts |
+
+ - In merged master document, the variable is named mental_hlth_dist
 
 ### Data Limitations:
 Euclidean or straight-line distance is a simple approximation of access or travel from an origin centroid to the nearest hospital. It is not a precise calculation of real travel times or distances.  
