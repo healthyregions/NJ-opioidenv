@@ -32,17 +32,21 @@ calcuated the employment per capita by the number of people employed (employed),
 
 ### Step 3: Write Data
 
+### Step 4: Merge and Aggregate Data
+1) I weighted the income and employment measure for each census tract according to the proportion of the census tract within the municipality
+2) I aggregated to the municipal level
+
 ## KEY VARIABLE NAMES AND DEFINITIONS:
 
-income_per_cap: income per capita
-employ_per_cap: employment per capita
+income_per_cap: income per capita (income_per_capita in master)
+employ_per_cap: employment per capita (employment_per_capita in master
 
 ## LINK TO DESCRIPTIVE STATISTICS:
 Data in data_final/community_econ.Rmd
 
 
 ## DATA LIMITIONS: 
-
+Some NAs had to be removed when aggregating (32 of 599 observations once merged with the crosswalk file)
 
 ## COMMENTS/NOTES:  
  
