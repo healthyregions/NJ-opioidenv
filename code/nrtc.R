@@ -1,0 +1,86 @@
+
+
+#### NRTC merge
+
+###load data
+
+setwd("~/Documents/HEROP")
+nrtc <- read.csv("nrtc.csv")
+
+
+### load cw
+setwd("~/Documents/GitHub/NJ-opioidenv/data_final")
+
+cw <- read.csv("cw_areal_interpolation.csv")
+
+cw$SSN <- as.character(cw$SSN)
+
+
+#merge
+cw_merge <- left_join(cw, nrtc, by = "TRACTID")
+
+cw_merge$Place.Name = NULL
+cw_merge$TRACTID = NULL
+
+
+### weight
+
+cw_merge$weight_median_rent <- cw_merge$prop_of_ct * cw_merge$median_rent
+cw_merge$weight_median_home_value <- cw_merge$prop_of_ct * cw_merge$median_home_value
+cw_merge$weight_precent_housing_cost_burdened <- cw_merge$prop_of_ct * cw_merge$percent_housing_cost_burdened
+
+cw_merge$prop_of_ct = NULL
+cw_merge$median_rent = NULL
+cw_merge$percent_housing_cost_burdened = NULL
+cw_merge$median_home_value = NULL
+
+
+### agg
+
+final1 <- aggregate(cw_merge$weight_median_rent, by=list(SSN=cw_merge$SSN), FUN=sum)
+final1 <- rename(final1, median_rent = x)
+
+final2 <- aggregate(cw_merge$weight_median_home_value, by=list(SSN=cw_merge$SSN), FUN=sum)
+final2 <- rename(final2, median_home_value = x)
+
+final3 <- aggregate(cw_merge$weight_precent_housing_cost_burdened, by=list(SSN=cw_merge$SSN), FUN=sum)
+final3 <- rename(final3, percent_housing_cost_burdened = x)
+
+
+###merge
+
+final <- merge(final1, final2, by = "SSN")
+
+final <- merge(final, final3, by = "SSN")
+
+
+### Save
+
+setwd("~/Documents/GitHub/NJ-opioidenv/data_final")
+
+write.csv(final, "nrtc_housing.csv", row.names = FALSE) 
+
+
+
+#___________________________________________________________
+
+###Merge to master
+
+setwd("~/Documents/GitHub/NJ-opioidenv/data_final")
+nrtc <- read.csv("nrtc_housing.csv")
+master <- read.csv("master_clean.csv")
+
+master_updated <- merge(master, nrtc, by = "SSN")
+
+##save
+setwd("~/Documents/GitHub/NJ-opioidenv/data_final")
+
+
+write.csv(master, "master_clean.csv", row.names = FALSE) 
+
+
+
+
+
+
+
