@@ -70,6 +70,8 @@ setwd("~/Documents/GitHub/NJ-opioidenv/data_final")
 write.csv(final, "res_env.csv", row.names = FALSE) 
 
 
+#__________________
+
 
 ### Merge to master
 
@@ -83,4 +85,4 @@ master_updated <- merge(master, re, by = "SSN")
 setwd("~/Documents/GitHub/NJ-opioidenv/data_final")
 
 
-write.csv(master, "master_clean.csv", row.names = FALSE) 
+write.csv(master_updated, "master_clean.csv", row.names = FALSE) 
