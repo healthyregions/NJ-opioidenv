@@ -57,7 +57,7 @@ write.csv(final, "foreclosures.csv", row.names = FALSE)
 ### Merge to master
 
 setwd("~/Documents/GitHub/NJ-opioidenv/data_final")
-foreclosures <- read.csv("foreclosures.csv")
+foreclosures <- read.csv("foreclosures.csv.csv")
 master <- read.csv("master_clean.csv")
 
 master_updated <- merge(master, foreclosures, by = "SSN")
@@ -65,7 +65,7 @@ master_updated <- merge(master, foreclosures, by = "SSN")
 ##save
 setwd("~/Documents/GitHub/NJ-opioidenv/data_final")
 
-write.csv(master_updated, "master_clean.csv", row.names = FALSE) 
+write.csv(master, "master_clean.csv", row.names = FALSE) 
 
 
 
