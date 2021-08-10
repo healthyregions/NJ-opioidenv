@@ -75,7 +75,8 @@ master_updated <- merge(master, nrtc, by = "SSN")
 ##save
 setwd("~/Documents/GitHub/NJ-opioidenv/data_final")
 
-write.csv(master_updated, "master_clean.csv", row.names = FALSE) 
+
+write.csv(master, "master_clean.csv", row.names = FALSE) 
 
 
 
