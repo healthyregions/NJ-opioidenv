@@ -31,8 +31,6 @@ The following domains were assigned to the UC team for collection. We will extra
 | Residential stability |  # households for over 20 yrs, Housing occupancy rate | Census/ACS | [Residential Environment](data_final/metadata/metadata_residential_environment.md) | Tract | Complete | num_households_20yrs, occupancy_rate
 | Residential affordability |  average rent, high rent burden, average housing cost | Census/ACS | [Rent](data_final/metadata/metadata_rent.md) | Tract | Complete | median_rent, percent_housing_cost_burdened, median_home_value
 | Residential conditions | residential vacancy rates (USPS 2018), home foreclosures (HUD 2009),  | multiple  | [Residential Environment](data_final/metadata/metadata_residential_environment.md) | Tract | Complete | vac_res, num_foreclosures
-| Quality of public schools (9) | Data from walkscore captures the *quantity* of public schools | use school perf metric indicator from 2012 | [Walk Score](data_final/metadata/metadata_walkscore.md)  |Needs to be calculated (bin method or maybe count/pop??)  |In progress: depends on if we want quality or quantity  |
-
 
 ### Quality of the Physical Environment
 | Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status<br>(for Internal team use)| Name in Master |
@@ -46,7 +44,7 @@ The following domains were assigned to the UC team for collection. We will extra
 
 | Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status<br>(for Internal team use)| Name in Master |
 |------------------ | -------------- | --------- | ----------------- | ------------- | -------------------------------- | --------------- |
-| Medication-assisted treatment & opioid treatment programs | |  |    |               |                                 | avg_MOUD_min_dist, MOUD_prop_under_10mi |
+| Medication-assisted treatment & opioid treatment programs |distance providers prescribing Medications for Opioid Overuse Disorder | [SAMSHA](https://findtreatment.samhsa.gov/locator) | [MOUD metadata](https://github.com/GeoDaCenter/opioid-policy-scan/blob/master/data_final/metadata/Access_MOUDs.md)| points/Census tract | completed| avg_MOUD_min_dist, MOUD_prop_under_10mi |
 | Drug treatment programs |  |   |  | | *pending updated source (from UIC/Mark's team)| avg_SUT_min_dist |
 | Syringe exchange programs |  |   |  | | data in box; needs updating | syringe_distance, syr_prop_under_10mi
 | Mental health programs | Distance to nearest mental health provider | US Census, SAMSHA 2020  | Policy Scan/[Access: Mental Health Providers](data_final/metadata/Access_MentalHealth_MinDistance.md) |Tract, Zip | Complete | mental_hlt_dist
@@ -56,7 +54,7 @@ The following domains were assigned to the UC team for collection. We will extra
 | Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status<br>(for Internal team use)| Name in Master  |
 |:------------------ | -------------- | --------- | ----------------- | ------------- | -------------------------------- | --------------- |
 | Religion Congregations per capita | Rates of adherence per 1,000 population |  [the Association of Religion Data Archive / U.S. Religion Census: Religious Congregations and Membership Study, 2010](https://www.thearda.com/Archive/Files/Descriptions/RCMSMT10.asp) | [Religious Congregations](data_final/metadata/metadata_religious_congregations.md) | Municipality (raw data available at the County level) | Complete | NA |
-| Volunteerism per capita |  |   |  | | *pending updated source (from UIC team) | volunteer_opp
+| Volunteerism per capita | 4 month average of volunteer opportunity website postings | https://www.jerseycares.org/ https://www.volunteermatch.org/search?l=NJ  | [volunteer metadata](https://uchicago.app.box.com/file/805858360284)  | Municipality | completed | volunteer_opp
 | Community; Adult Learning; Recreational Centers | Average distance to the nearest adult education program | [NJGIN Open Data](https://njogis-newjersey.opendata.arcgis.com/datasets/school-point-locations-of-nj-public-private-and-charter?geometry=-81.880%2C38.635%2C-67.564%2C41.575&orderBy=X)  | [Adult Learning](data_final/metadata/metadata_adult_ed_distance.md) | Municipality | Complete | adult_ed_distance
 | Cultural Centers/Museum/Art Galleries | Average distance from each municipality to the nearest cultural points (cultural center, art gallery, or museum) | from the UIC team  | [Cultural distance](data_final/metadata/metadata_cultural_distance.md) | Municipality | Complete | cultural_dist
 
