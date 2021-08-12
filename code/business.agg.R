@@ -34,38 +34,6 @@ new <- setDT(new, keep.rownames = TRUE)[]
 new <- rename(new, SSN = rn)
 
 
-### merge vacancies
-
-#load vacancies
-setwd("~/Documents/GitHub/NJ-opioidenv/data_in_progress")
-
-vacancies <- read.csv("usps_vac_2018_variable.csv")
-
-#load cw
-setwd("~/Documents/GitHub/NJ-opioidenv/data_final")
-
-cw <- read.csv("cw_areal_interpolation.csv")
-
-cw <- rename(cw, geoid = TRACTID)
-
-cw$SSN <- as.character(cw$SSN)
-
-#merge
-cw_merge <- left_join(cw, vacancies, by = "geoid")
-
-cw_merge$Place.Name = NULL
-cw_merge$TRACTID = NULL
-
-# weight
-
-cw_merge$weight_vacancy_rate <- cw_merge$prop_of_ct * cw_merge$bus_vac_rate
-
-#agg
-
-final <- aggregate(cw_merge$weight_vacancy_rate, by=list(SSN=cw_merge$SSN), FUN=sum)
-final <- rename(final, business_vacancy_rate = x)
-
-
 ### merge vacancies and type
 
 
