@@ -30,7 +30,7 @@ The following domains were assigned to the UC team for collection. We will extra
 | Residential housing stock |  Multi-unit structures, mobile home percentage, percent_crowded, % rental housing | Census/ACS | [Residential Environment](data_final/metadata/metadata_residential_environment.md) | Tract | Complete | multiunit_struct, mobile_home_rate, crowded_housing, percent_renter
 | Residential stability |  # households for over 20 yrs, Housing occupancy rate | Census/ACS | [Residential Environment](data_final/metadata/metadata_residential_environment.md) | Tract | Complete | num_households_20yrs, occupancy_rate
 | Residential affordability |  average rent, high rent burden, average housing cost, property tax rate | Census/ACS | [Rent](data_final/metadata/metadata_rent.md) | Tract | Complete | median_rent, percent_housing_cost_burdened, median_home_value, avg_property_tax
-| Residential conditions | residential vacancy rates (USPS 2018), home foreclosures (HUD 2009),  | multiple  | [Residential Environment](data_final/metadata/metadata_residential_environment.md) | Tract | Complete | res_vac, num_foreclosures |
+| Residential conditions | residential vacancy rates, average days vacant, vacancy rate (USPS 2018), home foreclosures (HUD 2009)  | multiple  | [Residential Environment](data_final/metadata/metadata_residential_environment.md) | Tract | Complete | res_vac, avg_vac_r, vacancy_rate num_foreclosures |
 | Racial Isolation | Racial Isolation index | ACS |  | municipality | Complete | iso.a, iso.b, iso.h |
 
 ### Quality of the Physical Environment
@@ -45,9 +45,9 @@ The following domains were assigned to the UC team for collection. We will extra
 
 | Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status<br>(for Internal team use)| Name in Master |
 |------------------ | -------------- | --------- | ----------------- | ------------- | -------------------------------- | --------------- |
-| Medication-assisted treatment & opioid treatment programs |distance providers prescribing Medications for Opioid Overuse Disorder | [SAMSHA](https://findtreatment.samhsa.gov/locator) | [MOUD metadata](https://github.com/GeoDaCenter/opioid-policy-scan/blob/master/data_final/metadata/Access_MOUDs.md)| points/Census tract | completed| avg_MOUD_min_dist, MOUD_prop_under_10mi |
+| Medication-assisted treatment & opioid treatment programs |distance providers prescribing Medications for Opioid Overuse Disorder, average distance to naloxone site | [SAMSHA](https://findtreatment.samhsa.gov/locator) | [MOUD metadata](https://github.com/GeoDaCenter/opioid-policy-scan/blob/master/data_final/metadata/Access_MOUDs.md)| points/Census tract | completed| avg_MOUD_min_dist, MOUD_prop_under_10mi, average_d_naloxone |
 | Drug treatment programs | distance to substance use treatment centers |  [SAMSHA](https://findtreatment.samhsa.gov/locator) | [SUT metadata](https://uchicago.app.box.com/file/795454380517) | point/tract | completed| avg_SUT_min_dist, SUT_prop_under_10mi |
-| Syringe exchange programs | Distance to syringe exchange programs |  https://www.nj.gov/health/hivstdtb/sap.shtml | [syringe metadata](https://uchicago.app.box.com/file/780534339112) | points/tracts | complete | syringe_distance, syr_prop_under_10mi
+| Syringe exchange programs | Distance to syringe exchange programs |  https://www.nj.gov/health/hivstdtb/sap.shtml | [syringe metadata](https://uchicago.app.box.com/file/780534339112) | points/tracts | complete | average_d_syringe, syr_prop_under_10mi
 | Mental health programs | Distance to nearest mental health provider | US Census, SAMSHA 2020  | Policy Scan/[Access: Mental Health Providers](data_final/metadata/Access_MentalHealth_MinDistance.md) |Tract, Zip | Complete | mental_hlt_dist
 
 ### Strength of community participation
