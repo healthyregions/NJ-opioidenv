@@ -25,12 +25,13 @@ The following domains were assigned to the UC team for collection. We will extra
 | Transportation | No vehicles, % commuters via car and transit by household | ACS | [Residential Environment](data_final/metadata/metadata_residential_environment.md) |Tract   | Complete | no_vehicle, public_transit|
 
 ### Quality of the Residential Environment
-| Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status|Name in master |
+| Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status| Name in master |
 |:------------------ | -------------- | --------- | ----------------- | ------------- | ----- | ------------- |
 | Residential housing stock |  Multi-unit structures, mobile home percentage, percent_crowded, % rental housing | Census/ACS | [Residential Environment](data_final/metadata/metadata_residential_environment.md) | Tract | Complete | multiunit_struct, mobile_home_rate, crowded_housing, percent_renter
 | Residential stability |  # households for over 20 yrs, Housing occupancy rate | Census/ACS | [Residential Environment](data_final/metadata/metadata_residential_environment.md) | Tract | Complete | num_households_20yrs, occupancy_rate
-| Residential affordability |  average rent, high rent burden, average housing cost | Census/ACS | [Rent](data_final/metadata/metadata_rent.md) | Tract | Complete | median_rent, percent_housing_cost_burdened, median_home_value
+| Residential affordability |  average rent, high rent burden, average housing cost, property tax rate | Census/ACS | [Rent](data_final/metadata/metadata_rent.md) | Tract | Complete | median_rent, percent_housing_cost_burdened, median_home_value, avg_property_tax
 | Residential conditions | residential vacancy rates (USPS 2018), home foreclosures (HUD 2009),  | multiple  | [Residential Environment](data_final/metadata/metadata_residential_environment.md) | Tract | Complete | vac_res, num_foreclosures
+| Racial Isolation | Racial Isolation index | ACS |  | municipality | Complete | iso.a, iso.b, iso.h |
 
 ### Quality of the Physical Environment
 | Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status<br>(for Internal team use)| Name in Master |
@@ -64,7 +65,8 @@ The following domains were assigned to the UC team for collection. We will extra
 |:------------------ | -------------- | --------- | ----------------- | ------------- | -------------------------------- | ------- |
 | Residential income per capita | income per capita | ACS  | [Community Economy](data_final/metadata/metadata_community_econ.md) | Tract | Complete | income_per_cap
 | Residential employment per capita | employment per capita (unemployment may be a better measure?) | ACS  | [Community Economy](data_final/metadata/metadata_community_econ.md) |Tract | Complete | employment_per_cap
-| Community investment |  |   |  | | *pending updated source (from UIC team) | NA
+| Community investment |  |   |  | | *pending updated source (from UIC team) | NA |
+| SNAP | percent of residents with SNAP benefits | MRI dataset |  | municipality | complete | percent_SNAP |
 
 
 ### Data Sources
