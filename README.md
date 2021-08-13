@@ -20,7 +20,7 @@ The following domains were assigned to the UC team for collection. We will extra
 | Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status| Name in master |
 |------------------ | -------------- | --------- | ----------------- | ------------- | ------ | --------------- |
 | Business vacancy rates | Commercial vacancies| USPS quarterly vacancy reports | [USPS_VAC_2018](data_final/metadata/metadata_usps_vac_2018_variables.md) | Tract | Complete | bus_vac, avg_vac_b |
-| Numbers & types of businesses open for business | Number of businesses/municipality, percentage of businesses in municipality in each 2-digit NAICS classification code | UC library business data | [Business types](data_final/metadata/metadata_business_types.md) |Municipality  |Complete| business_vacancy_rate, prevalent_type |
+| Numbers & types of businesses open for business | Number of businesses/municipality, percentage of businesses in municipality in each 2-digit NAICS classification code | UC library business data | [Business types](data_final/metadata/metadata_business_types.md) |Municipality  |Complete| ams_bus, prevalent_type |
 | Number of Bars/Liquor stores (1,3) | Bars/Liquor store per capita and per area | Open Street Map | [Bars/Liquor stores](data_final/metadata/metadata_bars_liquorstores.md) |Municipality (Olina also calculated at smaller scales)  | Complete | ls_per_sqft |
 | Transportation | No vehicles, % commuters via car and transit by household | ACS | [Residential Environment](data_final/metadata/metadata_residential_environment.md) |Tract   | Complete | no_vehicle, public_transit|
 
