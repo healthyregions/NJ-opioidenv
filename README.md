@@ -19,7 +19,7 @@ The following domains were assigned to the UC team for collection. We will extra
 ### Quality of the Commercial Environment
 | Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status| Name in master |
 |------------------ | -------------- | --------- | ----------------- | ------------- | ------ | --------------- |
-| Business vacancy rates | Commercial vacancies| USPS quarterly vacancy reports | [USPS_VAC_2018](data_final/metadata/metadata_usps_vac_2018_variables.md) | Tract | Complete | foreclosure_rate, foreclosure_num |
+| Business vacancy rates | Commercial vacancies| USPS quarterly vacancy reports | [USPS_VAC_2018](data_final/metadata/metadata_usps_vac_2018_variables.md) | Tract | Complete | bus_vac, avg_vac_b |
 | Numbers & types of businesses open for business | Number of businesses/municipality, percentage of businesses in municipality in each 2-digit NAICS classification code | UC library business data | [Business types](data_final/metadata/metadata_business_types.md) |Municipality  |Complete| business_vacancy_rate, prevalent_type |
 | Number of Bars/Liquor stores (1,3) | Bars/Liquor store per capita and per area | Open Street Map | [Bars/Liquor stores](data_final/metadata/metadata_bars_liquorstores.md) |Municipality (Olina also calculated at smaller scales)  | Complete | ls_per_sqft |
 | Transportation | No vehicles, % commuters via car and transit by household | ACS | [Residential Environment](data_final/metadata/metadata_residential_environment.md) |Tract   | Complete | no_vehicle, public_transit|
@@ -30,7 +30,7 @@ The following domains were assigned to the UC team for collection. We will extra
 | Residential housing stock |  Multi-unit structures, mobile home percentage, percent_crowded, % rental housing | Census/ACS | [Residential Environment](data_final/metadata/metadata_residential_environment.md) | Tract | Complete | multiunit_struct, mobile_home_rate, crowded_housing, percent_renter
 | Residential stability |  # households for over 20 yrs, Housing occupancy rate | Census/ACS | [Residential Environment](data_final/metadata/metadata_residential_environment.md) | Tract | Complete | num_households_20yrs, occupancy_rate
 | Residential affordability |  average rent, high rent burden, average housing cost, property tax rate | Census/ACS | [Rent](data_final/metadata/metadata_rent.md) | Tract | Complete | median_rent, percent_housing_cost_burdened, median_home_value, avg_property_tax
-| Residential conditions | residential vacancy rates (USPS 2018), home foreclosures (HUD 2009),  | multiple  | [Residential Environment](data_final/metadata/metadata_residential_environment.md) | Tract | Complete | vac_res, num_foreclosures
+| Residential conditions | residential vacancy rates (USPS 2018), home foreclosures (HUD 2009),  | multiple  | [Residential Environment](data_final/metadata/metadata_residential_environment.md) | Tract | Complete | vac_res, num_foreclosures |
 | Racial Isolation | Racial Isolation index | ACS |  | municipality | Complete | iso.a, iso.b, iso.h |
 
 ### Quality of the Physical Environment
