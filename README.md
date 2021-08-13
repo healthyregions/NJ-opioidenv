@@ -30,7 +30,7 @@ The following domains were assigned to the UC team for collection. We will extra
 | Residential housing stock |  Multi-unit structures, mobile home percentage, percent_crowded, % rental housing | Census/ACS | [Residential Environment](data_final/metadata/metadata_residential_environment.md) | Tract | Complete | multiunit_struct, mobile_home_rate, crowded_housing, percent_renter
 | Residential stability |  # households for over 20 yrs, Housing occupancy rate | Census/ACS | [Residential Environment](data_final/metadata/metadata_residential_environment.md) | Tract | Complete | num_households_20yrs, occupancy_rate
 | Residential affordability |  average rent, high rent burden, average housing cost, property tax rate | Census/ACS | [Rent](data_final/metadata/metadata_rent.md) | Tract | Complete | median_rent, percent_housing_cost_burdened, median_home_value, avg_property_tax
-| Residential conditions | residential vacancy rates (USPS 2018), home foreclosures (HUD 2009),  | multiple  | [Residential Environment](data_final/metadata/metadata_residential_environment.md) | Tract | Complete | res_vac, num_foreclosures |
+| Residential conditions | residential vacancy rates (USPS 2018), home foreclosures (HUD 2009), average days vacant  | multiple  | [Residential Environment](data_final/metadata/metadata_residential_environment.md) | Tract | Complete | res_vac, num_foreclosures, avg_vac_r |
 | Racial Isolation | Racial Isolation index | ACS |  | municipality | Complete | iso.a, iso.b, iso.h |
 
 ### Quality of the Physical Environment
