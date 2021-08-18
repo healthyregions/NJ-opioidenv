@@ -48,7 +48,7 @@ The following domains were assigned to the UC team for collection. We will extra
 | Medication-assisted treatment & opioid treatment programs |distance providers prescribing Medications for Opioid Overuse Disorder, average distance to naloxone site | [SAMSHA](https://findtreatment.samhsa.gov/locator) | [MOUD metadata](https://github.com/GeoDaCenter/opioid-policy-scan/blob/master/data_final/metadata/Access_MOUDs.md)| points/Census tract | completed| avg_MOUD_min_dist, MOUD_prop_under_10mi, average_d_naloxone |
 | Drug treatment programs | distance to substance use treatment centers |  [SAMSHA](https://findtreatment.samhsa.gov/locator) | [SUT metadata](https://uchicago.app.box.com/file/795454380517) | point/tract | completed| avg_SUT_min_dist, SUT_prop_under_10mi |
 | Syringe exchange programs | Distance to syringe exchange programs |  https://www.nj.gov/health/hivstdtb/sap.shtml | [syringe metadata](https://uchicago.app.box.com/file/780534339112) | points/tracts | complete | average_d_syringe, syr_prop_under_10mi
-| Mental health programs | Distance to nearest mental health provider | US Census, SAMSHA 2020  | Policy Scan/[Access: Mental Health Providers](data_final/metadata/Access_MentalHealth_MinDistance.md) |Tract, Zip | Complete | mental_hlt_dist
+| Mental health programs | Distance to nearest mental health provider | US Census, SAMSHA 2020  | Policy Scan/[Access: Mental Health Providers](data_final/metadata/Access_MentalHealth_MinDistance.md) |Tract, Zip | Complete | mental_hlth_dist
 
 ### Strength of community participation
 
