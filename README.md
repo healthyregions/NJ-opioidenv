@@ -27,9 +27,9 @@ The following domains were assigned to the UC team for collection. We will extra
 ### Quality of the Residential Environment
 | Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status| Name in master |
 |:------------------ | -------------- | --------- | ----------------- | ------------- | ----- | ------------- |
-| Residential housing stock |  Multi-unit structures, mobile home percentage, percent_crowded, % rental housing | Census/ACS | [Residential Environment](data_final/metadata/metadata_residential_environment.md) | Tract | Complete | multiunit_struct, mobile_home_rate, crowded_housing, percent_renter
+| Residential housing stock |  Multi-unit structures, mobile home percentage, percent_crowded, % rental housing | Census/ACS | [Residential Environment](data_final/metadata/metadata_residential_environment.md) | Tract | Complete | multiunit_struct, mobile_home_rate, percent_crowded, percent_renter
 | Residential stability |  # households for over 20 yrs, Housing occupancy rate | Census/ACS | [Residential Environment](data_final/metadata/metadata_residential_environment.md) | Tract | Complete | num_households_20yrs, occupancy_rate
-| Residential affordability |  average rent, high rent burden, average housing cost, property tax rate | Census/ACS | [Rent](data_final/metadata/metadata_rent.md) | Tract | Complete | median_rent, percent_housing_cost_burdened, median_home_value, avg_property_tax
+| Residential affordability |  average rent, high rent burden, average housing cost, property tax rate | Census/ACS | [Rent](data_final/metadata/metadata_rent.md) | Tract | Complete | median_rent, percent_housing_cost_burdened, median_home_value, avg_prop_tax
 | Residential conditions | residential vacancy rates, average days vacant, vacancy rate (USPS 2018), home foreclosures (HUD 2009)  | multiple  | [Residential Environment](data_final/metadata/metadata_residential_environment.md) | Tract | Complete | res_vac, avg_vac_r, vacancy_rate num_foreclosures |
 | Racial Isolation | Racial Isolation index | ACS |  | municipality | Complete | iso.a, iso.b, iso.h |
 
