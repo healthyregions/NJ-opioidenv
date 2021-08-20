@@ -145,7 +145,7 @@ m_co$index <- (m_co$avg_vol_opp + m_co$average_d_adultEd + m_co$cultural_dist) /
 
 ## strength of community economy
 
-sub6 <- c("SSN", "income_per_capita", "employment_per_capita", "percent_SNAP")
+sub6 <- c("SSN", "income_per_capita", "employment_per_capita", "percent_SNAP", "expenditure_sum")
 
 m_econ <- master.all[sub6]
 
@@ -153,18 +153,29 @@ m_econ <- master.all[sub6]
 m_econ$income_per_capita <- rescale(m_econ$income_per_capita, to = c(0,100))
 m_econ$employment_per_capita <- rescale(m_econ$employment_per_capita, to = c(0,100))
 m_econ$percent_SNAP <- rescale(m_econ$percent_SNAP, to = c(100,0))
+m_econ$expenditure_sum <- rescale(m_econ$expenditure_sum, to = c(0,100))
 
 m_econ$index <- (m_econ$income_per_capita + m_econ$employment_per_capita
-                 + m_econ$percent_SNAP) / 3
+                 + m_econ$percent_SNAP) / 4
 
 
 
+
+## master
 master_index <- as.data.frame(master.all$SSN)
 
 master_index$index <- (m_ce$index + m_co$index + m_econ$index + m_he$index +
                          m_pe$index + m_re$index) / 6
 
 master_index <- rename(master_index, SSN = `master.all$SSN`)
+
+
+master_index$ce <- m_ce$index
+master_index$co <- m_co$index
+master_index$econ <- m_econ$index
+master_index$he <- m_he$index
+master_index$pe <- m_pe$index
+master_index$re <- m_re$index
 
 
 
@@ -175,47 +186,80 @@ master_index <- rename(master_index, SSN = `master.all$SSN`)
 
 setwd("~/Documents/GitHub/NJ-opioidenv/data_raw")
 nj_municipal <- read_sf("Municipal_Boundaries_of_NJ.shp")
+st_crs(nj_municipal)
+
 
 nj_municipal$SSN <- as.numeric(nj_municipal$SSN)
 
-index_sf <- merge(master_index, nj_municipal, by = "SSN")
+index_sf <- merge(nj_municipal, master_index, by = "SSN")
 
-setwd("~/Documents/HEROP")
+index_sf = st_make_valid(index_sf)
 
-st_write(index_sf, "index.shp")
+
+st_crs(index_sf)
+
+#setwd("~/Documents/HEROP")
+
+#st_write(index_sf, "index.shp", append = TRUE)
+
+
+
+st_crs(nj_municipal)
+
+
+tm_shape(index_sf) + tm_fill(col = "index", style = "jenks")
+
+
+
+CE <- tm_shape(index_sf) + tm_fill("ce", n=4, palette = "BuPu", style = "jenks", title = "Commercial Environment") + 
+  tm_borders(alpha=.4) + 
+  tm_layout(legend.text.size = .8, legend.title.size = 1.0, legend.position = c("left", "bottom"), frame = FALSE) + tm_compass(position = c("left", "top")) + tm_scale_bar(position = c("left", "BOTTOM"))
+
+CO <- tm_shape(index_sf) + tm_fill("co", n=4, palette = "BuPu", style = "jenks", title = "Community Participation") + 
+  tm_borders(alpha=.4) + 
+  tm_layout(legend.text.size = .8, legend.title.size = 1.0, legend.position = c("left", "bottom"), frame = FALSE) + tm_compass(position = c("left", "top")) + tm_scale_bar(position = c("left", "BOTTOM"))
+
+ECON <- tm_shape(index_sf) + tm_fill("econ", n=4, palette = "BuPu", style = "jenks", title = "Strength of Economy") + 
+  tm_borders(alpha=.4) + 
+  tm_layout(legend.text.size = .8, legend.title.size = 1.0, legend.position = c("left", "bottom"), frame = FALSE) + tm_compass(position = c("left", "top")) + tm_scale_bar(position = c("left", "BOTTOM"))
+
+HE <- tm_shape(index_sf) + tm_fill("he", n=4, palette = "BuPu", style = "jenks", title = "Health Service Availability") + 
+  tm_borders(alpha=.4) + 
+  tm_layout(legend.text.size = .8, legend.title.size = 1.0, legend.position = c("left", "bottom"), frame = FALSE) + tm_compass(position = c("left", "top")) + tm_scale_bar(position = c("left", "BOTTOM"))
+
+PE <- tm_shape(index_sf) + tm_fill("pe", n=4, palette = "BuPu", style = "jenks", title = "Physical Environment") + 
+  tm_borders(alpha=.4) + 
+  tm_layout(legend.text.size = .8, legend.title.size = 1.0, legend.position = c("left", "bottom"), frame = FALSE) + tm_compass(position = c("left", "top")) + tm_scale_bar(position = c("left", "BOTTOM"))
+
+RE <- tm_shape(index_sf) + tm_fill("re", n=4, palette = "BuPu", style = "jenks", title = "Residential Environment") + 
+  tm_borders(alpha=.4) + 
+  tm_layout(legend.text.size = .8, legend.title.size = 1.0, legend.position = c("left", "bottom"), frame = FALSE) + tm_compass(position = c("left", "top")) + tm_scale_bar(position = c("left", "BOTTOM"))
+
+
+
+tmap_arrange()
+
+
+
+
+
+
+
 
 
 
 # Palette of 4colors
 library(RColorBrewer)
-my_colors <- brewer.pal(9, "Blues") 
-my_colors <- colorRampPalette(my_colors)(5)
+colors <- brewer.pal(9, "Blues") 
+colors <- colorRampPalette(colors)(5)
 
 # Attribute the appropriate color to each country
 score <- cut(index_sf$index, 5)
-my_colors <- my_colors[as.numeric(score)]
+colors <- colors[as.numeric(score)]
 
 # Make the plot
-plot(index_sf , xlim=c(-20,60) , ylim=c(-40,40), col=my_colors ,  bg = "#A6CAE0")
+plot(index_sf , xlim=c(-20,60) , ylim=c(-40,40), col=colors ,  bg = "#A6CAE0")
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-NJ_mun_index <- tm_shape(index_sf) + tm_fill("index", n=4, palette = "BuPu", style = "jenks", title = "Average Index Score") + 
-                tm_borders(alpha=.4) + 
-                tm_layout(legend.text.size = .8, legend.title.size = 1.0, legend.position = c("left", "bottom"), frame = FALSE) + tm_compass(position = c("left", "top")) + tm_scale_bar(position = c("RIGHT", "BOTTOM"))
 
 
