@@ -184,8 +184,10 @@ master_index$re <- m_re$index
 
 ## Read NJ municipalities
 
-setwd("~/Documents/GitHub/NJ-opioidenv/data_raw")
-nj_municipal <- read_sf("Municipal_Boundaries_of_NJ.shp")
+setwd("~/Documents/HEROP/municipalities.shp?")
+
+nj_municipal <- read_sf("Govt_admin_mun_coast_bnd.shp")
+
 st_crs(nj_municipal)
 
 
@@ -201,7 +203,6 @@ st_crs(index_sf)
 #setwd("~/Documents/HEROP")
 
 #st_write(index_sf, "index.shp", append = TRUE)
-
 
 
 st_crs(nj_municipal)
@@ -237,7 +238,7 @@ RE <- tm_shape(index_sf) + tm_fill("re", n=4, palette = "BuPu", style = "jenks",
 
 
 
-tmap_arrange()
+tmap_arrange(CE, CO)
 
 
 
@@ -258,7 +259,7 @@ score <- cut(index_sf$index, 5)
 colors <- colors[as.numeric(score)]
 
 # Make the plot
-plot(index_sf , xlim=c(-20,60) , ylim=c(-40,40), col=colors ,  bg = "#A6CAE0")
+plot(index_sf$index, col=colors ,  bg = "#A6CAE0")
 
 
 
