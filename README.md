@@ -65,7 +65,7 @@ The following domains were assigned to the UC team for collection. We will extra
 |:------------------ | -------------- | --------- | ----------------- | ------------- | -------------------------------- | ------- |
 | Residential income per capita | income per capita | ACS  | [Community Economy](data_final/metadata/metadata_community_econ.md) | Tract | Complete | income_per_capita
 | Residential employment per capita | employment per capita (unemployment may be a better measure?) | ACS  | [Community Economy](data_final/metadata/metadata_community_econ.md) |Tract | Complete | employment_per_capita
-| Community investment |  |   |  | | *pending updated source (from UIC team) | NA |
+| Community investment | Community expenditure | https://www.census.gov/data/datasets/2017/econ/local/public-use-datasets.html  | metadata[https://uchicago.app.box.com/file/785492804764] | Municipal | Completed| expenditure_sum |
 | SNAP | percent of residents with SNAP benefits | MRI dataset |  | municipality | complete | percent_SNAP |
 
 
