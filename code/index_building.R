@@ -240,7 +240,7 @@ RE <- tm_shape(index_sf) + tm_fill("re", n=4, palette = "BuPu", style = "jenks",
 
 
 
-tmap_arrange(CE, CO)
+tmap_arrange(CE, ECON)
 
 
 plot(CE)
