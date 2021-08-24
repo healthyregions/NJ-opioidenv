@@ -195,7 +195,11 @@ nj_municipal$SSN <- as.numeric(nj_municipal$SSN)
 
 index_sf <- merge(nj_municipal, master_index, by = "SSN")
 
+st_is_valid(index_sf)
+
 index_sf = st_make_valid(index_sf)
+
+st_is_valid(index_sf)
 
 
 st_crs(index_sf)
@@ -204,8 +208,6 @@ st_crs(index_sf)
 
 #st_write(index_sf, "index.shp", append = TRUE)
 
-
-st_crs(nj_municipal)
 
 
 tm_shape(index_sf) + tm_fill(col = "index", style = "jenks")
@@ -241,7 +243,7 @@ RE <- tm_shape(index_sf) + tm_fill("re", n=4, palette = "BuPu", style = "jenks",
 tmap_arrange(CE, CO)
 
 
-
+plot(CE)
 
 
 

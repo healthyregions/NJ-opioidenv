@@ -32,13 +32,13 @@ cw_merge$prop_of_ct = NULL
 
 ### agg
 
-final1 <- aggregate(cw_merge$median_rent, by=list(SSN=cw_merge$SSN), FUN=median)
+final1 <- aggregate(cw_merge$median_rent, by=list(SSN=cw_merge$SSN), FUN=median, na.rm = TRUE)
 final1 <- rename(final1, median_rent = x)
 
-final2 <- aggregate(cw_merge$median_home_value, by=list(SSN=cw_merge$SSN), FUN=median)
+final2 <- aggregate(cw_merge$median_home_value, by=list(SSN=cw_merge$SSN), FUN=median, na.rm = TRUE)
 final2 <- rename(final2, median_home_value = x)
 
-final3 <- aggregate(cw_merge$percent_housing_cost_burdened, by=list(SSN=cw_merge$SSN), FUN=median)
+final3 <- aggregate(cw_merge$percent_housing_cost_burdened, by=list(SSN=cw_merge$SSN), FUN=median, na.rm = TRUE)
 final3 <- rename(final3, percent_housing_cost_burdened = x)
 
 

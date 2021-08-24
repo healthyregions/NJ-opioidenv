@@ -30,7 +30,6 @@ cw_merge <- cw_merge %>%
 
 ### Aggregate
 
-## avg min distance
 final <- aggregate(cw_merge$percent_crowded, by=list(SSN=cw_merge$SSN), FUN=mean)
 final <- rename(final, percent_crowded = x)
 

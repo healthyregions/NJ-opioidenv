@@ -1,21 +1,17 @@
 
 
 
-### foreclosures
+### residential foreclosures
 
 #read data
 
-setwd("~/Documents/HEROP")
-foreclosure_data <- read.csv("foreclosures.csv")
+setwd("~/Documents/GitHub/NJ-opioidenv/data_raw")
+library(readxl)
+foreclosure_data <- read_excel("Neighborhood_Foreclosure_Data.xlsx")
 
-foreclosure_data <- rename(foreclosure_data, TRACTID = geoid)
+foreclosure_data <- rename(foreclosure_data, TRACTID = tractcode)
 
 foreclosure_data$TRACTID <- as.numeric(foreclosure_data$TRACTID)
-
-foreclosure_data$fordq_num <- as.numeric(substr(foreclosure_data$fordq_num, 1, 3))
-foreclosure_data$fordq_rate <- as.numeric(foreclosure_data$fordq_rate )
-
-
 
 
 # read cw
@@ -29,35 +25,22 @@ cw_merge <- left_join(cw, foreclosure_data, by = "TRACTID")
 
 ### new
 
-sub <- c("SSN", "fordq_num", "fordq_rate", "prop_of_ct")
+sub <- c("SSN", "estimated_number_foreclosures", "prop_of_ct")
 
 new <- cw_merge[sub]
 
-new$num_foreclosures <- new$fordq_num * new$prop_of_ct
-
-new$foreclosure_rate <- new$fordq_rate * new$prop_of_ct
+new$num_foreclosures_res <- new$estimated_number_foreclosures * new$prop_of_ct
 
 # agg
 
-final1 <- aggregate(new$num_foreclosures, by=list(SSN=new$SSN), FUN=sum)
+final1 <- aggregate(new$num_foreclosures_res, by=list(SSN=new$SSN), FUN=sum, na.rm = TRUE)
 final1 <- rename(final1, num_foreclosures = x)
-
-
-final2 <- aggregate(new$foreclosure_rate, by=list(SSN=new$SSN), FUN=sum)
-final2 <- rename(final2, foreclosure_rate = x)
-
-
-#join
-
-final <- merge(final1, final2, by = "SSN")
-
-
 
 ### Save
 
 setwd("~/Documents/GitHub/NJ-opioidenv/data_final")
 
-write.csv(final, "foreclosures.csv", row.names = FALSE) 
+write.csv(final1, "foreclosures.csv", row.names = FALSE) 
 
 
 
