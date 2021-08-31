@@ -17,21 +17,21 @@ A copy of the cleaned final dataset, metdata document, and data dictionary will 
 The following domains were assigned to the UC team for collection. We will extract data for each variable construct and measure it as a specific geographic boundary for the entire state of NJ, using the most recent available data. At this time, we are mostly using Municipality (Tract level data obtained when available; County level data obtained when Tract/Municipality is not available) as the spatial scale.
 
 ### Quality of the Commercial Environment
-| Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status| Name in master |
+| Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status| Name in master | Scale in index |
 |------------------ | -------------- | --------- | ----------------- | ------------- | ------ | --------------- |
-| Business vacancy rates | Commercial vacancies| USPS quarterly vacancy reports | [USPS_VAC_2018](data_final/metadata/metadata_usps_vac_2018_variables.md) | Tract | Complete | bus_vac, avg_vac_b |
-| Numbers & types of businesses open for business | Number of businesses/municipality, percentage of businesses in municipality in each 2-digit NAICS classification code | UC library business data | [Business types](data_final/metadata/metadata_business_types.md) |Municipality  |Complete| ams_bus, prevalent_type |
-| Number of Bars/Liquor stores (1,3) | Bars/Liquor store per capita and per area | Open Street Map | [Bars/Liquor stores](data_final/metadata/metadata_bars_liquorstores.md) |Municipality (Olina also calculated at smaller scales)  | Complete | ls_per_sqft |
-| Transportation | No vehicles, % commuters via car and transit by household | ACS | [Residential Environment](data_final/metadata/metadata_residential_environment.md) |Tract   | Complete | no_vehicle, public_transit|
+| Business vacancy rates | Commercial vacancies| USPS quarterly vacancy reports | [USPS_VAC_2018](data_final/metadata/metadata_usps_vac_2018_variables.md) | Tract | Complete | bus_vac, avg_vac_b | 100, 0
+| Numbers & types of businesses open for business | Number of businesses/municipality, percentage of businesses in municipality in each 2-digit NAICS classification code | UC library business data | [Business types](data_final/metadata/metadata_business_types.md) |Municipality  |Complete| ams_bus, prevalent_type | 0, 100
+| Number of Bars/Liquor stores (1,3) | Bars/Liquor store per capita and per area | Open Street Map | [Bars/Liquor stores](data_final/metadata/metadata_bars_liquorstores.md) |Municipality (Olina also calculated at smaller scales)  | Complete | ls_per_sqft | 100, 0
+| Transportation | No vehicles, % commuters via car and transit by household | ACS | [Residential Environment](data_final/metadata/metadata_residential_environment.md) |Tract   | Complete | no_vehicle, public_transit| no_vehicle 100, 0 ; public_transit 0, 100
 
 ### Quality of the Residential Environment
-| Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status| Name in master |
+| Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status| Name in master | Scale in index |
 |:------------------ | -------------- | --------- | ----------------- | ------------- | ----- | ------------- |
-| Residential housing stock |  Multi-unit structures, mobile home percentage, percent_crowded, % rental housing | Census/ACS | [Residential Environment](data_final/metadata/metadata_residential_environment.md) | Tract | Complete | multiunit_struct, mobile_home_rate, percent_crowded, percent_renter
-| Residential stability |  # households for over 20 yrs, Housing occupancy rate | Census/ACS | [Residential Environment](data_final/metadata/metadata_residential_environment.md) | Tract | Complete | num_households_20yrs, occupancy_rate
-| Residential affordability |  average rent, high rent burden, average housing cost, property tax rate | Census/ACS | [Rent](data_final/metadata/metadata_rent.md) | Tract | Complete | median_rent, percent_housing_cost_burdened, median_home_value, avg_prop_tax
-| Residential conditions | residential vacancy rates, average days vacant, vacancy rate (USPS 2018), home foreclosures (HUD 2009)  | multiple  | [Residential Environment](data_final/metadata/metadata_residential_environment.md) | Tract | Complete | res_vac, avg_vac_r, vacancy_rate num_foreclosures |
-| Racial Isolation | Racial Isolation index | ACS |  | municipality | Complete | iso.a, iso.b, iso.h |
+| Residential housing stock |  Multi-unit structures, mobile home percentage, percent_crowded, % rental housing | Census/ACS | [Residential Environment](data_final/metadata/metadata_residential_environment.md) | Tract | Complete | multiunit_struct, mobile_home_rate, percent_crowded, percent_renter | all 100, 0
+| Residential stability |  # households for over 20 yrs, Housing occupancy rate | Census/ACS | [Residential Environment](data_final/metadata/metadata_residential_environment.md) | Tract | Complete | num_households_20yrs, occupancy_rate | all 0, 100
+| Residential affordability |  average rent, high rent burden, average housing cost, property tax rate | Census/ACS | [Rent](data_final/metadata/metadata_rent.md) | Tract | Complete | median_rent, percent_housing_cost_burdened, median_home_value, avg_prop_tax | rent + housing cost burden 100, 0 | home value + tax 0, 100|
+| Residential conditions | residential vacancy rates, average days vacant, vacancy rate (USPS 2018), home foreclosures (HUD 2009)  | multiple  | [Residential Environment](data_final/metadata/metadata_residential_environment.md) | Tract | Complete | res_vac, avg_vac_r, vacancy_rate num_foreclosures | all 100, 0
+| Racial Isolation | Racial Isolation index | ACS |  | municipality | Complete | iso.a, iso.b, iso.h | all 100, 0
 
 ### Quality of the Physical Environment
 | Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status<br>(for Internal team use)| Name in Master |
