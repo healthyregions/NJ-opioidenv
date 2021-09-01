@@ -34,39 +34,39 @@ The following domains were assigned to the UC team for collection. We will extra
 | Racial Isolation | Racial Isolation index | ACS |  | municipality | Complete | iso.a, iso.b, iso.h | all 100, 0
 
 ### Quality of the Physical Environment
-| Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status<br>(for Internal team use)| Name in Master |
-|:------------------ | -------------- | --------- | ----------------- | ------------- | -------------------------------- | ------------- |
-| Access to bike trails | Bike trails proxied with two OSM data measures (bikes trails and bikes trails + paths) which take ratio distance of bike trail <br> Note: [Braun et al. 2018](https://www.sciencedirect.com/science/article/pii/S096669231830930X) describes this measure (see section 3.3)/ municipality area  | OSM via osmdata package in R  | [Bike Lanes](data_final/metadata/metadata_bike_lanes.md) |Municipality | Complete | bike_path_ft_p_mile, bikes_ft_p_mile
-| Walkability score  | Median and Mean walkscore | CSDS's copy of 2013 data from [Walkscore](https://www.walkscore.com) \ [2013 block group data](https://catalog.data.gov/dataset/tiger-line-shapefile-2013-state-new-jersey-current-block-group-state-based)| [Walk Score](data_final/metadata/metadata_walkscore.md)|Municipality | Complete | med_walk_score, mean_walk_score
-| Zoning | percent of residential area that is high density, land use | [Rowan University Geodata Center](https://www.njmap2.com/landuse/landuse/) & [NJGIN Open data Portal](https://njogis-newjersey.opendata.arcgis.com/datasets/3d5d1db8a1b34b418c331f4ce1fd0fef_2)| [Physical Environment](data_final/metadata/metadata_physical_environment_2015.md)|Municipality | Complete | pct_h_den_res, pct_res_urb, pct_com_urb, pct_ind_urb
-| Vegetation | NDVI | NASA Modis |[NDVI](data_final/metadata/metadata_ndvi.md)|Municipality | Complete | ndvi
+| Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status<br>(for Internal team use)| Name in Master | Scale in index |
+|:------------------ | -------------- | --------- | ----------------- | ------------- | -------------------------------- | -------------- | -------------- |
+| Access to bike trails | Bike trails proxied with two OSM data measures (bikes trails and bikes trails + paths) which take ratio distance of bike trail <br> Note: [Braun et al. 2018](https://www.sciencedirect.com/science/article/pii/S096669231830930X) describes this measure (see section 3.3)/ municipality area  | OSM via osmdata package in R  | [Bike Lanes](data_final/metadata/metadata_bike_lanes.md) |Municipality | Complete | bike_path_ft_p_mile, bikes_ft_p_mile | all 0, 100
+| Walkability score  | Median and Mean walkscore | CSDS's copy of 2013 data from [Walkscore](https://www.walkscore.com) \ [2013 block group data](https://catalog.data.gov/dataset/tiger-line-shapefile-2013-state-new-jersey-current-block-group-state-based)| [Walk Score](data_final/metadata/metadata_walkscore.md)|Municipality | Complete | med_walk_score, mean_walk_score | 0, 100
+| Zoning | percent of residential area that is high density, land use | [Rowan University Geodata Center](https://www.njmap2.com/landuse/landuse/) & [NJGIN Open data Portal](https://njogis-newjersey.opendata.arcgis.com/datasets/3d5d1db8a1b34b418c331f4ce1fd0fef_2)| [Physical Environment](data_final/metadata/metadata_physical_environment_2015.md)|Municipality | Complete | pct_h_den_res, pct_res_urb, pct_com_urb, pct_ind_urb | density, industy 100, 0; residential and commerical 0, 100
+| Vegetation | NDVI | NASA Modis |[NDVI](data_final/metadata/metadata_ndvi.md)|Municipality | Complete | ndvi | 0, 100
 
 ### Health service availability
 
-| Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status<br>(for Internal team use)| Name in Master |
-|------------------ | -------------- | --------- | ----------------- | ------------- | -------------------------------- | --------------- |
-| Medication-assisted treatment & opioid treatment programs |distance providers prescribing Medications for Opioid Overuse Disorder, average distance to naloxone site | [SAMSHA](https://findtreatment.samhsa.gov/locator) | [MOUD metadata](https://github.com/GeoDaCenter/opioid-policy-scan/blob/master/data_final/metadata/Access_MOUDs.md)| points/Census tract | completed| avg_MOUD_min_dist, MOUD_prop_under_10mi, average_d_naloxone |
-| Drug treatment programs | distance to substance use treatment centers |  [SAMSHA](https://findtreatment.samhsa.gov/locator) | [SUT metadata](https://uchicago.app.box.com/file/795454380517) | point/tract | completed| avg_SUT_min_dist, SUT_prop_under_10mi |
-| Syringe exchange programs | Distance to syringe exchange programs |  https://www.nj.gov/health/hivstdtb/sap.shtml | [syringe metadata](https://uchicago.app.box.com/file/780534339112) | points/tracts | complete | average_d_syringe, syr_prop_under_10mi
-| Mental health programs | Distance to nearest mental health provider | US Census, SAMSHA 2020  | Policy Scan/[Access: Mental Health Providers](data_final/metadata/Access_MentalHealth_MinDistance.md) |Tract, Zip | Complete | mental_hlth_dist
+| Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status<br>(for Internal team use)| Name in Master | Scale in index
+|------------------ | -------------- | --------- | ----------------- | ------------- | -------------------------------- | --------------- | -------------- |
+| Medication-assisted treatment & opioid treatment programs |distance providers prescribing Medications for Opioid Overuse Disorder, average distance to naloxone site | [SAMSHA](https://findtreatment.samhsa.gov/locator) | [MOUD metadata](https://github.com/GeoDaCenter/opioid-policy-scan/blob/master/data_final/metadata/Access_MOUDs.md)| points/Census tract | completed| avg_MOUD_min_dist, MOUD_prop_under_10mi, average_d_naloxone | all 0, 100
+| Drug treatment programs | distance to substance use treatment centers |  [SAMSHA](https://findtreatment.samhsa.gov/locator) | [SUT metadata](https://uchicago.app.box.com/file/795454380517) | point/tract | completed| avg_SUT_min_dist, SUT_prop_under_10mi | all 0, 100
+| Syringe exchange programs | Distance to syringe exchange programs |  https://www.nj.gov/health/hivstdtb/sap.shtml | [syringe metadata](https://uchicago.app.box.com/file/780534339112) | points/tracts | complete | average_d_syringe, syr_prop_under_10mi | all 0, 100
+| Mental health programs | Distance to nearest mental health provider | US Census, SAMSHA 2020  | Policy Scan/[Access: Mental Health Providers](data_final/metadata/Access_MentalHealth_MinDistance.md) |Tract, Zip | Complete | mental_hlth_dist | 0, 100
 
 ### Strength of community participation
 
-| Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status<br>(for Internal team use)| Name in Master  |
-|:------------------ | -------------- | --------- | ----------------- | ------------- | -------------------------------- | --------------- |
+| Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status<br>(for Internal team use)| Name in Master  | Scale in index
+|:------------------ | -------------- | --------- | ----------------- | ------------- | -------------------------------- | --------------- | -------------- |
 | Religion Congregations per capita | Rates of adherence per 1,000 population |  [the Association of Religion Data Archive / U.S. Religion Census: Religious Congregations and Membership Study, 2010](https://www.thearda.com/Archive/Files/Descriptions/RCMSMT10.asp) | [Religious Congregations](data_final/metadata/metadata_religious_congregations.md) | Municipality (raw data available at the County level) | Complete | NA |
-| Volunteerism per capita | 4 month average of volunteer opportunity website postings | https://www.jerseycares.org/ https://www.volunteermatch.org/search?l=NJ  | [volunteer metadata](https://uchicago.app.box.com/file/805858360284)  | Municipality | completed | avg_vol_opp
-| Community; Adult Learning; Recreational Centers | Average distance to the nearest adult education program | [NJGIN Open Data](https://njogis-newjersey.opendata.arcgis.com/datasets/school-point-locations-of-nj-public-private-and-charter?geometry=-81.880%2C38.635%2C-67.564%2C41.575&orderBy=X)  | [Adult Learning](data_final/metadata/metadata_adult_ed_distance.md) | Municipality | Complete | average_d_adultEd
-| Cultural Centers/Museum/Art Galleries | Average distance from each municipality to the nearest cultural points (cultural center, art gallery, or museum) | from the UIC team  | [Cultural distance](data_final/metadata/metadata_cultural_distance.md) | Municipality | Complete | cultural_dist
+| Volunteerism per capita | 4 month average of volunteer opportunity website postings | https://www.jerseycares.org/ https://www.volunteermatch.org/search?l=NJ  | [volunteer metadata](https://uchicago.app.box.com/file/805858360284)  | Municipality | completed | avg_vol_opp | 0, 100
+| Community; Adult Learning; Recreational Centers | Average distance to the nearest adult education program | [NJGIN Open Data](https://njogis-newjersey.opendata.arcgis.com/datasets/school-point-locations-of-nj-public-private-and-charter?geometry=-81.880%2C38.635%2C-67.564%2C41.575&orderBy=X)  | [Adult Learning](data_final/metadata/metadata_adult_ed_distance.md) | Municipality | Complete | average_d_adultEd | 0, 100
+| Cultural Centers/Museum/Art Galleries | Average distance from each municipality to the nearest cultural points (cultural center, art gallery, or museum) | from the UIC team  | [Cultural distance](data_final/metadata/metadata_cultural_distance.md) | Municipality | Complete | cultural_dist | 0, 100
 
 ### Strength of community economy
 
-| Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status<br>(for Internal team use)| Name in Master
-|:------------------ | -------------- | --------- | ----------------- | ------------- | -------------------------------- | ------- |
-| Residential income per capita | income per capita | ACS  | [Community Economy](data_final/metadata/metadata_community_econ.md) | Tract | Complete | income_per_capita
-| Residential employment per capita | employment per capita (unemployment may be a better measure?) | ACS  | [Community Economy](data_final/metadata/metadata_community_econ.md) |Tract | Complete | employment_per_capita
-| Community investment | Community expenditure | https://www.census.gov/data/datasets/2017/econ/local/public-use-datasets.html  | metadata[https://uchicago.app.box.com/file/785492804764] | Municipal | Completed| expenditure_sum |
-| SNAP | percent of residents with SNAP benefits | MRI dataset |  | municipality | complete | percent_SNAP |
+| Variable Construct | Variable Proxy | Source(s) | Metadata Document | Spatial Scale | Status<br>(for Internal team use)| Name in Master| Scale in index
+|:------------------ | -------------- | --------- | ----------------- | ------------- | -------------------------------- | ------------- | -------------- |
+| Residential income per capita | income per capita | ACS  | [Community Economy](data_final/metadata/metadata_community_econ.md) | Tract | Complete | income_per_capita | 0, 100
+| Residential employment per capita | employment per capita (unemployment may be a better measure?) | ACS  | [Community Economy](data_final/metadata/metadata_community_econ.md) |Tract | Complete | employment_per_capita | 0, 100
+| Community investment | Community expenditure | https://www.census.gov/data/datasets/2017/econ/local/public-use-datasets.html  | metadata[https://uchicago.app.box.com/file/785492804764] | Municipal | Completed| expenditure_sum | 0, 100
+| SNAP | percent of residents with SNAP benefits | MRI dataset |  | municipality | complete | percent_SNAP | 100, 0
 
 
 ### Data Sources
