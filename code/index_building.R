@@ -5,6 +5,7 @@
 library(scales)
 library(sf)
 library(tmap)
+library(dplyr)
 
 
 # load master abridged
@@ -95,8 +96,8 @@ m_pe <- master.all[sub3]
 
 m_pe$pct_h_den_res = rescale(m_pe$pct_h_den_res, to = c(100,0))
 m_pe$pct_res_urb = rescale(m_pe$pct_res_urb, to = c(100,0))
-m_pe$pct_com_urb = rescale(m_pe$pct_com_urb, to = c(100,0))
-m_pe$pct_ind_urb = rescale(m_pe$pct_ind_urb, to = c(0,100))
+m_pe$pct_com_urb = rescale(m_pe$pct_com_urb, to = c(0, 100))
+m_pe$pct_ind_urb = rescale(m_pe$pct_ind_urb, to = c(100, 0))
 m_pe$bike_path_ft_p_mile = rescale(m_pe$bike_path_ft_p_mile, to = c(0,100))
 m_pe$bikes_ft_p_mile = rescale(m_pe$bikes_ft_p_mile, to = c(0,100))
 m_pe$ndvi = rescale(m_pe$ndvi, to = c(0,100))
@@ -176,6 +177,12 @@ master_index$econ <- m_econ$index
 master_index$he <- m_he$index
 master_index$pe <- m_pe$index
 master_index$re <- m_re$index
+
+##save
+setwd("~/Documents/GitHub/NJ-opioidenv/data_final")
+
+write.csv(master_index, "simple_index.csv", row.names = FALSE) 
+
 
 
 
