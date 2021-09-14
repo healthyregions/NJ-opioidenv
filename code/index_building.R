@@ -211,9 +211,9 @@ st_is_valid(index_sf)
 
 st_crs(index_sf)
 
-#setwd("~/Documents/HEROP")
+setwd("~/Documents/HEROP")
 
-#st_write(index_sf, "index.shp", append = TRUE)
+st_write(index_sf, "index(old).shp", append = TRUE)
 
 
 
