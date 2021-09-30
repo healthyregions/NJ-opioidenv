@@ -37,6 +37,10 @@ license_names <- read_excel("Retail_Licensee (1).xlsx")
 
 license_full <- merge(license, license_names, by.x = "ID", by.y = 'License Number')
 
+##Save
+#setwd("~/Documents/HEROP")
+
+write.csv(license_full, "bar_store_licenses.csv", append = TRUE)
 
 # Remove observations with less than 90% match
 
