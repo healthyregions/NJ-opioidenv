@@ -28,6 +28,7 @@ library(sp)
 setwd("~/Documents/HEROP")
 license <- read.csv("liquor_license_1631201101_geocoded.csv")
 
+
 #merge with main file
 library(readxl)
 
@@ -65,15 +66,17 @@ nj_CRS <- st_crs(nj_municipal)
 
 class(nj_CRS)
 
+class(nj_tract)
+
 license_shp <- st_as_sf(license_full, coords = c("Longitude", "Latitude" ), crs = st_crs(nj_tract))
 
+class(license_shp)
 
+st_crs(license_shp)
 
 #setwd("~/Documents/HEROP")
 #st_write(SUT_shp,"SUT_shp_test", driver = "ESRI Shapefile", append = TRUE)
 
-
-crs(SUT_shp)
 
 
 ### Plot
@@ -83,9 +86,13 @@ tm_shape(nj_municipal) +
   tm_dots(col = "blue", size = 0.1, alpha = 0.5)
 
 ### Transform CRS
-nj_tract <- st_transform(nj_tract, 103105)
-nj_municipal <- st_transform(nj_municipal, 103105)
-license_shp <- st_transform(license_shp, 103105)
+nj_tract <- st_transform(nj_tract, 4269)
+nj_municipal <- st_transform(nj_municipal, 4269)
+license_shp <- st_transform(license_shp, 4269)
+
+st_crs(license_shp)
+st_crs(nj_municipal)
+
 
 # Spatial Join
 license_mun <- st_join(license_shp, nj_municipal, join = st_within)
