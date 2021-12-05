@@ -11,28 +11,32 @@ library(dplyr)
 # load master abridged
 
 setwd("~/Documents/GitHub/NJ-opioidenv/data_final")
-master.all <- read.csv("master(abridged).csv")
+master.all <- read.csv("working_master(abridged).csv")
 
 
 ### Make groups
 
 ##Quality of the comercial envoronment:
 
-sub1 <- c("SSN", "bus_vac", "avg_vac_b", "ams_bus", "ls_per_sqft", "no_vehicle", "public_transit" )
+sub1 <- c("SSN", "bus_vac", "avg_vac_b", "ams_bus", "bars_ls_per_km2", "no_vehicle", "public_transit" )
 
 m_ce <- master.all[sub1]
 
 m_ce[is.na(m_ce)] <- 0
 
+
 #correct for direction and scale
 
 m_ce$bus_vac <- rescale(m_ce$bus_vac, to = c(100, 0))
 m_ce$avg_vac_b <- rescale(m_ce$avg_vac_b, to = c(100,0))
+m_ce$bvac <- (m_ce$bus_vac + m_ce$avg_vac_b) / 2
+
 m_ce$ams_bus <- rescale(m_ce$ams_bus, to = c(0, 100))
-m_ce$ls_per_sqft <- rescale(m_ce$ls_per_sqft,to = c(100,0))
+m_ce$bars_ls_per_km2 <- rescale(m_ce$bars_ls_per_km2,to = c(100,0))
+
 m_ce$no_vehicle <- rescale(m_ce$no_vehicle, to = c(100,0))
 m_ce$public_transit <- rescale(m_ce$public_transit, to = c(0, 100))
-
+m_ce$transportation <- (m_ce$no_vehicle + m_ce$public_transit) / 2
 
 #m_ce$bus_vac <- -scale(m_ce$bus_vac)
 #m_ce$avg_vac_b <- -scale(m_ce$avg_vac_b)
@@ -43,8 +47,8 @@ m_ce$public_transit <- rescale(m_ce$public_transit, to = c(0, 100))
 
 
 
-m_ce$index <- (m_ce$bus_vac + m_ce$avg_vac_b + m_ce$ams_bus +
-                 m_ce$ls_per_sqft + m_ce$no_vehicle + m_ce$public_transit) / 6
+m_ce$index <- (m_ce$bvac +  m_ce$ams_bus +
+                 m_ce$bars_ls_per_km2 + m_ce$transportation) / 4
 
 
 ## Quality of the Residential Environment
@@ -52,7 +56,7 @@ m_ce$index <- (m_ce$bus_vac + m_ce$avg_vac_b + m_ce$ams_bus +
 sub2 <- c("SSN", "multiunit_struct", "mobile_home_rate", "percent_crowded", "percent_renter", 
           "num_households_20yrs","occupancy_rate", "median_rent", "percent_housing_cost_burdened", 
           "median_home_value", "avg_prop_tax", "res_vac", "avg_vac_r", "vacancy_rate", 
-          "num_foreclosures", "iso.a", "iso.b", "iso.h")
+          "foreclosure_rate_mortgage", "iso.a", "iso.b", "iso.h")
 
 
 
@@ -66,26 +70,41 @@ m_re$multiunit_struct <- rescale(m_re$multiunit_struct, to = c(100,0))
 m_re$mobile_home_rate <- rescale(m_re$mobile_home_rate, to = c(100,0))
 m_re$percent_crowded <- rescale(m_re$percent_crowded, to = c(100,0))
 m_re$percent_renter <- rescale(m_re$percent_renter, to = c(100,0))
+m_re$housingstock <- (m_re$multiunit_struct + m_re$mobile_home_rate
+                      + m_re$percent_crowded + m_re$percent_renter) / 4
+
+
+
 m_re$num_households_20yrs <- rescale(m_re$num_households_20yrs, to = c(0, 100))
-m_re$occupancy_rate <- rescale(m_re$num_households_20yrs, to = c(0, 100))
+m_re$occupancy_rate <- rescale(m_re$occupancy_rate, to = c(0, 100))
+m_re$stability <- (m_re$num_households_20yrs + m_re$occupancy_rate) / 2
+
 m_re$median_rent <- rescale(m_re$median_rent, to = c(100,0))
 m_re$percent_housing_cost_burdened <- rescale(m_re$percent_housing_cost_burdened, to = c(100,0))
 m_re$median_home_value <- rescale(m_re$median_home_value, to = c(0, 100))
 m_re$avg_prop_tax <- rescale(m_re$avg_prop_tax, to = c(0, 100))
+m_re$affordability <- (m_re$median_rent + m_re$percent_housing_cost_burdened
+                      + m_re$median_home_value + m_re$avg_prop_tax) / 4
+
+
 m_re$res_vac <- rescale(m_re$res_vac, to = c(100,0))
-m_re$avg_vac_r <- rescale(m_re$res_vac, to = c(100,0))
+m_re$avg_vac_r <- rescale(m_re$avg_vac_r, to = c(100,0))
 m_re$vacancy_rate <- rescale(m_re$vacancy_rate, to = c(100,0))
-m_re$num_foreclosures <- rescale(m_re$num_foreclosures, to = c(100,0))
+m_re$foreclosure_rate_mortgage <- rescale(m_re$foreclosure_rate_mortgage, to = c(100,0))
+m_re$conditions <- (m_re$res_vac + m_re$avg_vac_r
+                       + m_re$vacancy_rate + m_re$foreclosure_rate_mortgage) / 4
+
+
+
 m_re$iso.a <- rescale(m_re$iso.a, to = c(100,0))
 m_re$iso.b <- rescale(m_re$iso.b, to = c(100,0))
 m_re$iso.h <- rescale(m_re$iso.h, to = c(100,0))
+m_re$isolation <- (m_re$iso.a + m_re$iso.b + m_re$iso.h) / 3
 
 
 
-m_re$index <- (m_re$multiunit_struct + m_re$mobile_home_rate + m_re$percent_crowded + m_re$percent_renter 
-               + m_re$num_households_20yrs + m_re$occupancy_rate + m_re$median_rent + m_re$percent_housing_cost_burdened
-               + m_re$median_home_value + m_re$avg_prop_tax+ m_re$res_vac + m_re$avg_vac_r + m_re$vacancy_rate
-               + m_re$num_foreclosures + m_re$iso.a + m_re$iso.b + m_re$iso.h) / 17
+m_re$index <- (m_re$housingstock + m_re$stability + m_re$affordability
+               + m_re$conditions + m_re$isolation) / 5
 
 ## Physical Environment
 
@@ -98,12 +117,16 @@ m_pe$pct_h_den_res = rescale(m_pe$pct_h_den_res, to = c(100,0))
 m_pe$pct_res_urb = rescale(m_pe$pct_res_urb, to = c(100,0))
 m_pe$pct_com_urb = rescale(m_pe$pct_com_urb, to = c(0, 100))
 m_pe$pct_ind_urb = rescale(m_pe$pct_ind_urb, to = c(100, 0))
+m_pe$zoning <- (m_pe$pct_h_den_res + m_pe$pct_res_urb + m_pe$pct_com_urb 
+                + m_pe$pct_ind_urb) / 4
+
 m_pe$bike_path_ft_p_mile = rescale(m_pe$bike_path_ft_p_mile, to = c(0,100))
 m_pe$bikes_ft_p_mile = rescale(m_pe$bikes_ft_p_mile, to = c(0,100))
+m_pe$bikes <- (m_pe$bike_path_ft_p_mile + m_pe$bikes_ft_p_mile) / 2
+
 m_pe$ndvi = rescale(m_pe$ndvi, to = c(0,100))
 
-m_pe$index = (m_pe$pct_h_den_res + m_pe$pct_res_urb + m_pe$pct_com_urb + m_pe$pct_ind_urb
-              + m_pe$bike_path_ft_p_mile + m_pe$bikes_ft_p_mile + m_pe$ndvi) / 7
+m_pe$index = (m_pe$zoning + m_pe$bikes + m_pe$ndvi) / 3
 
 
 ## Health Service
@@ -114,19 +137,24 @@ sub4 <- c("SSN", "average_d_naloxone", "average_d_syringe", "syr_prop_under_10mi
 m_he <- master.all[sub4]
 
 m_he$average_d_naloxone = rescale(m_he$average_d_naloxone, to = c(100,0))
-m_he$average_d_syringe = rescale(m_he$average_d_syringe, to = c(100,0))
-m_he$syr_prop_under_10mi = rescale(m_he$syr_prop_under_10mi, to = c(0,100))
 m_he$avg_MOUD_min_dist = rescale(m_he$avg_MOUD_min_dist, to = c(100,0))
 m_he$MOUD_prop_under_10mi = rescale(m_he$MOUD_prop_under_10mi, to = c(0, 100))
+m_he$moud <- (m_he$average_d_naloxone + m_he$avg_MOUD_min_dist + m_he$MOUD_prop_under_10mi) / 3
+
+m_he$average_d_syringe = rescale(m_he$average_d_syringe, to = c(100,0))
+m_he$syr_prop_under_10mi = rescale(m_he$syr_prop_under_10mi, to = c(0,100))
+m_he$syringe <- (m_he$average_d_syringe + m_he$syr_prop_under_10mi) / 2
+
 m_he$avg_SUT_min_dist = rescale(m_he$avg_SUT_min_dist, to = c(100,0))
 m_he$SUT_prop_under_10mi = rescale(m_he$SUT_prop_under_10mi, to = c(0,100))
+m_he$sut <- (m_he$avg_SUT_min_dist + m_he$SUT_prop_under_10mi) / 2
+
+
 m_he$mental_hlth_dist = rescale(m_he$mental_hlth_dist, to = c(100,0))
 
 
 
-m_he$index = (m_he$average_d_naloxone + m_he$average_d_syringe + m_he$syr_prop_under_10mi + m_he$avg_MOUD_min_dist
-              + m_he$MOUD_prop_under_10mi + m_he$avg_SUT_min_dist + m_he$SUT_prop_under_10mi
-              + m_he$mental_hlth_dist) / 8
+m_he$index = (m_he$moud + m_he$syringe + m_he$sut + m_he$mental_hlth_dist) / 4
 
 
 ## community particpation
@@ -211,11 +239,11 @@ st_is_valid(index_sf)
 
 st_crs(index_sf)
 
-setwd("~/Documents/HEROP")
+setwd("~/Documents/GitHub/NJ-opioidenv/data_final")
 
-st_write(index_sf, "index(old).shp", append = TRUE)
+st_write(index_sf, "index.shp", append = TRUE)
 
-
+####### none of the stuff below works for some reason :(
 
 tm_shape(index_sf) + tm_fill(col = "index", style = "jenks")
 

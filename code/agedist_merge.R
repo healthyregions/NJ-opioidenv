@@ -30,10 +30,10 @@ ME_agedist$p18_o16 <- ME_agedist$dtC2018 * 100000/ ME_agedist$over16
 #under 40
 
 ME_agedist$all_u40 <- ME_agedist$deathCt * 100000 / ME_agedist$under40
-ME_agedist$p15_u40 <- ME_agedist$dtC2015 * 100000/ ME_agedist$under40
-ME_agedist$p16_u40 <- ME_agedist$dtC2016 * 100000/ ME_agedist$under40
-ME_agedist$p17_u40 <- ME_agedist$dtC2017 * 100000/ ME_agedist$under40
-ME_agedist$p18_u40 <- ME_agedist$dtC2018 * 100000/ ME_agedist$under40
+ME_agedist$p15u40 <- ME_agedist$dtC2015 * 100000/ ME_agedist$under40
+ME_agedist$p16u40 <- ME_agedist$dtC2016 * 100000/ ME_agedist$under40
+ME_agedist$p17u40 <- ME_agedist$dtC2017 * 100000/ ME_agedist$under40
+ME_agedist$p18u40 <- ME_agedist$dtC2018 * 100000/ ME_agedist$under40
 
 
 ## Over 40
