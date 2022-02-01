@@ -1,6 +1,6 @@
 
 # Read in ME data
-setwd("~/Documents/GitHub/NJ-opioidenv/data_final")
+setwd("~/Documents/GitHub/NJ-opioidenv/data_final/ME deaths shapefile")
 
 ME_shp <- read_sf("ME_deaths.shp")
 
@@ -46,8 +46,16 @@ ME_agedist$p18_o40 <- ME_agedist$dtC2018 * 100000/ ME_agedist$over40
 
 
 
-#Save
+#Save shp
 setwd("~/Documents/GitHub/NJ-opioidenv/data_final")
 
 st_write(ME_agedist, "ME_agedist.shp", append = TRUE)
+
+
+## Save CSV
+ME_agedist$geometry = NULL
+ME_agedist$
+
+
+
 
