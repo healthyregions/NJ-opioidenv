@@ -40,10 +40,10 @@ munsub <- nj_municipal[njsub]
 parksmerge <- left_join(munsub, areaagg, by = "SSN")
 
 
-parksmerge$parksProp <- parksmerge$total_area / parksmerge$Shape_Area
-parksmerge$parksProp[is.na(parksmerge$parksProp)] <- 0
+parksmerge$ratio <- parksmerge$total_area / parksmerge$Shape_Area
+parksmerge$ratio[is.na(parksmerge$ratio)] <- 0
 
-ParkArea <- parksmerge[c("MUN", "SSN", "parksProp")]
+ParkArea <- parksmerge[c("MUN", "SSN", "ratio")]
 ParkArea$geometry = NULL
 
 ### Save
@@ -53,7 +53,8 @@ setwd("~/Documents/GitHub/NJ-opioidenv/data_final")
 write.csv(ParkArea, "ParkArea.csv", row.names = FALSE)
 
 
-#save to master
+# save to master (NOT PUSHED YET!!!) DO THIS PART WHEN SUSAN CONFIRMS
+
 
 ### Merge to masters
 setwd("~/Documents/GitHub/NJ-opioidenv/data_final")
