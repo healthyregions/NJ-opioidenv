@@ -10,13 +10,23 @@ library(dplyr)
 
 # load master abridged
 
+#setwd("~/Code/NJ-opioidenv/data_final")
 setwd("~/Documents/GitHub/NJ-opioidenv/data_final")
 master.all <- read.csv("master(no_index).csv")
+master.all$SSN <- as.integer((as.character(master.all$SSN)))
 
+master.geo <- st_read("master_geog.geojson")
+masterSF <- subset(master.geo[,c("Place.Name","SSN","area")])
+masterSF$SSN <- as.integer((as.character(masterSF$SSN)))
+masterSF <- left_join(masterSF, master.all, by = "SSN")
+
+masterSF$bizDens <- masterSF$bizNum / masterSF$area.x
+
+master.all <- masterSF
 
 ### Make groups
 
-##Quality of the comercial envoronment:
+##Quality of the comercial environment:
 
 sub1 <- c("SSN", "alcLicKm2", "noVehicle", "pubTransit", "avgVacBiz", "bizNum")
 
@@ -46,13 +56,13 @@ m_ce$transportation <- (m_ce$noVehicle + m_ce$pubTransit) / 2
 
 m_ce$commEnv <- (m_ce$avgVacBiz +  m_ce$bizNum + m_ce$alcLicKm2 + m_ce$transportation) / 4
 
+tm_shape(m_ce) + tm_polygons("commEnv", pal= "BuPu", style = "quantile", n = 4)
 
 ## Quality of the Residential Environment
 
 sub2 <- c("schoolPPop", "multiunit", "occRate", "mblHomePct", "mblHome", "avgPropTax", 
           "house20Yr", "rentPct", "medRent", "medHValue", 
           "burdenPct", "crowdedPct", "frClsRtMrt")
-
 
 
 m_re <- master.all[sub2]
@@ -86,10 +96,11 @@ m_re$affordability <- (m_re$medRent + m_re$burdenPct
 m_re$frClsRtMrt <- rescale(m_re$frClsRtMrt, to = c(100,0))
 
 
-
-
 m_re$resEnv <- (m_re$housingstock + m_re$stability + m_re$affordability
                + m_re$frClsRtMrt) / 4
+
+tm_shape(m_re) + tm_polygons("resEnv", pal= "BuPu", style = "quantile", n = 4)
+
 
 ## Physical Environment
 
