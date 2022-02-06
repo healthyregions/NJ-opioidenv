@@ -1,0 +1,568 @@
+"","Municipality","SSN","popDensity"
+"1","Absecon",101,1534
+"2","Atlantic City",102,3575
+"3","Brigantine",103,1403
+"4","Buena",104,584
+"5","Buena Vista",105,181
+"6","Corbin City",106,65
+"7","Egg Harbor",107,382
+"8","Egg Harbor Twp",108,650
+"9","Estell Manor",109,32
+"10","Folsom",110,221
+"11","Galloway",111,410
+"12","Hamilton",112,238
+"13","Hammonton",113,351
+"14","Linwood",114,1771
+"15","Longport",115,2246
+"16","Margate",116,4284
+"17","Mullica",117,107
+"18","Northfield",118,2459
+"19","Pleasantville",119,3644
+"20","Port Republic",120,144
+"21","Somers Point",121,2600
+"22","Ventnor",122,5251
+"23","Weymouth",123,233
+"24","Allendale",201,2228
+"25","Alpine",202,295
+"26","Bergenfield",203,9697
+"27","Bogota",204,11272
+"28","Carlstadt",205,1579
+"29","Cliffside Park",206,26190
+"30","Closter",207,2774
+"31","Cresskill",208,4337
+"32","Demarest",209,2431
+"33","Dumont",210,9090
+"34","East Rutherford",212,2676
+"35","Edgewater",213,13157
+"36","Elmwood Park",211,7709
+"37","Emerson",214,3518
+"38","Englewood",215,5929
+"39","Englewood Cliffs",216,2609
+"40","Fair Lawn",217,6558
+"41","Fairview",218,17306
+"42","Fort Lee",219,14924
+"43","Franklin Lakes",220,1200
+"44","Garfield",221,15425
+"45","Glen Rock",222,4445
+"46","Hackensack",223,10825
+"47","Harrington Park",224,2648
+"48","Hasbrouck Heights",225,8130
+"49","Haworth",226,1803
+"50","Hillsdale",227,3587
+"51","Ho-Ho-Kus",228,2404
+"52","Leonia",229,6014
+"53","Little Ferry",230,7432
+"54","Lodi",231,11045
+"55","Lyndhurst",232,4918
+"56","Mahwah",233,1042
+"57","Maywood",234,7643
+"58","Midland Park",235,4733
+"59","Montvale",236,2181
+"60","Moonachie",237,1687
+"61","New Milford",238,7431
+"62","North Arlington",239,6254
+"63","Northvale",240,3835
+"64","Norwood",241,2159
+"65","Oakland",242,1565
+"66","Old Tappan",243,1814
+"67","Oradell",244,3436
+"68","Palisades Park",245,16790
+"69","Paramus",246,2582
+"70","Park Ridge",247,3467
+"71","Ramsey",248,2761
+"72","Ridgefield",249,4484
+"73","Ridgefield Park",250,7648
+"74","Ridgewood",251,4468
+"75","River Edge",252,6337
+"76","River Vale",253,2549
+"77","Rochelle Park",254,5486
+"78","Rockleigh",255,551
+"79","Rutherford",256,6684
+"80","Saddle Brook",257,5267
+"81","Saddle River",258,663
+"82","South Hackensack",259,3461
+"83","Teaneck",260,6874
+"84","Tenafly",261,3239
+"85","Teterboro",262,59
+"86","Upper Saddle River",263,1600
+"87","Waldwick",264,4875
+"88","Wallington",265,12021
+"89","Washington Twp",266,3228
+"90","Westwood",267,4989
+"91","Wood-Ridge",269,8198
+"92","Woodcliff Lake",268,1731
+"93","Wyckoff",270,2645
+"94","Bass River",301,19
+"95","Beverly",302,4553
+"96","Bordentown",303,4124
+"97","Bordentown Twp",304,1434
+"98","Burlington",305,3213
+"99","Burlington Twp",306,1701
+"100","Chesterfield",307,356
+"101","Cinnaminson",308,2199
+"102","Delanco",309,1898
+"103","Delran",310,2522
+"104","Eastampton",311,1035
+"105","Edgewater Park",312,3024
+"106","Evesham",313,1550
+"107","Fieldsboro",314,1967
+"108","Florence",315,1295
+"109","Hainesport",316,938
+"110","Lumberton",317,951
+"111","Mansfield",318,395
+"112","Maple Shade",319,4927
+"113","Medford",320,604
+"114","Medford Lakes",321,3459
+"115","Moorestown",322,1398
+"116","Mount Holly",323,3432
+"117","Mount Laurel",324,1921
+"118","New Hanover",325,338
+"119","North Hanover",326,436
+"120","Palmyra",327,3882
+"121","Pemberton",328,2310
+"122","Pemberton Twp",329,446
+"123","Riverside",330,5301
+"124","Riverton",331,4100
+"125","Shamong",332,145
+"126","Southampton",333,234
+"127","Springfield",334,110
+"128","Tabernacle",335,140
+"129","Washington Twp",336,7
+"130","Westampton",337,794
+"131","Willingboro",338,4142
+"132","Woodland",339,19
+"133","Wrightstown",340,444
+"134","Audubon",401,5861
+"135","Audubon Park",402,6747
+"136","Barrington",403,4212
+"137","Bellmawr",404,3855
+"138","Berlin",405,2119
+"139","Berlin Twp",406,1728
+"140","Brooklawn",407,3947
+"141","Camden",408,8356
+"142","Cherry Hill",409,2966
+"143","Chesilhurst",410,953
+"144","Clementon",411,2596
+"145","Collingswood",412,7707
+"146","Gibbsboro",413,1031
+"147","Gloucester City",414,4889
+"148","Gloucester Twp",415,2792
+"149","Haddon Heights",418,4833
+"150","Haddon Twp",416,5467
+"151","Haddonfield",417,4055
+"152","Hi-Nella",419,3770
+"153","Laurel Springs",420,4100
+"154","Lawnside",421,2071
+"155","Lindenwold",422,4491
+"156","Magnolia",423,4436
+"157","Merchantville",424,6283
+"158","Mount Ephraim",425,5267
+"159","Oaklyn",426,6343
+"160","Pennsauken",427,3442
+"161","Pine Hill",428,2722
+"162","Pine Valley",429,11
+"163","Runnemede",430,4073
+"164","Somerdale",431,3963
+"165","Stratford",432,4526
+"166","Tavistock",433,20
+"167","Voorhees",434,2564
+"168","Waterford",435,299
+"169","Winslow",436,681
+"170","Woodlynne",437,13395
+"171","Avalon",501,305
+"172","Cape May",502,1450
+"173","Cape May Point",503,930
+"174","Dennis",504,103
+"175","Lower Township",505,785
+"176","Middle Township",506,262
+"177","North Wildwood",507,2196
+"178","Ocean City",508,1770
+"179","Sea Isle City",509,953
+"180","Stone Harbor",510,587
+"181","Upper Township",511,191
+"182","West Cape May",512,868
+"183","West Wildwood",513,2021
+"184","Wildwood",514,3900
+"185","Wildwood Crest",515,2776
+"186","Woodbine",516,307
+"187","Bridgeton",601,3965
+"188","Commercial",602,156
+"189","Deerfield",603,182
+"190","Downe",604,31
+"191","Fairfield",605,148
+"192","Greenwich",606,43
+"193","Hopewell",607,148
+"194","Lawrence",608,86
+"195","Maurice River",609,68
+"196","Millville",610,665
+"197","Shiloh",611,411
+"198","Stow Creek",612,77
+"199","Upper Deerfield",613,239
+"200","Vineland",614,883
+"201","Belleville",701,10928
+"202","Bloomfield",702,9617
+"203","Caldwell",703,6910
+"204","Cedar Grove",704,2989
+"205","East Orange",705,16678
+"206","Essex Fells",706,1516
+"207","Fairfield",707,739
+"208","Glen Ridge",708,6019
+"209","Irvington",709,18725
+"210","Livingston",710,2189
+"211","Maplewood",711,6404
+"212","Millburn",712,2198
+"213","Montclair",713,6217
+"214","Newark",714,11788
+"215","North Caldwell",715,2236
+"216","Nutley",716,8559
+"217","Orange",717,14006
+"218","Roseland",718,1677
+"219","South Orange",719,5944
+"220","Verona",720,4930
+"221","West Caldwell",721,2182
+"222","West Orange",722,4020
+"223","Clayton",801,1215
+"224","Deptford",802,1762
+"225","East Greenwich",803,729
+"226","Elk",804,214
+"227","Franklin Twp",805,295
+"228","Glassboro",806,2180
+"229","Greenwich",807,540
+"230","Harrison Twp",808,680
+"231","Logan",809,271
+"232","Mantua",810,948
+"233","Monroe",811,796
+"234","National Park",812,2985
+"235","Newfield",813,918
+"236","Paulsboro",814,3116
+"237","Pitman",815,3897
+"238","South Harrison",816,202
+"239","Swedesboro",817,3603
+"240","Washington Twp",818,2238
+"241","Wenonah",819,2308
+"242","West Deptford",820,1379
+"243","Westville",821,4112
+"244","Woodbury",822,4935
+"245","Woodbury Heights",823,2456
+"246","Woolwich",824,596
+"247","Bayonne",901,11584
+"248","East Newark",902,27350
+"249","Guttenberg",903,58475
+"250","Harrison",904,14703
+"251","Hoboken",905,43071
+"252","Jersey City",906,18306
+"253","Kearny",907,4865
+"254","North Bergen",908,12409
+"255","Secaucus",909,3473
+"256","Union City",910,54990
+"257","Weehawken",911,19178
+"258","West New York",912,53690
+"259","Alexandria",1001,175
+"260","Bethlehem",1002,188
+"261","Bloomsbury",1003,961
+"262","Califon",1004,1124
+"263","Clinton",1005,2016
+"264","Clinton Twp",1006,432
+"265","Delaware",1007,122
+"266","East Amwell",1008,138
+"267","Flemington",1009,4279
+"268","Franklin Twp",1010,142
+"269","Frenchtown",1011,1084
+"270","Glen Gardner",1012,1266
+"271","Hampton Boro",1013,870
+"272","High Bridge",1014,1482
+"273","Holland",1015,219
+"274","Kingwood",1016,107
+"275","Lambertville",1017,3325
+"276","Lebanon",1018,1875
+"277","Lebanon Twp",1019,194
+"278","Milford",1020,1034
+"279","Raritan Twp",1021,589
+"280","Readington",1022,334
+"281","Stockton",1023,963
+"282","Tewksbury",1024,185
+"283","Union Twp",1025,296
+"284","West Amwell",1026,128
+"285","East Windsor",1101,1772
+"286","Ewing",1102,2397
+"287","Hamilton",1103,2256
+"288","Hightstown",1104,4450
+"289","Hopewell",1105,2783
+"290","Hopewell Twp",1106,315
+"291","Lawrence",1107,1520
+"292","Pennington",1108,2697
+"293","Princeton (as of 1/1/2013)",1114,1775
+"294","Princeton (prior to 2013)",1109,NA
+"295","Princeton Twp (prior to 2013)",1110,NA
+"296","Robbinsville",1112,726
+"297","Trenton",1111,11106
+"298","West Windsor",1113,1115
+"299","Carteret",1201,5449
+"300","Cranbury",1202,298
+"301","Dunellen",1203,7054
+"302","East Brunswick",1204,2251
+"303","Edison",1205,3422
+"304","Helmetta",1206,2615
+"305","Highland Park",1207,7825
+"306","Jamesburg",1208,6895
+"307","Metuchen",1210,5199
+"308","Middlesex Borough",1211,3939
+"309","Milltown",1212,4621
+"310","Monroe",1213,1080
+"311","New Brunswick",1214,10913
+"312","North Brunswick",1215,3553
+"313","Old Bridge",1209,1761
+"314","Perth Amboy",1216,11239
+"315","Piscataway",1217,3074
+"316","Plainsboro",1218,1995
+"317","Sayreville",1219,2861
+"318","South Amboy",1220,5714
+"319","South Brunswick",1221,1145
+"320","South Plainfield",1222,2933
+"321","South River",1223,5902
+"322","Spotswood",1224,3725
+"323","Woodbridge",1225,4393
+"324","Aberdeen",1330,3368
+"325","Allenhurst",1301,1881
+"326","Allentown",1302,3018
+"327","Asbury Park",1303,11104
+"328","Atlantic Highlands",1304,3342
+"329","Avon By The Sea",1305,4172
+"330","Belmar",1306,5411
+"331","Bradley Beach",1307,6926
+"332","Brielle",1308,2684
+"333","Colts Neck",1309,324
+"334","Deal",1310,591
+"335","Eatontown",1311,2123
+"336","Englishtown",1312,3409
+"337","Fair Haven",1313,3719
+"338","Farmingdale",1314,2496
+"339","Freehold",1315,6099
+"340","Freehold Twp",1316,910
+"341","Hazlet",1339,3600
+"342","Highlands",1317,6261
+"343","Holmdel",1318,930
+"344","Howell",1319,867
+"345","Interlaken",1320,2427
+"346","Keansburg",1321,9164
+"347","Keyport",1322,5061
+"348","Lake Como",1347,6868
+"349","Little Silver",1323,2180
+"350","Loch Arbour",1324,1830
+"351","Long Branch",1325,5837
+"352","Manalapan",1326,1307
+"353","Manasquan",1327,4278
+"354","Marlboro",1328,1328
+"355","Matawan",1329,3924
+"356","Middletown",1331,1600
+"357","Millstone Twp",1332,287
+"358","Monmouth Beach",1333,2996
+"359","Neptune City",1335,4956
+"360","Neptune Twp",1334,3404
+"361","Ocean Twp",1337,2481
+"362","Oceanport",1338,1810
+"363","Red Bank",1340,6983
+"364","Roosevelt",1341,447
+"365","Rumson",1342,1357
+"366","Sea Bright",1343,1903
+"367","Sea Girt",1344,1674
+"368","Shrewsbury",1345,1900
+"369","Shrewsbury Twp",1346,10100
+"370","Spring Lake",1348,2227
+"371","Spring Lake Heights",1349,3608
+"372","Tinton Falls",1336,1148
+"373","Union Beach",1350,3090
+"374","Upper Freehold",1351,150
+"375","Wall",1352,847
+"376","West Long Branch",1353,2787
+"377","Boonton",1401,3570
+"378","Boonton Twp",1402,528
+"379","Butler",1403,3811
+"380","Chatham",1404,3767
+"381","Chatham Twp",1405,1162
+"382","Chester",1406,1047
+"383","Chester Twp",1407,269
+"384","Denville",1408,1427
+"385","Dover",1409,6803
+"386","East Hanover",1410,1424
+"387","Florham Park",1411,1614
+"388","Hanover",1412,1394
+"389","Harding",1413,194
+"390","Jefferson",1414,546
+"391","Kinnelon",1415,568
+"392","Lincoln Park",1416,1641
+"393","Long Hill",1430,735
+"394","Madison",1417,3808
+"395","Mendham",1418,837
+"396","Mendham Twp",1419,327
+"397","Mine Hill",1420,1222
+"398","Montville",1421,1173
+"399","Morris Plains",1423,2180
+"400","Morris Twp",1422,1440
+"401","Morristown",1424,6497
+"402","Mount Arlington",1426,2704
+"403","Mount Olive",1427,995
+"404","Mountain Lakes",1425,1658
+"405","Netcong",1428,3844
+"406","Parsippany-Troy Hills",1429,2258
+"407","Pequannock",1431,2283
+"408","Randolph",1432,1244
+"409","Riverdale",1433,2113
+"410","Rockaway",1434,3128
+"411","Rockaway Twp",1435,616
+"412","Roxbury",1436,1121
+"413","Victory Gardens",1437,10107
+"414","Washington Twp",1438,422
+"415","Wharton",1439,3056
+"416","Barnegat Light",1501,804
+"417","Barnegat Twp",1533,663
+"418","Bay Head",1502,1691
+"419","Beach Haven",1503,1206
+"420","Beachwood",1504,3947
+"421","Berkeley Twp",1505,974
+"422","Brick",1506,2936
+"423","Eagleswood",1508,100
+"424","Harvey Cedars",1509,611
+"425","Island Heights",1510,2733
+"426","Jackson",1511,575
+"427","Lacey",1512,346
+"428","Lakehurst",1513,2964
+"429","Lakewood",1514,4177
+"430","Lavallette",1515,2283
+"431","Little Egg Harbor",1516,447
+"432","Long Beach",1517,563
+"433","Manchester",1518,532
+"434","Mantoloking",1519,659
+"435","Ocean Gate",1521,4491
+"436","Ocean Twp",1520,440
+"437","Pine Beach",1522,3554
+"438","Plumsted",1523,215
+"439","Point Pleasant",1524,5344
+"440","Point Pleasant Beach",1525,3178
+"441","Seaside Heights",1526,4682
+"442","Seaside Park",1527,2383
+"443","Ship Bottom",1528,1610
+"444","South Toms River",1529,3224
+"445","Stafford",1530,596
+"446","Surf City",1531,1583
+"447","Toms River",1507,2297
+"448","Tuckerton",1532,1004
+"449","Bloomingdale",1601,946
+"450","Clifton",1602,7692
+"451","Haledon",1603,7359
+"452","Hawthorne",1604,5736
+"453","Little Falls",1605,5293
+"454","North Haledon",1606,2484
+"455","Passaic",1607,22618
+"456","Paterson",1608,17637
+"457","Pompton Lakes",1609,3851
+"458","Prospect Park",1610,12425
+"459","Ringwood",1611,494
+"460","Totowa",1612,2711
+"461","Wanaque",1613,1501
+"462","Wayne",1614,2321
+"463","West Milford",1615,358
+"464","Woodland Park",1616,4336
+"465","Alloway",1701,100
+"466","Carneys Point",1713,457
+"467","Elmer",1702,1508
+"468","Elsinboro",1703,82
+"469","Lower Alloways Creek",1704,37
+"470","Mannington",1705,51
+"471","Oldmans",1706,92
+"472","Penns Grove",1707,5309
+"473","Pennsville",1708,587
+"474","Pilesgrove",1709,115
+"475","Pittsgrove",1710,197
+"476","Quinton",1711,103
+"477","Salem",1712,2040
+"478","Upper Pittsgrove",1714,83
+"479","Woodstown",1715,2186
+"480","Bedminster",1801,315
+"481","Bernards Twp",1802,1131
+"482","Bernardsville",1803,605
+"483","Bound Brook",1804,6306
+"484","Branchburg",1805,734
+"485","Bridgewater",1806,1417
+"486","Far Hills",1807,193
+"487","Franklin Twp",1808,1446
+"488","Green Brook",1809,1613
+"489","Hillsborough",1810,733
+"490","Manville",1811,4413
+"491","Millstone",1812,568
+"492","Montgomery",1813,730
+"493","North Plainfield",1814,7907
+"494","Peapack Gladstone",1815,449
+"495","Raritan",1816,4026
+"496","Rocky Hill",1817,1110
+"497","Somerville",1818,5330
+"498","South Bound Brook",1819,7056
+"499","Warren",1820,819
+"500","Watchung",1821,993
+"501","Andover",1901,391
+"502","Andover Twp",1902,299
+"503","Branchville",1903,1327
+"504","Byram",1904,379
+"505","Frankford",1905,157
+"506","Franklin",1906,1061
+"507","Fredon",1907,180
+"508","Green",1908,218
+"509","Hamburg",1909,2747
+"510","Hampton Twp",1910,201
+"511","Hardyston",1911,246
+"512","Hopatcong",1912,1318
+"513","Lafayette",1913,134
+"514","Montague",1914,84
+"515","Newton",1915,2495
+"516","Ogdensburg",1916,1001
+"517","Sandyston",1917,44
+"518","Sparta",1918,509
+"519","Stanhope",1919,1816
+"520","Stillwater",1920,145
+"521","Sussex",1921,3431
+"522","Vernon",1922,326
+"523","Walpack",1923,0
+"524","Wantage",1924,164
+"525","Berkeley Heights",2001,2216
+"526","Clark",2002,3746
+"527","Cranford",2003,5060
+"528","Elizabeth",2004,10569
+"529","Fanwood",2005,5827
+"530","Garwood",2006,6679
+"531","Hillside",2007,8100
+"532","Kenilworth",2008,3848
+"533","Linden",2009,4031
+"534","Mountainside",2010,1741
+"535","New Providence",2011,3656
+"536","Plainfield",2012,8526
+"537","Rahway",2013,7726
+"538","Roselle",2014,8293
+"539","Roselle Park",2015,11237
+"540","Scotch Plains",2016,2731
+"541","Springfield",2017,3429
+"542","Summit",2018,3721
+"543","Union Twp",2019,6541
+"544","Westfield",2020,4529
+"545","Winfield",2021,8489
+"546","Allamuchy",2101,227
+"547","Alpha",2102,1375
+"548","Belvidere",2103,1795
+"549","Blairstown",2104,188
+"550","Franklin Twp",2105,129
+"551","Frelinghuysen",2106,94
+"552","Greenwich",2107,525
+"553","Hackettstown",2108,2647
+"554","Hardwick",2109,45
+"555","Harmony",2110,106
+"556","Hope",2111,102
+"557","Independence",2112,279
+"558","Knowlton",2113,120
+"559","Liberty",2114,245
+"560","Lopatcong",2115,1176
+"561","Mansfield",2116,250
+"562","Oxford",2117,424
+"563","Phillipsburg",2119,4533
+"564","Pohatcong",2120,242
+"565","Washington",2121,3363
+"566","Washington Twp",2122,366
+"567","White",2123,175

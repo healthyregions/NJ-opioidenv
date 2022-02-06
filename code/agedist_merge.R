@@ -1,6 +1,6 @@
 
 # Read in ME data
-setwd("~/Documents/GitHub/NJ-opioidenv/data_final")
+setwd("~/Documents/GitHub/NJ-opioidenv/data_final/ME deaths shapefile")
 
 ME_shp <- read_sf("ME_deaths.shp")
 
@@ -8,9 +8,9 @@ ME_shp$SSN <- as.numeric(ME_shp$SSN)
 
 ## Read in Pop age dist data
 
-setwd("~/Documents/GitHub/NJ-opioidenv/data_final")
+setwd("~/Documents/GitHub/NJ-opioidenv/data_in_progress")
 
-agedist <- read.csv("pop_agedist.csv")
+agedist <- read.csv("NJ_1564yo.csv")
 
 
 ### Merge
@@ -20,34 +20,36 @@ ME_agedist <- merge(ME_shp, agedist, by = "SSN")
 
 ### New variables
 
-#over 16
-ME_agedist$all_o16 <- ME_agedist$deathCt * 100000/ ME_agedist$over16
-ME_agedist$p15_o16 <- ME_agedist$dtC2015 * 100000/ ME_agedist$over16
-ME_agedist$p16_o16 <- ME_agedist$dtC2016 * 100000/ ME_agedist$over16
-ME_agedist$p17_o16 <- ME_agedist$dtC2017 * 100000/ ME_agedist$over16
-ME_agedist$p18_o16 <- ME_agedist$dtC2018 * 100000/ ME_agedist$over16
+# 15 - 64 yo
+ME_agedist$allyears <- ME_agedist$deathCt * 100000/ ME_agedist$total1564
+ME_agedist$p2015 <- ME_agedist$dtC2015 * 100000/ ME_agedist$total1564
+ME_agedist$p2016 <- ME_agedist$dtC2016 * 100000/ ME_agedist$total1564
+ME_agedist$p2017 <- ME_agedist$dtC2017 * 100000/ ME_agedist$total1564
+ME_agedist$p2018 <- ME_agedist$dtC2018 * 100000/ ME_agedist$total1564
 
-#under 40
-
-ME_agedist$all_u40 <- ME_agedist$deathCt * 100000 / ME_agedist$under40
-ME_agedist$p15u40 <- ME_agedist$dtC2015 * 100000/ ME_agedist$under40
-ME_agedist$p16u40 <- ME_agedist$dtC2016 * 100000/ ME_agedist$under40
-ME_agedist$p17u40 <- ME_agedist$dtC2017 * 100000/ ME_agedist$under40
-ME_agedist$p18u40 <- ME_agedist$dtC2018 * 100000/ ME_agedist$under40
-
-
-## Over 40
-
-ME_agedist$all_o40 <- ME_agedist$deathCt * 100000/ ME_agedist$over40
-ME_agedist$p15_o40 <- ME_agedist$dtC2015 * 100000/ ME_agedist$over40
-ME_agedist$p16_o40 <- ME_agedist$dtC2016 * 100000/ ME_agedist$over40
-ME_agedist$p17_o40 <- ME_agedist$dtC2017 * 100000/ ME_agedist$over40
-ME_agedist$p18_o40 <- ME_agedist$dtC2018 * 100000/ ME_agedist$over40
+ME_agedist$geometry = NULL
+ME_agedist$deathCt = NULL
+ME_agedist$dtC2015 = NULL
+ME_agedist$dtC2016 = NULL
+ME_agedist$dtC2017 = NULL
+ME_agedist$dtC2018 = NULL
+ME_agedist$total1564 = NULL
 
 
+#save CSV
+setwd("~/Documents/GitHub/NJ-opioidenv/data_in_progress")
 
-#Save
+write.csv(ME_agedist, "DthRates", row.names = FALSE)
+
+### Merge to masters
+setwd("~/Documents/GitHub/NJ-opioidenv/data_final")
+master <- read.csv("working_master(abridged).csv")
+
+ME_agedist <- ME_agedist[c("SSN", "allyears")]
+
+master_updated <- merge(master, ME_agedist, by = "SSN")
+
+##save
 setwd("~/Documents/GitHub/NJ-opioidenv/data_final")
 
-st_write(ME_agedist, "ME_agedist.shp", append = TRUE)
-
+write.csv(master_updated, "working_master(abridged).csv", row.names = FALSE) 

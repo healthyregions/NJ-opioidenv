@@ -14,7 +14,10 @@ library(smoothr)
 library(rmapshaper)
 
 #Read Data ===== 
-land_use <- read.csv('data_raw/nj_land_use_state_county_municipality_1986_2015.csv', header=TRUE, stringsAsFactors = FALSE, dec = ",")
+
+setwd("~/Documents/GitHub/NJ-opioidenv/data_raw")
+
+land_use <- read.csv('nj_land_use_state_county_municipality_1986_2015.csv', header=TRUE, stringsAsFactors = FALSE, dec = ",")
 
 
 #Clean Data
