@@ -335,7 +335,7 @@ masterSF$resEnv <- m_re$resEnv
 masterSF$BEIndex <- (masterSF$commEnv + masterSF$compEnv + masterSF$comeEnv + masterSF$hsaEnv +
                            masterSF$phyEnv + masterSF$resEnv) / 6
 
-tm_shape(masterSF) + tm_polygons("BEIndex", pal= "BuPu", style = "jenks", n = 4)
+tm_shape(masterSF) + tm_polygons("BEIndex", pal= "BuPu", style = "quantile", n = 4)
 
 
 masterSF$commEnvS <- rescale(masterSF$commEnv, to = c(0,100))
