@@ -50,4 +50,4 @@ final <- rename(final, total1564 = x)
 #save
 setwd("~/Documents/GitHub/NJ-opioidenv/data_in_progress")
 
-write.csv(final, "NJ_1564yo.csv")
+write.csv(final, "NJ_1564yo.csv", row.names = FALSE)

@@ -54,6 +54,8 @@ write.csv(ParkArea, "ParkArea.csv", row.names = FALSE)
 
 
 # save to master (NOT PUSHED YET!!!) DO THIS PART WHEN SUSAN CONFIRMS
+setwd("~/Documents/GitHub/NJ-opioidenv/data_in_progress")
+ParkArea <- read.csv("ParkArea.csv")
 
 
 ### Merge to masters

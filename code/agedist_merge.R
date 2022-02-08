@@ -6,6 +6,11 @@ ME_shp <- read_sf("ME_deaths.shp")
 
 ME_shp$SSN <- as.numeric(ME_shp$SSN)
 
+
+
+
+
+
 ## Read in Pop age dist data
 
 setwd("~/Documents/GitHub/NJ-opioidenv/data_in_progress")
@@ -39,7 +44,7 @@ ME_agedist$total1564 = NULL
 #save CSV
 setwd("~/Documents/GitHub/NJ-opioidenv/data_in_progress")
 
-write.csv(ME_agedist, "DthRates", row.names = FALSE)
+write.csv(ME_agedist, "DthRates.csv", row.names = FALSE)
 
 ### Merge to masters
 setwd("~/Documents/GitHub/NJ-opioidenv/data_final")
