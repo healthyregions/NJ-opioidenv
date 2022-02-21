@@ -175,7 +175,7 @@ frClsRtMrt <- tm_shape(m_re) + tm_polygons("frClsRtMrtS", pal= "BuPu", style = "
 tmap_arrange(housingstock, stability, affordability, frClsRtMrt)
 
 m_re$resEnv <- (m_re$housingstock + m_re$stability + m_re$affordability
-               + m_re$frClsRtMrt) / 4
+               + m_re$frClsRtMrtS) / 4
 
 tm_shape(m_re) + tm_polygons("resEnv", pal= "BuPu", style = "quantile", n = 4)
 
@@ -283,7 +283,7 @@ cultrDist <- tm_shape(m_co) + tm_polygons("cultrDistS", pal= "BuPu", style = "qu
 voluntrOp <- tm_shape(m_co) + tm_polygons("voluntrOpS", pal= "BuPu", style = "jenks", n = 4)
 tmap_arrange (adultEdDst, cultrDist, voluntrOp)
 
-m_co$compEnv <- (m_co$voluntrOp + m_co$adultEdDst + m_co$cultrDist) / 3
+m_co$compEnv <- (m_co$voluntrOpS + m_co$adultEdDstS + m_co$cultrDistS) / 3
 
 tm_shape(m_co) + tm_polygons("compEnv", pal= "BuPu", style = "quantile", n = 4)
 
@@ -325,78 +325,116 @@ tm_shape(m_econ) + tm_polygons("comEnv", pal= "BuPu", style = "quantile", n = 4)
 
 masterSF$commEnv <- m_ce$commEnv
 masterSF$compEnv <- m_co$compEnv
-masterSF$comeEnv <- m_econ$comeEnv
+masterSF$comEnv <- m_econ$comEnv
 masterSF$hsaEnv <- m_he$hsaEnv
 masterSF$phyEnv <- m_pe$phyEnv
 masterSF$resEnv <- m_re$resEnv
 
 
 
-masterSF$BEIndex <- (masterSF$commEnv + masterSF$compEnv + masterSF$comeEnv + masterSF$hsaEnv +
+masterSF$BEIndex <- (masterSF$commEnv + masterSF$compEnv + masterSF$comEnv + masterSF$hsaEnv +
                            masterSF$phyEnv + masterSF$resEnv) / 6
 
 tm_shape(masterSF) + tm_polygons("BEIndex", pal= "BuPu", style = "quantile", n = 4)
 
 
-masterSF$commEnvS <- rescale(masterSF$commEnv, to = c(0,100))
-masterSF$compEnvS <- rescale(masterSF$compEnv, to = c(0,100))
-masterSF$comeEnvS <- rescale(masterSF$comeEnv, to = c(0,100))
-masterSF$hsaEnvS <- rescale(masterSF$hsaEnv, to = c(0,100))
-masterSF$phyEnvS <- rescale(masterSF$phyEnv, to = c(0,100))
-masterSF$resEnvS <- rescale(masterSF$resEnv, to = c(0,100))
-
-masterSF$BEIndexS <- (masterSF$commEnvS + masterSF$compEnvS + masterSF$comeEnvS + masterSF$hsaEnvS +
-                       masterSF$phyEnvS + masterSF$resEnvS) / 6
-
-tm_shape(masterSF) + tm_polygons("BEIndexS", pal= "BuPu", style = "jenks", n = 4)
-
-commEnvS <- tm_shape(masterSF) + tm_polygons("commEnvS", pal= "BuPu", style = "jenks", n = 4)
-compEnv <- tm_shape(masterSF) + tm_polygons("compEnvS", pal= "BuPu", style = "jenks", n = 4)
-comeEnv <- tm_shape(masterSF) + tm_polygons("comeEnvS", pal= "BuPu", style = "jenks", n = 4)
-hsaEnv <- tm_shape(masterSF) + tm_polygons("hsaEnvS", pal= "BuPu", style = "jenks", n = 4)
-phyEnv <- tm_shape(masterSF) + tm_polygons("phyEnvS", pal= "BuPu", style = "jenks", n = 4)
-resEnv <- tm_shape(masterSF) + tm_polygons("resEnvS", pal= "BuPu", style = "jenks", n = 4)
-tmap_arrange (commEnvS, compEnv, comeEnv,hsaEnv,phyEnv,resEnv)
+# masterSF$commEnvS <- rescale(masterSF$commEnv, to = c(0,100))
+# masterSF$compEnvS <- rescale(masterSF$compEnv, to = c(0,100))
+# masterSF$comEnvS <- rescale(masterSF$comEnv, to = c(0,100))
+# masterSF$hsaEnvS <- rescale(masterSF$hsaEnv, to = c(0,100))
+# masterSF$phyEnvS <- rescale(masterSF$phyEnv, to = c(0,100))
+# masterSF$resEnvS <- rescale(masterSF$resEnv, to = c(0,100))
+# 
+# masterSF$BEIndexS <- (masterSF$commEnvS + masterSF$compEnvS + masterSF$comEnvS + masterSF$hsaEnvS +
+#                        masterSF$phyEnvS + masterSF$resEnvS) / 6
+#
+#tm_shape(masterSF) + tm_polygons("BEIndexS", pal= "BuPu", style = "jenks", n = 4)
+# 
+# commEnvS <- tm_shape(masterSF) + tm_polygons("commEnvS", pal= "BuPu", style = "jenks", n = 4)
+# compEnv <- tm_shape(masterSF) + tm_polygons("compEnvS", pal= "BuPu", style = "jenks", n = 4)
+# comeEnv <- tm_shape(masterSF) + tm_polygons("comeEnvS", pal= "BuPu", style = "jenks", n = 4)
+# hsaEnv <- tm_shape(masterSF) + tm_polygons("hsaEnvS", pal= "BuPu", style = "jenks", n = 4)
+# phyEnv <- tm_shape(masterSF) + tm_polygons("phyEnvS", pal= "BuPu", style = "jenks", n = 4)
+# resEnv <- tm_shape(masterSF) + tm_polygons("resEnvS", pal= "BuPu", style = "jenks", n = 4)
+# tmap_arrange (commEnvS, compEnv, comeEnv,hsaEnv,phyEnv,resEnv)
 
 commEnv <- tm_shape(masterSF) + tm_polygons("commEnv", pal= "BuPu", style = "quantile", n = 4)
 compEnv <- tm_shape(masterSF) + tm_polygons("compEnv", pal= "BuPu", style = "quantile", n = 4)
-comeEnv <- tm_shape(masterSF) + tm_polygons("comeEnv", pal= "BuPu", style = "quantile", n = 4)
+comeEnv <- tm_shape(masterSF) + tm_polygons("comEnv", pal= "BuPu", style = "quantile", n = 4)
 hsaEnv <- tm_shape(masterSF) + tm_polygons("hsaEnv", pal= "BuPu", style = "quantile", n = 4)
 phyEnv <- tm_shape(masterSF) + tm_polygons("phyEnv", pal= "BuPu", style = "quantile", n = 4)
 resEnv <- tm_shape(masterSF) + tm_polygons("resEnv", pal= "BuPu", style = "quantile", n = 4)
 tmap_arrange (commEnv, compEnv, comeEnv,hsaEnv,phyEnv,resEnv)
 
 
-st_write(masterSF,"masterSF.geojson")
+#Save & Write final files
+
+st_write(masterSF,"masterSF_NJBE.geojson")
 
 master.csv <- st_drop_geometry(masterSF)
-write.csv(master.csv, "master.csv", row.names = FALSE) 
+write.csv(master.csv, "master_NJBE.csv", row.names = FALSE) 
 
 
+sub <- c("SSN","municipality","pop2016","area.x","ageCt",
+         "alcLicKm2","noVehicle2","pubTransit2","avgVacBiz","bizDens",
+         "naloxDist","syrngDist","moudDist","sutDist","mentHlDist",
+         "HDensRes","parksProp","allPaths","ndvi","resPctTot","comPctTot","indPctTot",
+         "schoolPPop","multiunitPP","occRate","mblHomePct","avgPropTax",
+         "house20Yr","rentPct","medRent","medHValue","burdenPct","crowdedPct","frClsRtMrt",
+         "empPerCap","incPerCap","snapP","govExp",
+         "adultEdDst","cultrDist","voluntrOp",
+         "isoAsian","isoBlack","isoHisp","SVIthemes","mriScore",
+         "landUseClass","popDens","hsGradRt","vlntCrRt",
+         "opDt15","opDtRt15","opDt16","opDtRt16","opDt17","opDt18","opDtRt18",
+         "opDt1518","opDtRt1518",
+         "BEIndex","commEnv","resEnv","phyEnv","hsaEnv","compEnv","comEnv")
+
+test <- subset(master.csv[,sub])
+
+colnames(test) <- newnames
+
+newnames <- c("SSN","mun","pop2017","area","adultPop",
+             "alcLicKm2","noVehicle","pubTransit","vacBizPr","bizDens",
+             "naloxDist","syrngDist","moudDist","sutDist","mentHlDist",
+             "hDensRes","parksProp","allPaths","ndvi","resPctTot","comPctTot","indPctTot",
+             "schoolPPop","multiunit","occRate","mblHomePct","avgPropTax",
+             "house20yr","rentPct","medRent","medHValue","burdenPct","crowdedPct","foClsRtMrt",
+             "empPerCap","incPerCap","snapP","govExp",
+             "adultEdDst","cultrDist","volutrOp",
+             "isoAsian","isoBlack","isoHisp","SVIthemes","mriScore",
+             "landUse","popDens17","hsGradRt","vCrimeRt",
+             "opDt15","opDtRt15","opDt16","opDtRt16","opDt17","opDt18","opDtRt18",
+             "opDt1518","opDtRt1518",
+             "BEIndex","commEnv","resEnv","phyEnv","hsaEnv","compEnv","comEnv")
 
 
-##save
-setwd("~/Documents/GitHub/NJ-opioidenv/data_final")
-
-write.csv(master_index, "conceptual_index.csv", row.names = FALSE) 
+write.csv(master.csv, "master_NJBE.csv", row.names = FALSE) 
 
 
-##### merge to master
-
-
-### Merge to masters
-setwd("~/Documents/GitHub/NJ-opioidenv/data_final")
-master <- read.csv("final_master.csv")
-
-master_updated <- left_join(master, master_index, by = "SSN")
-
-##save
-setwd("~/Documents/GitHub/NJ-opioidenv/data_final")
-
-write.csv(master_updated, "master_final.csv", row.names = FALSE) 
-
-
-
-
-
+# 
+# 
+# ##save
+# setwd("~/Documents/GitHub/NJ-opioidenv/data_final")
+# 
+# write.csv(master_index, "conceptual_index.csv", row.names = FALSE) 
+# 
+# 
+# ##### merge to master
+# 
+# 
+# ### Merge to masters
+# setwd("~/Documents/GitHub/NJ-opioidenv/data_final")
+# master <- read.csv("final_master.csv")
+# 
+# master_updated <- left_join(master, master_index, by = "SSN")
+# 
+# ##save
+# setwd("~/Documents/GitHub/NJ-opioidenv/data_final")
+# 
+# write.csv(master_updated, "master_final.csv", row.names = FALSE) 
+# 
+# 
+# 
+# 
+# 
 
