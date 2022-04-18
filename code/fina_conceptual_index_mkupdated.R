@@ -17,10 +17,11 @@ setwd("~/Code/NJ-opioidenv/data_final")
 master.all <- read.csv("master(no_index).csv")
 master.all$SSN <- as.integer((as.character(master.all$SSN)))
 
-#pubTransRt
-#noVhcleRt
-#multiUnRt
-#hs20yrRt
+
+#pubTransRt X
+#noVhcleRt X
+#multiUnRt X 
+#hs20yrRt X
 
 master.geo <- st_read("master_geog.geojson")
 masterSF <- subset(master.geo[,c("Place.Name","SSN")])
@@ -33,7 +34,7 @@ masterSF$areaMi <- masterSF$areaFt * 0.000189394  #to miles
 head(masterSF)
 
 library(tmap)
-tm_shape(masterSF) + tm_polygons("areaMi")
+tm_shape(masterSF) + tm_fill("pubTransRt", style = "jenks")
 
 
 #calc business density (number of business per area)
@@ -51,15 +52,7 @@ masterSF$allPathsMi <- masterSF$allPaths * 0.000189394 # to miles
 masterSF$pathsDens <- masterSF$allPaths / masterSF$areaMi
 tm_shape(masterSF) + tm_fill("pathsDens", style = "jenks", n = 6)
 
-#Schools per person?! 
-tm_shape(masterSF) + tm_fill("schoolPPop", style = "jenks", n = 6)
-
-#ageCt?
-tm_shape(masterSF) + tm_fill("ageCt", style = "jenks", n = 6)
-
-
 head(masterSF)
-
 
 masterSF$opDtRt1518 <- masterSF$opDtRt1518/5
 masterSF$opDtRt1518ave  <- masterSF$opDtRt1518
@@ -91,11 +84,11 @@ tm_shape(masterSF) + tm_fill("pubTransRt", style = "jenks", n = 6)
 # Reorganize according to data dictionary 
 
 masterNew <- subset(masterSF[,c("SSN", "municipality", "pop2017", "areaMi",
-                                "alcLicMi", "noVhcleRt", "pubTransRt","avgVacBiz", "bizDens",
+                                "alcLicMi", "noVhcleRt", "pubTransRt","avgVacBizRt", "bizDens",
                                 "syrngDist", "naloxDist", "moudDist", "sutDist", "mentHlDist",
                                 "HDensRes", "parksProp", "allPaths", "ndvi", "resPctTot", 
                                 "comPctTot", "indPctTot",
-                                "schoolPPop", "multiUnRt", "occRate", "mblHomePct", 
+                                "multiUnRt", "occRate", "mblHomePct", 
                                 "avgPropTax", "hs20yrRt", "rentPct", "medRent", 
                                 "medHValue", "burdenPct", "crowdedPct", "frClsRtMrt",
                                 "empPerCap", "incPerCap", "snapP", "govExp",
@@ -108,10 +101,10 @@ masterNew <- subset(masterSF[,c("SSN", "municipality", "pop2017", "areaMi",
 
 masterNew$HDensRes <-  masterNew$HDensRes * 100
 
-write_sf(masterNew, "NJMaster.shp")
-write_sf(masterNew, "NJMaster.geojson")
+write_sf(masterNew, "NJMaster_final.shp")
+write_sf(masterNew, "NJMaster_final.geojson")
               
 masterNewCSV <- st_drop_geometry(masterNew)
 
-write.csv(masterNewCSV, "NJMaster.csv")
+write.csv(masterNewCSV, "NJMaster_final.csv")
 
