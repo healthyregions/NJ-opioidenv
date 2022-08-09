@@ -1,6 +1,6 @@
 ### Read in parks
-setwd("~/Documents/HEROP")
-parks_all <- read.csv("~/Documents/HEROP/State%2C_Local_and_Nonprofit_Open_Space_of_New_Jersey.csv")
+setwd("~/Documents/HEROP/NJ Opioids")
+parks_all <- read.csv("State%2C_Local_and_Nonprofit_Open_Space_of_New_Jersey.csv")
 
 
 ## subset
@@ -46,6 +46,11 @@ parksmerge$ratio[is.na(parksmerge$ratio)] <- 0
 ParkArea <- parksmerge[c("MUN", "SSN", "ratio")]
 ParkArea$geometry = NULL
 
+### save shp
+setwd("~/Documents/HEROP/NJ Opioids")
+st_write(ParkArea,"NJ_cover", driver = "ESRI Shapefile", append = TRUE)
+
+
 ### Save
 
 setwd("~/Documents/GitHub/NJ-opioidenv/data_final")
@@ -53,9 +58,11 @@ setwd("~/Documents/GitHub/NJ-opioidenv/data_final")
 write.csv(ParkArea, "ParkArea.csv", row.names = FALSE)
 
 
+
 # save to master (NOT PUSHED YET!!!) DO THIS PART WHEN SUSAN CONFIRMS
 setwd("~/Documents/GitHub/NJ-opioidenv/data_in_progress")
 ParkArea <- read.csv("ParkArea.csv")
+
 
 
 ### Merge to masters
@@ -70,6 +77,15 @@ master_updated <- merge(master, ParkArea, by = "SSN")
 setwd("~/Documents/GitHub/NJ-opioidenv/data_final")
 
 write.csv(master_updated, "working_master(abridged).csv", row.names = FALSE) 
+
+
+
+
+##### check spatial dis
+setwd("~/Documents/HEROP/NJ Opioids/Municipal_Boundaries_of_NJ")
+parks_all <- st_read ("Municipal_Boundaries_of_NJ.shp")
+
+
 
 
 
