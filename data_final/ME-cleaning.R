@@ -1,4 +1,7 @@
 
+
+setwd("~/Code/NJ-opioidenv/code")
+
 me <- read.csv("~/Downloads/me_data_geocode_complete.csv")
 head(me)
 dim(me) #7496
@@ -6,6 +9,8 @@ dim(me) #7496
 me <- me %>% 
   filter(!is.na(AGE))
 dim(me) #7492
+
+
 
 me$AGE <- me$AGE %>% 
   substr(1,2) %>% #only takes first two characters: numeric age (previously there was "Years")
@@ -17,6 +22,9 @@ me$RACE[me$RACE == "Asian"] <- "Asian/Pacific"
 me$RACE[me$RACE == "OTHER"] <- "Other"
 
 summary(me$AGE)  #min age = 1, med = 39, mean = 40.5, max = 85.00
+
+head(me)
+
 
 library(ggplot2)
 ggplot(me, aes(x=AGE)) + 
@@ -82,4 +90,7 @@ ggplot(meSummary2, aes(x=YEAR, y=FentProp, group = RACE, color = RACE)) +
   geom_point() +
   ylab("% Overdose Deaths with Fentanyl") +
   theme(axis.text.x=element_text(angle=60, hjust=1)) 
-  
+
+
+head(me)
+

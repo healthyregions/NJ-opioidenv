@@ -13,6 +13,9 @@ otherVarNames <- load_variables(2018, "acs5", cache = TRUE)
 
 
 NJ_agedist <- get_acs(geography = 'tract',variables = c(totpop18 = "B06001_001",
+                                                        a04 = "S0101_C01_002",
+                                                        a59 = "S0101_C01_003",
+                                                        a1014 = "S0101_C01_004",
                                                         a1520 = "S0101_C01_005",
                                                           a2024 = "S0101_C01_006",
                                                           a2529 = "S0101_C01_007",
@@ -22,13 +25,20 @@ NJ_agedist <- get_acs(geography = 'tract',variables = c(totpop18 = "B06001_001",
                                                           a4549 = "S0101_C01_011",
                                                         a5054 = "S0101_C01_012",
                                                         a5559 = "S0101_C01_013",
-                                                        a6064 = "S0101_C01_014"),
-                        year = 2018, state = 'NJ', geometry = FALSE) %>% 
+                                                        a6064 = "S0101_C01_014",
+                                                        a6569 = "S0101_C01_015",
+                                                        a7074 = "S0101_C01_016",
+                                                        a7580 = "S0101_C01_017",
+                                                        a8084 = "S0101_C01_018",
+                                                        a85 = "S0101_C01_019"),
+                      year = 2018, state = 'NJ', geometry = FALSE) %>% 
   select(GEOID, NAME, variable, estimate) %>% 
   spread(variable, estimate) %>% 
   mutate(pop18_1564 = (a1520 + a2024 + a2529 + a3034 + a3539 + a4044 + a4549 + a5054 + a5559 + a6064),
          pop18_1564P = pop18_1564/totpop18 * 100) %>%
-  select(GEOID, totpop18, pop18_1564, pop18_1564P)
+  select(GEOID, totpop18, pop18_1564, pop18_1564P,
+         a04,a59,a1014,a1520,a2024,a2529,a3034,a3539,a4044,
+         a4549,a5054,a5559,a6064,a6569,a7074,a7580,a8084,a85)
 
 head(NJ_agedist)
 
@@ -46,7 +56,25 @@ head(cw_merge)
 cw_merge <- cw_merge %>%
   mutate(totpop18 = totpop18 * prop_of_ct,
          pop18_1564 = pop18_1564 * prop_of_ct,
-         pop18_1564P = pop18_1564P * prop_of_ct)
+         pop18_1564P = pop18_1564P * prop_of_ct,
+         a04 = a04 * prop_of_ct,
+         a59 = a59 * prop_of_ct,
+         a1014 = a1014 * prop_of_ct,
+         a1520 = a1520 * prop_of_ct,
+         a2024 = a2024 * prop_of_ct,
+         a2529 = a2529 * prop_of_ct,
+         a3034 = a3034 * prop_of_ct,
+         a3539 = a3539 * prop_of_ct,
+         a4044 = a4044 * prop_of_ct,
+         a4549 = a4549 * prop_of_ct,
+         a5054 = a5054 * prop_of_ct,
+         a5559 = a5559 * prop_of_ct,
+         a6064 = a6064 * prop_of_ct,
+         a6569 = a6569 * prop_of_ct,
+         a7074 = a7074 * prop_of_ct,
+         a7580 = a7580 * prop_of_ct,
+         a8084 = a8084 * prop_of_ct,
+         a85 = a85 * prop_of_ct)
 head(cw_merge)
 
 ### Aggregate
@@ -57,7 +85,26 @@ head(cw_merge)
 final <- cw_merge %>%
   group_by(SSN) %>%
   summarize(totpop18 = sum(totpop18, na.rm = TRUE),
-            pop18_1564 = sum(pop18_1564, na.rm = TRUE))
+            pop18_1564 = sum(pop18_1564, na.rm = TRUE),
+            a04 = sum(a04, na.rm = TRUE),
+            a59 = sum(a59, na.rm = TRUE),
+            a1014 = sum(a1014, na.rm = TRUE),
+            a1520 = sum(a1520, na.rm = TRUE),
+            a2024 = sum(a2024, na.rm = TRUE),
+            a2529 = sum(a2529, na.rm = TRUE),
+            a3034 = sum(a3034, na.rm = TRUE),
+            a3539 = sum(a3539, na.rm = TRUE),
+            a4044 = sum(a4044, na.rm = TRUE),
+            a4549 = sum(a4549, na.rm = TRUE),
+            a5054 = sum(a5054, na.rm = TRUE),
+            a5559 = sum(a5559, na.rm = TRUE),
+            a6064 = sum(a6064, na.rm = TRUE),
+            a6569 = sum(a6569, na.rm = TRUE),
+            a7074 = sum(a7074, na.rm = TRUE),
+            a7580 = sum(a7580, na.rm = TRUE),
+            a8084 = sum(a8084, na.rm = TRUE),
+            a85 = sum(a85, na.rm = TRUE)
+                             )
 
 
 head(final)
@@ -69,7 +116,7 @@ head(final)
 #save
 setwd("~/Code/NJ-opioidenv/data_in_progress")
 
-#write.csv(final, "NJ_1564yo.csv", row.names = FALSE)
+write.csv(final, "NJ_1564yoAJ.csv", row.names = FALSE)
 
 
 test<- read.csv("NJ_1564yo.csv")
