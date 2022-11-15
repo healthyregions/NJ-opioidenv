@@ -1,0 +1,103 @@
+---
+title: "master_clean_shape"
+author: "Fanmei Xia"
+date: "2/12/2021"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{R, warning = F, error = F}
+library(tidyverse)
+library(tidylog)
+library(sf)
+library(tmap)
+ 
+path <- "/Users/xiafm/Documents/GitHub/NJ-opioidenv/data_final/"
+master_clean <- read.csv(paste0(path, "master_clean.csv"), colClasses = c("SSN" = "character"))
+
+mun <- st_read("data_in_progress/mun_boundaries.geojson") %>%
+  select(SSN) 
+
+master_shape <- left_join(master_clean, mun) %>%
+  st_as_sf()
+
+```
+
+```{r, warning = F, error = F}
+col_names <- colnames(master_shape)
+col_names <- col_names[c(5, 10:21, 23:29, 39:41)]
+print(col_names)
+
+make_map <- function(col_name) {
+  tm_shape(master_shape) + tm_fill(col = col_name, style = "jenks") + tm_borders(alpha = .15)
+}
+maps <- lapply(col_names, make_map)
+```
+
+## Commercial Environment:
+Bars/Liquor store per capita and per area: 
+8. count_bars
+9. count_ls
+10. bars_per_sqft
+11. bars_per_pop
+12. ls_per_sqft
+13. ls_per_pop
+14. bars_ls_per_pop
+
+Comments: 
+1. very limited data points in selected areas;
+2. per pop seems to be a better variable?
+
+```{r, warning=FALSE, error=FALSE, message=FALSE}
+par(mfrow=c(1,2))
+maps[8] #8. count_bars
+maps[9] #9. count_ls
+
+par(mfrow=c(3,2))
+maps[10] #10. bars_per_sqft
+maps[11] #11. bars_per_pop
+maps[12] #12. ls_per_sqft
+maps[13] #13. ls_per_pop
+maps[14] #14. bars_ls_per_pop
+```
+
+##Residential Environment:
+
+Comment: 
+1. school measures don't have enough data
+2. public transit most availabel in central area
+3. relatively consistent patterns that the souther side of NJ has a higher rate of mobile home, vacancy rate, 
+Takeaways: Again relatively consistent patterns. Appears that sales volume was relatively consistent but went down in rural western side. 
+```{r, warning = F, error = F}
+maps[4] #4	num_schools
+maps[5] # 5	schools_per_pop
+maps[15] #15 multiunit_struct"  
+maps[16] #16 no_vehicle 
+maps[17] #17 public_transit
+maps[18] #18 mobile_home
+maps[19] #19 total_units 
+maps[20] #20 vacant_units
+maps[21] #21 occupancy_rate
+maps[22] #22 vacancy_rate
+maps[23] #23 mobile_home_rate
+```
+
+##Physical Environ:
+
+Comment:
+1. we may need better measures?
+```{r, warning = F, error = F}
+maps[1] #1. 	pct_h_den_res
+maps[2] #2. med_walk_score
+maps[3] #3. mean_walk_scre
+maps[6] #6. bike_path_ft_p_mile"
+maps[7] #7. "bikes_ft_p_mile"
+
+```
+
